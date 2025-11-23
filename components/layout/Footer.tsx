@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { FaLinkedin } from 'react-icons/fa'
 import { HiMail } from 'react-icons/hi'
 
@@ -10,12 +11,14 @@ export default function Footer() {
       <div className="container section-padding-small">
         {/* Logo */}
         <div className="mb-12">
-          <div className="flex items-center gap-3">
-            <div className="text-4xl font-black">Y</div>
-            <div>
-              <div className="text-lg font-black uppercase tracking-wider">YUGO</div>
-              <div className="text-sm font-semibold text-primary-400 uppercase tracking-wider">METALS</div>
-            </div>
+          <div className="relative h-12 w-auto mb-4">
+            <Image
+              src="/yugo_logo.png"
+              alt="Yugo Metals"
+              width={150}
+              height={48}
+              className="h-12 w-auto object-contain brightness-0 invert"
+            />
           </div>
           <p className="text-sm text-gray-400 mt-4 max-w-md">
             Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, 

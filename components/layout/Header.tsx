@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { cn } from '@/lib/utils'
@@ -65,19 +66,18 @@ export default function Header() {
         <div className="flex items-center justify-between py-4 md:py-6">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="flex items-center gap-3">
-              <div
+            <div className="relative h-10 md:h-12 w-auto transition-all">
+              <Image
+                src="/yugo_logo.png"
+                alt="Yugo Metals"
+                width={150}
+                height={48}
                 className={cn(
-                  'text-3xl md:text-4xl font-black transition-colors',
-                  isSolid ? 'text-secondary-900' : 'text-white'
+                  'h-10 md:h-12 w-auto object-contain transition-all duration-300',
+                  !isSolid && 'brightness-0 invert'
                 )}
-              >
-                Y
-              </div>
-              <div className={cn('hidden md:block', isSolid ? 'text-secondary-900' : 'text-white')}>
-                <div className="text-sm font-black uppercase tracking-wider">YUGO</div>
-                <div className="text-xs font-semibold text-primary-600 uppercase tracking-wider">METALS</div>
-              </div>
+                priority
+              />
             </div>
           </Link>
 
@@ -119,12 +119,14 @@ export default function Header() {
       {/* Mobile Menu */}
       <div className="mobile-menu fixed top-0 right-0 bottom-0 w-full max-w-sm bg-secondary-900 text-white shadow-2xl lg:hidden translate-x-full z-50">
         <div className="flex justify-between items-center p-6 border-b border-white/10">
-          <div className="flex items-center gap-3">
-            <div className="text-3xl font-black">Y</div>
-            <div>
-              <div className="text-sm font-black uppercase tracking-wider">YUGO</div>
-              <div className="text-xs font-semibold text-primary-400 uppercase tracking-wider">METALS</div>
-            </div>
+          <div className="relative h-10 w-auto">
+            <Image
+              src="/yugo_logo.png"
+              alt="Yugo Metals"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain brightness-0 invert"
+            />
           </div>
           <button
             onClick={() => setMobileMenuOpen(false)}
