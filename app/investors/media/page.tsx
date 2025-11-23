@@ -2,9 +2,7 @@
 
 import { useState } from 'react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
-import SectionTitle from '@/components/ui/SectionTitle'
 import { HiOutlineNewspaper, HiOutlineExternalLink, HiOutlineFilter } from 'react-icons/hi'
-import Image from 'next/image'
 
 // Mock media coverage data - in production, fetch from Directus
 const mediaArticles = [
@@ -82,17 +80,15 @@ export default function MediaCoverage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-32 flex items-center min-h-[60vh]">
+      <section className="relative bg-white py-32 md:py-40">
         <div className="container">
           <AnimatedSection>
             <div className="max-w-4xl">
-              <span className="inline-block px-4 py-2 bg-accent-yellow text-black text-sm font-semibold uppercase tracking-wider mb-4 rounded">
-                Media Coverage
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider mb-6">
-                Yugo Metals in the News
+              <h1 className="text-display text-secondary-900 mb-6">
+                Media<br />
+                Coverage
               </h1>
-              <p className="text-xl md:text-2xl font-josefin leading-relaxed opacity-90">
+              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
                 Latest media articles, press releases, and industry coverage
               </p>
             </div>
@@ -101,23 +97,23 @@ export default function MediaCoverage() {
       </section>
 
       {/* Filter Section */}
-      <section className="section-padding bg-gray-50 border-b border-gray-200">
+      <section className="section-padding-small bg-gray-50 border-b border-gray-200">
         <div className="container">
           <AnimatedSection>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center space-x-3">
                 <HiOutlineFilter className="w-5 h-5 text-gray-600" />
-                <span className="text-sm font-semibold text-gray-700">Filter by Year:</span>
+                <span className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Filter by Year:</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {years.map((year) => (
                   <button
                     key={year}
                     onClick={() => setSelectedYear(year as number | "all")}
-                    className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
+                    className={`px-4 py-2 font-semibold text-sm transition-all uppercase tracking-wider ${
                       selectedYear === year
-                        ? 'bg-primary-600 text-white shadow-md'
-                        : 'bg-white text-gray-700 border border-gray-300 hover:border-primary-500'
+                        ? 'bg-primary-600 text-white'
+                        : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-primary-600'
                     }`}
                   >
                     {year === 'all' ? 'All Years' : year}
@@ -133,17 +129,18 @@ export default function MediaCoverage() {
       <section className="section-padding bg-white">
         <div className="container">
           <AnimatedSection>
-            <SectionTitle 
-              title={selectedYear === 'all' ? 'All Media Coverage' : `Media Coverage - ${selectedYear}`}
-              subtitle={`${filteredArticles.length} article${filteredArticles.length !== 1 ? 's' : ''} found`}
-              centered={false}
-            />
+            <h2 className="text-heading-lg text-secondary-900 mb-4">
+              {selectedYear === 'all' ? 'All Media Coverage' : `Media Coverage - ${selectedYear}`}
+            </h2>
+            <p className="text-gray-600 mb-8">
+              {filteredArticles.length} article{filteredArticles.length !== 1 ? 's' : ''} found
+            </p>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {filteredArticles.map((article, index) => (
               <AnimatedSection key={article.id} delay={index * 0.05}>
-                <article className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:border-primary-500 hover:shadow-xl transition-all duration-300 group">
+                <article className="bg-white border-2 border-gray-200 overflow-hidden hover:border-primary-600 transition-all duration-300 group">
                   {/* Image Placeholder */}
                   <div className="relative h-48 bg-gradient-to-br from-primary-100 to-primary-200 overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -168,7 +165,7 @@ export default function MediaCoverage() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-primary-600 transition-colors">
+                    <h3 className="text-lg font-bold text-secondary-900 mb-3 line-clamp-2 group-hover:text-primary-600 transition-colors">
                       {article.title}
                     </h3>
 
@@ -182,9 +179,9 @@ export default function MediaCoverage() {
                       href={article.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 text-primary-600 font-semibold text-sm hover:text-primary-700 transition-colors"
+                      className="inline-flex items-center space-x-2 text-primary-600 font-semibold text-sm uppercase tracking-wider hover:text-primary-700 transition-colors"
                     >
-                      <span>Read Full Article</span>
+                      <span>Read Article</span>
                       <HiOutlineExternalLink className="w-4 h-4" />
                     </a>
                   </div>
@@ -209,15 +206,15 @@ export default function MediaCoverage() {
         <div className="container max-w-3xl mx-auto">
           <AnimatedSection>
             <HiOutlineNewspaper className="w-16 h-16 mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-6">
+            <h2 className="text-heading-xl mb-8">
               Stay Updated
             </h2>
-            <p className="text-lg mb-8 font-josefin">
+            <p className="text-xl mb-12 font-josefin opacity-90">
               Subscribe to receive notifications when Yugo Metals is mentioned in the media
             </p>
             <a
               href="/investors#subscribe"
-              className="inline-block px-8 py-4 bg-accent-yellow text-black font-semibold uppercase tracking-wider rounded-lg hover:bg-yellow-400 transition-colors"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-600 font-semibold uppercase tracking-wider hover:bg-gray-100 transition-colors"
             >
               Subscribe Now
             </a>

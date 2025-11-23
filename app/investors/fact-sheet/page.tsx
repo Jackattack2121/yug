@@ -46,17 +46,15 @@ export default function FactSheetPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-32 flex items-center min-h-[60vh]">
+      <section className="relative bg-white py-32 md:py-40">
         <div className="container">
           <AnimatedSection>
             <div className="max-w-4xl">
-              <span className="inline-block px-4 py-2 bg-accent-yellow text-black text-sm font-semibold uppercase tracking-wider mb-4 rounded">
-                Company Fact Sheet
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider mb-6">
-                Yugo Metals at a Glance
+              <h1 className="text-display text-secondary-900 mb-6">
+                Company<br />
+                Fact Sheet
               </h1>
-              <p className="text-xl md:text-2xl font-josefin leading-relaxed opacity-90">
+              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
                 Quick reference guide to key company information and metrics
               </p>
             </div>
@@ -68,18 +66,18 @@ export default function FactSheetPage() {
       <section className="section-padding bg-white">
         <div className="container max-w-5xl mx-auto">
           <AnimatedSection>
-            <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg shadow-2xl p-8 md:p-12 text-white">
+            <div className="bg-primary-600 p-8 md:p-12 text-white">
               <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                 {/* Left Side - Info */}
                 <div className="flex-1">
                   <div className="flex items-center space-x-3 mb-4">
                     <HiOutlineDocumentText className="w-12 h-12" />
                     <div>
-                      <h2 className="text-3xl font-bold">Latest Fact Sheet</h2>
-                      <p className="text-sm opacity-75">Version {latestFactSheet.version}</p>
+                      <h2 className="text-heading-lg font-black uppercase tracking-wider">Latest Fact Sheet</h2>
+                      <p className="text-sm opacity-75 uppercase tracking-wider">Version {latestFactSheet.version}</p>
                     </div>
                   </div>
-                  <p className="text-lg mb-4 opacity-90">
+                  <p className="text-lg mb-4 opacity-90 font-josefin">
                     Comprehensive overview of Yugo Metals including projects, management, 
                     share structure, and key highlights.
                   </p>
@@ -101,10 +99,10 @@ export default function FactSheetPage() {
                 <div>
                   <a
                     href={latestFactSheet.downloadUrl}
-                    className="group block bg-accent-yellow text-black px-8 py-6 rounded-lg font-bold text-lg uppercase tracking-wider hover:bg-yellow-400 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+                    className="group block bg-white text-primary-600 px-8 py-6 font-bold text-lg uppercase tracking-wider hover:bg-gray-100 transition-all duration-300"
                   >
                     <div className="flex items-center space-x-3">
-                      <HiOutlineDownload className="w-8 h-8 group-hover:animate-bounce" />
+                      <HiOutlineDownload className="w-8 h-8" />
                       <div>
                         <div>Download</div>
                         <div className="text-xs font-normal normal-case opacity-75">PDF Format</div>
@@ -122,14 +120,14 @@ export default function FactSheetPage() {
       <section className="section-padding bg-gray-50">
         <div className="container max-w-5xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl font-bold text-center mb-8">Key Company Metrics</h2>
+            <h2 className="text-heading-lg text-secondary-900 text-center mb-12">Key Company Metrics</h2>
           </AnimatedSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {keyMetrics.map((metric, index) => (
               <AnimatedSection key={metric.label} delay={index * 0.05}>
-                <div className="bg-white rounded-lg p-6 shadow-md border-l-4 border-primary-600">
-                  <div className="text-sm text-gray-600 mb-1">{metric.label}</div>
-                  <div className="text-2xl font-bold text-gray-900">{metric.value}</div>
+                <div className="bg-white p-6 border-l-4 border-primary-600">
+                  <div className="text-sm text-gray-600 mb-1 uppercase tracking-wider font-semibold">{metric.label}</div>
+                  <div className="text-2xl font-bold text-secondary-900">{metric.value}</div>
                 </div>
               </AnimatedSection>
             ))}
@@ -141,18 +139,18 @@ export default function FactSheetPage() {
       <section className="section-padding bg-white">
         <div className="container max-w-5xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl font-bold mb-8">Previous Versions</h2>
+            <h2 className="text-heading-lg text-secondary-900 mb-8">Previous Versions</h2>
           </AnimatedSection>
           <div className="space-y-4">
             {previousVersions.map((version, index) => (
               <AnimatedSection key={version.id} delay={index * 0.05}>
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 flex items-center justify-between hover:border-primary-500 hover:shadow-md transition-all">
+                <div className="bg-white border-2 border-gray-200 p-6 flex items-center justify-between hover:border-primary-600 transition-all">
                   <div className="flex items-center space-x-4">
-                    <div className="bg-gray-200 p-3 rounded-lg">
+                    <div className="bg-gray-200 p-3">
                       <HiOutlineDocumentText className="w-6 h-6 text-gray-600" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900">Fact Sheet {version.version}</h3>
+                      <h3 className="font-bold text-secondary-900">Fact Sheet {version.version}</h3>
                       <p className="text-sm text-gray-600">
                         {new Date(version.date).toLocaleDateString('en-AU', {
                           day: 'numeric',
@@ -164,7 +162,7 @@ export default function FactSheetPage() {
                   </div>
                   <a
                     href={version.downloadUrl}
-                    className="flex items-center space-x-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+                    className="flex items-center space-x-2 px-6 py-3 bg-primary-600 text-white hover:bg-primary-700 transition-colors uppercase tracking-wider font-semibold"
                   >
                     <HiOutlineDownload className="w-5 h-5" />
                     <span className="hidden sm:inline">Download</span>
@@ -180,22 +178,22 @@ export default function FactSheetPage() {
       <section className="section-padding bg-primary-600 text-white text-center">
         <div className="container max-w-3xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-6">
+            <h2 className="text-heading-xl mb-8">
               Need More Information?
             </h2>
-            <p className="text-lg mb-8 font-josefin">
+            <p className="text-xl mb-12 font-josefin opacity-90">
               Explore our full range of investor resources and company reports
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="/investors/financial-reports"
-                className="inline-block px-8 py-4 bg-white text-primary-900 font-semibold uppercase tracking-wider rounded-lg hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-600 font-semibold uppercase tracking-wider hover:bg-gray-100 transition-colors"
               >
                 Financial Reports
               </a>
               <a
                 href="/investors/presentations"
-                className="inline-block px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider rounded-lg hover:bg-white hover:text-primary-900 transition-colors"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider hover:bg-white hover:text-primary-600 transition-colors"
               >
                 Presentations
               </a>

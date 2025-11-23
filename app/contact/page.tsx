@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import SectionTitle from '@/components/ui/SectionTitle'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Button from '@/components/ui/Button'
 
@@ -30,12 +29,19 @@ export default function Contact() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[50vh] flex items-center justify-center bg-gradient-to-r from-primary-900 to-primary-700">
-        <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: 'url(/yugo_images/bosnia-and-herzegovina-jablanica-2025-08-28-10-01-46-utc.jpg)' }} />
-        <div className="relative container text-center text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider">
-            Contact Us
-          </h1>
+      <section className="relative bg-white py-32 md:py-40">
+        <div className="container">
+          <AnimatedSection>
+            <div className="max-w-4xl">
+              <h1 className="text-display text-secondary-900 mb-6">
+                Contact<br />
+                Us
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
+                Get in touch with Yugo Metals. We're here to answer your questions.
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -45,7 +51,9 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <AnimatedSection>
-              <SectionTitle title="Get In Touch" centered={false} />
+              <h2 className="text-heading-lg text-secondary-900 mb-8">
+                Get In Touch
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -58,7 +66,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary-600 focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -73,7 +81,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary-600 focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -87,7 +95,7 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary-600 focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -101,7 +109,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary-600 focus:outline-none transition-colors"
                   >
                     <option value="">Select a subject</option>
                     <option value="general">General Enquiry</option>
@@ -123,7 +131,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none transition-colors resize-none"
+                    className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary-600 focus:outline-none transition-colors resize-none"
                   />
                 </div>
 
@@ -135,12 +143,14 @@ export default function Contact() {
 
             {/* Contact Information */}
             <AnimatedSection delay={0.2}>
-              <SectionTitle title="Contact Information" centered={false} />
+              <h2 className="text-heading-lg text-secondary-900 mb-8">
+                Contact Information
+              </h2>
               
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {/* Registered Office */}
-                <div className="bg-primary-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-primary-900">
+                <div className="border-2 border-gray-200 p-6">
+                  <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
                     Registered Office
                   </h3>
                   <div className="space-y-2 text-gray-700">
@@ -150,8 +160,8 @@ export default function Contact() {
                 </div>
 
                 {/* Phone & Email */}
-                <div className="bg-primary-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-primary-900">
+                <div className="border-2 border-gray-200 p-6">
+                  <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
                     Phone & Email
                   </h3>
                   <div className="space-y-2 text-gray-700">
@@ -161,8 +171,8 @@ export default function Contact() {
                 </div>
 
                 {/* Business Hours */}
-                <div className="bg-primary-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-primary-900">
+                <div className="border-2 border-gray-200 p-6">
+                  <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
                     Business Hours
                   </h3>
                   <div className="space-y-2 text-gray-700">
@@ -172,8 +182,8 @@ export default function Contact() {
                 </div>
 
                 {/* Social Media */}
-                <div className="bg-primary-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-primary-900">
+                <div className="border-2 border-gray-200 p-6">
+                  <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
                     Follow Us
                   </h3>
                   <div className="flex space-x-4">

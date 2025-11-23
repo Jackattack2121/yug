@@ -1,7 +1,6 @@
 'use client'
 
 import AnimatedSection from '@/components/ui/AnimatedSection'
-import SectionTitle from '@/components/ui/SectionTitle'
 import { HiOutlineCalendar, HiOutlineClock, HiOutlineLocationMarker, HiOutlineDownload } from 'react-icons/hi'
 
 // Mock calendar events - in production, fetch from Directus
@@ -91,17 +90,15 @@ export default function InvestorCalendar() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-32 flex items-center min-h-[60vh]">
+      <section className="relative bg-white py-32 md:py-40">
         <div className="container">
           <AnimatedSection>
             <div className="max-w-4xl">
-              <span className="inline-block px-4 py-2 bg-accent-yellow text-black text-sm font-semibold uppercase tracking-wider mb-4 rounded">
-                Investor Calendar
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider mb-6">
-                Important Dates & Events
+              <h1 className="text-display text-secondary-900 mb-6">
+                Investor<br />
+                Calendar
               </h1>
-              <p className="text-xl md:text-2xl font-josefin leading-relaxed opacity-90">
+              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
                 Stay informed about upcoming reports, meetings, and company events
               </p>
             </div>
@@ -113,11 +110,13 @@ export default function InvestorCalendar() {
       <section className="section-padding bg-white">
         <div className="container">
           <AnimatedSection>
-            <div className="flex items-center justify-between mb-8">
-              <SectionTitle title="Upcoming Events" centered={false} />
+            <div className="flex items-center justify-between mb-12">
+              <h2 className="text-heading-lg text-secondary-900">
+                Upcoming Events
+              </h2>
               <button
                 onClick={downloadICS}
-                className="flex items-center space-x-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+                className="flex items-center space-x-2 px-6 py-3 bg-primary-600 text-white hover:bg-primary-700 transition-colors uppercase tracking-wider font-semibold"
               >
                 <HiOutlineDownload className="w-5 h-5" />
                 <span className="hidden sm:inline">Export Calendar</span>
@@ -130,11 +129,11 @@ export default function InvestorCalendar() {
               .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
               .map((event, index) => (
                 <AnimatedSection key={event.id} delay={index * 0.05}>
-                  <div className="bg-gray-50 border-2 border-gray-200 rounded-lg p-6 hover:border-primary-500 hover:shadow-lg transition-all duration-300">
+                  <div className="bg-white border-2 border-gray-200 p-6 hover:border-primary-600 transition-all duration-300">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                       {/* Date Block */}
                       <div className="flex items-center space-x-4">
-                        <div className="bg-primary-600 text-white rounded-lg p-4 text-center min-w-[80px]">
+                        <div className="bg-primary-600 text-white p-4 text-center min-w-[80px]">
                           <div className="text-2xl font-bold">
                             {new Date(event.date).getDate()}
                           </div>
@@ -150,14 +149,14 @@ export default function InvestorCalendar() {
                         <div className="flex-1">
                           <div className="flex items-center flex-wrap gap-2 mb-2">
                             <span
-                              className={`text-xs font-semibold px-3 py-1 rounded-full border ${
+                              className={`text-xs font-semibold px-3 py-1 border ${
                                 eventTypeColors[event.type] || 'bg-gray-100 text-gray-800 border-gray-300'
                               }`}
                             >
                               {event.type}
                             </span>
                           </div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
+                          <h3 className="text-xl font-bold text-secondary-900 mb-2">{event.title}</h3>
                           <p className="text-sm text-gray-600 mb-3">{event.description}</p>
                           <div className="flex flex-wrap gap-4 text-sm text-gray-500">
                             <div className="flex items-center space-x-1">
@@ -183,13 +182,15 @@ export default function InvestorCalendar() {
       <section className="section-padding bg-gray-50">
         <div className="container">
           <AnimatedSection>
-            <SectionTitle title="Past Events" centered={false} />
+            <h2 className="text-heading-lg text-secondary-900 mb-8">
+              Past Events
+            </h2>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {pastEvents.map((event, index) => (
               <AnimatedSection key={event.id} delay={index * 0.05}>
-                <div className="bg-white border border-gray-200 rounded-lg p-6 opacity-75 hover:opacity-100 transition-opacity">
+                <div className="bg-white border-2 border-gray-200 p-6 opacity-75 hover:opacity-100 transition-opacity">
                   <div className="flex items-center space-x-3 mb-3">
                     <HiOutlineCalendar className="w-5 h-5 text-gray-400" />
                     <span className="text-sm text-gray-500">
@@ -200,9 +201,9 @@ export default function InvestorCalendar() {
                       })}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-700 mb-2">{event.title}</h3>
+                  <h3 className="text-lg font-bold text-secondary-900 mb-2">{event.title}</h3>
                   <span
-                    className={`inline-block text-xs font-semibold px-3 py-1 rounded-full border ${
+                    className={`inline-block text-xs font-semibold px-3 py-1 border ${
                       eventTypeColors[event.type] || 'bg-gray-100 text-gray-800 border-gray-300'
                     }`}
                   >
@@ -220,15 +221,15 @@ export default function InvestorCalendar() {
         <div className="container max-w-3xl mx-auto">
           <AnimatedSection>
             <HiOutlineCalendar className="w-16 h-16 mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-6">
+            <h2 className="text-heading-xl mb-8">
               Never Miss an Update
             </h2>
-            <p className="text-lg mb-8 font-josefin">
+            <p className="text-xl mb-12 font-josefin opacity-90">
               Subscribe to receive email reminders about upcoming events and important dates
             </p>
             <a
               href="/investors#subscribe"
-              className="inline-block px-8 py-4 bg-accent-yellow text-black font-semibold uppercase tracking-wider rounded-lg hover:bg-yellow-400 transition-colors"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-600 font-semibold uppercase tracking-wider hover:bg-gray-100 transition-colors"
             >
               Subscribe to Updates
             </a>

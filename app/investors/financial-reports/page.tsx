@@ -34,12 +34,19 @@ const reports = [
 export default function FinancialReports() {
   return (
     <>
-      <section className="relative h-[60vh] flex items-center justify-center bg-gradient-to-r from-primary-900 to-primary-700">
-        <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: 'url(/images/hero-mining-2.jpg)' }} />
-        <div className="relative container text-center text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider">
-            Financial Reports
-          </h1>
+      <section className="relative bg-white py-32 md:py-40">
+        <div className="container">
+          <AnimatedSection>
+            <div className="max-w-4xl">
+              <h1 className="text-display text-secondary-900 mb-6">
+                Financial<br />
+                Reports
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
+                Access our latest financial reports, quarterly activities, and annual statements
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -49,10 +56,10 @@ export default function FinancialReports() {
             {reports.length > 0 ? (
               <div className="space-y-4">
                 {reports.map((report, index) => (
-                  <div key={report.id} className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-primary-500 transition-colors">
+                  <div key={report.id} className="bg-white border-2 border-gray-200 p-6 hover:border-primary-600 transition-colors">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                       <div>
-                        <h3 className="text-xl font-bold mb-2">{report.title}</h3>
+                        <h3 className="text-xl font-bold mb-2 text-secondary-900">{report.title}</h3>
                         {report.description && (
                           <p className="text-gray-600 mb-2">{report.description}</p>
                         )}
@@ -64,7 +71,7 @@ export default function FinancialReports() {
                         href={report.file} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-4 md:mt-0 inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded hover:bg-primary-700 transition-colors"
+                        className="mt-4 md:mt-0 inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold uppercase tracking-wider hover:bg-primary-700 transition-colors"
                       >
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

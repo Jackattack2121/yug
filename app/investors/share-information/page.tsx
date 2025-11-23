@@ -1,17 +1,23 @@
 'use client'
 
-import SectionTitle from '@/components/ui/SectionTitle'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 
 export default function ShareInformation() {
   return (
     <>
-      <section className="relative h-[60vh] flex items-center justify-center bg-gradient-to-r from-primary-900 to-primary-700">
-        <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: 'url(/images/hero-mining-1.jpg)' }} />
-        <div className="relative container text-center text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider">
-            Share Information
-          </h1>
+      <section className="relative bg-white py-32 md:py-40">
+        <div className="container">
+          <AnimatedSection>
+            <div className="max-w-4xl">
+              <h1 className="text-display text-secondary-900 mb-6">
+                Share<br />
+                Information
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
+                Access share registry information and shareholder services
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -19,8 +25,8 @@ export default function ShareInformation() {
         <div className="container max-w-4xl">
           <AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-primary-50 p-8 rounded-lg">
-                <h3 className="text-2xl font-bold mb-4">Company Details</h3>
+              <div className="border-2 border-gray-200 p-8">
+                <h3 className="text-2xl font-bold mb-6 text-secondary-900 uppercase tracking-wider">Company Details</h3>
                 <div className="space-y-3 text-gray-700">
                   <p><strong>ASX Code:</strong> YUG</p>
                   <p><strong>ABN:</strong> XX XXX XXX XXX</p>
@@ -28,8 +34,8 @@ export default function ShareInformation() {
                 </div>
               </div>
 
-              <div className="bg-primary-50 p-8 rounded-lg">
-                <h3 className="text-2xl font-bold mb-4">Share Registry Contact</h3>
+              <div className="border-2 border-gray-200 p-8">
+                <h3 className="text-2xl font-bold mb-6 text-secondary-900 uppercase tracking-wider">Share Registry Contact</h3>
                 <div className="space-y-3 text-gray-700">
                   <p><strong>Phone:</strong> 1300 288 664</p>
                   <p><strong>Email:</strong> hello@automicgroup.com.au</p>
@@ -40,8 +46,10 @@ export default function ShareInformation() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <SectionTitle title="Shareholder Services" centered={false} />
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8">
+            <h2 className="text-heading-lg text-secondary-900 mb-8">
+              Shareholder Services
+            </h2>
+            <div className="bg-white border-2 border-gray-200 p-8">
               <p className="text-gray-600 leading-relaxed mb-6">
                 For all shareholder enquiries including change of address, dividend payments, 
                 consolidation of shareholdings, or any other registry matters, please contact 

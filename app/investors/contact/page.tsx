@@ -43,17 +43,15 @@ export default function InvestorContact() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-32 flex items-center min-h-[60vh]">
+      <section className="relative bg-white py-32 md:py-40">
         <div className="container">
           <AnimatedSection>
             <div className="max-w-4xl">
-              <span className="inline-block px-4 py-2 bg-accent-yellow text-black text-sm font-semibold uppercase tracking-wider mb-4 rounded">
-                Contact Investor Relations
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider mb-6">
-                Get in Touch
+              <h1 className="text-display text-secondary-900 mb-6">
+                Contact<br />
+                Investor Relations
               </h1>
-              <p className="text-xl md:text-2xl font-josefin leading-relaxed opacity-90">
+              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
                 Our team is here to answer your questions and provide information
               </p>
             </div>
@@ -62,18 +60,18 @@ export default function InvestorContact() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-white">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Information Cards */}
             <div className="space-y-6">
               <AnimatedSection>
-                <div className="bg-white rounded-lg shadow-lg p-6">
+                <div className="bg-white border-2 border-gray-200 p-6">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="bg-primary-100 p-3 rounded-lg">
-                      <HiOutlineMail className="w-6 h-6 text-primary-600" />
+                    <div className="bg-primary-600 p-3">
+                      <HiOutlineMail className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900">Email</h3>
+                    <h3 className="text-lg font-bold text-secondary-900 uppercase tracking-wider">Email</h3>
                   </div>
                   <a 
                     href="mailto:investor.relations@yugometals.com"
@@ -85,12 +83,12 @@ export default function InvestorContact() {
               </AnimatedSection>
 
               <AnimatedSection delay={0.1}>
-                <div className="bg-white rounded-lg shadow-lg p-6">
+                <div className="bg-white border-2 border-gray-200 p-6">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="bg-primary-100 p-3 rounded-lg">
-                      <HiOutlinePhone className="w-6 h-6 text-primary-600" />
+                    <div className="bg-primary-600 p-3">
+                      <HiOutlinePhone className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900">Phone</h3>
+                    <h3 className="text-lg font-bold text-secondary-900 uppercase tracking-wider">Phone</h3>
                   </div>
                   <a 
                     href="tel:+61894810389"
@@ -102,12 +100,12 @@ export default function InvestorContact() {
               </AnimatedSection>
 
               <AnimatedSection delay={0.2}>
-                <div className="bg-white rounded-lg shadow-lg p-6">
+                <div className="bg-white border-2 border-gray-200 p-6">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="bg-primary-100 p-3 rounded-lg">
-                      <HiOutlineLocationMarker className="w-6 h-6 text-primary-600" />
+                    <div className="bg-primary-600 p-3">
+                      <HiOutlineLocationMarker className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-900">Registered Office</h3>
+                    <h3 className="text-lg font-bold text-secondary-900 uppercase tracking-wider">Registered Office</h3>
                   </div>
                   <address className="text-gray-700 not-italic">
                     Level 8, London House<br />
@@ -122,19 +120,19 @@ export default function InvestorContact() {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <AnimatedSection delay={0.1}>
-                <div className="bg-white rounded-lg shadow-lg p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                <div className="bg-white border-2 border-gray-200 p-8">
+                  <h2 className="text-heading-lg text-secondary-900 mb-8">Send Us a Message</h2>
 
                   {status === 'success' ? (
-                    <div className="bg-green-50 border-2 border-green-200 rounded-lg p-8 text-center">
-                      <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <HiOutlinePaperAirplane className="w-8 h-8 text-green-600" />
+                    <div className="bg-green-50 border-2 border-green-200 p-8 text-center">
+                      <div className="bg-green-600 w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <HiOutlinePaperAirplane className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold text-green-900 mb-2">Message Sent Successfully!</h3>
+                      <h3 className="text-xl font-bold text-secondary-900 mb-2 uppercase tracking-wider">Message Sent Successfully!</h3>
                       <p className="text-green-700">{message}</p>
                       <button
                         onClick={() => setStatus('idle')}
-                        className="mt-6 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                        className="mt-6 px-6 py-3 bg-green-600 text-white hover:bg-green-700 transition-colors uppercase tracking-wider font-semibold"
                       >
                         Send Another Message
                       </button>
@@ -153,7 +151,7 @@ export default function InvestorContact() {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 border-2 border-gray-300 focus:outline-none focus:border-primary-600 transition-colors"
                           placeholder="Your full name"
                         />
                       </div>
@@ -171,7 +169,7 @@ export default function InvestorContact() {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-colors"
+                            className="w-full px-4 py-3 border-2 border-gray-300 focus:outline-none focus:border-primary-600 transition-colors"
                             placeholder="your.email@example.com"
                           />
                         </div>
@@ -185,7 +183,7 @@ export default function InvestorContact() {
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-colors"
+                            className="w-full px-4 py-3 border-2 border-gray-300 focus:outline-none focus:border-primary-600 transition-colors"
                             placeholder="+61 4XX XXX XXX"
                           />
                         </div>
@@ -202,7 +200,7 @@ export default function InvestorContact() {
                           value={formData.subject}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 border-2 border-gray-300 focus:outline-none focus:border-primary-600 transition-colors"
                         >
                           <option value="">Select a subject</option>
                           <option value="general">General Inquiry</option>
@@ -227,7 +225,7 @@ export default function InvestorContact() {
                           onChange={handleChange}
                           required
                           rows={6}
-                          className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-colors resize-none"
+                          className="w-full px-4 py-3 border-2 border-gray-300 focus:outline-none focus:border-primary-600 transition-colors resize-none"
                           placeholder="Please provide details about your inquiry..."
                         />
                       </div>
@@ -271,10 +269,10 @@ export default function InvestorContact() {
       </section>
 
       {/* Quick Links CTA */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-gray-50">
         <div className="container max-w-4xl mx-auto text-center">
           <AnimatedSection>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-heading-lg text-secondary-900 mb-4">
               Looking for Something Specific?
             </h2>
             <p className="text-gray-600 mb-8">
@@ -283,27 +281,27 @@ export default function InvestorContact() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               <a
                 href="/investors/asx-announcements"
-                className="p-4 bg-gray-50 border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:shadow-md transition-all"
+                className="p-4 bg-white border-2 border-gray-200 hover:border-primary-600 transition-all"
               >
-                <h3 className="font-semibold text-gray-900">ASX Announcements</h3>
+                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">ASX Announcements</h3>
               </a>
               <a
                 href="/investors/financial-reports"
-                className="p-4 bg-gray-50 border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:shadow-md transition-all"
+                className="p-4 bg-white border-2 border-gray-200 hover:border-primary-600 transition-all"
               >
-                <h3 className="font-semibold text-gray-900">Financial Reports</h3>
+                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">Financial Reports</h3>
               </a>
               <a
                 href="/investors/share-information"
-                className="p-4 bg-gray-50 border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:shadow-md transition-all"
+                className="p-4 bg-white border-2 border-gray-200 hover:border-primary-600 transition-all"
               >
-                <h3 className="font-semibold text-gray-900">Share Information</h3>
+                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">Share Information</h3>
               </a>
               <a
                 href="/investors/fact-sheet"
-                className="p-4 bg-gray-50 border-2 border-gray-200 rounded-lg hover:border-primary-500 hover:shadow-md transition-all"
+                className="p-4 bg-white border-2 border-gray-200 hover:border-primary-600 transition-all"
               >
-                <h3 className="font-semibold text-gray-900">Fact Sheet</h3>
+                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">Fact Sheet</h3>
               </a>
             </div>
           </AnimatedSection>
