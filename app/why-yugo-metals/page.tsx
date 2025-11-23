@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Button from '@/components/ui/Button'
 import SplitSection from '@/components/ui/SplitSection'
@@ -54,9 +55,15 @@ export default function WhyYugoMetals() {
       {/* Hero Section - Split */}
       <section className="grid md:grid-cols-[40%_60%] min-h-[70vh] bg-white">
         <div className="bg-secondary-900 flex items-center justify-center p-12">
-          <div className="text-white text-center">
-            <div className="text-8xl font-black mb-4">Y</div>
-            <div className="text-sm uppercase tracking-wider opacity-80">Yugo Metals</div>
+          <div className="w-full max-w-sm">
+            <Image
+              src="/yugo_logo.png"
+              alt="Yugo Metals"
+              width={400}
+              height={160}
+              className="w-full h-auto brightness-0 invert"
+              priority
+            />
           </div>
         </div>
         <div className="flex items-center p-8 md:p-12 lg:p-20">

@@ -12,10 +12,6 @@ import StatsBar from '@/components/ui/StatsBar'
 import NewsCard from '@/components/ui/NewsCard'
 import Link from 'next/link'
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
-}
-
 const projects = [
   {
     title: 'Doboj Project',
@@ -92,15 +88,22 @@ export default function Home() {
   const heroVideo2Ref = useRef<HTMLVideoElement>(null)
   const introSectionRef = useRef<HTMLDivElement>(null)
 
+  // Register GSAP plugins on mount
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+  }, [])
+
   // Smooth scroll to next section - using GSAP for cross-browser consistency
   const scrollToIntro = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     if (introSectionRef.current) {
+      // Get the element's position
+      const targetPosition = introSectionRef.current.getBoundingClientRect().top + window.pageYOffset
+      
       gsap.to(window, {
         duration: 1.2,
         scrollTo: {
-          y: introSectionRef.current,
-          offsetY: 0,
+          y: targetPosition,
           autoKill: true
         },
         ease: 'power2.inOut'
@@ -225,7 +228,7 @@ export default function Home() {
           leftContent={
           <div className="max-w-xl">
             <AnimatedSection>
-              <h2 className="text-display mb-8 text-secondary-900">
+              <h2 className="text-heading-xl mb-8 text-secondary-900">
                 100% Ownership<br />
                 of Five Projects<br />
                 on the Doorstep<br />
@@ -268,14 +271,14 @@ export default function Home() {
         <div className="container">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <h2 className="text-separated mb-6 text-secondary-900">
-                <span className="text-separated">Explore</span>
-                <span className="text-separated">Our</span>
-                <span>Projects</span>
+              <h2 className="text-heading-xl mb-6 text-secondary-900">
+                Five Projects<br />
+                Targeting Critical<br />
+                Metals for the<br />
+                Energy Transition
               </h2>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-josefin">
-                Five high-potential projects in Bosnia and Herzegovina, targeting critical metals 
-                essential for the European energy transition.
+                Nickel, copper, cobalt, and precious metals across Bosnia and Herzegovina
               </p>
             </div>
           </AnimatedSection>
