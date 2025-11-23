@@ -1,0 +1,230 @@
+'use client'
+
+import { useState } from 'react'
+import AnimatedSection from '@/components/ui/AnimatedSection'
+import SectionTitle from '@/components/ui/SectionTitle'
+import { HiOutlineNewspaper, HiOutlineExternalLink, HiOutlineFilter } from 'react-icons/hi'
+import Image from 'next/image'
+
+// Mock media coverage data - in production, fetch from Directus
+const mediaArticles = [
+  {
+    id: '1',
+    title: 'Yugo Metals Commences Exploration in Bosnia and Herzegovina',
+    publication: 'The West Australian',
+    date: '2024-10-15',
+    summary: 'Yugo Metals announces systematic exploration program across five projects in Bosnia and Herzegovina, targeting critical metals for the energy transition.',
+    url: 'https://example.com/article1',
+    image: '/images/media-placeholder.jpg',
+    year: 2024,
+  },
+  {
+    id: '2',
+    title: 'WA Mining Company Eyes Critical Minerals Boom',
+    publication: 'Australian Financial Review',
+    date: '2024-09-22',
+    summary: 'With global demand for critical minerals soaring, Perth-based Yugo Metals is positioning itself to supply European markets from Bosnia and Herzegovina.',
+    url: 'https://example.com/article2',
+    image: '/images/media-placeholder.jpg',
+    year: 2024,
+  },
+  {
+    id: '3',
+    title: 'Gascoyne Region Emerges as REE Hotspot',
+    publication: 'Mining News',
+    date: '2024-08-30',
+    summary: 'The Balkans region is attracting increased attention from explorers, with Yugo Metals leading modern systematic exploration in Bosnia and Herzegovina.',
+    url: 'https://example.com/article3',
+    image: '/images/media-placeholder.jpg',
+    year: 2024,
+  },
+  {
+    id: '4',
+    title: 'Lithium and REE Projects Gain Momentum in WA',
+    publication: 'Resource Stocks',
+    date: '2024-07-18',
+    summary: 'Yugo Metals advances its portfolio of five projects targeting nickel, copper, cobalt, and precious metals in the EU accession state.',
+    url: 'https://example.com/article4',
+    image: '/images/media-placeholder.jpg',
+    year: 2024,
+  },
+  {
+    id: '5',
+    title: 'ASX-Listed Explorer Secures Key Tenements',
+    publication: 'Small Caps',
+    date: '2024-06-05',
+    summary: 'Yugo Metals strengthens its position in Bosnia and Herzegovina with 100% ownership of five high-potential projects.',
+    url: 'https://example.com/article5',
+    image: '/images/media-placeholder.jpg',
+    year: 2024,
+  },
+  {
+    id: '6',
+    title: 'Critical Minerals: The New Gold Rush',
+    publication: 'Business News',
+    date: '2023-12-10',
+    summary: 'As the world transitions to clean energy, companies like Yugo Metals are at the forefront of securing European critical mineral supply chains.',
+    url: 'https://example.com/article6',
+    image: '/images/media-placeholder.jpg',
+    year: 2023,
+  },
+]
+
+export default function MediaCoverage() {
+  const [selectedYear, setSelectedYear] = useState<number | 'all'>('all')
+
+  const years = ['all', ...Array.from(new Set(mediaArticles.map(article => article.year))).sort((a, b) => b - a)]
+
+  const filteredArticles = selectedYear === 'all' 
+    ? mediaArticles 
+    : mediaArticles.filter(article => article.year === selectedYear)
+
+  return (
+    <>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-20">
+        <div className="container">
+          <AnimatedSection>
+            <div className="max-w-4xl">
+              <span className="inline-block px-4 py-2 bg-accent-yellow text-black text-sm font-semibold uppercase tracking-wider mb-4 rounded">
+                Media Coverage
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider mb-6">
+                Yugo Metals in the News
+              </h1>
+              <p className="text-xl md:text-2xl font-josefin leading-relaxed opacity-90">
+                Latest media articles, press releases, and industry coverage
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Filter Section */}
+      <section className="section-padding bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <AnimatedSection>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center space-x-3">
+                <HiOutlineFilter className="w-5 h-5 text-gray-600" />
+                <span className="text-sm font-semibold text-gray-700">Filter by Year:</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {years.map((year) => (
+                  <button
+                    key={year}
+                    onClick={() => setSelectedYear(year as number | "all")}
+                    className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
+                      selectedYear === year
+                        ? 'bg-primary-600 text-white shadow-md'
+                        : 'bg-white text-gray-700 border border-gray-300 hover:border-primary-500'
+                    }`}
+                  >
+                    {year === 'all' ? 'All Years' : year}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Articles Grid */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <AnimatedSection>
+            <SectionTitle 
+              title={selectedYear === 'all' ? 'All Media Coverage' : `Media Coverage - ${selectedYear}`}
+              subtitle={`${filteredArticles.length} article${filteredArticles.length !== 1 ? 's' : ''} found`}
+              centered={false}
+            />
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {filteredArticles.map((article, index) => (
+              <AnimatedSection key={article.id} delay={index * 0.05}>
+                <article className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:border-primary-500 hover:shadow-xl transition-all duration-300 group">
+                  {/* Image Placeholder */}
+                  <div className="relative h-48 bg-gradient-to-br from-primary-100 to-primary-200 overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <HiOutlineNewspaper className="w-20 h-20 text-primary-400 group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Publication & Date */}
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-semibold text-primary-600 uppercase tracking-wider">
+                        {article.publication}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        {new Date(article.date).toLocaleDateString('en-AU', {
+                          day: 'numeric',
+                          month: 'short',
+                          year: 'numeric',
+                        })}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-primary-600 transition-colors">
+                      {article.title}
+                    </h3>
+
+                    {/* Summary */}
+                    <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-3">
+                      {article.summary}
+                    </p>
+
+                    {/* Read Article Link */}
+                    <a
+                      href={article.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 text-primary-600 font-semibold text-sm hover:text-primary-700 transition-colors"
+                    >
+                      <span>Read Full Article</span>
+                      <HiOutlineExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </article>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {filteredArticles.length === 0 && (
+            <AnimatedSection>
+              <div className="text-center py-12">
+                <HiOutlineNewspaper className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                <p className="text-gray-500 text-lg">No articles found for the selected year.</p>
+              </div>
+            </AnimatedSection>
+          )}
+        </div>
+      </section>
+
+      {/* Subscribe CTA */}
+      <section className="section-padding bg-primary-600 text-white text-center">
+        <div className="container max-w-3xl mx-auto">
+          <AnimatedSection>
+            <HiOutlineNewspaper className="w-16 h-16 mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-6">
+              Stay Updated
+            </h2>
+            <p className="text-lg mb-8 font-josefin">
+              Subscribe to receive notifications when Yugo Metals is mentioned in the media
+            </p>
+            <a
+              href="/investors#subscribe"
+              className="inline-block px-8 py-4 bg-accent-yellow text-black font-semibold uppercase tracking-wider rounded-lg hover:bg-yellow-400 transition-colors"
+            >
+              Subscribe Now
+            </a>
+          </AnimatedSection>
+        </div>
+      </section>
+    </>
+  )
+}
+

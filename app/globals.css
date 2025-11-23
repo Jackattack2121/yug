@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-josefin: 'Josefin Sans', sans-serif;
+    --font-merriweather: 'Merriweather', serif;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-montserrat;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .btn-primary {
+    @apply inline-block px-8 py-3 bg-primary-600 text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-primary-700 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply inline-block px-8 py-3 bg-transparent border-2 border-primary-600 text-primary-600 font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-primary-600 hover:text-white;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+
+  .heading-line {
+    @apply relative inline-block;
+  }
+
+  .heading-line::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-16 h-1 bg-primary-600;
+  }
+}
