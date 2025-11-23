@@ -21,7 +21,6 @@ export default function Header() {
     { name: 'About', href: '/why-yugo-metals' },
     { name: 'Investors', href: '/investors' },
     { name: 'ESG', href: '/investors/esg' },
-    { name: 'Media', href: '/investors/media' },
     { name: 'Contact', href: '/contact' },
   ]
 
