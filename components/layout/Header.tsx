@@ -57,7 +57,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-[60] transition-all duration-300',
         isSolid ? 'bg-white shadow-md' : 'bg-transparent'
       )}
     >
@@ -84,7 +84,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             <div className="relative z-50">
-              <ProjectPicker />
+              <ProjectPicker isSolid={isSolid} />
             </div>
             {navigation.map((item) => (
               <Link

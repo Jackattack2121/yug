@@ -13,6 +13,10 @@ interface Project {
   image: string
 }
 
+interface ProjectPickerProps {
+  isSolid?: boolean
+}
+
 const projects: Project[] = [
   {
     title: 'Doboj Project',
@@ -51,7 +55,7 @@ const projects: Project[] = [
   },
 ]
 
-export default function ProjectPicker() {
+export default function ProjectPicker({ isSolid = true }: ProjectPickerProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [hoveredProject, setHoveredProject] = useState<string>(projects[0].slug)
   const panelRef = useRef<HTMLDivElement>(null)
@@ -70,6 +74,7 @@ export default function ProjectPicker() {
         gsap.to(panelRef.current, {
           height: 'auto',
           opacity: 1,
+          y: 0,
           duration: 0.4,
           ease: 'power3.out',
         })
@@ -77,6 +82,7 @@ export default function ProjectPicker() {
         gsap.to(panelRef.current, {
           height: 0,
           opacity: 0,
+          y: -10,
           duration: 0.3,
           ease: 'power3.in',
         })
@@ -110,7 +116,10 @@ export default function ProjectPicker() {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider hover:text-primary-600 transition-colors"
+        className={cn(
+          'flex items-center gap-2 text-sm font-semibold uppercase tracking-wider transition-colors hover:text-primary-600',
+          isSolid ? 'text-gray-900' : 'text-white'
+        )}
       >
         <span>Projects</span>
         <svg
@@ -127,7 +136,7 @@ export default function ProjectPicker() {
       <div
         ref={panelRef}
         className="fixed left-0 right-0 top-[72px] bg-secondary-900 text-white overflow-hidden shadow-2xl z-50"
-        style={{ height: 0, opacity: 0 }}
+        style={{ height: 0, opacity: 0, transform: 'translateY(-20px)' }}
       >
         <div className="max-w-6xl mx-auto px-6 py-8">
           <p className="text-xs uppercase tracking-wider opacity-60 mb-6">

@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import Button from '@/components/ui/Button'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SplitSection from '@/components/ui/SplitSection'
@@ -12,7 +13,7 @@ import NewsCard from '@/components/ui/NewsCard'
 import Link from 'next/link'
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 }
 
 const projects = [
@@ -87,6 +88,62 @@ const latestUpdates = [
 
 export default function Home() {
   const parallaxVideoRef = useRef<HTMLVideoElement>(null)
+  const heroVideo1Ref = useRef<HTMLVideoElement>(null)
+  const heroVideo2Ref = useRef<HTMLVideoElement>(null)
+  const introSectionRef = useRef<HTMLDivElement>(null)
+
+  // Smooth scroll to next section - using GSAP for cross-browser consistency
+  const scrollToIntro = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    if (introSectionRef.current) {
+      gsap.to(window, {
+        duration: 1.2,
+        scrollTo: {
+          y: introSectionRef.current,
+          offsetY: 0,
+          autoKill: true
+        },
+        ease: 'power2.inOut'
+      })
+    }
+  }
+
+  // Seamless loop crossfade effect
+  useEffect(() => {
+    const video1 = heroVideo1Ref.current
+    const video2 = heroVideo2Ref.current
+
+    if (!video1 || !video2) return
+
+    // Set up the second video to start slightly before the first one ends
+    const handleTimeUpdate1 = () => {
+      if (video1.duration - video1.currentTime < 1) {
+        // Start fading to video2 1 second before video1 ends
+        gsap.to(video1, { opacity: 0, duration: 1, ease: 'power2.inOut' })
+        gsap.to(video2, { opacity: 1, duration: 1, ease: 'power2.inOut' })
+        video2.currentTime = 0
+        video2.play()
+      }
+    }
+
+    const handleTimeUpdate2 = () => {
+      if (video2.duration - video2.currentTime < 1) {
+        // Start fading to video1 1 second before video2 ends
+        gsap.to(video2, { opacity: 0, duration: 1, ease: 'power2.inOut' })
+        gsap.to(video1, { opacity: 1, duration: 1, ease: 'power2.inOut' })
+        video1.currentTime = 0
+        video1.play()
+      }
+    }
+
+    video1.addEventListener('timeupdate', handleTimeUpdate1)
+    video2.addEventListener('timeupdate', handleTimeUpdate2)
+
+    return () => {
+      video1.removeEventListener('timeupdate', handleTimeUpdate1)
+      video2.removeEventListener('timeupdate', handleTimeUpdate2)
+    }
+  }, [])
 
   useEffect(() => {
     if (parallaxVideoRef.current) {
@@ -106,16 +163,31 @@ export default function Home() {
   return (
     <>
       {/* Hero Section - Full Viewport with Video */}
-      <section className="relative h-screen flex items-center justify-center bg-black">
+      <section className="relative h-screen flex items-center justify-center bg-black overflow-hidden">
+        {/* Video 1 - starts visible */}
         <video
+          ref={heroVideo1Ref}
           autoPlay
-          loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity"
         >
-          <source src="/herobg.mp4" type="video/mp4" />
+          <source src="/yugo_bg.mp4" type="video/mp4" />
         </video>
+        
+        {/* Video 2 - starts hidden, for crossfade */}
+        <video
+          ref={heroVideo2Ref}
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity"
+          style={{ opacity: 0 }}
+        >
+          <source src="/yugo_bg.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30 z-[1]"></div>
         
         <div className="relative z-10 container text-center text-white">
           <AnimatedSection>
@@ -131,17 +203,26 @@ export default function Home() {
             <p className="text-lg md:text-xl opacity-90 mb-12 font-josefin">
               Nickel, Copper, Cobalt | Bosnia and Herzegovina
             </p>
-            <Button href="/projects" variant="primary">
-              Discover Our Projects
-            </Button>
+            <button 
+              type="button"
+              onClick={scrollToIntro}
+              aria-label="Scroll to introduction section"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-primary-700 hover:shadow-lg group cursor-pointer"
+            >
+              <span>Start Exploring</span>
+              <svg className="w-5 h-5 transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
           </AnimatedSection>
         </div>
       </section>
 
       {/* Introduction Split-Screen */}
-      <SplitSection
-        fullHeight={true}
-        leftContent={
+      <div ref={introSectionRef}>
+        <SplitSection
+          fullHeight={true}
+          leftContent={
           <div className="max-w-xl">
             <AnimatedSection>
               <h2 className="text-display mb-8 text-secondary-900">
@@ -169,6 +250,7 @@ export default function Home() {
           />
         }
       />
+      </div>
 
       {/* Stats Bar */}
       <StatsBar
