@@ -4,12 +4,12 @@ import SharePriceWidget from '@/components/investor/SharePriceWidget'
 import SubscriptionForm from '@/components/investor/SubscriptionForm'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Button from '@/components/ui/Button'
+import Link from 'next/link'
 import { 
   HiOutlineDocumentText, 
   HiOutlinePresentationChartLine, 
   HiOutlineNewspaper,
   HiOutlineCalendar,
-  HiOutlineMail,
   HiOutlineChartBar,
   HiOutlineDownload,
   HiOutlineGlobe
@@ -19,120 +19,66 @@ const quickLinks = [
   {
     title: 'ASX Announcements',
     description: 'Latest company announcements and market updates',
-    icon: <HiOutlineDocumentText />,
+    icon: HiOutlineDocumentText,
     href: '/investors/asx-announcements',
-    color: 'bg-blue-500',
   },
   {
     title: 'Financial Reports',
     description: 'Quarterly, half-yearly, and annual reports',
-    icon: <HiOutlineChartBar />,
+    icon: HiOutlineChartBar,
     href: '/investors/financial-reports',
-    color: 'bg-green-500',
   },
   {
     title: 'Presentations',
     description: 'Investor presentations and company briefings',
-    icon: <HiOutlinePresentationChartLine />,
+    icon: HiOutlinePresentationChartLine,
     href: '/investors/presentations',
-    color: 'bg-purple-500',
   },
   {
     title: 'Share Information',
     description: 'Share registry and trading information',
-    icon: <HiOutlineChartBar />,
+    icon: HiOutlineChartBar,
     href: '/investors/share-information',
-    color: 'bg-orange-500',
   },
   {
     title: 'Investor Calendar',
     description: 'Upcoming events, meetings, and report dates',
-    icon: <HiOutlineCalendar />,
+    icon: HiOutlineCalendar,
     href: '/investors/calendar',
-    color: 'bg-red-500',
   },
   {
     title: 'Media Coverage',
     description: 'News articles and media mentions',
-    icon: <HiOutlineNewspaper />,
+    icon: HiOutlineNewspaper,
     href: '/investors/media',
-    color: 'bg-indigo-500',
   },
   {
     title: 'Fact Sheet',
     description: 'Download our company fact sheet',
-    icon: <HiOutlineDownload />,
+    icon: HiOutlineDownload,
     href: '/investors/fact-sheet',
-    color: 'bg-teal-500',
   },
   {
     title: 'ESG',
     description: 'Environmental, social, and governance',
-    icon: <HiOutlineGlobe />,
+    icon: HiOutlineGlobe,
     href: '/investors/esg',
-    color: 'bg-emerald-500',
-  },
-]
-
-// Mock data for latest announcements
-const latestAnnouncements = [
-  {
-    id: '1',
-    title: 'Quarterly Activities Report',
-    date: '2024-10-27',
-    category: 'Company Update',
-  },
-  {
-    id: '2',
-    title: 'Exploration Program Update - Bosnia Projects',
-    date: '2024-10-15',
-    category: 'Exploration',
-  },
-  {
-    id: '3',
-    title: 'Systematic Exploration Program Commences',
-    date: '2024-10-01',
-    category: 'Operations',
-  },
-]
-
-// Mock upcoming events
-const upcomingEvents = [
-  {
-    id: '1',
-    title: 'Quarterly Report Release',
-    date: '2025-01-27',
-    type: 'Report',
-  },
-  {
-    id: '2',
-    title: 'Investor Webinar',
-    date: '2025-02-15',
-    type: 'Meeting',
-  },
-  {
-    id: '3',
-    title: 'Half-Yearly Report',
-    date: '2025-03-31',
-    type: 'Report',
   },
 ]
 
 export default function InvestorCentre() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-20">
+      {/* Hero Section - Minimal */}
+      <section className="relative bg-white py-32 md:py-40">
         <div className="container">
           <AnimatedSection>
             <div className="max-w-4xl">
-              <span className="inline-block px-4 py-2 bg-accent-yellow text-black text-sm font-semibold uppercase tracking-wider mb-4 rounded">
-                Investor Centre
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider mb-6">
-                Welcome to the Yugo Metals Investor Centre
+              <h1 className="text-display text-secondary-900 mb-6">
+                Investor<br />
+                Centre
               </h1>
-              <p className="text-xl md:text-2xl font-josefin leading-relaxed opacity-90">
+              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
                 Your gateway to company information, financial reports, and market updates
               </p>
             </div>
@@ -140,16 +86,13 @@ export default function InvestorCentre() {
         </div>
       </section>
 
-      {/* Share Price & Quick Stats */}
-      <section className="section-padding bg-gray-50">
+      {/* Share Price Widget */}
+      <section className="section-padding-small bg-gray-50">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Share Price Widget - Spans 2 columns on large screens */}
             <AnimatedSection className="lg:col-span-2">
               <SharePriceWidget ticker="YUG" />
             </AnimatedSection>
-
-            {/* Email Subscription - 1 column */}
             <AnimatedSection delay={0.1}>
               <SubscriptionForm variant="card" />
             </AnimatedSection>
@@ -161,110 +104,39 @@ export default function InvestorCentre() {
       <section className="section-padding bg-white">
         <div className="container">
           <AnimatedSection>
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-4">
+            <div className="mb-16">
+              <h2 className="text-heading-lg text-secondary-900 mb-4">
                 Investor Resources
               </h2>
-              <p className="text-lg text-gray-600 font-josefin">
-                Access all investor information and company updates
-              </p>
+              <div className="w-24 h-1 bg-primary-600"></div>
             </div>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {quickLinks.map((link, index) => (
-              <AnimatedSection key={link.title} delay={index * 0.05}>
-                <a
-                  href={link.href}
-                  className="group block bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-primary-500 hover:shadow-xl transition-all duration-300"
-                >
-                  <div className={`${link.color} w-12 h-12 rounded-lg flex items-center justify-center text-white text-2xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    {link.icon}
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                    {link.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {link.description}
-                  </p>
-                </a>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Latest Announcements & Upcoming Events */}
-      <section className="section-padding bg-gray-50">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Latest Announcements */}
-            <AnimatedSection>
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900">Latest Announcements</h2>
-                  <HiOutlineDocumentText className="w-8 h-8 text-primary-600" />
-                </div>
-                <div className="space-y-4">
-                  {latestAnnouncements.map((announcement) => (
-                    <div key={announcement.id} className="border-l-4 border-primary-600 pl-4 py-2 hover:bg-gray-50 transition-colors">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs font-semibold text-primary-600 uppercase">
-                          {announcement.category}
-                        </span>
-                        <span className="text-xs text-gray-500">
-                          {new Date(announcement.date).toLocaleDateString('en-AU', {
-                            day: 'numeric',
-                            month: 'short',
-                            year: 'numeric',
-                          })}
-                        </span>
+            {quickLinks.map((link, index) => {
+              const Icon = link.icon
+              return (
+                <AnimatedSection key={link.title} delay={index * 0.05}>
+                  <Link href={link.href}>
+                    <div className="group bg-white border border-gray-200 p-8 hover-lift hover:border-primary-600 transition-all h-full">
+                      <Icon className="w-12 h-12 text-primary-600 mb-4 transition-transform group-hover:scale-110" />
+                      <h3 className="text-lg font-bold mb-3 group-hover:text-primary-600 transition-colors uppercase tracking-wide">
+                        {link.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                        {link.description}
+                      </p>
+                      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary-600">
+                        <span>View</span>
+                        <svg className="w-3 h-3 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
                       </div>
-                      <h3 className="text-sm font-semibold text-gray-900">{announcement.title}</h3>
                     </div>
-                  ))}
-                </div>
-                <div className="mt-6">
-                  <Button href="/investors/asx-announcements" variant="outline" className="w-full">
-                    View All Announcements
-                  </Button>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            {/* Upcoming Events */}
-            <AnimatedSection delay={0.1}>
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900">Upcoming Events</h2>
-                  <HiOutlineCalendar className="w-8 h-8 text-accent-yellow" />
-                </div>
-                <div className="space-y-4">
-                  {upcomingEvents.map((event) => (
-                    <div key={event.id} className="border-l-4 border-accent-yellow pl-4 py-2 hover:bg-gray-50 transition-colors">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs font-semibold text-accent-yellow uppercase">
-                          {event.type}
-                        </span>
-                        <span className="text-xs text-gray-500">
-                          {new Date(event.date).toLocaleDateString('en-AU', {
-                            day: 'numeric',
-                            month: 'short',
-                            year: 'numeric',
-                          })}
-                        </span>
-                      </div>
-                      <h3 className="text-sm font-semibold text-gray-900">{event.title}</h3>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6">
-                  <Button href="/investors/calendar" variant="outline" className="w-full">
-                    View Full Calendar
-                  </Button>
-                </div>
-              </div>
-            </AnimatedSection>
+                  </Link>
+                </AnimatedSection>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -273,20 +145,22 @@ export default function InvestorCentre() {
       <section className="section-padding bg-primary-600 text-white text-center">
         <div className="container max-w-3xl mx-auto">
           <AnimatedSection>
-            <HiOutlineMail className="w-16 h-16 mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-6">
+            <h2 className="text-heading-xl mb-8">
               Have Questions?
             </h2>
-            <p className="text-lg mb-8 font-josefin">
+            <p className="text-xl mb-12 font-josefin opacity-90">
               Our Investor Relations team is here to help. Get in touch for more information.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button href="/investors/contact" variant="secondary">
                 Contact IR Team
               </Button>
-              <Button href="/investors/fact-sheet" variant="outline">
-                Download Fact Sheet
-              </Button>
+              <button className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600">
+                <span>Download Fact Sheet</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
           </AnimatedSection>
         </div>
@@ -294,4 +168,3 @@ export default function InvestorCentre() {
     </>
   )
 }
-

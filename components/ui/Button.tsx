@@ -18,7 +18,7 @@ export default function Button({
   onClick,
   type = 'button',
 }: ButtonProps) {
-  const baseStyles = 'inline-block px-8 py-3 font-semibold uppercase tracking-wider transition-all duration-300 text-sm'
+  const baseStyles = 'group inline-flex items-center gap-3 px-8 py-4 font-semibold uppercase tracking-wider transition-all duration-300 text-sm'
   
   const variants = {
     primary: 'bg-primary-600 text-white hover:bg-primary-700 hover:shadow-lg',
@@ -28,10 +28,17 @@ export default function Button({
 
   const classes = cn(baseStyles, variants[variant], className)
 
+  const Arrow = () => (
+    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    </svg>
+  )
+
   if (href) {
     return (
       <Link href={href} className={classes}>
         {children}
+        <Arrow />
       </Link>
     )
   }
@@ -39,6 +46,7 @@ export default function Button({
   return (
     <button type={type} onClick={onClick} className={classes}>
       {children}
+      <Arrow />
     </button>
   )
 }

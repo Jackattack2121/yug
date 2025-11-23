@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import ProjectSection from '@/components/mining/ProjectSection';
-import { ContentSection } from '@/lib/admin/section-types';
+import SplitSection from '@/components/ui/SplitSection';
+import StatsBar from '@/components/ui/StatsBar';
 import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
   return [
@@ -24,343 +25,210 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 
   return {
-    title: `${projectData.heroTitle} | Yugo Metals`,
-    description: projectData.heroDescription || '',
+    title: `${projectData.title} | Yugo Metals`,
+    description: projectData.description || '',
   };
 }
 
 function getProjectData(slug: string) {
   const projects: Record<string, any> = {
     'doboj': {
-      heroTitle: 'Doboj Project',
-      heroSubtitle: 'Republic of Srpska, Bosnia and Herzegovina',
-      heroDescription: 'High-grade mineral discovery history with significant exploration potential',
+      title: 'Doboj Project',
+      subtitle: 'Republic of Srpska, Bosnia and Herzegovina',
+      description: 'High-grade mineral discovery history with significant exploration potential',
       heroImage: '/images/project-doboj.jpg',
       commodityBadge: 'Nickel, Copper, Cobalt',
-      sections: [
+      number: '01',
+      overview: {
+        heading: 'Project Overview',
+        content: 'The Doboj Project is located in Republic of Srpska, Bosnia and Herzegovina, and represents one of Yugo Metals\' key exploration assets. The project has a history of high-grade mineral discovery and is prospective for nickel, copper, and cobalt - critical metals essential for the energy transition.\n\nThe project is strategically positioned in an EU accession state, offering excellent access to European markets. Historical exploration and mining activity in the region demonstrates the mineral potential, while modern systematic exploration presents significant opportunities for new discoveries.',
+      },
+      stats: [
+        { value: '100%', label: 'Ownership' },
+        { value: 'Ni, Cu, Co', label: 'Target Metals' },
+        { value: 'High Grade', label: 'Historical' },
+      ],
+      highlights: [
+        '100% ownership with full operational control',
+        'Historical high-grade discoveries',
+        'Never subjected to modern systematic exploration',
+        'Excellent infrastructure and skilled workforce',
+      ],
+      advantages: [
         {
-          id: 'overview',
-          type: 'text_image',
-          order: 1,
-          heading: 'Project Overview',
-          content: '<p>The Doboj Project is located in Republic of Srpska, Bosnia and Herzegovina, and represents one of Yugo Metals\' key exploration assets. The project has a history of high-grade mineral discovery and is prospective for nickel, copper, and cobalt - critical metals essential for the energy transition.</p><p>The project is strategically positioned in an EU accession state, offering excellent access to European markets. Historical exploration and mining activity in the region demonstrates the mineral potential, while modern systematic exploration presents significant opportunities for new discoveries.</p>',
-          imagePosition: 'right',
-          image: '/images/project-doboj.jpg',
-          backgroundColor: 'white',
+          icon: '📍',
+          title: 'EU Accession State',
+          description: 'Strategic location in Bosnia and Herzegovina, on the doorstep of the European Union',
         },
         {
-          id: 'statistics',
-          type: 'data_cards',
-          order: 2,
-          heading: 'Key Project Statistics',
-          cards: [
-            {
-              title: 'Ownership',
-              mainResult: '100%',
-              badge: 'Full Control',
-              badgeColor: 'primary',
-            },
-            {
-              title: 'Target Metals',
-              mainResult: 'Ni, Cu, Co',
-              badge: 'Critical Metals',
-              badgeColor: 'primary',
-            },
-            {
-              title: 'Historical Activity',
-              mainResult: 'High Grade',
-              badge: 'Proven',
-              badgeColor: 'primary',
-            },
-          ],
-          backgroundColor: 'primary',
+          icon: '💎',
+          title: 'Critical Metals',
+          description: 'Targeting nickel, copper, and cobalt - essential for the energy transition',
         },
         {
-          id: 'exploration',
-          type: 'text_image',
-          order: 3,
-          heading: 'Exploration Program',
-          content: '<p>Yugo Metals has developed a two-year technical work program for the Doboj Project, including systematic ground work, geophysical surveys, and drilling. The project was explored sporadically during the Yugoslav regime but has never been subjected to modern systematic exploration, presenting significant discovery potential.</p><p>The exploration program focuses on identifying and delineating high-grade nickel, copper, and cobalt mineralisation using modern exploration techniques and technologies. The region boasts excellent infrastructure and a highly skilled workforce, supporting efficient exploration activities.</p>',
-          imagePosition: 'left',
-          highlightBox: {
-            title: 'Exploration Highlights',
-            items: [
-              '100% ownership with full operational control',
-              'Historical high-grade discoveries',
-              'Never subjected to modern systematic exploration',
-              'Excellent infrastructure and skilled workforce',
-            ],
-            bgColor: 'bg-primary-50',
-          },
-          backgroundColor: 'gray',
-        },
-        {
-          id: 'advantages',
-          type: 'advantages_grid',
-          order: 4,
-          heading: 'Project Advantages',
-          columns: 3,
-          items: [
-            {
-              icon: '📍',
-              title: 'EU Accession State',
-              description: 'Strategic location in Bosnia and Herzegovina, on the doorstep of the European Union',
-              iconBgColor: 'primary',
-            },
-            {
-              icon: '💎',
-              title: 'Critical Metals',
-              description: 'Targeting nickel, copper, and cobalt - essential for the energy transition',
-              iconBgColor: 'primary',
-            },
-            {
-              icon: '📊',
-              title: 'Modern Exploration',
-              description: 'Applying modern systematic exploration to historically productive mining region',
-              iconBgColor: 'primary',
-            },
-          ],
-          backgroundColor: 'white',
+          icon: '📊',
+          title: 'Modern Exploration',
+          description: 'Applying systematic modern techniques to historically productive mining region',
         },
       ],
     },
     'jezero': {
-      heroTitle: 'Jezero Project',
-      heroSubtitle: 'Republic of Srpska, Bosnia and Herzegovina',
-      heroDescription: 'Strategic exploration opportunity with historical mining activity and modern potential',
+      title: 'Jezero Project',
+      subtitle: 'Republic of Srpska, Bosnia and Herzegovina',
+      description: 'Strategic exploration opportunity with historical mining activity',
       heroImage: '/images/project-jezero.jpg',
       commodityBadge: 'Precious Metals',
-      sections: [
+      number: '02',
+      overview: {
+        heading: 'Project Overview',
+        content: 'The Jezero Project is located in the Republic of Srpska, Bosnia and Herzegovina, and is prospective for precious metals. The project benefits from historical mining activity in the region, demonstrating the presence of economically viable mineralisation.\n\nBosnia and Herzegovina\'s rich mining history, combined with its status as an EU accession state, provides an excellent environment for modern exploration and development. The Jezero Project represents a strategic opportunity to apply modern exploration techniques to a historically productive mining region.',
+      },
+      stats: [
+        { value: '100%', label: 'Ownership' },
+        { value: 'PM', label: 'Precious Metals' },
+        { value: 'Historical', label: 'Activity' },
+      ],
+      highlights: [
+        'Prospective for precious metals',
+        'Historical mining activity',
+        'Modern exploration opportunity',
+        'EU accession state location',
+      ],
+      advantages: [
         {
-          id: 'overview',
-          type: 'text_image',
-          order: 1,
-          heading: 'Project Overview',
-          content: '<p>The Jezero Project is located in the Republic of Srpska, Bosnia and Herzegovina, and is prospective for precious metals. The project benefits from historical mining activity in the region, demonstrating the presence of economically viable mineralisation.</p><p>Bosnia and Herzegovina\'s rich mining history, combined with its status as an EU accession state, provides an excellent environment for modern exploration and development. The Jezero Project represents a strategic opportunity to apply modern exploration techniques to a historically productive mining region.</p>',
-          imagePosition: 'right',
-          image: '/images/project-jezero.jpg',
-          backgroundColor: 'white',
+          icon: '🥇',
+          title: 'Precious Metals',
+          description: 'Historical production demonstrates economic viability of mineralisation',
         },
         {
-          id: 'statistics',
-          type: 'data_cards',
-          order: 2,
-          heading: 'Project Statistics',
-          cards: [
-            {
-              title: 'Target Corridor',
-              mainResult: 'Extensive',
-              badge: 'Multiple Targets',
-              badgeColor: 'primary',
-            },
-            {
-              title: 'Exploration Status',
-              mainResult: 'Active',
-              badge: 'Ongoing',
-              badgeColor: 'yellow',
-            },
-            {
-              title: 'Jurisdiction',
-              mainResult: 'Tasmania',
-              badge: 'Established',
-              badgeColor: 'primary',
-            },
-          ],
-          backgroundColor: 'primary',
+          icon: '🗺️',
+          title: 'Proven Region',
+          description: 'Located in the Balkans, one of the world\'s oldest mining areas',
         },
         {
-          id: 'exploration',
-          type: 'full_text',
-          order: 3,
-          heading: 'Exploration Activities',
-          content: '<p>The exploration program at Jezero includes systematic geological mapping, geochemical sampling, and geophysical surveys. The project benefits from excellent infrastructure and a highly skilled local workforce.</p><p>Historical mining activity provides valuable data for targeting modern exploration efforts. Yugo Metals\' systematic approach combines historical knowledge with modern exploration technologies to identify and define high-potential precious metal targets.</p>',
-          centered: true,
-          maxWidth: 'medium',
-          backgroundColor: 'gray',
+          icon: '🔬',
+          title: 'Modern Techniques',
+          description: 'First-time application of systematic modern exploration',
         },
       ],
     },
     'sockovac': {
-      heroTitle: 'Sočkovac Project',
-      heroSubtitle: 'Republic of Srpska, Bosnia and Herzegovina',
-      heroDescription: 'Prospective for base metals in the heart of the Balkans mining region',
+      title: 'Sočkovac Project',
+      subtitle: 'Republic of Srpska, Bosnia and Herzegovina',
+      description: 'Prospective for base metals in the heart of the Balkans',
       heroImage: '/images/project-sockovac.jpg',
       commodityBadge: 'Base Metals',
-      sections: [
+      number: '03',
+      overview: {
+        heading: 'Project Overview',
+        content: 'The Sočkovac Project is located in the Republic of Srpska, Bosnia and Herzegovina, in the heart of the Balkans mining region. The project is prospective for base metals and benefits from being situated in one of the world\'s oldest mining areas.\n\nThe Balkans region has a long history of base metal production, with extensive existing infrastructure and a highly skilled workforce. The Sočkovac Project represents an opportunity to explore for base metals in a proven mining jurisdiction with strong geological potential.',
+      },
+      stats: [
+        { value: '100%', label: 'Ownership' },
+        { value: 'Base Metals', label: 'Target' },
+        { value: 'Balkans', label: 'Heart of Region' },
+      ],
+      highlights: [
+        'Base metals exploration',
+        'Proven mining jurisdiction',
+        'Excellent infrastructure',
+        'Skilled local workforce',
+      ],
+      advantages: [
         {
-          id: 'overview',
-          type: 'text_image',
-          order: 1,
-          heading: 'Project Overview',
-          content: '<p>The Sočkovac Project is located in the Republic of Srpska, Bosnia and Herzegovina, in the heart of the Balkans mining region. The project is prospective for base metals and benefits from being situated in one of the world\'s oldest mining areas.</p><p>The Balkans region has a long history of base metal production, with extensive existing infrastructure and a highly skilled workforce. The Sočkovac Project represents an opportunity to explore for base metals in a proven mining jurisdiction with strong geological potential.</p>',
-          imagePosition: 'right',
-          image: '/images/project-sockovac.jpg',
-          backgroundColor: 'white',
+          icon: '⚙️',
+          title: 'Base Metals Focus',
+          description: 'Targeting base metals essential for industrial applications',
         },
         {
-          id: 'advantages',
-          type: 'advantages_grid',
-          order: 2,
-          heading: 'Project Advantages',
-          columns: 2,
-          items: [
-            {
-              icon: '⚙️',
-              title: 'Base Metals Focus',
-              description: 'Targeting base metals essential for industrial applications and infrastructure development',
-              iconBgColor: 'primary',
-            },
-            {
-              icon: '🏭',
-              title: 'Historic Mining Region',
-              description: 'Located in the Balkans, one of the world\'s oldest mining areas with proven mineral wealth',
-              iconBgColor: 'primary',
-            },
-            {
-              icon: '🗺️',
-              title: 'Excellent Infrastructure',
-              description: 'Benefits from existing mining infrastructure and highly skilled local workforce',
-              iconBgColor: 'primary',
-            },
-            {
-              icon: '📍',
-              title: 'EU Access',
-              description: 'Strategic location in EU accession state provides access to European markets',
-              iconBgColor: 'primary',
-            },
-          ],
-          backgroundColor: 'gray',
+          icon: '🏭',
+          title: 'Historic Region',
+          description: 'One of the world\'s oldest mining areas with proven mineral wealth',
+        },
+        {
+          icon: '📍',
+          title: 'Infrastructure',
+          description: 'Benefits from existing mining infrastructure and skilled workforce',
         },
       ],
     },
     'sinjakovo': {
-      heroTitle: 'Sinjakovo Project',
-      heroSubtitle: 'Republic of Srpska, Bosnia and Herzegovina',
-      heroDescription: 'Historical high-grade mineralisation with modern systematic exploration planned',
+      title: 'Sinjakovo Project',
+      subtitle: 'Republic of Srpska, Bosnia and Herzegovina',
+      description: 'Historical high-grade mineralisation with modern exploration planned',
       heroImage: '/images/project-sinjakovo.jpg',
       commodityBadge: 'Copper, Cobalt',
-      sections: [
+      number: '04',
+      overview: {
+        heading: 'Project Overview',
+        content: 'The Sinjakovo Project is located in the Republic of Srpska, Bosnia and Herzegovina, and is prospective for copper and cobalt - critical metals for the energy transition. The project has a history of high-grade mineralisation identified during historical exploration activities.\n\nYugo Metals\' systematic exploration approach will apply modern exploration techniques to this historically productive area. The project benefits from excellent infrastructure, skilled workforce, and a pro-mining regulatory environment in an EU accession state.',
+      },
+      stats: [
+        { value: '100%', label: 'Ownership' },
+        { value: 'Cu, Co', label: 'Target Metals' },
+        { value: 'High Grade', label: 'Historical' },
+      ],
+      highlights: [
+        'Copper and cobalt focus',
+        'Historical high-grade discoveries',
+        'Energy transition metals',
+        'Systematic exploration program',
+      ],
+      advantages: [
         {
-          id: 'overview',
-          type: 'text_image',
-          order: 1,
-          heading: 'Project Overview',
-          content: '<p>The Sinjakovo Project is located in the Republic of Srpska, Bosnia and Herzegovina, and is prospective for copper and cobalt - critical metals for the energy transition. The project has a history of high-grade mineralisation identified during historical exploration activities.</p><p>Yugo Metals\' systematic exploration approach will apply modern exploration techniques to this historically productive area. The project benefits from excellent infrastructure, skilled workforce, and a pro-mining regulatory environment in an EU accession state.</p>',
-          imagePosition: 'right',
-          image: '/images/project-sinjakovo.jpg',
-          backgroundColor: 'white',
+          icon: '⚡',
+          title: 'Energy Transition',
+          description: 'Copper and cobalt are essential for electrification and renewable energy',
         },
         {
-          id: 'advantages',
-          type: 'advantages_grid',
-          order: 2,
-          heading: 'Project Highlights',
-          columns: 3,
-          items: [
-            {
-              icon: '⚡',
-              title: 'Energy Transition Metals',
-              description: 'Copper and cobalt are essential for electrification and renewable energy',
-              iconBgColor: 'primary',
-            },
-            {
-              icon: '💎',
-              title: 'High-Grade History',
-              description: 'Historical exploration identified high-grade copper and cobalt mineralisation',
-              iconBgColor: 'primary',
-            },
-            {
-              icon: '🔬',
-              title: 'Modern Exploration',
-              description: 'Applying systematic modern techniques to underexplored historical targets',
-              iconBgColor: 'primary',
-            },
-          ],
-          backgroundColor: 'gray',
+          icon: '💎',
+          title: 'High-Grade History',
+          description: 'Historical exploration identified high-grade mineralisation',
+        },
+        {
+          icon: '🔬',
+          title: 'Modern Methods',
+          description: 'Applying systematic modern techniques to underexplored targets',
         },
       ],
     },
     'cajnice': {
-      heroTitle: 'Čajniče Project',
-      heroSubtitle: 'Republic of Srpska, Bosnia and Herzegovina',
-      heroDescription: 'Never subjected to modern exploration techniques, offering significant discovery potential',
+      title: 'Čajniče Project',
+      subtitle: 'Republic of Srpska, Bosnia and Herzegovina',
+      description: 'Greenfield opportunity never subjected to modern exploration',
       heroImage: '/images/project-cajnice.jpg',
       commodityBadge: 'Nickel, Precious Metals',
-      sections: [
+      number: '05',
+      overview: {
+        heading: 'Project Overview',
+        content: 'The Čajniče Project represents one of Yugo Metals\' most exciting opportunities. Located in the Republic of Srpska, Bosnia and Herzegovina, the project has never been subjected to modern systematic exploration despite being located in a historically productive mining region.\n\nThe project is prospective for nickel and precious metals and benefits from excellent infrastructure and access. As an EU accession state, Bosnia and Herzegovina offers a stable and supportive environment for exploration and development activities.',
+      },
+      stats: [
+        { value: '100%', label: 'Ownership' },
+        { value: 'Ni, PM', label: 'Target Metals' },
+        { value: 'Greenfield', label: 'Opportunity' },
+      ],
+      highlights: [
+        'Never subjected to modern exploration',
+        'Significant discovery potential',
+        'Nickel and precious metals focus',
+        'First-time systematic exploration',
+      ],
+      advantages: [
         {
-          id: 'overview',
-          type: 'text_image',
-          order: 1,
-          heading: 'Project Overview',
-          content: '<p>The Čajniče Project represents one of Yugo Metals\' most exciting opportunities. Located in the Republic of Srpska, Bosnia and Herzegovina, the project has never been subjected to modern systematic exploration despite being located in a historically productive mining region.</p><p>The project is prospective for nickel and precious metals and benefits from excellent infrastructure and access. As an EU accession state, Bosnia and Herzegovina offers a stable and supportive environment for exploration and development activities.</p>',
-          imagePosition: 'right',
-          image: '/images/project-cajnice.jpg',
-          backgroundColor: 'white',
+          icon: '🔍',
+          title: 'Greenfield',
+          description: 'First-time modern systematic exploration - significant discovery potential',
         },
         {
-          id: 'statistics',
-          type: 'data_cards',
-          order: 2,
-          heading: 'Project Highlights',
-          cards: [
-            {
-              title: 'Exploration Status',
-              mainResult: 'Greenfield',
-              badge: 'High Potential',
-              badgeColor: 'primary',
-            },
-            {
-              title: 'Target Metals',
-              mainResult: 'Ni & PM',
-              badge: 'Critical',
-              badgeColor: 'primary',
-            },
-            {
-              title: 'Modern Work',
-              mainResult: 'First Time',
-              badge: 'Opportunity',
-              badgeColor: 'primary',
-            },
-          ],
-          backgroundColor: 'primary',
+          icon: '⚡',
+          title: 'Critical Metals',
+          description: 'Targeting nickel and precious metals essential for energy transition',
         },
         {
-          id: 'exploration',
-          type: 'full_text',
-          order: 3,
-          heading: 'Exploration Opportunity',
-          content: '<p>The Čajniče Project offers a unique opportunity to apply modern systematic exploration techniques to an area that has never been explored using contemporary methods. This greenfield opportunity combines geological prospectivity with modern exploration technology.</p><p>Yugo Metals\' exploration program will include systematic geological mapping, geochemical sampling, geophysical surveys, and targeted drilling. The project represents significant discovery potential in a region with proven mineral wealth and excellent infrastructure.</p>',
-          centered: true,
-          maxWidth: 'medium',
-          backgroundColor: 'gray',
-        },
-        {
-          id: 'advantages',
-          type: 'advantages_grid',
-          order: 4,
-          heading: 'Project Advantages',
-          columns: 3,
-          items: [
-            {
-              icon: '🔍',
-              title: 'Greenfield Opportunity',
-              description: 'Never subjected to modern systematic exploration - significant discovery potential',
-              iconBgColor: 'primary',
-            },
-            {
-              icon: '⚡',
-              title: 'Critical Metals',
-              description: 'Targeting nickel and precious metals essential for energy transition',
-              iconBgColor: 'primary',
-            },
-            {
-              icon: '🏗️',
-              title: 'Infrastructure',
-              description: 'Excellent infrastructure and skilled workforce in historically productive region',
-              iconBgColor: 'primary',
-            },
-          ],
-          backgroundColor: 'white',
+          icon: '🏗️',
+          title: 'Infrastructure',
+          description: 'Excellent infrastructure in historically productive region',
         },
       ],
     },
@@ -370,69 +238,168 @@ function getProjectData(slug: string) {
 }
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const projectData = getProjectData(params.slug);
+  const project = getProjectData(params.slug);
 
-  if (!projectData) {
+  if (!project) {
     notFound();
   }
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center">
+      {/* Hero Section - Full Width Image with Minimal Text */}
+      <section className="relative h-[80vh] flex items-end bg-black">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${projectData.heroImage})` }}
+          style={{ backgroundImage: `url(${project.heroImage})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
         </div>
-        <div className="relative container text-white">
+        <div className="relative container pb-16 text-white">
           <AnimatedSection>
-            {projectData.commodityBadge && (
-              <span className="inline-block px-4 py-2 bg-primary-600 text-white text-sm font-semibold uppercase tracking-wider mb-4">
-                {projectData.commodityBadge}
-              </span>
-            )}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider mb-4">
-              {projectData.heroTitle}
+            <div className="max-w-2xl">
+              <div className="text-xs uppercase tracking-wider opacity-80 mb-4">
+                Project {project.number}
+              </div>
+              <h1 className="text-display mb-4">
+                {project.title}
             </h1>
-            {projectData.heroSubtitle && (
-              <p className="text-xl md:text-2xl font-josefin italic mb-2">
-                {projectData.heroSubtitle}
+              <p className="text-xl md:text-2xl font-josefin opacity-90 mb-2">
+                {project.commodityBadge}
               </p>
-            )}
-            {projectData.heroDescription && (
-              <p className="text-lg max-w-3xl">{projectData.heroDescription}</p>
-            )}
+              <p className="text-base opacity-80">
+                {project.subtitle}
+              </p>
+            </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Dynamic Content Sections */}
-      {projectData.sections &&
-        projectData.sections
-          .sort((a: ContentSection, b: ContentSection) => a.order - b.order)
-          .map((section: ContentSection, index: number) => (
-            <ProjectSection key={section.id} section={section} index={index} />
-          ))}
+      {/* Stats Bar */}
+      <StatsBar background="blue" stats={project.stats} />
+
+      {/* Overview Split Section */}
+      <SplitSection
+        fullHeight={false}
+        leftContent={
+          <div className="max-w-xl">
+            <AnimatedSection>
+              <h2 className="text-heading-lg text-secondary-900 mb-8">
+                {project.overview.heading}
+              </h2>
+              <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-josefin">
+                {project.overview.content.split('\n\n').map((paragraph: string, index: number) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        }
+        rightContent={
+          <div className="p-12 bg-primary-50 flex items-center">
+            <div>
+              <h3 className="text-2xl font-bold uppercase tracking-wider mb-6 text-secondary-900">
+                Exploration Highlights
+              </h3>
+              <ul className="space-y-4">
+                {project.highlights.map((highlight: string, index: number) => (
+                  <li key={index} className="flex items-start gap-3 text-gray-700">
+                    <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        }
+      />
+
+      {/* Project Advantages - Grid */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-heading-lg text-secondary-900 mb-4">
+                Project Advantages
+              </h2>
+              <div className="w-24 h-1 bg-primary-600 mx-auto"></div>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            {project.advantages.map((advantage: any, index: number) => (
+              <AnimatedSection key={index} delay={index * 0.1}>
+                <div className="text-center">
+                  <div className="text-6xl mb-6">{advantage.icon}</div>
+                  <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
+                    {advantage.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {advantage.description}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Exploration Program Split */}
+      <SplitSection
+        fullHeight={false}
+        reverse={true}
+        leftContent={
+          <div className="max-w-xl">
+            <AnimatedSection>
+              <h2 className="text-heading-lg text-secondary-900 mb-8">
+                Exploration Program
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed mb-6 font-josefin">
+                Yugo Metals has developed a two-year technical work program, including 
+                systematic ground work, geophysical surveys, and drilling. The project 
+                was explored sporadically during the Yugoslav regime but has never been 
+                subjected to modern systematic exploration, presenting significant 
+                discovery potential.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed font-josefin">
+                The exploration program focuses on identifying and delineating high-grade 
+                mineralisation using modern exploration techniques and technologies. The 
+                region boasts excellent infrastructure and a highly skilled workforce, 
+                supporting efficient exploration activities.
+              </p>
+            </AnimatedSection>
+          </div>
+        }
+        rightContent={
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: 'url(/images/hero-mining-2.jpg)' }}
+          />
+        }
+      />
 
       {/* Call to Action */}
-      <section className="section-padding bg-gradient-to-r from-primary-800 to-primary-600 text-white text-center">
-        <div className="container max-w-3xl mx-auto">
+      <section className="section-padding bg-primary-600 text-white text-center">
+        <div className="container max-w-4xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-wider mb-6">
-              Explore More Projects
+            <h2 className="text-heading-xl mb-8">
+              Explore More<br />
+              Projects
             </h2>
-            <p className="text-lg mb-8 opacity-90">
+            <p className="text-xl mb-12 opacity-90 font-josefin">
               Discover our five projects in Bosnia and Herzegovina
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/investors/asx-announcements" variant="secondary">
                 Latest Announcements
               </Button>
-              <Button href="/projects" variant="primary">
-                All Projects
-              </Button>
+              <button className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600">
+                <span>All Projects</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
           </AnimatedSection>
         </div>
@@ -440,4 +407,3 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     </>
   );
 }
-

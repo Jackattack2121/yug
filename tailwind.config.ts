@@ -49,6 +49,12 @@ const config: Config = {
         josefin: ['var(--font-josefin)', 'sans-serif'],
         merriweather: ['var(--font-merriweather)', 'serif'],
       },
+      fontSize: {
+        'hero': ['clamp(3rem, 10vw, 8rem)', { lineHeight: '0.9', letterSpacing: '-0.02em', fontWeight: '900' }],
+        'display': ['clamp(2.5rem, 7vw, 6rem)', { lineHeight: '1', letterSpacing: '-0.01em', fontWeight: '800' }],
+        'heading-xl': ['clamp(2rem, 5vw, 4rem)', { lineHeight: '1.1', fontWeight: '800' }],
+        'heading-lg': ['clamp(1.75rem, 4vw, 3rem)', { lineHeight: '1.2', fontWeight: '700' }],
+      },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in',
         'fade-up': 'fadeUp 0.6s ease-out',
