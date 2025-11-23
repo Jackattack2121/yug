@@ -18,7 +18,6 @@ export default function Header() {
 
   const navigation = [
     { name: 'About', href: '/why-yugo-metals' },
-    { name: 'Projects', href: '/projects' },
     { name: 'Investors', href: '/investors' },
     { name: 'ESG', href: '/investors/esg' },
     { name: 'Media', href: '/investors/media' },

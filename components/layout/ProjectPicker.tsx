@@ -53,7 +53,16 @@ const projects: Project[] = [
 
 export default function ProjectPicker() {
   const [isOpen, setIsOpen] = useState(false)
+  const [hoveredProject, setHoveredProject] = useState<string>(projects[0].slug)
   const panelRef = useRef<HTMLDivElement>(null)
+  const imageRef = useRef<HTMLDivElement>(null)
+
+  // Reset to first project when dropdown opens
+  useEffect(() => {
+    if (isOpen) {
+      setHoveredProject(projects[0].slug)
+    }
+  }, [isOpen])
 
   useEffect(() => {
     if (panelRef.current) {
@@ -75,6 +84,17 @@ export default function ProjectPicker() {
     }
   }, [isOpen])
 
+  // Smooth image transition on hover change
+  useEffect(() => {
+    if (imageRef.current && isOpen) {
+      gsap.fromTo(
+        imageRef.current,
+        { opacity: 0.7 },
+        { opacity: 1, duration: 0.3, ease: 'power2.out' }
+      )
+    }
+  }, [hoveredProject, isOpen])
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsOpen(false)
@@ -83,6 +103,8 @@ export default function ProjectPicker() {
     return () => window.removeEventListener('keydown', handleEscape)
   }, [])
 
+  const currentProject = projects.find((p) => p.slug === hoveredProject) || projects[0]
+
   return (
     <>
       {/* Trigger Button */}
@@ -90,7 +112,7 @@ export default function ProjectPicker() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider hover:text-primary-600 transition-colors"
       >
-        <span>Pick a Project</span>
+        <span>Projects</span>
         <svg
           className={cn('w-4 h-4 transition-transform', isOpen && 'rotate-180')}
           fill="none"
@@ -104,35 +126,97 @@ export default function ProjectPicker() {
       {/* Dropdown Panel */}
       <div
         ref={panelRef}
-        className="absolute left-0 right-0 top-full bg-secondary-900 text-white overflow-hidden"
+        className="fixed left-0 right-0 top-[72px] bg-secondary-900 text-white overflow-hidden shadow-2xl z-50"
         style={{ height: 0, opacity: 0 }}
       >
-        <div className="container py-12">
-          <p className="text-sm uppercase tracking-wider opacity-60 mb-8">
+        <div className="max-w-6xl mx-auto px-6 py-8">
+          <p className="text-xs uppercase tracking-wider opacity-60 mb-6">
             Bosnia and Herzegovina Projects
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {projects.map((project) => (
+          
+          {/* Two Column Layout */}
+          <div className="grid grid-cols-2 gap-8">
+            {/* Left Column - Project List */}
+            <div className="space-y-2">
+              {projects.map((project, index) => (
               <Link
                 key={project.slug}
                 href={`/projects/${project.slug}`}
                 onClick={() => setIsOpen(false)}
-                className="group"
+                  onMouseEnter={() => setHoveredProject(project.slug)}
+                  className={cn(
+                    'block p-4 rounded transition-all duration-300 group',
+                    hoveredProject === project.slug
+                      ? 'bg-white/10 border-l-4 border-primary-400'
+                      : 'bg-transparent border-l-4 border-transparent hover:bg-white/5'
+                  )}
               >
-                <div className="relative h-48 mb-4 overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${project.image})` }}
-                  >
-                    <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all"></div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-bold text-primary-400 opacity-60">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <div>
+                        <h3
+                          className={cn(
+                            'text-base font-bold uppercase tracking-tight transition-colors',
+                            hoveredProject === project.slug
+                              ? 'text-white'
+                              : 'text-gray-300 group-hover:text-white'
+                          )}
+                        >
+                          {project.title}
+                        </h3>
+                        <p
+                          className={cn(
+                            'text-xs transition-colors mt-0.5',
+                            hoveredProject === project.slug
+                              ? 'text-primary-400'
+                              : 'text-gray-400 group-hover:text-primary-400'
+                          )}
+                        >
+                          {project.type}
+                        </p>
+                      </div>
+                    </div>
+                    <svg
+                      className={cn(
+                        'w-4 h-4 transition-all flex-shrink-0',
+                        hoveredProject === project.slug
+                          ? 'text-primary-400 translate-x-1'
+                          : 'text-gray-500 group-hover:text-white group-hover:translate-x-1'
+                      )}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
                   </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Right Column - Preview Image */}
+            <div className="relative h-[380px] rounded overflow-hidden">
+              <div
+                ref={imageRef}
+                className="absolute inset-0 bg-cover bg-center transition-all duration-500"
+                style={{ backgroundImage: `url(${currentProject.image})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h4 className="text-2xl font-bold mb-1">{currentProject.title}</h4>
+                  <p className="text-primary-400 font-semibold text-sm mb-1">{currentProject.type}</p>
+                  <p className="text-xs text-gray-300">{currentProject.location}</p>
                 </div>
-                <h3 className="text-lg font-bold mb-1 group-hover:text-primary-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-sm opacity-80">{project.type}</p>
-              </Link>
-            ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -140,7 +224,7 @@ export default function ProjectPicker() {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-black bg-opacity-50 z-30"
           onClick={() => setIsOpen(false)}
         />
       )}
