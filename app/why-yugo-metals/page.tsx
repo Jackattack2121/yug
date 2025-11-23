@@ -105,7 +105,7 @@ export default function WhyYugoMetals() {
         rightContent={
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/hero-mining-1.jpg)' }}
+            style={{ backgroundImage: 'url(/yugo_images/lush-mountain-forest-in-bosnia-aerial-shot-2025-09-09-00-26-14-utc.jpg)' }}
           />
         }
       />

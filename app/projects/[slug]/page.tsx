@@ -36,7 +36,7 @@ function getProjectData(slug: string) {
       title: 'Doboj Project',
       subtitle: 'Republic of Srpska, Bosnia and Herzegovina',
       description: 'High-grade mineral discovery history with significant exploration potential',
-      heroImage: '/images/project-doboj.jpg',
+      heroImage: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
       commodityBadge: 'Nickel, Copper, Cobalt',
       number: '01',
       overview: {
@@ -76,7 +76,7 @@ function getProjectData(slug: string) {
       title: 'Jezero Project',
       subtitle: 'Republic of Srpska, Bosnia and Herzegovina',
       description: 'Strategic exploration opportunity with historical mining activity',
-      heroImage: '/images/project-jezero.jpg',
+      heroImage: '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
       commodityBadge: 'Precious Metals',
       number: '02',
       overview: {
@@ -116,7 +116,7 @@ function getProjectData(slug: string) {
       title: 'Sočkovac Project',
       subtitle: 'Republic of Srpska, Bosnia and Herzegovina',
       description: 'Prospective for base metals in the heart of the Balkans',
-      heroImage: '/images/project-sockovac.jpg',
+      heroImage: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
       commodityBadge: 'Base Metals',
       number: '03',
       overview: {
@@ -156,7 +156,7 @@ function getProjectData(slug: string) {
       title: 'Sinjakovo Project',
       subtitle: 'Republic of Srpska, Bosnia and Herzegovina',
       description: 'Historical high-grade mineralisation with modern exploration planned',
-      heroImage: '/images/project-sinjakovo.jpg',
+      heroImage: '/yugo_images/yellow-excavator-digging-rocks-at-the-quarry-doin-2025-01-29-03-01-59-utc.jpg',
       commodityBadge: 'Copper, Cobalt',
       number: '04',
       overview: {
@@ -196,7 +196,7 @@ function getProjectData(slug: string) {
       title: 'Čajniče Project',
       subtitle: 'Republic of Srpska, Bosnia and Herzegovina',
       description: 'Greenfield opportunity never subjected to modern exploration',
-      heroImage: '/images/project-cajnice.jpg',
+      heroImage: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
       commodityBadge: 'Nickel, Precious Metals',
       number: '05',
       overview: {
@@ -374,7 +374,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         rightContent={
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/hero-mining-2.jpg)' }}
+            style={{ backgroundImage: 'url(/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg)' }}
           />
         }
       />

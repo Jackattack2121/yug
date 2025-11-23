@@ -18,7 +18,7 @@ const projects = [
     slug: 'doboj',
     location: 'Republic of Srpska, Bosnia and Herzegovina',
     type: 'Nickel, Copper, Cobalt',
-    image: '/images/project-doboj.jpg',
+    image: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
     number: '01',
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     slug: 'jezero',
     location: 'Republic of Srpska, Bosnia and Herzegovina',
     type: 'Precious Metals',
-    image: '/images/project-jezero.jpg',
+    image: '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
     number: '02',
   },
   {
@@ -34,7 +34,7 @@ const projects = [
     slug: 'sockovac',
     location: 'Republic of Srpska, Bosnia and Herzegovina',
     type: 'Base Metals',
-    image: '/images/project-sockovac.jpg',
+    image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
     number: '03',
   },
   {
@@ -42,7 +42,7 @@ const projects = [
     slug: 'sinjakovo',
     location: 'Republic of Srpska, Bosnia and Herzegovina',
     type: 'Copper, Cobalt',
-    image: '/images/project-sinjakovo.jpg',
+    image: '/yugo_images/yellow-excavator-digging-rocks-at-the-quarry-doin-2025-01-29-03-01-59-utc.jpg',
     number: '04',
   },
   {
@@ -50,7 +50,7 @@ const projects = [
     slug: 'cajnice',
     location: 'Republic of Srpska, Bosnia and Herzegovina',
     type: 'Nickel, Precious Metals',
-    image: '/images/project-cajnice.jpg',
+    image: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
     number: '05',
   },
 ]
@@ -61,7 +61,7 @@ const latestUpdates = [
     date: 'October 27, 2024',
     category: 'Company Update',
     excerpt: 'Overview of exploration activities across all five Bosnia and Herzegovina projects.',
-    image: '/images/media-placeholder.jpg',
+    image: '/yugo_images/aerial-view-motor-grader-civil-at-construction-sit-2025-07-08-16-02-40-utc.jpg',
     href: '/investors/asx-announcements',
   },
   {
@@ -69,7 +69,7 @@ const latestUpdates = [
     date: 'October 15, 2024',
     category: 'Exploration',
     excerpt: 'Systematic exploration program commences across Doboj and Jezero projects.',
-    image: '/images/media-placeholder.jpg',
+    image: '/yugo_images/the-truck-transports-the-minerals-from-the-top-vie-2025-10-16-12-14-08-utc.jpg',
     href: '/investors/asx-announcements',
   },
   {
@@ -77,7 +77,7 @@ const latestUpdates = [
     date: 'October 1, 2024',
     category: 'Strategy',
     excerpt: 'Yugo Metals positions for European energy transition with critical metals portfolio.',
-    image: '/images/media-placeholder.jpg',
+    image: '/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg',
     href: '/investors/media',
   },
 ]
@@ -249,7 +249,7 @@ export default function Home() {
         rightContent={
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/images/hero-mining-1.jpg)' }}
+            style={{ backgroundImage: 'url(/yugo_images/beautiful-nature-of-bosnia-and-herzegovina-travel-2025-08-29-06-16-13-utc.jpg)' }}
           />
         }
       />
