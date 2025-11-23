@@ -43,7 +43,7 @@ export default function InvestorContact() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-20">
+      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-32 flex items-center min-h-[60vh]">
         <div className="container">
           <AnimatedSection>
             <div className="max-w-4xl">

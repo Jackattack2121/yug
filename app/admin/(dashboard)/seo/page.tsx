@@ -21,9 +21,9 @@ const pages = [
     issues: ['Missing Open Graph image'],
   },
   {
-    path: '/projects/mick-well',
-    title: 'Čajnice Project - Yugo Metals',
-    metaDescription: 'High-grade rare earth elements project in the Gascoyne region...',
+    path: '/projects/doboj',
+    title: 'Doboj Project - Yugo Metals',
+    metaDescription: 'Nickel-copper-cobalt exploration project in Bosnia and Herzegovina targeting critical metals for the energy transition.',
     score: 92,
     issues: [],
   },

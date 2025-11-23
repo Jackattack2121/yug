@@ -48,7 +48,7 @@ export async function GET(request: Request) {
   // Mock top pages
   const topPages = [
     { path: '/', title: 'Home', views: Math.floor(totalViews * 0.35), avgTime: '2:45' },
-    { path: '/projects/mick-well', title: 'Mick Well Project', views: Math.floor(totalViews * 0.25), avgTime: '3:12' },
+    { path: '/projects/doboj', title: 'Doboj Project', views: Math.floor(totalViews * 0.25), avgTime: '3:12' },
     { path: '/investors', title: 'Investors', views: Math.floor(totalViews * 0.15), avgTime: '1:58' },
     { path: '/company', title: 'Company', views: Math.floor(totalViews * 0.12), avgTime: '2:20' },
     { path: '/contact', title: 'Contact', views: Math.floor(totalViews * 0.08), avgTime: '1:30' },

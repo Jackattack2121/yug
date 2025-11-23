@@ -6,7 +6,7 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 export default function ShareInformation() {
   return (
     <>
-      <section className="relative h-[50vh] flex items-center justify-center bg-gradient-to-r from-primary-900 to-primary-700">
+      <section className="relative h-[60vh] flex items-center justify-center bg-gradient-to-r from-primary-900 to-primary-700">
         <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: 'url(/images/hero-mining-1.jpg)' }} />
         <div className="relative container text-center text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider">

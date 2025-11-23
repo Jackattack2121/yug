@@ -12,10 +12,10 @@ const presentations = [
   },
   {
     id: '2',
-    title: 'Mick Well Project Update',
-    description: 'Detailed presentation on the Mick Well REE project and exploration results',
+    title: 'Doboj Project Exploration Update',
+    description: 'Detailed presentation on the Doboj nickel-copper-cobalt project and exploration results in Bosnia & Herzegovina',
     date: '2024-08-20',
-    file: '/documents/mick-well-update-aug-2024.pdf',
+    file: '/documents/doboj-update-aug-2024.pdf',
     thumbnail: '/images/presentation-thumb-2.jpg',
   },
   {
@@ -31,7 +31,7 @@ const presentations = [
 export default function Presentations() {
   return (
     <>
-      <section className="relative h-[50vh] flex items-center justify-center bg-gradient-to-r from-primary-900 to-primary-700">
+      <section className="relative h-[60vh] flex items-center justify-center bg-gradient-to-r from-primary-900 to-primary-700">
         <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: 'url(/images/hero-mining-1.jpg)' }} />
         <div className="relative container text-center text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider">

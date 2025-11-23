@@ -8,7 +8,7 @@ export default function ESGPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 text-white py-20">
+      <section className="relative bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-700 text-white py-32 flex items-center min-h-[60vh]">
         <div className="container">
           <AnimatedSection>
             <div className="max-w-4xl">

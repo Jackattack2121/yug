@@ -96,27 +96,27 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
 
   // Card variant - full form with preferences
   return (
-    <div className={`bg-white rounded-lg shadow-lg p-6 ${className}`}>
-      <div className="flex items-center space-x-3 mb-4">
-        <div className="bg-primary-100 p-3 rounded-lg">
-          <HiOutlineMail className="w-6 h-6 text-primary-600" />
+    <div className={`bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 p-8 text-white h-full flex flex-col ${className}`}>
+      <div className="flex items-center space-x-3 mb-6">
+        <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
+          <HiOutlineMail className="w-7 h-7 text-white" />
         </div>
         <div>
-          <h3 className="text-xl font-bold text-gray-900">Stay Informed</h3>
-          <p className="text-sm text-gray-600">Subscribe to investor updates</p>
+          <h3 className="text-2xl font-bold text-white">Stay Informed</h3>
+          <p className="text-sm text-white/80">Subscribe to investor updates</p>
         </div>
       </div>
 
       {status === 'success' ? (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
-          <HiOutlineCheckCircle className="w-12 h-12 text-green-600 mx-auto mb-2" />
-          <p className="text-green-800 font-semibold">Successfully Subscribed!</p>
-          <p className="text-sm text-green-700 mt-1">{message}</p>
+        <div className="bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg p-6 text-center flex-1 flex flex-col items-center justify-center">
+          <HiOutlineCheckCircle className="w-16 h-16 text-accent-yellow mx-auto mb-3" />
+          <p className="text-white font-bold text-lg mb-2">Successfully Subscribed!</p>
+          <p className="text-sm text-white/90">{message}</p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 flex-1 flex flex-col">
           <div>
-            <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
               Name
             </label>
             <input
@@ -126,12 +126,12 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
               required
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-colors"
+              className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-yellow focus:bg-white/20 transition-all text-white placeholder-white/60"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
               Email Address
             </label>
             <input
@@ -141,72 +141,74 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your.email@example.com"
               required
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white transition-colors"
+              className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-yellow focus:bg-white/20 transition-all text-white placeholder-white/60"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
+            <label className="block text-sm font-semibold text-white mb-3">
               Email Preferences
             </label>
             <div className="space-y-2">
-              <label className="flex items-center space-x-3 cursor-pointer">
+              <label className="flex items-center space-x-3 cursor-pointer group">
                 <input
                   type="checkbox"
                   checked={preferences.announcements}
                   onChange={() => togglePreference('announcements')}
-                  className="w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                  className="w-5 h-5 text-accent-yellow bg-white/10 border-white/30 rounded focus:ring-accent-yellow focus:ring-offset-0"
                 />
-                <span className="text-sm text-gray-700">ASX Announcements</span>
+                <span className="text-sm text-white/90 group-hover:text-white transition-colors">ASX Announcements</span>
               </label>
-              <label className="flex items-center space-x-3 cursor-pointer">
+              <label className="flex items-center space-x-3 cursor-pointer group">
                 <input
                   type="checkbox"
                   checked={preferences.reports}
                   onChange={() => togglePreference('reports')}
-                  className="w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                  className="w-5 h-5 text-accent-yellow bg-white/10 border-white/30 rounded focus:ring-accent-yellow focus:ring-offset-0"
                 />
-                <span className="text-sm text-gray-700">Quarterly & Annual Reports</span>
+                <span className="text-sm text-white/90 group-hover:text-white transition-colors">Quarterly & Annual Reports</span>
               </label>
-              <label className="flex items-center space-x-3 cursor-pointer">
+              <label className="flex items-center space-x-3 cursor-pointer group">
                 <input
                   type="checkbox"
                   checked={preferences.news}
                   onChange={() => togglePreference('news')}
-                  className="w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                  className="w-5 h-5 text-accent-yellow bg-white/10 border-white/30 rounded focus:ring-accent-yellow focus:ring-offset-0"
                 />
-                <span className="text-sm text-gray-700">Company News & Updates</span>
+                <span className="text-sm text-white/90 group-hover:text-white transition-colors">Company News & Updates</span>
               </label>
             </div>
           </div>
 
           {status === 'error' && (
-            <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-red-800 text-sm">
+            <div className="bg-red-500/20 backdrop-blur-sm border border-red-300/50 rounded-lg p-3 text-white text-sm">
               {message}
             </div>
           )}
 
-          <button
-            type="submit"
-            disabled={status === 'loading'}
-            className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
-          >
-            {status === 'loading' ? (
-              <>
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                <span>Subscribing...</span>
-              </>
-            ) : (
-              <>
-                <HiOutlineMail className="w-5 h-5" />
-                <span>Subscribe to Updates</span>
-              </>
-            )}
-          </button>
+          <div className="mt-auto pt-2">
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="w-full bg-accent-yellow text-black font-bold py-4 px-6 rounded-lg hover:bg-yellow-400 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              {status === 'loading' ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                  <span>Subscribing...</span>
+                </>
+              ) : (
+                <>
+                  <HiOutlineMail className="w-5 h-5" />
+                  <span>Subscribe to Updates</span>
+                </>
+              )}
+            </button>
 
-          <p className="text-xs text-gray-500 text-center">
-            We respect your privacy. Unsubscribe anytime.
-          </p>
+            <p className="text-xs text-white/70 text-center mt-3">
+              We respect your privacy. Unsubscribe anytime.
+            </p>
+          </div>
         </form>
       )}
     </div>

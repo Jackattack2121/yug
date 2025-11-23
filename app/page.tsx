@@ -3,7 +3,6 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import Button from '@/components/ui/Button'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SplitSection from '@/components/ui/SplitSection'
@@ -88,25 +87,12 @@ export default function Home() {
   const heroVideo2Ref = useRef<HTMLVideoElement>(null)
   const introSectionRef = useRef<HTMLDivElement>(null)
 
-  // Register GSAP plugins on mount
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
-  }, [])
-
-  // Smooth scroll to next section - using GSAP for cross-browser consistency
-  const scrollToIntro = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
+  // Simple smooth scroll to next section
+  const scrollToIntro = () => {
     if (introSectionRef.current) {
-      // Get the element's position
-      const targetPosition = introSectionRef.current.getBoundingClientRect().top + window.pageYOffset
-      
-      gsap.to(window, {
-        duration: 1.2,
-        scrollTo: {
-          y: targetPosition,
-          autoKill: true
-        },
-        ease: 'power2.inOut'
+      introSectionRef.current.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
       })
     }
   }
@@ -207,9 +193,7 @@ export default function Home() {
               Nickel, Copper, Cobalt | Bosnia and Herzegovina
             </p>
             <button 
-              type="button"
               onClick={scrollToIntro}
-              aria-label="Scroll to introduction section"
               className="inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-primary-700 hover:shadow-lg group cursor-pointer"
             >
               <span>Start Exploring</span>

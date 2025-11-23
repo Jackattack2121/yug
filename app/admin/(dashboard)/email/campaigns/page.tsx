@@ -21,8 +21,8 @@ const mockCampaignsBackup = [
   },
   {
     id: 2,
-    name: 'Mick Well Project Discovery Announcement',
-    subject: 'Major REE Discovery at Mick Well Project',
+    name: 'Doboj Project Exploration Update',
+    subject: 'Major Exploration Progress at Doboj Project, Bosnia & Herzegovina',
     status: 'finished' as const,
     lists: ['ASX Announcements', 'Investor Updates'],
     created_at: new Date(Date.now() - 1000 * 60 * 60 * 24 * 14).toISOString(),

@@ -30,7 +30,7 @@ const mediaArticles = [
   },
   {
     id: '3',
-    title: 'Gascoyne Region Emerges as REE Hotspot',
+    title: 'Balkans Region Emerges as Critical Minerals Hub',
     publication: 'Mining News',
     date: '2024-08-30',
     summary: 'The Balkans region is attracting increased attention from explorers, with Yugo Metals leading modern systematic exploration in Bosnia and Herzegovina.',
@@ -40,10 +40,10 @@ const mediaArticles = [
   },
   {
     id: '4',
-    title: 'Lithium and REE Projects Gain Momentum in WA',
+    title: 'European Critical Minerals Strategy Gains Momentum',
     publication: 'Resource Stocks',
     date: '2024-07-18',
-    summary: 'Yugo Metals advances its portfolio of five projects targeting nickel, copper, cobalt, and precious metals in the EU accession state.',
+    summary: 'Yugo Metals advances its portfolio of five projects targeting nickel, copper, cobalt, and precious metals in the EU accession state of Bosnia and Herzegovina.',
     url: 'https://example.com/article4',
     image: '/images/media-placeholder.jpg',
     year: 2024,
@@ -82,7 +82,7 @@ export default function MediaCoverage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-20">
+      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-32 flex items-center min-h-[60vh]">
         <div className="container">
           <AnimatedSection>
             <div className="max-w-4xl">

@@ -20,11 +20,11 @@ const defaultPages: PageMeta[] = [
     ogImage: '/og-image.jpg',
   },
   {
-    path: '/projects/mick-well',
-    title: 'Čajnice Project - Yugo Metals',
-    description: 'High-grade rare earth elements project in the Gascoyne region of Western Australia.',
-    keywords: 'Mick Well, REE, rare earth elements, Gascoyne, mining project',
-    ogImage: '/og-mick-well.jpg',
+    path: '/projects/doboj',
+    title: 'Doboj Project - Yugo Metals',
+    description: 'Nickel-copper-cobalt exploration project in Bosnia and Herzegovina targeting critical metals for the energy transition.',
+    keywords: 'Doboj, nickel, copper, cobalt, Bosnia Herzegovina, European metals, critical minerals, ASX YUG',
+    ogImage: '/og-doboj.jpg',
   },
   {
     path: '/investors/asx-announcements',
