@@ -36,7 +36,7 @@ const reasons = [
   {
     icon: '⚡',
     title: 'Critical Metals Focus',
-    description: 'Targeting nickel, copper, and cobalt - essential metals for the energy transition and European supply security.',
+    description: 'Targeting gold, antimony, nickel, and copper - essential metals for the energy transition and European supply security.',
   },
 ]
 
@@ -243,7 +243,7 @@ export default function WhyYugoMetals() {
                 Critical Metals for Europe
               </h2>
               <p className="text-2xl md:text-3xl opacity-90 font-josefin">
-                Nickel, Copper, and Cobalt for the Energy Transition
+                Gold, Antimony, Nickel, and Copper for the Energy Transition
               </p>
             </div>
           </AnimatedSection>

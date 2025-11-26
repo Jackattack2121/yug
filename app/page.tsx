@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from '@/components/ui/Button'
@@ -16,7 +16,7 @@ const projects = [
     title: 'Doboj Project',
     slug: 'doboj',
     location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Nickel, Copper, Cobalt',
+    type: 'Gold, Antimony, Nickel, Copper',
     image: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
     number: '01',
   },
@@ -81,11 +81,19 @@ const latestUpdates = [
   },
 ]
 
+const rotatingTexts = [
+  'Gold, Antimony, Nickel, Copper',
+  'Precious, Base and Battery Metals',
+  'Polymetallic Exploration',
+]
+
 export default function Home() {
   const parallaxVideoRef = useRef<HTMLVideoElement>(null)
   const heroVideo1Ref = useRef<HTMLVideoElement>(null)
   const heroVideo2Ref = useRef<HTMLVideoElement>(null)
   const introSectionRef = useRef<HTMLDivElement>(null)
+  const [currentTextIndex, setCurrentTextIndex] = useState(0)
+  const [isVisible, setIsVisible] = useState(true)
 
   // Simple smooth scroll to next section
   const scrollToIntro = () => {
@@ -96,6 +104,20 @@ export default function Home() {
       })
     }
   }
+
+  // Rotating text effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsVisible(false) // Fade out
+      
+      setTimeout(() => {
+        setCurrentTextIndex((prevIndex) => (prevIndex + 1) % rotatingTexts.length)
+        setIsVisible(true) // Fade in
+      }, 500) // Wait for fade out before changing text
+    }, 3500) // Change every 3.5 seconds (3000ms visible + 500ms transition)
+
+    return () => clearInterval(interval)
+  }, [])
 
   // Seamless loop crossfade effect
   useEffect(() => {
@@ -189,8 +211,12 @@ export default function Home() {
             <div className="text-2xl md:text-3xl font-black uppercase tracking-[0.3em] mb-6">
               YUGO METALS
             </div>
-            <p className="text-lg md:text-xl opacity-90 mb-12 font-josefin">
-              Nickel, Copper, Cobalt | Bosnia and Herzegovina
+            <p 
+              className={`text-lg md:text-xl mb-12 font-josefin transition-opacity duration-500 ${
+                isVisible ? 'opacity-90' : 'opacity-0'
+              }`}
+            >
+              {rotatingTexts[currentTextIndex]} | Bosnia and Herzegovina
             </p>
             <button 
               onClick={scrollToIntro}
@@ -219,7 +245,7 @@ export default function Home() {
                 of the EU
               </h2>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 font-josefin">
-                Yugo Metals explores for nickel, copper, cobalt, and precious metals 
+                Yugo Metals explores for gold, antimony, nickel, copper, and precious metals 
                 in Bosnia and Herzegovina. Our projects combine historical mining 
                 knowledge with modern systematic exploration in one of the world's 
                 oldest mining regions.
@@ -233,7 +259,7 @@ export default function Home() {
         rightContent={
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: 'url(/yugo_images/beautiful-nature-of-bosnia-and-herzegovina-travel-2025-08-29-06-16-13-utc.jpg)' }}
+            style={{ backgroundImage: 'url(/yugo_images/165-Hindley-10.jpg)' }}
           />
         }
       />
@@ -262,7 +288,7 @@ export default function Home() {
                 Energy Transition
               </h2>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-josefin">
-                Nickel, copper, cobalt, and precious metals across Bosnia and Herzegovina
+                Gold, antimony, nickel, copper, and precious metals across Bosnia and Herzegovina
               </p>
             </div>
           </AnimatedSection>
@@ -360,7 +386,7 @@ export default function Home() {
                   Critical Metals
                 </h3>
                 <p className="text-gray-400 leading-relaxed mb-6">
-                  Targeting nickel, copper, and cobalt - essential metals for the 
+                  Targeting gold, antimony, nickel, and copper - essential metals for the 
                   energy transition and European supply security.
                 </p>
                 <a href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
