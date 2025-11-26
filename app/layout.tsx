@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SessionProvider from '@/components/providers/SessionProvider'
 import ConditionalLayout from '@/components/layout/ConditionalLayout'
+import { Analytics } from '@vercel/analytics/react'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -46,6 +47,7 @@ export default function RootLayout({
             {children}
           </ConditionalLayout>
         </SessionProvider>
+        <Analytics />
       </body>
     </html>
   )
