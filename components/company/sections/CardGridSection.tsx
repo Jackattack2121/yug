@@ -2,7 +2,7 @@
 
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { CardGridSection as CardGridSectionType } from '@/lib/admin/section-types'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 interface Props {
   section: CardGridSectionType

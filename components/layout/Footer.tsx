@@ -1,13 +1,12 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { FaLinkedin } from 'react-icons/fa'
 import { HiMail } from 'react-icons/hi'
 
 export default function Footer() {
-  const locale = useLocale()
   const t = useTranslations('footer')
   const tProjects = useTranslations('footer.projects')
   const tCompany = useTranslations('footer.company')
@@ -39,31 +38,31 @@ export default function Footer() {
           {/* Projects */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider mb-6">
-              {t('navigation.footer.projectsTitle')}
+              {t('navigation.projectsTitle')}
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href={`/${locale}/projects/doboj`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/projects/doboj" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tProjects('doboj')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/projects/jezero`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/projects/jezero" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tProjects('jezero')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/projects/sockovac`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/projects/sockovac" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tProjects('sockovac')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/projects/sinjakovo`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/projects/sinjakovo" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tProjects('sinjakovo')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/projects/cajnice`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/projects/cajnice" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tProjects('cajnice')}
                 </Link>
               </li>
@@ -73,26 +72,26 @@ export default function Footer() {
           {/* Company */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider mb-6">
-              {t('navigation.footer.companyTitle')}
+              {t('navigation.companyTitle')}
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href={`/${locale}/why-yugo-metals`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/why-yugo-metals" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tCompany('about')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/company/board-of-directors`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/company/board-of-directors" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tCompany('board')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/company/corporate-governance`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/company/corporate-governance" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tCompany('governance')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/investors/esg`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/investors/esg" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tCompany('esg')}
                 </Link>
               </li>
@@ -102,31 +101,31 @@ export default function Footer() {
           {/* Investors */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider mb-6">
-              {t('navigation.footer.investorsTitle')}
+              {t('navigation.investorsTitle')}
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href={`/${locale}/investors`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/investors" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tInvestors('centre')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/investors/asx-announcements`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/investors/asx-announcements" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tInvestors('announcements')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/investors/presentations`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/investors/presentations" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tInvestors('presentations')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/investors/fact-sheet`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/investors/fact-sheet" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tInvestors('factSheet')}
                 </Link>
               </li>
               <li>
-                <Link href={`/${locale}/prospectus`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/prospectus" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tInvestors('prospectus')}
                 </Link>
               </li>
@@ -136,7 +135,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider mb-6">
-              {t('navigation.footer.contactTitle')}
+              {t('navigation.contactTitle')}
             </h4>
             <div className="space-y-3 text-sm text-gray-400">
               <p>{tLocation('city')}</p>

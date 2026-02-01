@@ -385,6 +385,74 @@ NEXT_PUBLIC_SITE_URL=https://yugometals.com
 3. Click **Save**
 4. Trigger a redeploy if needed
 
+### 3.1. Production Environment Variables Checklist
+
+Before going live, verify ALL environment variables are properly set. Use `.env.production.template` as a reference.
+
+**CRITICAL - Required for Basic Functionality:**
+
+| Variable | Purpose | How to Generate | Status |
+|----------|---------|----------------|--------|
+| `NEXTAUTH_URL` | Production domain for auth | `https://yugometals.com` | [ ] |
+| `NEXTAUTH_SECRET` | Auth session encryption | `openssl rand -base64 32` | [ ] |
+| `NEXT_PUBLIC_SITE_URL` | Public site URL | `https://yugometals.com` | [ ] |
+| `ADMIN_EMAIL` | Admin login email | Set to your email | [ ] |
+| `ADMIN_PASSWORD_HASH` | Admin password hash | `node scripts/generate-admin-password.js "password"` | [ ] |
+
+**IMPORTANT - Required for Email Features:**
+
+| Variable | Purpose | How to Set | Status |
+|----------|---------|-----------|--------|
+| `LISTMONK_URL` | Listmonk instance URL | `https://listmonk.yugometals.com` | [ ] |
+| `LISTMONK_USERNAME` | Listmonk API username | `listmonk_api` (default) | [ ] |
+| `LISTMONK_PASSWORD` | Listmonk API password | Set strong password (16+ chars) | [ ] |
+
+**Note:** If Listmonk variables are missing or use localhost, email subscription forms will gracefully show "Email subscriptions launching soon" message instead of failing.
+
+**OPTIONAL - Features Disabled if Missing:**
+
+| Variable | Purpose | Impact if Missing | Status |
+|----------|---------|------------------|--------|
+| `DIRECTUS_URL` | CMS instance URL | CMS features disabled | [ ] |
+| `DIRECTUS_TOKEN` | CMS API token | CMS integration won't work | [ ] |
+| `NEXT_PUBLIC_DIRECTUS_URL` | Public CMS URL | Client-side CMS calls fail | [ ] |
+| `GA_MEASUREMENT_ID` | Google Analytics tracking | No analytics tracking | [ ] |
+| `GA_PROPERTY_ID` | GA property ID | No GA dashboard | [ ] |
+
+**Security Verification Checklist:**
+
+- [ ] No URLs contain `localhost` or `127.0.0.1`
+- [ ] All URLs use `https://` (not `http://`)
+- [ ] `NEXTAUTH_SECRET` is unique (not copied from `.env.local`)
+- [ ] All passwords are 16+ characters
+- [ ] `.env.local` is in `.gitignore`
+- [ ] No secrets committed to git repository
+- [ ] API keys are production-specific (not development keys)
+
+**Common Mistakes to Avoid:**
+
+1. Using development `NEXTAUTH_SECRET` in production (security risk)
+2. Forgetting to update `NEXT_PUBLIC_SITE_URL` (breaks API calls)
+3. Using localhost URLs (causes production failures)
+4. Weak passwords (security vulnerability)
+5. Committing `.env.local` or `.env.production` to git
+
+**Validation Commands:**
+
+Test your production build locally before deploying:
+
+```bash
+# Set production env vars in Vercel/platform first, then:
+npm run build
+npm run start
+
+# Test these URLs:
+# - http://localhost:3000 (should work)
+# - Check browser console for errors
+# - Test subscription form
+# - Verify no localhost API calls
+```
+
 ### 4. Configure Custom Domain
 
 1. Go to **Project Settings** → **Domains**

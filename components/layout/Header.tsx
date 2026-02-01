@@ -1,10 +1,9 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
+import { Link, usePathname } from '@/i18n/navigation'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { cn } from '@/lib/utils'
 import gsap from 'gsap'
@@ -18,17 +17,16 @@ export default function Header() {
   const headerRef = useRef<HTMLElement>(null)
   const logoRef = useRef<HTMLImageElement>(null)
   const pathname = usePathname()
-  const locale = useLocale()
   const t = useTranslations('navigation.header')
   
-  // Check if we're on the homepage (accounting for locale prefix)
-  const isHomepage = pathname === `/${locale}` || pathname === `/${locale}/`
+  // Check if we're on the homepage
+  const isHomepage = pathname === '/' || pathname === ''
 
   const navigation = [
-    { name: t('aboutLink'), href: `/${locale}/why-yugo-metals` },
-    { name: t('investorsLink'), href: `/${locale}/investors` },
-    { name: t('esgLink'), href: `/${locale}/investors/esg` },
-    { name: t('contactLink'), href: `/${locale}/contact` },
+    { name: t('aboutLink'), href: '/why-yugo-metals' },
+    { name: t('investorsLink'), href: '/investors' },
+    { name: t('esgLink'), href: '/investors/esg' },
+    { name: t('contactLink'), href: '/contact' },
   ]
 
   useEffect(() => {
@@ -112,7 +110,7 @@ export default function Header() {
       <div className="container">
         <div className="flex items-center justify-between py-4 md:py-6">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center">
+          <Link href="/" className="flex items-center">
             <div className="relative h-10 md:h-12 w-auto">
               <Image
                 ref={logoRef}
@@ -208,35 +206,35 @@ export default function Header() {
             <p className="text-xs uppercase tracking-wider opacity-60 mb-4">Projects</p>
             <div className="space-y-2">
               <Link
-                href={`/${locale}/projects/doboj`}
+                href="/projects/doboj"
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Doboj Project
               </Link>
               <Link
-                href={`/${locale}/projects/jezero`}
+                href="/projects/jezero"
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Jezero Project
               </Link>
               <Link
-                href={`/${locale}/projects/sockovac`}
+                href="/projects/sockovac"
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Sočkovac Project
               </Link>
               <Link
-                href={`/${locale}/projects/sinjakovo`}
+                href="/projects/sinjakovo"
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Sinjakovo Project
               </Link>
               <Link
-                href={`/${locale}/projects/cajnice`}
+                href="/projects/cajnice"
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

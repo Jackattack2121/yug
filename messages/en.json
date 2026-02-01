@@ -29,21 +29,70 @@
   },
   "homepage": {
     "hero": {
-      "title": "European Metals Exploration",
-      "subtitle": "Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union.",
-      "cta": "View Our Projects"
+      "titleLine1": "Exploring for",
+      "titleLine2": "Critical Metals",
+      "titleLine3": "in the Heart of",
+      "titleLine4": "Europe",
+      "companyName": "YUGO METALS",
+      "rotatingText1": "Gold, Antimony, Nickel, Copper",
+      "rotatingText2": "Precious, Base and Battery Metals",
+      "rotatingText3": "Polymetallic Exploration",
+      "location": "Bosnia and Herzegovina",
+      "cta": "Start Exploring"
     },
-    "about": {
-      "title": "Why Yugo Metals",
-      "description": "Strategic positioning in Europe's critical minerals sector"
+    "intro": {
+      "titleLine1": "100% Ownership",
+      "titleLine2": "of Five Projects",
+      "titleLine3": "on the Doorstep",
+      "titleLine4": "of the EU",
+      "description": "Yugo Metals explores for gold, antimony, nickel, copper, and precious metals in Bosnia and Herzegovina. Our projects combine historical mining knowledge with modern systematic exploration in one of the world's oldest mining regions.",
+      "cta": "About Yugo Metals"
     },
-    "projects": {
-      "title": "Our Projects",
-      "subtitle": "Exploring high-grade opportunities in Bosnia and Herzegovina"
+    "stats": {
+      "stat1Value": "5",
+      "stat1Label": "Projects",
+      "stat1Sublabel": "100% Owned",
+      "stat2Value": "100%",
+      "stat2Label": "Ownership",
+      "stat2Sublabel": "Full Control",
+      "stat3Value": "EU",
+      "stat3Label": "Accession State",
+      "stat3Sublabel": "Strategic Location",
+      "stat4Value": "3+",
+      "stat4Label": "Years",
+      "stat4Sublabel": "In Operation"
     },
-    "investors": {
-      "title": "Investor Centre",
-      "subtitle": "Access reports, announcements, and company information"
+    "projectsSection": {
+      "titleLine1": "Five Projects",
+      "titleLine2": "Targeting Critical",
+      "titleLine3": "Metals for the",
+      "titleLine4": "Energy Transition",
+      "subtitle": "Gold, antimony, nickel, copper, and precious metals across Bosnia and Herzegovina",
+      "exploreProject": "Explore Project",
+      "viewAllProjects": "View All Projects"
+    },
+    "assetsSection": {
+      "titleLine1": "Discover Our",
+      "titleLine2": "Assets",
+      "criticalMetalsTitle": "Critical Metals",
+      "criticalMetalsDescription": "Targeting gold, antimony, nickel, and copper - essential metals for the energy transition and European supply security.",
+      "strategicLocationTitle": "Strategic Location",
+      "strategicLocationDescription": "Bosnia and Herzegovina is an EU accession state, offering strategic access to European markets and supply chains.",
+      "modernExplorationTitle": "Modern Exploration",
+      "modernExplorationDescription": "Applying systematic modern exploration techniques to historically productive mining region with significant potential.",
+      "learnMore": "Learn More"
+    },
+    "latestSection": {
+      "titleLine1": "Latest From",
+      "titleLine2": "Yugo Metals",
+      "viewAllAnnouncements": "View All Announcements"
+    },
+    "ctaSection": {
+      "titleLine1": "Let's Explore the",
+      "titleLine2": "Possibilities Together",
+      "subtitle": "Want to learn more about our exploration programs and investment opportunities?",
+      "contactButton": "Contact Investor Relations",
+      "prospectusButton": "View Prospectus"
     }
   },
   "investors": {
@@ -137,31 +186,67 @@
   },
   "projects": {
     "title": "Our Projects",
-    "subtitle": "Exploring high-grade opportunities in Bosnia and Herzegovina",
+    "subtitle": "Five high-potential exploration projects targeting critical metals for the energy transition",
+    "pageTitle": "Bosnia and Herzegovina Projects",
+    "heading": "Our Projects",
+    "exploreProject": "Explore Project",
+    "learnMore": "Learn More",
+    "viewAllProjects": "View All Projects",
+    "projectOverview": "Project Overview",
+    "explorationHighlights": "Exploration Highlights",
+    "projectAdvantages": "Project Advantages",
+    "explorationProgram": "Exploration Program",
+    "projectNumber": "Project {number}",
+    "projectNotFound": "Project Not Found",
+    "exploreMoreProjects": "Explore More Projects",
+    "exploreMoreDescription": "Discover our five projects in Bosnia and Herzegovina",
+    "latestAnnouncements": "Latest Announcements",
+    "allProjects": "All Projects",
     "doboj": {
       "name": "Doboj Project",
       "shortDescription": "High-grade nickel-copper project",
-      "location": "Doboj, Bosnia and Herzegovina"
+      "location": "Republic of Srpska, Bosnia and Herzegovina",
+      "type": "Gold, Antimony, Nickel, Copper",
+      "number": "01"
     },
     "jezero": {
       "name": "Jezero Project",
       "shortDescription": "Promising exploration target",
-      "location": "Jezero, Bosnia and Herzegovina"
+      "location": "Republic of Srpska, Bosnia and Herzegovina",
+      "type": "Precious Metals",
+      "number": "02"
     },
     "sockovac": {
       "name": "Sočkovac Project",
       "shortDescription": "Strategic exploration area",
-      "location": "Sočkovac, Bosnia and Herzegovina"
+      "location": "Republic of Srpska, Bosnia and Herzegovina",
+      "type": "Base Metals",
+      "number": "03"
     },
     "sinjakovo": {
       "name": "Sinjakovo Project",
       "shortDescription": "High-potential mineral deposits",
-      "location": "Sinjakovo, Bosnia and Herzegovina"
+      "location": "Republic of Srpska, Bosnia and Herzegovina",
+      "type": "Copper, Cobalt",
+      "number": "04"
     },
     "cajnice": {
       "name": "Čajniče Project",
       "shortDescription": "Emerging exploration opportunity",
-      "location": "Čajniče, Bosnia and Herzegovina"
+      "location": "Republic of Srpska, Bosnia and Herzegovina",
+      "type": "Nickel, Precious Metals",
+      "number": "05"
+    },
+    "picker": {
+      "title": "Projects",
+      "subtitle": "Bosnia and Herzegovina Projects"
+    },
+    "cta": {
+      "titleLine1": "Interested in Our",
+      "titleLine2": "Exploration Programs?",
+      "subtitle": "Stay updated with our latest exploration results and company developments",
+      "viewAnnouncements": "View ASX Announcements",
+      "contactUs": "Contact Us"
     },
     "overview": "Overview",
     "geology": "Geology",
@@ -194,8 +279,27 @@
     }
   },
   "contact": {
-    "title": "Contact Us",
-    "subtitle": "Get in touch with our team",
+    "titleLine1": "Contact",
+    "titleLine2": "Us",
+    "subtitle": "Get in touch with Yugo Metals. We're here to answer your questions.",
+    "formTitle": "Get In Touch",
+    "nameLabel": "Your Name *",
+    "emailLabel": "Email Address *",
+    "phoneLabel": "Phone Number",
+    "subjectLabel": "Subject *",
+    "subjectPlaceholder": "Select a subject",
+    "subjectGeneral": "General Enquiry",
+    "subjectInvestor": "Investor Relations",
+    "subjectMedia": "Media Inquiry",
+    "subjectPartnership": "Partnership Opportunity",
+    "messageLabel": "Message *",
+    "sendButton": "Send Message",
+    "contactInfo": "Contact Information",
+    "registeredOffice": "Registered Office",
+    "phoneEmail": "Phone & Email",
+    "businessHours": "Business Hours",
+    "businessHoursValue": "Monday - Friday: 9:00 AM - 5:00 PM AWST",
+    "followUs": "Follow Us",
     "generalInquiries": "General Inquiries",
     "investorRelations": "Investor Relations",
     "media": "Media Inquiries",

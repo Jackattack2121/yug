@@ -1,4 +1,7 @@
-/** @type {import('next').NextConfig} */
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./i18n.ts');
+
 const nextConfig = {
   images: {
     domains: ['www.yugometals.com'],
@@ -6,7 +9,6 @@ const nextConfig = {
   },
   // Enable React strict mode for better error detection
   reactStrictMode: true,
-}
+};
 
-module.exports = nextConfig
-
+export default withNextIntl(nextConfig);

@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
-import { useLocale } from 'next-intl'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from '@/components/ui/Button'
@@ -10,7 +9,7 @@ import SplitSection from '@/components/ui/SplitSection'
 import TextBoxed from '@/components/ui/TextBoxed'
 import StatsBar from '@/components/ui/StatsBar'
 import NewsCard from '@/components/ui/NewsCard'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 interface LatestUpdate {
   title: string
@@ -100,7 +99,6 @@ const rotatingTexts = [
 ]
 
 export default function Home() {
-  const locale = useLocale()
   const [latestUpdates, setLatestUpdates] = useState<LatestUpdate[]>(fallbackUpdates)
   const [isLoadingUpdates, setIsLoadingUpdates] = useState(true)
   const heroVideo1Ref = useRef<HTMLVideoElement>(null)
@@ -163,7 +161,7 @@ export default function Home() {
           category: item.category,
           excerpt: item.excerpt || item.summary,
           image: item.image,
-          href: item.url ? undefined : `/${locale}/investors/asx-announcements`,
+          href: item.url ? undefined : '/investors/asx-announcements',
           downloadUrl: item.url || item.downloadUrl,
         }))
         
@@ -180,7 +178,7 @@ export default function Home() {
     }
     
     fetchLatestUpdates()
-  }, [locale])
+  }, [])
 
   // Seamless loop crossfade effect
   useEffect(() => {
@@ -298,7 +296,7 @@ export default function Home() {
                 knowledge with modern systematic exploration in one of the world's 
                 oldest mining regions.
               </p>
-              <Button href={`/${locale}/why-yugo-metals`} variant="outline">
+              <Button href="/why-yugo-metals" variant="outline">
                 About Yugo Metals
               </Button>
             </AnimatedSection>
@@ -405,7 +403,7 @@ export default function Home() {
 
           <AnimatedSection delay={0.5}>
             <div className="text-center mt-16">
-              <Button href={`/${locale}/projects`} variant="outline">
+              <Button href="/projects" variant="outline">
                 View All Projects
               </Button>
             </div>
@@ -437,12 +435,12 @@ export default function Home() {
                   Targeting gold, antimony, nickel, and copper - essential metals for the 
                   energy transition and European supply security.
                 </p>
-                <a href={`/${locale}/projects`} className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
+                <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
                   <span>Learn More</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </AnimatedSection>
 
@@ -456,12 +454,12 @@ export default function Home() {
                   Bosnia and Herzegovina is an EU accession state, offering strategic 
                   access to European markets and supply chains.
                 </p>
-                <a href={`/${locale}/why-yugo-metals`} className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
+                <Link href="/why-yugo-metals" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
                   <span>Learn More</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </AnimatedSection>
 
@@ -475,12 +473,12 @@ export default function Home() {
                   Applying systematic modern exploration techniques to historically 
                   productive mining region with significant potential.
                 </p>
-                <a href={`/${locale}/investors`} className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
+                <Link href="/investors" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
                   <span>Learn More</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </AnimatedSection>
           </div>
@@ -510,7 +508,7 @@ export default function Home() {
 
           <AnimatedSection delay={0.4}>
             <div className="text-center">
-              <Link href={`/${locale}/investors/asx-announcements`} className="inline-flex items-center gap-2 text-primary-600 font-semibold uppercase tracking-wider hover:gap-4 transition-all">
+              <Link href="/investors/asx-announcements" className="inline-flex items-center gap-2 text-primary-600 font-semibold uppercase tracking-wider hover:gap-4 transition-all">
                 <span>View All Announcements</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -534,7 +532,7 @@ export default function Home() {
                 Want to learn more about our exploration programs and investment opportunities?
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href={`/${locale}/contact`} variant="secondary">
+                <Button href="/contact" variant="secondary">
                   Contact Investor Relations
                 </Button>
                 <button className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600">

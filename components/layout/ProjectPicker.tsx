@@ -1,8 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { useLocale } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import gsap from 'gsap'
 
@@ -62,7 +61,6 @@ export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectP
   const [hoveredProject, setHoveredProject] = useState<string>(projects[0].slug)
   const panelRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
-  const locale = useLocale()
 
   // Notify parent when dropdown state changes
   useEffect(() => {
@@ -158,7 +156,7 @@ export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectP
               {projects.map((project, index) => (
               <Link
                 key={project.slug}
-                href={`/${locale}/projects/${project.slug}`}
+                href={`/projects/${project.slug}`}
                 onClick={() => setIsOpen(false)}
                   onMouseEnter={() => setHoveredProject(project.slug)}
                   className={cn(

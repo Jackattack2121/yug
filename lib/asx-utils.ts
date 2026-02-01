@@ -18,6 +18,24 @@ export interface EnglishOnlyContentProps {
 }
 
 /**
+ * Wrapper component to mark English-only regulatory content
+ * Adds lang="en" attribute for screen reader accessibility (WCAG 2.1)
+ */
+export function EnglishOnlyWrapper({ 
+  children, 
+  className = '' 
+}: { 
+  children: ReactNode; 
+  className?: string;
+}) {
+  return (
+    <span lang="en" className={className}>
+      {children}
+    </span>
+  );
+}
+
+/**
  * Check if content is regulatory/ASX content that must stay in English
  */
 export function isRegulatoryContent(contentType: string): boolean {

@@ -36,12 +36,18 @@ export default function middleware(req: NextRequest) {
     pathname.startsWith('/api/admin')
   ) {
     // @ts-ignore - withAuth has complex typing
-    return authMiddleware(req);
+    const response = authMiddleware(req);
+    if (response) {
+      response.headers.set('x-pathname', pathname);
+    }
+    return response;
   }
 
   // API routes (no locale prefix) - allow through
   if (pathname.startsWith('/api')) {
-    return NextResponse.next();
+    const response = NextResponse.next();
+    response.headers.set('x-pathname', pathname);
+    return response;
   }
 
   // Static files and Next.js internals - allow through
@@ -55,7 +61,10 @@ export default function middleware(req: NextRequest) {
   }
 
   // All other routes - use intl middleware for locale routing
-  return intlMiddleware(req);
+  const response = intlMiddleware(req);
+  // Add pathname header for locale detection in root layout
+  response.headers.set('x-pathname', pathname);
+  return response;
 }
 
 export const config = {

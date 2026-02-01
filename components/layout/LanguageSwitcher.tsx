@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
 import { HiGlobeAlt, HiChevronDown } from 'react-icons/hi';
 import { cn } from '@/lib/utils';
@@ -54,15 +54,10 @@ export default function LanguageSwitcher({ isSolid = true }: LanguageSwitcherPro
   }, [isOpen]);
 
   const handleLanguageChange = (newLocale: string) => {
-    // Remove the current locale prefix from pathname
-    const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
-    
-    // Navigate to the same path with new locale
-    router.push(`/${newLocale}${pathWithoutLocale}`);
+    // Use next-intl's router to navigate to the current path with new locale
+    // This automatically handles locale prefixes and cookie persistence
+    router.replace(pathname, { locale: newLocale });
     setIsOpen(false);
-    
-    // Set cookie for locale persistence
-    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
   };
 
   return (

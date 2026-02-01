@@ -1,11 +1,11 @@
 'use client'
 
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import TradingViewWidget from '@/components/investor/TradingViewWidget'
 import SubscriptionForm from '@/components/investor/SubscriptionForm'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Button from '@/components/ui/Button'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { 
   HiOutlineDocumentText, 
   HiOutlinePresentationChartLine, 
@@ -17,7 +17,6 @@ import {
 } from 'react-icons/hi'
 
 export default function InvestorCentre() {
-  const locale = useLocale()
   const t = useTranslations('investors')
   const tQuickLinks = useTranslations('investors.quickLinks')
 
@@ -26,49 +25,49 @@ export default function InvestorCentre() {
       title: tQuickLinks('asxAnnouncements'),
       description: tQuickLinks('asxDescription'),
       icon: HiOutlineDocumentText,
-      href: `/${locale}/investors/asx-announcements`,
+      href: '/investors/asx-announcements',
     },
     {
       title: tQuickLinks('financialReports'),
       description: tQuickLinks('financialDescription'),
       icon: HiOutlineChartBar,
-      href: `/${locale}/investors/financial-reports`,
+      href: '/investors/financial-reports',
     },
     {
       title: tQuickLinks('presentations'),
       description: tQuickLinks('presentationsDescription'),
       icon: HiOutlinePresentationChartLine,
-      href: `/${locale}/investors/presentations`,
+      href: '/investors/presentations',
     },
     {
       title: tQuickLinks('shareInfo'),
       description: tQuickLinks('shareDescription'),
       icon: HiOutlineChartBar,
-      href: `/${locale}/investors/share-information`,
+      href: '/investors/share-information',
     },
     {
       title: tQuickLinks('calendar'),
       description: tQuickLinks('calendarDescription'),
       icon: HiOutlineCalendar,
-      href: `/${locale}/investors/calendar`,
+      href: '/investors/calendar',
     },
     {
       title: tQuickLinks('media'),
       description: tQuickLinks('mediaDescription'),
       icon: HiOutlineNewspaper,
-      href: `/${locale}/investors/media`,
+      href: '/investors/media',
     },
     {
       title: tQuickLinks('factSheet'),
       description: tQuickLinks('factSheetDescription'),
       icon: HiOutlineDownload,
-      href: `/${locale}/investors/fact-sheet`,
+      href: '/investors/fact-sheet',
     },
     {
       title: tQuickLinks('esg'),
       description: tQuickLinks('esgDescription'),
       icon: HiOutlineGlobe,
-      href: `/${locale}/investors/esg`,
+      href: '/investors/esg',
     },
   ]
   return (
@@ -158,7 +157,7 @@ export default function InvestorCentre() {
               {t('centre.questionsSubtitle')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button href={`/${locale}/investors/contact`} variant="secondary">
+              <Button href="/investors/contact" variant="secondary">
                 {t('centre.contactIrButton')}
               </Button>
               <button className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600">

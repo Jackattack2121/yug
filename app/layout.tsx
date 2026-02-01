@@ -1,5 +1,6 @@
 import { Montserrat, Josefin_Sans, Merriweather, Noto_Sans_SC, Noto_Sans_JP } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
+import { headers } from 'next/headers';
 import './globals.css';
 
 // Latin fonts
@@ -39,13 +40,28 @@ const notoSansJP = Noto_Sans_JP({
   weight: ['300', '400', '500', '700'],
 });
 
+// Extract locale from URL for setting lang attribute
+function getLocaleFromHeaders(): string {
+  const headersList = headers();
+  const pathname = headersList.get('x-pathname') || headersList.get('referer') || '';
+  
+  // Extract locale from pathname (format: /en/page or /de/page)
+  const localeMatch = pathname.match(/\/(en|de|bs|zh|ja|fr|it)(\/|$)/);
+  
+  // Default to 'en' for admin routes and non-localized paths
+  return localeMatch ? localeMatch[1] : 'en';
+}
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = getLocaleFromHeaders();
+  
   return (
     <html 
+      lang={locale}
       className={`${montserrat.variable} ${josefin.variable} ${merriweather.variable} ${notoSansSC.variable} ${notoSansJP.variable}`}
       suppressHydrationWarning
     >

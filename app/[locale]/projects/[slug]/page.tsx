@@ -3,7 +3,7 @@ import AnimatedSection from '@/components/ui/AnimatedSection';
 import SplitSection from '@/components/ui/SplitSection';
 import StatsBar from '@/components/ui/StatsBar';
 import Button from '@/components/ui/Button';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 export async function generateStaticParams() {
   return [

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
+import { EnglishOnlyWrapper } from '@/lib/asx-utils'
 
 interface Announcement {
   id: string
@@ -50,14 +51,18 @@ export default function ASXAnnouncementList({ announcements, limit }: ASXAnnounc
             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-xs font-semibold uppercase tracking-wider rounded">
-                    {announcement.category}
-                  </span>
+                  <EnglishOnlyWrapper>
+                    <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-xs font-semibold uppercase tracking-wider rounded">
+                      {announcement.category}
+                    </span>
+                  </EnglishOnlyWrapper>
                   <span className="text-sm text-gray-500">{announcement.date}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 hover:text-primary-600 transition-colors">
-                  {announcement.title}
-                </h3>
+                <EnglishOnlyWrapper>
+                  <h3 className="text-lg font-semibold text-gray-900 hover:text-primary-600 transition-colors">
+                    {announcement.title}
+                  </h3>
+                </EnglishOnlyWrapper>
               </div>
               {announcement.file && (
                 <div className="mt-4 md:mt-0 md:ml-4">
