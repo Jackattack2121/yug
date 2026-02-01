@@ -29,22 +29,31 @@ export default async function ASXAnnouncements() {
   return (
     <>
       {/* Hero Section - Minimal */}
-      <section className="relative bg-white py-32 md:py-40">
-        <div className="container">
+      <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
+        {/* Background Image with fade */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: 'url(/yugo_images/aerial-view-motor-grader-civil-at-construction-sit-2025-07-08-16-02-40-utc.jpg)' }}
+        />
+        
+        {/* Blue Overlay */}
+        <div className="absolute inset-0 bg-primary-600/60"></div>
+        
+        <div className="container relative z-10">
           <AnimatedSection>
             <div className="max-w-4xl">
-              <h1 className="text-display text-secondary-900 mb-6">
+              <h1 className="text-heading-lg text-white mb-4">
                 ASX<br />
                 Announcements
               </h1>
-              <p className="text-xl text-gray-600 font-josefin mb-4">
+              <p className="text-sm font-semibold uppercase tracking-wider text-white/90 mb-6">
                 Stay up-to-date with the latest news and announcements from Yugo Metals ({companyASXCode})
               </p>
               <a
                 href={`https://www.asx.com.au/markets/company/${companyASXCode}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm uppercase tracking-wider hover:gap-4 transition-all"
+                className="inline-flex items-center gap-2 text-white font-semibold text-sm uppercase tracking-wider hover:gap-4 transition-all hover:text-white/80"
               >
                 <span>View on ASX.com.au</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

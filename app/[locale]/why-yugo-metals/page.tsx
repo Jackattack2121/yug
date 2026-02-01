@@ -53,7 +53,7 @@ export default function WhyYugoMetals() {
   return (
     <>
       {/* Hero Section - Split */}
-      <section className="grid md:grid-cols-2 min-h-[70vh] bg-white">
+      <section className="grid md:grid-cols-2 min-h-[70vh]">
         <div className="bg-secondary-900 flex items-center justify-center p-12">
           <div className="w-full max-w-sm">
             <Image
@@ -66,14 +66,23 @@ export default function WhyYugoMetals() {
             />
           </div>
         </div>
-        <div className="flex items-center p-8 md:p-12 lg:p-20">
-          <div>
+        <div className="relative overflow-hidden flex items-center p-8 md:p-12 lg:p-20">
+          {/* Background Image with fade */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-20"
+            style={{ backgroundImage: 'url(/yugo_images/lush-mountain-forest-in-bosnia-aerial-shot-2025-09-09-00-26-14-utc.jpg)' }}
+          />
+          
+          {/* Blue Overlay */}
+          <div className="absolute inset-0 bg-primary-600/60"></div>
+          
+          <div className="relative z-10">
             <AnimatedSection>
-              <h1 className="text-display text-secondary-900 mb-6">
+              <h1 className="text-heading-lg text-white mb-4">
                 Why Yugo<br />
                 Metals?
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
+              <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
                 Exploring for metals on the doorstep of the European Union
               </p>
             </AnimatedSection>

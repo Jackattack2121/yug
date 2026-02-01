@@ -1,3 +1,6 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 
@@ -22,6 +25,8 @@ export default function NewsCard({
   downloadUrl,
   className,
 }: NewsCardProps) {
+  const t = useTranslations('buttons')
+
   const CardContent = () => (
     <div
       className={cn(
@@ -55,14 +60,14 @@ export default function NewsCard({
         <div className="flex items-center text-primary-600 font-semibold text-sm uppercase tracking-wider">
           {downloadUrl ? (
             <>
-              <span>Download</span>
+              <span>{t('download')}</span>
               <svg className="w-4 h-4 ml-2 hover-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3" />
               </svg>
             </>
           ) : (
             <>
-              <span>View More</span>
+              <span>{t('viewMore')}</span>
               <svg className="w-4 h-4 ml-2 hover-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

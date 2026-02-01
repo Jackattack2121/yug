@@ -5,15 +5,24 @@ import { HiOutlineDocumentText } from 'react-icons/hi'
 export default function FinancialReports() {
   return (
     <>
-      <section className="relative bg-white py-32 md:py-40">
-        <div className="container">
+      <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
+        {/* Background Image with fade */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: 'url(/yugo_images/the-truck-transports-the-minerals-from-the-top-vie-2025-10-16-12-14-08-utc.jpg)' }}
+        />
+        
+        {/* Blue Overlay */}
+        <div className="absolute inset-0 bg-primary-600/60"></div>
+        
+        <div className="container relative z-10">
           <AnimatedSection>
             <div className="max-w-4xl">
-              <h1 className="text-display text-secondary-900 mb-6">
+              <h1 className="text-heading-lg text-white mb-4">
                 Financial<br />
                 Reports
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
+              <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
                 Access our latest financial reports, quarterly activities, and annual statements
               </p>
             </div>

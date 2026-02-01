@@ -1,240 +1,416 @@
 {
   "common": {
     "companyName": "Yugo Metals",
-    "loading": "Loading...",
-    "readMore": "Read More",
-    "learnMore": "Learn More",
-    "viewAll": "View All",
-    "downloadPdf": "Download PDF",
-    "backToTop": "Back to Top"
+    "loading": "加载中...",
+    "readMore": "阅读更多",
+    "learnMore": "了解更多",
+    "viewAll": "查看全部",
+    "downloadPdf": "下载PDF",
+    "backToTop": "返回顶部"
   },
   "navigation": {
     "header": {
-      "aboutLink": "About",
-      "investorsLink": "Investors",
-      "projectsLink": "Projects",
+      "aboutLink": "关于我们",
+      "investorsLink": "投资者",
+      "projectsLink": "项目",
       "esgLink": "ESG",
-      "contactLink": "Contact"
+      "contactLink": "联系我们"
     },
     "footer": {
-      "projectsTitle": "Projects",
-      "companyTitle": "Company",
-      "investorsTitle": "Investors",
-      "contactTitle": "Contact"
+      "projectsTitle": "项目",
+      "companyTitle": "公司",
+      "investorsTitle": "投资者",
+      "contactTitle": "联系方式"
     },
     "mobileMenu": {
-      "navigationTitle": "Navigation",
-      "projectsTitle": "Projects"
+      "navigationTitle": "导航",
+      "projectsTitle": "项目"
     }
   },
   "homepage": {
     "hero": {
-      "title": "European Metals Exploration",
-      "subtitle": "Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union.",
-      "cta": "View Our Projects"
+      "titleLine1": "在欧洲中心",
+      "titleLine2": "探索",
+      "titleLine3": "关键",
+      "titleLine4": "金属",
+      "companyName": "YUGO METALS",
+      "rotatingText1": "黄金、锑、镍、铜",
+      "rotatingText2": "贵金属、基本金属和电池金属",
+      "rotatingText3": "多金属勘探",
+      "location": "波斯尼亚和黑塞哥维那",
+      "cta": "开始探索"
     },
-    "about": {
-      "title": "Why Yugo Metals",
-      "description": "Strategic positioning in Europe's critical minerals sector"
+    "intro": {
+      "titleLine1": "100%拥有",
+      "titleLine2": "五个项目",
+      "titleLine3": "位于欧盟",
+      "titleLine4": "门户",
+      "description": "Yugo Metals在波斯尼亚和黑塞哥维那勘探黄金、锑、镍、铜和贵金属。我们的项目结合了历史采矿知识和现代系统勘探技术，位于世界上最古老的采矿区之一。",
+      "cta": "关于Yugo Metals"
     },
-    "projects": {
-      "title": "Our Projects",
-      "subtitle": "Exploring high-grade opportunities in Bosnia and Herzegovina"
+    "stats": {
+      "stat1Value": "5",
+      "stat1Label": "个项目",
+      "stat1Sublabel": "100%持有",
+      "stat2Value": "100%",
+      "stat2Label": "所有权",
+      "stat2Sublabel": "完全控制",
+      "stat3Value": "欧盟",
+      "stat3Label": "候选国",
+      "stat3Sublabel": "战略位置",
+      "stat4Value": "3+",
+      "stat4Label": "年",
+      "stat4Sublabel": "运营时间"
     },
-    "investors": {
-      "title": "Investor Centre",
-      "subtitle": "Access reports, announcements, and company information"
+    "projectsSection": {
+      "titleLine1": "五个项目",
+      "titleLine2": "瞄准能源转型",
+      "titleLine3": "所需的",
+      "titleLine4": "关键金属",
+      "subtitle": "波斯尼亚和黑塞哥维那全境的黄金、锑、镍、铜和贵金属",
+      "exploreProject": "探索项目",
+      "viewAllProjects": "查看所有项目"
+    },
+    "assetsSection": {
+      "titleLine1": "发现我们的",
+      "titleLine2": "资产",
+      "criticalMetalsTitle": "关键金属",
+      "criticalMetalsDescription": "瞄准黄金、锑、镍和铜——能源转型和欧洲供应安全所需的关键金属。",
+      "strategicLocationTitle": "战略位置",
+      "strategicLocationDescription": "波斯尼亚和黑塞哥维那是欧盟候选国，为进入欧洲市场和供应链提供战略优势。",
+      "modernExplorationTitle": "现代勘探",
+      "modernExplorationDescription": "将系统性现代勘探技术应用于历史上具有生产力的采矿区域，具有巨大潜力。",
+      "learnMore": "了解更多"
+    },
+    "latestSection": {
+      "titleLine1": "来自",
+      "titleLine2": "Yugo Metals的最新消息",
+      "viewAllAnnouncements": "查看所有公告"
+    },
+    "ctaSection": {
+      "titleLine1": "让我们一起",
+      "titleLine2": "探索可能性",
+      "subtitle": "想了解更多关于我们的勘探计划和投资机会？",
+      "contactButton": "联系投资者关系部",
+      "prospectusButton": "查看招股说明书"
     }
   },
   "investors": {
     "centre": {
-      "title": "Investor Centre",
-      "subtitle": "Your gateway to company information, financial reports, and market updates",
-      "resourcesTitle": "Investor Resources",
-      "questionsTitle": "Have Questions?",
-      "questionsSubtitle": "Our Investor Relations team is here to help. Get in touch for more information.",
-      "contactIrButton": "Contact IR Team",
-      "downloadFactSheet": "Download Fact Sheet"
+      "title": "投资者中心",
+      "subtitle": "您获取公司信息、财务报告和市场更新的门户",
+      "resourcesTitle": "投资者资源",
+      "questionsTitle": "有疑问？",
+      "questionsSubtitle": "我们的投资者关系团队随时为您提供帮助。联系我们获取更多信息。",
+      "contactIrButton": "联系投资者关系团队",
+      "downloadFactSheet": "下载概况说明"
     },
     "sharePrice": {
-      "title": "Share Price",
-      "currentLabel": "Current",
-      "changeLabel": "Change",
-      "volumeLabel": "Volume",
-      "highLabel": "High",
-      "lowLabel": "Low",
-      "openLabel": "Open",
-      "lastUpdated": "Last Updated"
+      "title": "股价",
+      "currentLabel": "当前",
+      "changeLabel": "变动",
+      "volumeLabel": "成交量",
+      "highLabel": "最高",
+      "lowLabel": "最低",
+      "openLabel": "开盘",
+      "lastUpdated": "最后更新",
+      "unavailable": "实时市场数据不可用",
+      "viewOnAsx": "在ASX查看股价 →",
+      "stockPrice": "YUG股价",
+      "byTradingView": "由TradingView提供"
     },
     "announcements": {
-      "title": "ASX Announcements",
-      "subtitle": "Latest company announcements and market updates",
-      "dateLabel": "Date",
-      "categoryLabel": "Category",
-      "noAnnouncements": "No announcements available"
+      "titleLine1": "ASX",
+      "titleLine2": "公告",
+      "title": "ASX公告",
+      "subtitle": "及时了解来自Yugo Metals ({companyASXCode})的最新消息和公告",
+      "subtitleSimple": "最新公司公告和市场更新",
+      "dateLabel": "日期",
+      "categoryLabel": "类别",
+      "noAnnouncements": "暂无公告",
+      "comingSoon": "公告即将发布",
+      "comingSoonDescription": "ASX公告将在可用时显示在此处。同时，您可以使用上面的链接直接在ASX网站上查看我们公司的公告。",
+      "viewOnAsx": "在ASX.com.au查看",
+      "searchPlaceholder": "搜索公告...",
+      "noResults": "未找到公告。",
+      "subscribeTitle": "订阅更新",
+      "subscribeDescription": "在发布新公告时接收电子邮件通知"
     },
     "financialReports": {
-      "title": "Financial Reports",
-      "subtitle": "Quarterly, half-yearly, and annual reports",
-      "quarterlyTitle": "Quarterly Reports",
-      "annualTitle": "Annual Reports"
+      "title": "财务报告",
+      "subtitle": "季度、半年度和年度报告",
+      "quarterlyTitle": "季度报告",
+      "annualTitle": "年度报告"
     },
     "presentations": {
-      "title": "Presentations",
-      "subtitle": "Investor presentations and company briefings"
+      "titleLine1": "投资者",
+      "titleLine2": "演示",
+      "title": "演示",
+      "subtitle": "访问我们最新的投资者和企业演示",
+      "subtitleSimple": "投资者演示和公司简报",
+      "comingSoon": "演示即将发布",
+      "comingSoonDescription": "投资者和企业演示将在发布后在此提供。请稍后查看或订阅以在发布新演示时收到通知。",
+      "subscribeButton": "订阅更新"
     },
     "shareInfo": {
-      "title": "Share Information",
-      "subtitle": "Share registry and trading information",
-      "tickerLabel": "ASX Code",
-      "registryTitle": "Share Registry",
-      "tradingTitle": "Trading Information"
+      "title": "股票信息",
+      "subtitle": "股票登记处和交易信息",
+      "tickerLabel": "ASX代码",
+      "registryTitle": "股票登记处",
+      "tradingTitle": "交易信息"
     },
     "calendar": {
-      "title": "Investor Calendar",
-      "subtitle": "Upcoming events, meetings, and report dates",
-      "eventTypeLabel": "Event Type",
-      "dateLabel": "Date",
-      "noEvents": "No upcoming events"
+      "title": "投资者日历",
+      "subtitle": "即将举行的活动、会议和报告日期",
+      "eventTypeLabel": "活动类型",
+      "dateLabel": "日期",
+      "noEvents": "暂无即将举行的活动"
     },
     "media": {
-      "title": "Media Coverage",
-      "subtitle": "News articles and media mentions",
-      "sourceLabel": "Source",
-      "dateLabel": "Date"
+      "title": "媒体报道",
+      "subtitle": "新闻文章和媒体提及",
+      "sourceLabel": "来源",
+      "dateLabel": "日期"
     },
     "factSheet": {
-      "title": "Fact Sheet",
-      "subtitle": "Download our company fact sheet",
-      "download": "Download Fact Sheet"
+      "title": "概况说明",
+      "subtitle": "下载我们的公司概况说明",
+      "download": "下载概况说明"
     },
     "esg": {
       "title": "ESG",
-      "subtitle": "Environmental, social, and governance",
-      "environmentTitle": "Environmental",
-      "socialTitle": "Social",
-      "governanceTitle": "Governance"
+      "subtitle": "环境、社会和治理",
+      "environmentTitle": "环境",
+      "socialTitle": "社会",
+      "governanceTitle": "治理"
     },
     "quickLinks": {
-      "asxAnnouncements": "ASX Announcements",
-      "asxDescription": "Latest company announcements and market updates",
-      "financialReports": "Financial Reports",
-      "financialDescription": "Quarterly, half-yearly, and annual reports",
-      "presentations": "Presentations",
-      "presentationsDescription": "Investor presentations and company briefings",
-      "shareInfo": "Share Information",
-      "shareDescription": "Share registry and trading information",
-      "calendar": "Investor Calendar",
-      "calendarDescription": "Upcoming events, meetings, and report dates",
-      "media": "Media Coverage",
-      "mediaDescription": "News articles and media mentions",
-      "factSheet": "Fact Sheet",
-      "factSheetDescription": "Download our company fact sheet",
+      "asxAnnouncements": "ASX公告",
+      "asxDescription": "最新公司公告和市场更新",
+      "financialReports": "财务报告",
+      "financialDescription": "季度、半年度和年度报告",
+      "presentations": "演示",
+      "presentationsDescription": "投资者演示和公司简报",
+      "shareInfo": "股票信息",
+      "shareDescription": "股票登记处和交易信息",
+      "calendar": "投资者日历",
+      "calendarDescription": "即将举行的活动、会议和报告日期",
+      "media": "媒体报道",
+      "mediaDescription": "新闻文章和媒体提及",
+      "factSheet": "概况说明",
+      "factSheetDescription": "下载我们的公司概况说明",
       "esg": "ESG",
-      "esgDescription": "Environmental, social, and governance",
-      "view": "View"
+      "esgDescription": "环境、社会和治理",
+      "view": "查看"
     }
   },
   "projects": {
-    "title": "Our Projects",
-    "subtitle": "Exploring high-grade opportunities in Bosnia and Herzegovina",
+    "title": "我们的项目",
+    "subtitle": "五个高潜力勘探项目，瞄准能源转型所需的关键金属",
+    "pageTitle": "波斯尼亚和黑塞哥维那项目",
+    "heading": "我们的项目",
+    "exploreProject": "探索项目",
+    "learnMore": "了解更多",
+    "viewAllProjects": "查看所有项目",
+    "projectOverview": "项目概览",
+    "explorationHighlights": "勘探亮点",
+    "projectAdvantages": "项目优势",
+    "explorationProgram": "勘探计划",
+    "projectNumber": "项目{number}",
+    "projectNotFound": "未找到项目",
+    "exploreMoreProjects": "探索更多项目",
+    "exploreMoreDescription": "发现我们在波斯尼亚和黑塞哥维那的五个项目",
+    "latestAnnouncements": "最新公告",
+    "allProjects": "所有项目",
     "doboj": {
       "name": "Doboj Project",
-      "shortDescription": "High-grade nickel-copper project",
-      "location": "Doboj, Bosnia and Herzegovina"
+      "shortDescription": "高品位镍铜项目",
+      "location": "斯普斯卡共和国，波斯尼亚和黑塞哥维那",
+      "type": "黄金、锑、镍、铜",
+      "number": "01"
     },
     "jezero": {
       "name": "Jezero Project",
-      "shortDescription": "Promising exploration target",
-      "location": "Jezero, Bosnia and Herzegovina"
+      "shortDescription": "前景广阔的勘探目标",
+      "location": "斯普斯卡共和国，波斯尼亚和黑塞哥维那",
+      "type": "贵金属",
+      "number": "02"
     },
     "sockovac": {
       "name": "Sočkovac Project",
-      "shortDescription": "Strategic exploration area",
-      "location": "Sočkovac, Bosnia and Herzegovina"
+      "shortDescription": "战略勘探区域",
+      "location": "斯普斯卡共和国，波斯尼亚和黑塞哥维那",
+      "type": "基本金属",
+      "number": "03"
     },
     "sinjakovo": {
       "name": "Sinjakovo Project",
-      "shortDescription": "High-potential mineral deposits",
-      "location": "Sinjakovo, Bosnia and Herzegovina"
+      "shortDescription": "高潜力矿床",
+      "location": "斯普斯卡共和国，波斯尼亚和黑塞哥维那",
+      "type": "铜、钴",
+      "number": "04"
     },
     "cajnice": {
       "name": "Čajniče Project",
-      "shortDescription": "Emerging exploration opportunity",
-      "location": "Čajniče, Bosnia and Herzegovina"
+      "shortDescription": "新兴勘探机会",
+      "location": "斯普斯卡共和国，波斯尼亚和黑塞哥维那",
+      "type": "镍、贵金属",
+      "number": "05"
     },
-    "overview": "Overview",
-    "geology": "Geology",
-    "exploration": "Exploration",
-    "resources": "Resources"
+    "picker": {
+      "title": "项目",
+      "subtitle": "波斯尼亚和黑塞哥维那项目"
+    },
+    "cta": {
+      "titleLine1": "对我们的",
+      "titleLine2": "勘探计划感兴趣？",
+      "subtitle": "及时了解我们最新的勘探成果和公司发展",
+      "viewAnnouncements": "查看ASX公告",
+      "contactUs": "联系我们"
+    },
+    "overview": "概览",
+    "geology": "地质",
+    "exploration": "勘探",
+    "resources": "资源"
   },
   "company": {
     "about": {
-      "title": "Why Yugo Metals",
-      "subtitle": "Strategic positioning in Europe's critical minerals sector"
+      "titleLine1": "为什么选择",
+      "titleLine2": "Yugo Metals？",
+      "subtitle": "在欧盟门户勘探金属",
+      "introTitleLine1": "位于波斯尼亚",
+      "introTitleLine2": "和黑塞哥维那，",
+      "introTitleLine3": "欧盟的",
+      "introTitleLine4": "门户",
+      "reasonsTitle": "投资Yugo Metals的六大理由",
+      "reasonsTitleLine1": "投资",
+      "reasonsTitleLine2": "Yugo Metals的六大理由",
+      "modernExplorationTitleLine1": "在历史",
+      "modernExplorationTitleLine2": "采矿区的",
+      "modernExplorationTitleLine3": "现代勘探",
+      "keyHighlights": "关键亮点",
+      "criticalMetalsTitle": "欧洲关键金属",
+      "criticalMetalsSubtitle": "能源转型所需的黄金、锑、镍和铜",
+      "ctaTitleLine1": "准备了解更多？",
+      "ctaSubtitle": "探索我们的项目并及时了解最新公告",
+      "viewAnnouncements": "查看ASX公告",
+      "exploreProjects": "探索我们的项目"
     },
     "board": {
-      "title": "Board of Directors",
-      "subtitle": "Experienced leadership team",
-      "management": "Management"
+      "title": "董事会",
+      "subtitle": "经验丰富的领导团队",
+      "description": "我们的董事会汇聚了数十年在采矿勘探、公司治理和资本市场方面的综合经验。他们的领导指导着Yugo Metals的战略方向，并致力于为股东创造价值。",
+      "management": "管理层",
+      "emailButton": "✉️ 电子邮件",
+      "linkedinButton": "🔗 领英"
     },
     "governance": {
-      "title": "Corporate Governance",
-      "subtitle": "Commitment to transparency and best practices",
-      "policies": "Policies",
-      "charters": "Charters"
+      "title": "公司治理",
+      "subtitle": "致力于透明度和最佳实践",
+      "policies": "政策",
+      "charters": "章程"
     },
     "directory": {
-      "title": "Corporate Directory",
-      "subtitle": "Key contacts and information"
+      "title": "公司名录",
+      "subtitle": "联系信息和办公地点",
+      "corporateOffice": "公司办公室",
+      "contactInfo": "联系信息",
+      "address": "地址",
+      "phone": "电话",
+      "email": "电子邮件",
+      "website": "网站",
+      "asxListing": "ASX上市",
+      "governanceFramework": "治理框架",
+      "boardOfDirectors": "董事会",
+      "governancePolicies": "治理政策",
+      "codeOfConduct": "行为准则",
+      "riskManagement": "风险管理",
+      "whistleblowerPolicy": "举报人政策"
     },
     "responsibility": {
-      "title": "Corporate Responsibility",
-      "subtitle": "Our commitment to sustainable practices"
+      "title": "企业责任",
+      "subtitle": "可持续采矿实践",
+      "ourCommitment": "我们的承诺",
+      "environmentalStewardship": "环境管理",
+      "communityEngagement": "社区参与"
     }
   },
   "contact": {
-    "title": "Contact Us",
-    "subtitle": "Get in touch with our team",
-    "generalInquiries": "General Inquiries",
-    "investorRelations": "Investor Relations",
-    "media": "Media Inquiries",
-    "office": "Office",
-    "address": "Address",
-    "phone": "Phone",
-    "email": "Email"
+    "titleLine1": "联系",
+    "titleLine2": "我们",
+    "subtitle": "与Yugo Metals取得联系。我们将为您解答疑问。",
+    "formTitle": "取得联系",
+    "nameLabel": "您的姓名 *",
+    "emailLabel": "电子邮件地址 *",
+    "phoneLabel": "电话号码",
+    "subjectLabel": "主题 *",
+    "subjectPlaceholder": "选择主题",
+    "subjectGeneral": "一般咨询",
+    "subjectInvestor": "投资者关系",
+    "subjectMedia": "媒体咨询",
+    "subjectPartnership": "合作机会",
+    "messageLabel": "留言 *",
+    "sendButton": "发送消息",
+    "contactInfo": "联系信息",
+    "registeredOffice": "注册办公室",
+    "phoneEmail": "电话和电子邮件",
+    "businessHours": "营业时间",
+    "businessHoursValue": "周一至周五：上午9:00 - 下午5:00（澳大利亚西部标准时间）",
+    "followUs": "关注我们",
+    "generalInquiries": "一般咨询",
+    "investorRelations": "投资者关系",
+    "media": "媒体咨询",
+    "office": "办公室",
+    "address": "地址",
+    "phone": "电话",
+    "email": "电子邮件"
   },
   "forms": {
     "subscription": {
-      "title": "Stay Informed",
-      "subtitle": "Subscribe to receive updates on exploration results and company developments",
-      "emailPlaceholder": "Your email",
-      "subscribeButton": "Subscribe",
-      "successMessage": "Thank you for subscribing!",
-      "errorMessage": "Subscription failed. Please try again."
+      "title": "保持了解",
+      "subtitle": "订阅接收勘探成果和公司发展的更新",
+      "subtitleShort": "订阅投资者更新",
+      "emailPlaceholder": "输入您的电子邮件",
+      "emailPlaceholderAlt": "your.email@example.com",
+      "subscribeButton": "订阅",
+      "subscribingButton": "订阅中...",
+      "subscribedButton": "已订阅！",
+      "successTitle": "订阅成功！",
+      "successMessage": "感谢您的订阅！请查看您的电子邮件以确认。",
+      "errorMessage": "订阅失败。请重试。",
+      "launchingSoon": "电子邮件订阅即将推出。请稍后查看或直接联系我们。",
+      "privacyNote": "我们尊重您的隐私。随时取消订阅。",
+      "nameLabel": "姓名",
+      "namePlaceholder": "您的姓名",
+      "emailLabel": "电子邮件地址",
+      "preferencesLabel": "电子邮件偏好",
+      "asxAnnouncementsLabel": "ASX公告",
+      "quarterlyReportsLabel": "季度和年度报告",
+      "companyNewsLabel": "公司新闻和更新",
+      "submitButton": "订阅更新"
     },
     "contact": {
-      "namePlaceholder": "Your name",
-      "emailPlaceholder": "Your email",
-      "messagePlaceholder": "Your message",
-      "submitButton": "Send Message",
-      "successMessage": "Message sent successfully!",
-      "errorMessage": "Failed to send message. Please try again."
+      "namePlaceholder": "您的姓名",
+      "emailPlaceholder": "您的电子邮件",
+      "messagePlaceholder": "您的留言",
+      "submitButton": "发送消息",
+      "successMessage": "消息发送成功！",
+      "errorMessage": "发送消息失败。请重试。"
     },
     "validation": {
-      "required": "This field is required",
-      "invalidEmail": "Please enter a valid email address",
-      "minLength": "Minimum {min} characters required",
-      "maxLength": "Maximum {max} characters allowed"
+      "required": "此字段为必填项",
+      "invalidEmail": "请输入有效的电子邮件地址",
+      "minLength": "最少需要{min}个字符",
+      "maxLength": "最多允许{max}个字符"
     }
   },
   "footer": {
-    "tagline": "Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union.",
+    "tagline": "在欧盟门户的波斯尼亚和黑塞哥维那勘探镍、铜、钴和贵金属。",
     "newsletter": {
-      "title": "Stay Informed",
-      "subtitle": "Receive updates on exploration results and company developments",
-      "placeholder": "Your email",
-      "button": "Subscribe"
+      "title": "保持了解",
+      "subtitle": "接收勘探成果和公司发展的更新",
+      "placeholder": "您的电子邮件",
+      "button": "订阅"
     },
     "projects": {
       "doboj": "Doboj Project",
@@ -244,68 +420,92 @@
       "cajnice": "Čajniče Project"
     },
     "company": {
-      "about": "About",
-      "board": "Board & Management",
-      "governance": "Corporate Governance",
+      "about": "关于我们",
+      "board": "董事会与管理层",
+      "governance": "公司治理",
       "esg": "ESG"
     },
     "investors": {
-      "centre": "Investor Centre",
-      "announcements": "ASX Announcements",
-      "presentations": "Presentations",
-      "factSheet": "Fact Sheet",
-      "prospectus": "Prospectus"
+      "centre": "投资者中心",
+      "announcements": "ASX公告",
+      "presentations": "演示",
+      "factSheet": "概况说明",
+      "prospectus": "招股说明书"
     },
     "location": {
-      "city": "Perth, WA 6000",
-      "country": "Australia"
+      "city": "珀斯，西澳6000",
+      "country": "澳大利亚"
     },
-    "copyright": "© {year} Yugo Metals. All Rights Reserved."
+    "copyright": "© {year} Yugo Metals。保留所有权利。"
+  },
+  "prospectus": {
+    "title": "配股招股说明书",
+    "subtitle": "当前配股信息",
+    "overview": "配股概览",
+    "importantDates": "重要日期",
+    "documents": "招股说明书文件",
+    "documentTitle": "招股说明书",
+    "formTitle": "权益和接受表格",
+    "importantNotice": "重要通知",
+    "contactTitle": "联系我们获取更多信息",
+    "announcementDate": "公告日期：",
+    "description": "Yugo Metals很高兴为符合条件的股东提供参与我们当前配股的机会。此次融资将资助我们在波斯尼亚和黑塞哥维那的五个项目中持续进行的勘探活动。",
+    "fundsTitle": "募集资金将用于："
+  },
+  "mining": {
+    "mainIntercept": "主要截距：",
+    "including": "包括：",
+    "references": "参考文献："
   },
   "asx": {
-    "regulatoryNotice": "This content is provided in English as required by ASX regulations",
-    "englishOnly": "English Only"
+    "regulatoryNotice": "根据ASX法规要求，此内容以英文提供",
+    "englishOnly": "仅英文"
   },
   "buttons": {
-    "submit": "Submit",
-    "cancel": "Cancel",
-    "close": "Close",
-    "save": "Save",
-    "delete": "Delete",
-    "edit": "Edit",
-    "view": "View",
-    "download": "Download",
-    "back": "Back",
-    "next": "Next",
-    "previous": "Previous"
+    "submit": "提交",
+    "cancel": "取消",
+    "close": "关闭",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "view": "查看",
+    "viewMore": "查看更多",
+    "download": "下载",
+    "back": "返回",
+    "next": "下一页",
+    "previous": "上一页",
+    "learnMore": "了解更多",
+    "readMore": "阅读更多",
+    "exploreProject": "探索项目",
+    "explore": "探索"
   },
   "errors": {
-    "pageNotFound": "Page Not Found",
-    "somethingWentWrong": "Something went wrong",
-    "tryAgain": "Please try again",
-    "goHome": "Go to Homepage",
-    "networkError": "Network connection failed"
+    "pageNotFound": "找不到页面",
+    "somethingWentWrong": "出了点问题",
+    "tryAgain": "请重试",
+    "goHome": "返回首页",
+    "networkError": "网络连接失败"
   },
   "metadata": {
     "homepage": {
-      "title": "Yugo Metals - European Metals Exploration and Development",
-      "description": "Yugo Metals explores for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union."
+      "title": "Yugo Metals - 欧洲金属勘探与开发",
+      "description": "Yugo Metals在欧盟门户的波斯尼亚和黑塞哥维那勘探镍、铜、钴和贵金属。"
     },
     "investors": {
-      "title": "Investor Centre - Yugo Metals",
-      "description": "Access financial reports, ASX announcements, presentations, and company information."
+      "title": "投资者中心 - Yugo Metals",
+      "description": "获取财务报告、ASX公告、演示和公司信息。"
     },
     "projects": {
-      "title": "Our Projects - Yugo Metals",
-      "description": "Exploring high-grade nickel, copper, and cobalt opportunities in Bosnia and Herzegovina."
+      "title": "我们的项目 - Yugo Metals",
+      "description": "在波斯尼亚和黑塞哥维那勘探高品位镍、铜和钴机会。"
     },
     "about": {
-      "title": "Why Yugo Metals - About Us",
-      "description": "Strategic positioning in Europe's critical minerals sector with high-grade exploration projects."
+      "title": "为什么选择Yugo Metals - 关于我们",
+      "description": "凭借高品位勘探项目在欧洲关键矿产领域的战略定位。"
     },
     "contact": {
-      "title": "Contact Us - Yugo Metals",
-      "description": "Get in touch with our team for inquiries about investor relations, media, or general information."
+      "title": "联系我们 - Yugo Metals",
+      "description": "联系我们的团队咨询投资者关系、媒体或一般信息。"
     }
   }
 }

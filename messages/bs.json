@@ -1,240 +1,416 @@
 {
   "common": {
     "companyName": "Yugo Metals",
-    "loading": "Loading...",
-    "readMore": "Read More",
-    "learnMore": "Learn More",
-    "viewAll": "View All",
-    "downloadPdf": "Download PDF",
-    "backToTop": "Back to Top"
+    "loading": "Učitavanje...",
+    "readMore": "Pročitaj više",
+    "learnMore": "Saznaj više",
+    "viewAll": "Pogledaj sve",
+    "downloadPdf": "Preuzmi PDF",
+    "backToTop": "Nazad na vrh"
   },
   "navigation": {
     "header": {
-      "aboutLink": "About",
-      "investorsLink": "Investors",
-      "projectsLink": "Projects",
+      "aboutLink": "O nama",
+      "investorsLink": "Investitori",
+      "projectsLink": "Projekti",
       "esgLink": "ESG",
-      "contactLink": "Contact"
+      "contactLink": "Kontakt"
     },
     "footer": {
-      "projectsTitle": "Projects",
-      "companyTitle": "Company",
-      "investorsTitle": "Investors",
-      "contactTitle": "Contact"
+      "projectsTitle": "Projekti",
+      "companyTitle": "Kompanija",
+      "investorsTitle": "Investitori",
+      "contactTitle": "Kontakt"
     },
     "mobileMenu": {
-      "navigationTitle": "Navigation",
-      "projectsTitle": "Projects"
+      "navigationTitle": "Navigacija",
+      "projectsTitle": "Projekti"
     }
   },
   "homepage": {
     "hero": {
-      "title": "European Metals Exploration",
-      "subtitle": "Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union.",
-      "cta": "View Our Projects"
+      "titleLine1": "Istraživanje",
+      "titleLine2": "Kritičnih metala",
+      "titleLine3": "u srcu",
+      "titleLine4": "Evrope",
+      "companyName": "YUGO METALS",
+      "rotatingText1": "Zlato, Antimon, Nikal, Bakar",
+      "rotatingText2": "Plemeniti, Osnovni i Baterijski Metali",
+      "rotatingText3": "Polimetalično Istraživanje",
+      "location": "Bosna i Hercegovina",
+      "cta": "Počni Istraživanje"
     },
-    "about": {
-      "title": "Why Yugo Metals",
-      "description": "Strategic positioning in Europe's critical minerals sector"
+    "intro": {
+      "titleLine1": "100% Vlasništvo",
+      "titleLine2": "Pet Projekata",
+      "titleLine3": "na Pragu",
+      "titleLine4": "Evropske Unije",
+      "description": "Yugo Metals istražuje zlato, antimon, nikal, bakar i plemenite metale u Bosni i Hercegovini. Naši projekti kombinuju istorijsko rudarsko znanje sa modernim sistematskim istraživanjem u jednom od najstarijih rudarskih regiona svijeta.",
+      "cta": "O Yugo Metals"
     },
-    "projects": {
-      "title": "Our Projects",
-      "subtitle": "Exploring high-grade opportunities in Bosnia and Herzegovina"
+    "stats": {
+      "stat1Value": "5",
+      "stat1Label": "Projekata",
+      "stat1Sublabel": "100% Vlasništvo",
+      "stat2Value": "100%",
+      "stat2Label": "Vlasništvo",
+      "stat2Sublabel": "Potpuna Kontrola",
+      "stat3Value": "EU",
+      "stat3Label": "Pristupna Država",
+      "stat3Sublabel": "Strateška Lokacija",
+      "stat4Value": "3+",
+      "stat4Label": "Godine",
+      "stat4Sublabel": "U Radu"
     },
-    "investors": {
-      "title": "Investor Centre",
-      "subtitle": "Access reports, announcements, and company information"
+    "projectsSection": {
+      "titleLine1": "Pet Projekata",
+      "titleLine2": "Ciljaju Kritične",
+      "titleLine3": "Metale za",
+      "titleLine4": "Energetsku Tranziciju",
+      "subtitle": "Zlato, antimon, nikal, bakar i plemeniti metali širom Bosne i Hercegovine",
+      "exploreProject": "Istražite Projekat",
+      "viewAllProjects": "Pogledaj sve projekte"
+    },
+    "assetsSection": {
+      "titleLine1": "Otkrijte Naša",
+      "titleLine2": "Sredstva",
+      "criticalMetalsTitle": "Kritični Metali",
+      "criticalMetalsDescription": "Ciljamo zlato, antimon, nikal i bakar - osnovne metale za energetsku tranziciju i evropsku sigurnost snabdijevanja.",
+      "strategicLocationTitle": "Strateška Lokacija",
+      "strategicLocationDescription": "Bosna i Hercegovina je pristupna država EU, nudeći strateški pristup evropskim tržištima i lancima snabdijevanja.",
+      "modernExplorationTitle": "Moderno Istraživanje",
+      "modernExplorationDescription": "Primjena sistematskih modernih tehnika istraživanja u istorijski produktivnom rudarskom regionu sa značajnim potencijalom.",
+      "learnMore": "Saznaj više"
+    },
+    "latestSection": {
+      "titleLine1": "Najnovije od",
+      "titleLine2": "Yugo Metals",
+      "viewAllAnnouncements": "Pogledaj sve objave"
+    },
+    "ctaSection": {
+      "titleLine1": "Istražimo",
+      "titleLine2": "Mogućnosti Zajedno",
+      "subtitle": "Želite saznati više o našim programima istraživanja i investicionim mogućnostima?",
+      "contactButton": "Kontaktirajte Odnose sa Investitorima",
+      "prospectusButton": "Pogledaj Prospekt"
     }
   },
   "investors": {
     "centre": {
-      "title": "Investor Centre",
-      "subtitle": "Your gateway to company information, financial reports, and market updates",
-      "resourcesTitle": "Investor Resources",
-      "questionsTitle": "Have Questions?",
-      "questionsSubtitle": "Our Investor Relations team is here to help. Get in touch for more information.",
-      "contactIrButton": "Contact IR Team",
-      "downloadFactSheet": "Download Fact Sheet"
+      "title": "Centar za Investitore",
+      "subtitle": "Vaš put do informacija o kompaniji, finansijskih izvještaja i tržišnih ažuriranja",
+      "resourcesTitle": "Resursi za Investitore",
+      "questionsTitle": "Imate Pitanja?",
+      "questionsSubtitle": "Naš tim za odnose sa investitorima je tu da pomogne. Kontaktirajte nas za više informacija.",
+      "contactIrButton": "Kontaktiraj IR Tim",
+      "downloadFactSheet": "Preuzmi Informativni List"
     },
     "sharePrice": {
-      "title": "Share Price",
-      "currentLabel": "Current",
-      "changeLabel": "Change",
-      "volumeLabel": "Volume",
-      "highLabel": "High",
-      "lowLabel": "Low",
-      "openLabel": "Open",
-      "lastUpdated": "Last Updated"
+      "title": "Cijena Dionica",
+      "currentLabel": "Trenutna",
+      "changeLabel": "Promjena",
+      "volumeLabel": "Volumen",
+      "highLabel": "Visoka",
+      "lowLabel": "Niska",
+      "openLabel": "Otvorena",
+      "lastUpdated": "Zadnje Ažurirano",
+      "unavailable": "Podaci o tržištu uživo nisu dostupni",
+      "viewOnAsx": "Pogledaj cijenu dionica na ASX →",
+      "stockPrice": "YUG cijena dionice",
+      "byTradingView": "od TradingView"
     },
     "announcements": {
-      "title": "ASX Announcements",
-      "subtitle": "Latest company announcements and market updates",
-      "dateLabel": "Date",
-      "categoryLabel": "Category",
-      "noAnnouncements": "No announcements available"
+      "titleLine1": "ASX",
+      "titleLine2": "Objave",
+      "title": "ASX Objave",
+      "subtitle": "Pratite najnovije vijesti i objave od Yugo Metals ({companyASXCode})",
+      "subtitleSimple": "Najnovije objave kompanije i tržišna ažuriranja",
+      "dateLabel": "Datum",
+      "categoryLabel": "Kategorija",
+      "noAnnouncements": "Nema dostupnih objava",
+      "comingSoon": "Objave Uskoro Dolaze",
+      "comingSoonDescription": "ASX objave će se pojaviti ovdje kada budu dostupne. U međuvremenu, možete pogledati objave naše kompanije direktno na ASX web stranici koristeći gornji link.",
+      "viewOnAsx": "Pogledaj na ASX.com.au",
+      "searchPlaceholder": "Pretraži objave...",
+      "noResults": "Nisu pronađene objave.",
+      "subscribeTitle": "Pretplatite se za Ažuriranja",
+      "subscribeDescription": "Primajte obavještenja putem e-pošte kada se objave nove objave"
     },
     "financialReports": {
-      "title": "Financial Reports",
-      "subtitle": "Quarterly, half-yearly, and annual reports",
-      "quarterlyTitle": "Quarterly Reports",
-      "annualTitle": "Annual Reports"
+      "title": "Finansijski Izvještaji",
+      "subtitle": "Kvartalni, polugodišnji i godišnji izvještaji",
+      "quarterlyTitle": "Kvartalni Izvještaji",
+      "annualTitle": "Godišnji Izvještaji"
     },
     "presentations": {
-      "title": "Presentations",
-      "subtitle": "Investor presentations and company briefings"
+      "titleLine1": "Prezentacije",
+      "titleLine2": "za Investitore",
+      "title": "Prezentacije",
+      "subtitle": "Pristupite našim najnovijim prezentacijama za investitore i korporativnim prezentacijama",
+      "subtitleSimple": "Prezentacije za investitore i izvještaji kompanije",
+      "comingSoon": "Prezentacije Uskoro Dolaze",
+      "comingSoonDescription": "Prezentacije za investitore i korporativne prezentacije će biti dostupne ovdje nakon objavljivanja. Provjerite uskoro ili se pretplatite da budete obaviješteni kada se objave nove prezentacije.",
+      "subscribeButton": "Pretplatite se na Ažuriranja"
     },
     "shareInfo": {
-      "title": "Share Information",
-      "subtitle": "Share registry and trading information",
-      "tickerLabel": "ASX Code",
-      "registryTitle": "Share Registry",
-      "tradingTitle": "Trading Information"
+      "title": "Informacije o Dionicama",
+      "subtitle": "Registar dionica i informacije o trgovanju",
+      "tickerLabel": "ASX Kod",
+      "registryTitle": "Registar Dionica",
+      "tradingTitle": "Informacije o Trgovanju"
     },
     "calendar": {
-      "title": "Investor Calendar",
-      "subtitle": "Upcoming events, meetings, and report dates",
-      "eventTypeLabel": "Event Type",
-      "dateLabel": "Date",
-      "noEvents": "No upcoming events"
+      "title": "Kalendar Investitora",
+      "subtitle": "Predstojeći događaji, sastanci i datumi izvještaja",
+      "eventTypeLabel": "Tip Događaja",
+      "dateLabel": "Datum",
+      "noEvents": "Nema predstojećih događaja"
     },
     "media": {
-      "title": "Media Coverage",
-      "subtitle": "News articles and media mentions",
-      "sourceLabel": "Source",
-      "dateLabel": "Date"
+      "title": "Medijsko Pokrivanje",
+      "subtitle": "Novinski članci i spominjanja u medijima",
+      "sourceLabel": "Izvor",
+      "dateLabel": "Datum"
     },
     "factSheet": {
-      "title": "Fact Sheet",
-      "subtitle": "Download our company fact sheet",
-      "download": "Download Fact Sheet"
+      "title": "Informativni List",
+      "subtitle": "Preuzmite informativni list naše kompanije",
+      "download": "Preuzmi Informativni List"
     },
     "esg": {
       "title": "ESG",
-      "subtitle": "Environmental, social, and governance",
-      "environmentTitle": "Environmental",
-      "socialTitle": "Social",
-      "governanceTitle": "Governance"
+      "subtitle": "Životna sredina, društvo i upravljanje",
+      "environmentTitle": "Životna Sredina",
+      "socialTitle": "Društvo",
+      "governanceTitle": "Upravljanje"
     },
     "quickLinks": {
-      "asxAnnouncements": "ASX Announcements",
-      "asxDescription": "Latest company announcements and market updates",
-      "financialReports": "Financial Reports",
-      "financialDescription": "Quarterly, half-yearly, and annual reports",
-      "presentations": "Presentations",
-      "presentationsDescription": "Investor presentations and company briefings",
-      "shareInfo": "Share Information",
-      "shareDescription": "Share registry and trading information",
-      "calendar": "Investor Calendar",
-      "calendarDescription": "Upcoming events, meetings, and report dates",
-      "media": "Media Coverage",
-      "mediaDescription": "News articles and media mentions",
-      "factSheet": "Fact Sheet",
-      "factSheetDescription": "Download our company fact sheet",
+      "asxAnnouncements": "ASX Objave",
+      "asxDescription": "Najnovije objave kompanije i tržišna ažuriranja",
+      "financialReports": "Finansijski Izvještaji",
+      "financialDescription": "Kvartalni, polugodišnji i godišnji izvještaji",
+      "presentations": "Prezentacije",
+      "presentationsDescription": "Prezentacije za investitore i izvještaji kompanije",
+      "shareInfo": "Informacije o Dionicama",
+      "shareDescription": "Registar dionica i informacije o trgovanju",
+      "calendar": "Kalendar Investitora",
+      "calendarDescription": "Predstojeći događaji, sastanci i datumi izvještaja",
+      "media": "Medijsko Pokrivanje",
+      "mediaDescription": "Novinski članci i spominjanja u medijima",
+      "factSheet": "Informativni List",
+      "factSheetDescription": "Preuzmite informativni list naše kompanije",
       "esg": "ESG",
-      "esgDescription": "Environmental, social, and governance",
-      "view": "View"
+      "esgDescription": "Životna sredina, društvo i upravljanje",
+      "view": "Pogledaj"
     }
   },
   "projects": {
-    "title": "Our Projects",
-    "subtitle": "Exploring high-grade opportunities in Bosnia and Herzegovina",
+    "title": "Naši Projekti",
+    "subtitle": "Pet projekata visokog potencijala ciljaju kritične metale za energetsku tranziciju",
+    "pageTitle": "Projekti u Bosni i Hercegovini",
+    "heading": "Naši Projekti",
+    "exploreProject": "Istražite Projekat",
+    "learnMore": "Saznaj više",
+    "viewAllProjects": "Pogledaj sve projekte",
+    "projectOverview": "Pregled Projekta",
+    "explorationHighlights": "Istaknuto u Istraživanju",
+    "projectAdvantages": "Prednosti Projekta",
+    "explorationProgram": "Program Istraživanja",
+    "projectNumber": "Projekat {number}",
+    "projectNotFound": "Projekat nije pronađen",
+    "exploreMoreProjects": "Istražite Više Projekata",
+    "exploreMoreDescription": "Otkrijte naših pet projekata u Bosni i Hercegovini",
+    "latestAnnouncements": "Najnovije Objave",
+    "allProjects": "Svi Projekti",
     "doboj": {
       "name": "Doboj Project",
-      "shortDescription": "High-grade nickel-copper project",
-      "location": "Doboj, Bosnia and Herzegovina"
+      "shortDescription": "Projekat visokokvalitetnog nikla i bakra",
+      "location": "Republika Srpska, Bosna i Hercegovina",
+      "type": "Zlato, Antimon, Nikal, Bakar",
+      "number": "01"
     },
     "jezero": {
       "name": "Jezero Project",
-      "shortDescription": "Promising exploration target",
-      "location": "Jezero, Bosnia and Herzegovina"
+      "shortDescription": "Obećavajuća meta istraživanja",
+      "location": "Republika Srpska, Bosna i Hercegovina",
+      "type": "Plemeniti Metali",
+      "number": "02"
     },
     "sockovac": {
       "name": "Sočkovac Project",
-      "shortDescription": "Strategic exploration area",
-      "location": "Sočkovac, Bosnia and Herzegovina"
+      "shortDescription": "Strateška oblast istraživanja",
+      "location": "Republika Srpska, Bosna i Hercegovina",
+      "type": "Osnovni Metali",
+      "number": "03"
     },
     "sinjakovo": {
       "name": "Sinjakovo Project",
-      "shortDescription": "High-potential mineral deposits",
-      "location": "Sinjakovo, Bosnia and Herzegovina"
+      "shortDescription": "Mineralna ležišta visokog potencijala",
+      "location": "Republika Srpska, Bosna i Hercegovina",
+      "type": "Bakar, Kobalt",
+      "number": "04"
     },
     "cajnice": {
       "name": "Čajniče Project",
-      "shortDescription": "Emerging exploration opportunity",
-      "location": "Čajniče, Bosnia and Herzegovina"
+      "shortDescription": "Nova mogućnost istraživanja",
+      "location": "Republika Srpska, Bosna i Hercegovina",
+      "type": "Nikal, Plemeniti Metali",
+      "number": "05"
     },
-    "overview": "Overview",
-    "geology": "Geology",
-    "exploration": "Exploration",
-    "resources": "Resources"
+    "picker": {
+      "title": "Projekti",
+      "subtitle": "Projekti u Bosni i Hercegovini"
+    },
+    "cta": {
+      "titleLine1": "Zainteresovani za Naše",
+      "titleLine2": "Programe Istraživanja?",
+      "subtitle": "Pratite naše najnovije rezultate istraživanja i razvoj kompanije",
+      "viewAnnouncements": "Pogledaj ASX Objave",
+      "contactUs": "Kontaktirajte Nas"
+    },
+    "overview": "Pregled",
+    "geology": "Geologija",
+    "exploration": "Istraživanje",
+    "resources": "Resursi"
   },
   "company": {
     "about": {
-      "title": "Why Yugo Metals",
-      "subtitle": "Strategic positioning in Europe's critical minerals sector"
+      "titleLine1": "Zašto Yugo",
+      "titleLine2": "Metals?",
+      "subtitle": "Istraživanje metala na pragu Evropske Unije",
+      "introTitleLine1": "Smješteni u Bosni",
+      "introTitleLine2": "i Hercegovini,",
+      "introTitleLine3": "na Pragu",
+      "introTitleLine4": "EU",
+      "reasonsTitle": "Šest Razloga da Investirate u Yugo Metals",
+      "reasonsTitleLine1": "Šest Razloga da",
+      "reasonsTitleLine2": "Investirate u Yugo Metals",
+      "modernExplorationTitleLine1": "Moderno Istraživanje",
+      "modernExplorationTitleLine2": "u Istorijskom",
+      "modernExplorationTitleLine3": "Rudarskom Regionu",
+      "keyHighlights": "Ključna Istaknuća",
+      "criticalMetalsTitle": "Kritični Metali za Evropu",
+      "criticalMetalsSubtitle": "Zlato, Antimon, Nikal i Bakar za Energetsku Tranziciju",
+      "ctaTitleLine1": "Spremni da Saznate Više?",
+      "ctaSubtitle": "Istražite naše projekte i pratite najnovije objave",
+      "viewAnnouncements": "Pogledaj ASX Objave",
+      "exploreProjects": "Istražite Naše Projekte"
     },
     "board": {
-      "title": "Board of Directors",
-      "subtitle": "Experienced leadership team",
-      "management": "Management"
+      "title": "Upravni Odbor",
+      "subtitle": "Iskusan tim rukovodstva",
+      "description": "Naš upravni odbor okuplja decenije kombinovanog iskustva u rudarskom istraživanju, korporativnom upravljanju i tržištima kapitala. Njihovo rukovodstvo usmjerava stratešku orijentaciju Yugo Metals i predanost pružanju vrijednosti dioničarima.",
+      "management": "Menadžment",
+      "emailButton": "✉️ Email",
+      "linkedinButton": "🔗 LinkedIn"
     },
     "governance": {
-      "title": "Corporate Governance",
-      "subtitle": "Commitment to transparency and best practices",
-      "policies": "Policies",
-      "charters": "Charters"
+      "title": "Korporativno Upravljanje",
+      "subtitle": "Predanost transparentnosti i najboljim praksama",
+      "policies": "Politike",
+      "charters": "Povelje"
     },
     "directory": {
-      "title": "Corporate Directory",
-      "subtitle": "Key contacts and information"
+      "title": "Korporativni Imenik",
+      "subtitle": "Kontakt Informacije i Lokacije Kancelarija",
+      "corporateOffice": "Korporativna Kancelarija",
+      "contactInfo": "Kontakt Informacije",
+      "address": "Adresa",
+      "phone": "Telefon",
+      "email": "Email",
+      "website": "Web stranica",
+      "asxListing": "ASX Listiranje",
+      "governanceFramework": "Okvir Upravljanja",
+      "boardOfDirectors": "Upravni Odbor",
+      "governancePolicies": "Politike Upravljanja",
+      "codeOfConduct": "Kodeks Ponašanja",
+      "riskManagement": "Upravljanje Rizikom",
+      "whistleblowerPolicy": "Politika Uzbunjivača"
     },
     "responsibility": {
-      "title": "Corporate Responsibility",
-      "subtitle": "Our commitment to sustainable practices"
+      "title": "Korporativna Odgovornost",
+      "subtitle": "Održive Rudarske Prakse",
+      "ourCommitment": "Naša Predanost",
+      "environmentalStewardship": "Upravljanje Životnom Sredinom",
+      "communityEngagement": "Angažovanje Zajednice"
     }
   },
   "contact": {
-    "title": "Contact Us",
-    "subtitle": "Get in touch with our team",
-    "generalInquiries": "General Inquiries",
-    "investorRelations": "Investor Relations",
-    "media": "Media Inquiries",
-    "office": "Office",
-    "address": "Address",
-    "phone": "Phone",
+    "titleLine1": "Kontaktirajte",
+    "titleLine2": "Nas",
+    "subtitle": "Stupite u kontakt sa Yugo Metals. Tu smo da odgovorimo na vaša pitanja.",
+    "formTitle": "Stupite u Kontakt",
+    "nameLabel": "Vaše Ime *",
+    "emailLabel": "Email Adresa *",
+    "phoneLabel": "Broj Telefona",
+    "subjectLabel": "Tema *",
+    "subjectPlaceholder": "Izaberite temu",
+    "subjectGeneral": "Opšti Upit",
+    "subjectInvestor": "Odnosi sa Investitorima",
+    "subjectMedia": "Medijski Upit",
+    "subjectPartnership": "Mogućnost Partnerstva",
+    "messageLabel": "Poruka *",
+    "sendButton": "Pošalji Poruku",
+    "contactInfo": "Kontakt Informacije",
+    "registeredOffice": "Registrovana Kancelarija",
+    "phoneEmail": "Telefon & Email",
+    "businessHours": "Radno Vrijeme",
+    "businessHoursValue": "Ponedjeljak - Petak: 9:00 - 17:00 AWST",
+    "followUs": "Pratite Nas",
+    "generalInquiries": "Opšti Upiti",
+    "investorRelations": "Odnosi sa Investitorima",
+    "media": "Medijski Upiti",
+    "office": "Kancelarija",
+    "address": "Adresa",
+    "phone": "Telefon",
     "email": "Email"
   },
   "forms": {
     "subscription": {
-      "title": "Stay Informed",
-      "subtitle": "Subscribe to receive updates on exploration results and company developments",
-      "emailPlaceholder": "Your email",
-      "subscribeButton": "Subscribe",
-      "successMessage": "Thank you for subscribing!",
-      "errorMessage": "Subscription failed. Please try again."
+      "title": "Ostanite Informisani",
+      "subtitle": "Pretplatite se da primite ažuriranja o rezultatima istraživanja i razvoju kompanije",
+      "subtitleShort": "Pretplatite se na ažuriranja za investitore",
+      "emailPlaceholder": "Unesite vaš email",
+      "emailPlaceholderAlt": "vas.email@primjer.com",
+      "subscribeButton": "Pretplati se",
+      "subscribingButton": "Pretplata u toku...",
+      "subscribedButton": "Pretplaćeni!",
+      "successTitle": "Uspješno Pretplaćeni!",
+      "successMessage": "Hvala što ste se pretplatili! Provjerite svoj email za potvrdu.",
+      "errorMessage": "Pretplata nije uspjela. Molimo pokušajte ponovo.",
+      "launchingSoon": "Email pretplate se uskoro pokreću. Provjerite kasnije ili nas kontaktirajte direktno.",
+      "privacyNote": "Poštujemo vašu privatnost. Odjavi se bilo kada.",
+      "nameLabel": "Ime",
+      "namePlaceholder": "Vaše ime",
+      "emailLabel": "Email Adresa",
+      "preferencesLabel": "Email Preference",
+      "asxAnnouncementsLabel": "ASX Objave",
+      "quarterlyReportsLabel": "Kvartalni i Godišnji Izvještaji",
+      "companyNewsLabel": "Vijesti i Ažuriranja Kompanije",
+      "submitButton": "Pretplatite se na Ažuriranja"
     },
     "contact": {
-      "namePlaceholder": "Your name",
-      "emailPlaceholder": "Your email",
-      "messagePlaceholder": "Your message",
-      "submitButton": "Send Message",
-      "successMessage": "Message sent successfully!",
-      "errorMessage": "Failed to send message. Please try again."
+      "namePlaceholder": "Vaše ime",
+      "emailPlaceholder": "Vaš email",
+      "messagePlaceholder": "Vaša poruka",
+      "submitButton": "Pošalji Poruku",
+      "successMessage": "Poruka uspješno poslata!",
+      "errorMessage": "Slanje poruke nije uspjelo. Molimo pokušajte ponovo."
     },
     "validation": {
-      "required": "This field is required",
-      "invalidEmail": "Please enter a valid email address",
-      "minLength": "Minimum {min} characters required",
-      "maxLength": "Maximum {max} characters allowed"
+      "required": "Ovo polje je obavezno",
+      "invalidEmail": "Molimo unesite validnu email adresu",
+      "minLength": "Minimalno {min} karaktera potrebno",
+      "maxLength": "Maksimalno {max} karaktera dozvoljeno"
     }
   },
   "footer": {
-    "tagline": "Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union.",
+    "tagline": "Istraživanje nikla, bakra, kobalta i plemenitih metala u Bosni i Hercegovini, na pragu Evropske Unije.",
     "newsletter": {
-      "title": "Stay Informed",
-      "subtitle": "Receive updates on exploration results and company developments",
-      "placeholder": "Your email",
-      "button": "Subscribe"
+      "title": "Ostanite Informisani",
+      "subtitle": "Primajte ažuriranja o rezultatima istraživanja i razvoju kompanije",
+      "placeholder": "Vaš email",
+      "button": "Pretplati se"
     },
     "projects": {
       "doboj": "Doboj Project",
@@ -244,68 +420,92 @@
       "cajnice": "Čajniče Project"
     },
     "company": {
-      "about": "About",
-      "board": "Board & Management",
-      "governance": "Corporate Governance",
+      "about": "O nama",
+      "board": "Odbor i Menadžment",
+      "governance": "Korporativno Upravljanje",
       "esg": "ESG"
     },
     "investors": {
-      "centre": "Investor Centre",
-      "announcements": "ASX Announcements",
-      "presentations": "Presentations",
-      "factSheet": "Fact Sheet",
-      "prospectus": "Prospectus"
+      "centre": "Centar za Investitore",
+      "announcements": "ASX Objave",
+      "presentations": "Prezentacije",
+      "factSheet": "Informativni List",
+      "prospectus": "Prospekt"
     },
     "location": {
       "city": "Perth, WA 6000",
-      "country": "Australia"
+      "country": "Australija"
     },
-    "copyright": "© {year} Yugo Metals. All Rights Reserved."
+    "copyright": "© {year} Yugo Metals. Sva Prava Zadržana."
+  },
+  "prospectus": {
+    "title": "Prospekt Emisije Prava",
+    "subtitle": "Informacije o Trenutnoj Emisiji Prava",
+    "overview": "Pregled Emisije Prava",
+    "importantDates": "Važni Datumi",
+    "documents": "Dokumenti Prospekta",
+    "documentTitle": "Prospekt",
+    "formTitle": "Formular za Pravo i Prihvatanje",
+    "importantNotice": "Važna Napomena",
+    "contactTitle": "Kontaktirajte Nas za Više Informacija",
+    "announcementDate": "Datum Objave:",
+    "description": "Yugo Metals s zadovoljstvom nudi podobnim dioničarima mogućnost da učestvuju u našoj trenutnoj emisiji prava. Ovo prikupljanje kapitala će finansirati naše kontinuirane aktivnosti istraživanja širom naših pet projekata u Bosni i Hercegovini.",
+    "fundsTitle": "Prikupljena sredstva će podržati:"
+  },
+  "mining": {
+    "mainIntercept": "Glavni Presijek:",
+    "including": "Uključujući:",
+    "references": "Reference:"
   },
   "asx": {
-    "regulatoryNotice": "This content is provided in English as required by ASX regulations",
-    "englishOnly": "English Only"
+    "regulatoryNotice": "Ovaj sadržaj je dostupan na engleskom jeziku kako zahtijevaju ASX propisi",
+    "englishOnly": "Samo Engleski"
   },
   "buttons": {
-    "submit": "Submit",
-    "cancel": "Cancel",
-    "close": "Close",
-    "save": "Save",
-    "delete": "Delete",
-    "edit": "Edit",
-    "view": "View",
-    "download": "Download",
-    "back": "Back",
-    "next": "Next",
-    "previous": "Previous"
+    "submit": "Pošalji",
+    "cancel": "Otkaži",
+    "close": "Zatvori",
+    "save": "Sačuvaj",
+    "delete": "Obriši",
+    "edit": "Uredi",
+    "view": "Pogledaj",
+    "viewMore": "Pogledaj Više",
+    "download": "Preuzmi",
+    "back": "Nazad",
+    "next": "Sljedeće",
+    "previous": "Prethodno",
+    "learnMore": "Saznaj Više",
+    "readMore": "Pročitaj Više",
+    "exploreProject": "Istražite Projekat",
+    "explore": "Istraži"
   },
   "errors": {
-    "pageNotFound": "Page Not Found",
-    "somethingWentWrong": "Something went wrong",
-    "tryAgain": "Please try again",
-    "goHome": "Go to Homepage",
-    "networkError": "Network connection failed"
+    "pageNotFound": "Stranica Nije Pronađena",
+    "somethingWentWrong": "Nešto je pošlo po zlu",
+    "tryAgain": "Molimo pokušajte ponovo",
+    "goHome": "Idi na Početnu Stranicu",
+    "networkError": "Mrežna veza nije uspjela"
   },
   "metadata": {
     "homepage": {
-      "title": "Yugo Metals - European Metals Exploration and Development",
-      "description": "Yugo Metals explores for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union."
+      "title": "Yugo Metals - Evropsko Istraživanje i Razvoj Metala",
+      "description": "Yugo Metals istražuje nikal, bakar, kobalt i plemenite metale u Bosni i Hercegovini, na pragu Evropske Unije."
     },
     "investors": {
-      "title": "Investor Centre - Yugo Metals",
-      "description": "Access financial reports, ASX announcements, presentations, and company information."
+      "title": "Centar za Investitore - Yugo Metals",
+      "description": "Pristupite finansijskim izvještajima, ASX objavama, prezentacijama i informacijama o kompaniji."
     },
     "projects": {
-      "title": "Our Projects - Yugo Metals",
-      "description": "Exploring high-grade nickel, copper, and cobalt opportunities in Bosnia and Herzegovina."
+      "title": "Naši Projekti - Yugo Metals",
+      "description": "Istraživanje visokokvalitetnih mogućnosti nikla, bakra i kobalta u Bosni i Hercegovini."
     },
     "about": {
-      "title": "Why Yugo Metals - About Us",
-      "description": "Strategic positioning in Europe's critical minerals sector with high-grade exploration projects."
+      "title": "Zašto Yugo Metals - O Nama",
+      "description": "Strateško pozicioniranje u sektoru kritičnih minerala Evrope sa visokokvalitetnim projektima istraživanja."
     },
     "contact": {
-      "title": "Contact Us - Yugo Metals",
-      "description": "Get in touch with our team for inquiries about investor relations, media, or general information."
+      "title": "Kontaktirajte Nas - Yugo Metals",
+      "description": "Stupite u kontakt sa našim timom za upite o odnosima sa investitorima, medijima ili opštim informacijama."
     }
   }
 }

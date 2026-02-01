@@ -8,16 +8,25 @@ export default function ESGPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-white py-32 md:py-40">
-        <div className="container">
+      <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
+        {/* Background Image with fade */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: 'url(/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg)' }}
+        />
+        
+        {/* Blue Overlay */}
+        <div className="absolute inset-0 bg-primary-600/60"></div>
+        
+        <div className="container relative z-10">
           <AnimatedSection>
             <div className="max-w-4xl">
-              <h1 className="text-display text-secondary-900 mb-6">
+              <h1 className="text-heading-lg text-white mb-4">
                 Environmental,<br />
                 Social &<br />
                 Governance
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
+              <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
                 Our commitment to sustainable and responsible mining practices
               </p>
             </div>

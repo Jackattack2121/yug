@@ -1,240 +1,416 @@
 {
   "common": {
     "companyName": "Yugo Metals",
-    "loading": "Loading...",
-    "readMore": "Read More",
-    "learnMore": "Learn More",
-    "viewAll": "View All",
-    "downloadPdf": "Download PDF",
-    "backToTop": "Back to Top"
+    "loading": "Caricamento...",
+    "readMore": "Leggi di più",
+    "learnMore": "Scopri di più",
+    "viewAll": "Vedi tutto",
+    "downloadPdf": "Scarica PDF",
+    "backToTop": "Torna su"
   },
   "navigation": {
     "header": {
-      "aboutLink": "About",
-      "investorsLink": "Investors",
-      "projectsLink": "Projects",
+      "aboutLink": "Chi siamo",
+      "investorsLink": "Investitori",
+      "projectsLink": "Progetti",
       "esgLink": "ESG",
-      "contactLink": "Contact"
+      "contactLink": "Contatti"
     },
     "footer": {
-      "projectsTitle": "Projects",
-      "companyTitle": "Company",
-      "investorsTitle": "Investors",
-      "contactTitle": "Contact"
+      "projectsTitle": "Progetti",
+      "companyTitle": "Azienda",
+      "investorsTitle": "Investitori",
+      "contactTitle": "Contatti"
     },
     "mobileMenu": {
-      "navigationTitle": "Navigation",
-      "projectsTitle": "Projects"
+      "navigationTitle": "Navigazione",
+      "projectsTitle": "Progetti"
     }
   },
   "homepage": {
     "hero": {
-      "title": "European Metals Exploration",
-      "subtitle": "Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union.",
-      "cta": "View Our Projects"
+      "titleLine1": "Esplorazione di",
+      "titleLine2": "Metalli Critici",
+      "titleLine3": "nel Cuore",
+      "titleLine4": "dell'Europa",
+      "companyName": "YUGO METALS",
+      "rotatingText1": "Oro, Antimonio, Nichel, Rame",
+      "rotatingText2": "Metalli Preziosi, di Base e per Batterie",
+      "rotatingText3": "Esplorazione Polimetallica",
+      "location": "Bosnia ed Erzegovina",
+      "cta": "Inizia l'Esplorazione"
     },
-    "about": {
-      "title": "Why Yugo Metals",
-      "description": "Strategic positioning in Europe's critical minerals sector"
+    "intro": {
+      "titleLine1": "Proprietà al 100%",
+      "titleLine2": "di Cinque Progetti",
+      "titleLine3": "alle Porte",
+      "titleLine4": "dell'Unione Europea",
+      "description": "Yugo Metals esplora oro, antimonio, nichel, rame e metalli preziosi in Bosnia ed Erzegovina. I nostri progetti combinano la conoscenza storica mineraria con l'esplorazione sistematica moderna in una delle più antiche regioni minerarie del mondo.",
+      "cta": "Su Yugo Metals"
     },
-    "projects": {
-      "title": "Our Projects",
-      "subtitle": "Exploring high-grade opportunities in Bosnia and Herzegovina"
+    "stats": {
+      "stat1Value": "5",
+      "stat1Label": "Progetti",
+      "stat1Sublabel": "100% di Proprietà",
+      "stat2Value": "100%",
+      "stat2Label": "Proprietà",
+      "stat2Sublabel": "Controllo Totale",
+      "stat3Value": "UE",
+      "stat3Label": "Stato Candidato",
+      "stat3Sublabel": "Posizione Strategica",
+      "stat4Value": "3+",
+      "stat4Label": "Anni",
+      "stat4Sublabel": "In Operazione"
     },
-    "investors": {
-      "title": "Investor Centre",
-      "subtitle": "Access reports, announcements, and company information"
+    "projectsSection": {
+      "titleLine1": "Cinque Progetti",
+      "titleLine2": "Mirati ai Metalli",
+      "titleLine3": "Critici per la",
+      "titleLine4": "Transizione Energetica",
+      "subtitle": "Oro, antimonio, nichel, rame e metalli preziosi in tutta la Bosnia ed Erzegovina",
+      "exploreProject": "Esplora il Progetto",
+      "viewAllProjects": "Vedi tutti i progetti"
+    },
+    "assetsSection": {
+      "titleLine1": "Scopri i Nostri",
+      "titleLine2": "Asset",
+      "criticalMetalsTitle": "Metalli Critici",
+      "criticalMetalsDescription": "Mirati a oro, antimonio, nichel e rame - metalli essenziali per la transizione energetica e la sicurezza dell'approvvigionamento europeo.",
+      "strategicLocationTitle": "Posizione Strategica",
+      "strategicLocationDescription": "La Bosnia ed Erzegovina è uno Stato candidato all'UE, che offre accesso strategico ai mercati europei e alle catene di approvvigionamento.",
+      "modernExplorationTitle": "Esplorazione Moderna",
+      "modernExplorationDescription": "Applicazione di tecniche di esplorazione moderne sistematiche in una regione mineraria storicamente produttiva con un potenziale significativo.",
+      "learnMore": "Scopri di più"
+    },
+    "latestSection": {
+      "titleLine1": "Ultime Novità",
+      "titleLine2": "da Yugo Metals",
+      "viewAllAnnouncements": "Vedi tutti gli annunci"
+    },
+    "ctaSection": {
+      "titleLine1": "Esploriamo le",
+      "titleLine2": "Possibilità Insieme",
+      "subtitle": "Vuoi saperne di più sui nostri programmi di esplorazione e opportunità di investimento?",
+      "contactButton": "Contatta Investor Relations",
+      "prospectusButton": "Visualizza il Prospetto"
     }
   },
   "investors": {
     "centre": {
-      "title": "Investor Centre",
-      "subtitle": "Your gateway to company information, financial reports, and market updates",
-      "resourcesTitle": "Investor Resources",
-      "questionsTitle": "Have Questions?",
-      "questionsSubtitle": "Our Investor Relations team is here to help. Get in touch for more information.",
-      "contactIrButton": "Contact IR Team",
-      "downloadFactSheet": "Download Fact Sheet"
+      "title": "Centro Investitori",
+      "subtitle": "Il tuo accesso alle informazioni aziendali, ai report finanziari e agli aggiornamenti di mercato",
+      "resourcesTitle": "Risorse per Investitori",
+      "questionsTitle": "Hai Domande?",
+      "questionsSubtitle": "Il nostro team Investor Relations è qui per aiutarti. Contattaci per maggiori informazioni.",
+      "contactIrButton": "Contatta il Team IR",
+      "downloadFactSheet": "Scarica Scheda Informativa"
     },
     "sharePrice": {
-      "title": "Share Price",
-      "currentLabel": "Current",
-      "changeLabel": "Change",
+      "title": "Prezzo delle Azioni",
+      "currentLabel": "Attuale",
+      "changeLabel": "Variazione",
       "volumeLabel": "Volume",
-      "highLabel": "High",
-      "lowLabel": "Low",
-      "openLabel": "Open",
-      "lastUpdated": "Last Updated"
+      "highLabel": "Massimo",
+      "lowLabel": "Minimo",
+      "openLabel": "Apertura",
+      "lastUpdated": "Ultimo Aggiornamento",
+      "unavailable": "Dati di mercato in tempo reale non disponibili",
+      "viewOnAsx": "Visualizza il prezzo su ASX →",
+      "stockPrice": "Prezzo azione YUG",
+      "byTradingView": "da TradingView"
     },
     "announcements": {
-      "title": "ASX Announcements",
-      "subtitle": "Latest company announcements and market updates",
-      "dateLabel": "Date",
-      "categoryLabel": "Category",
-      "noAnnouncements": "No announcements available"
+      "titleLine1": "Annunci",
+      "titleLine2": "ASX",
+      "title": "Annunci ASX",
+      "subtitle": "Rimani aggiornato con le ultime notizie e annunci di Yugo Metals ({companyASXCode})",
+      "subtitleSimple": "Ultimi annunci aziendali e aggiornamenti di mercato",
+      "dateLabel": "Data",
+      "categoryLabel": "Categoria",
+      "noAnnouncements": "Nessun annuncio disponibile",
+      "comingSoon": "Annunci in Arrivo",
+      "comingSoonDescription": "Gli annunci ASX appariranno qui quando disponibili. Nel frattempo, puoi visualizzare gli annunci della nostra azienda direttamente sul sito web ASX utilizzando il link sopra.",
+      "viewOnAsx": "Visualizza su ASX.com.au",
+      "searchPlaceholder": "Cerca annunci...",
+      "noResults": "Nessun annuncio trovato.",
+      "subscribeTitle": "Iscriviti agli Aggiornamenti",
+      "subscribeDescription": "Ricevi notifiche via email quando vengono pubblicati nuovi annunci"
     },
     "financialReports": {
-      "title": "Financial Reports",
-      "subtitle": "Quarterly, half-yearly, and annual reports",
-      "quarterlyTitle": "Quarterly Reports",
-      "annualTitle": "Annual Reports"
+      "title": "Report Finanziari",
+      "subtitle": "Report trimestrali, semestrali e annuali",
+      "quarterlyTitle": "Report Trimestrali",
+      "annualTitle": "Report Annuali"
     },
     "presentations": {
-      "title": "Presentations",
-      "subtitle": "Investor presentations and company briefings"
+      "titleLine1": "Presentazioni",
+      "titleLine2": "per Investitori",
+      "title": "Presentazioni",
+      "subtitle": "Accedi alle nostre ultime presentazioni per investitori e aziendali",
+      "subtitleSimple": "Presentazioni per investitori e briefing aziendali",
+      "comingSoon": "Presentazioni in Arrivo",
+      "comingSoonDescription": "Le presentazioni per investitori e aziendali saranno disponibili qui una volta pubblicate. Controlla presto o iscriviti per essere informato quando vengono rilasciate nuove presentazioni.",
+      "subscribeButton": "Iscriviti agli Aggiornamenti"
     },
     "shareInfo": {
-      "title": "Share Information",
-      "subtitle": "Share registry and trading information",
-      "tickerLabel": "ASX Code",
-      "registryTitle": "Share Registry",
-      "tradingTitle": "Trading Information"
+      "title": "Informazioni sulle Azioni",
+      "subtitle": "Registro azionisti e informazioni di trading",
+      "tickerLabel": "Codice ASX",
+      "registryTitle": "Registro Azioni",
+      "tradingTitle": "Informazioni di Trading"
     },
     "calendar": {
-      "title": "Investor Calendar",
-      "subtitle": "Upcoming events, meetings, and report dates",
-      "eventTypeLabel": "Event Type",
-      "dateLabel": "Date",
-      "noEvents": "No upcoming events"
+      "title": "Calendario Investitori",
+      "subtitle": "Eventi, riunioni e date dei report in programma",
+      "eventTypeLabel": "Tipo di Evento",
+      "dateLabel": "Data",
+      "noEvents": "Nessun evento in programma"
     },
     "media": {
-      "title": "Media Coverage",
-      "subtitle": "News articles and media mentions",
-      "sourceLabel": "Source",
-      "dateLabel": "Date"
+      "title": "Copertura Mediatica",
+      "subtitle": "Articoli di stampa e menzioni sui media",
+      "sourceLabel": "Fonte",
+      "dateLabel": "Data"
     },
     "factSheet": {
-      "title": "Fact Sheet",
-      "subtitle": "Download our company fact sheet",
-      "download": "Download Fact Sheet"
+      "title": "Scheda Informativa",
+      "subtitle": "Scarica la nostra scheda informativa aziendale",
+      "download": "Scarica Scheda Informativa"
     },
     "esg": {
       "title": "ESG",
-      "subtitle": "Environmental, social, and governance",
-      "environmentTitle": "Environmental",
-      "socialTitle": "Social",
+      "subtitle": "Ambiente, sociale e governance",
+      "environmentTitle": "Ambiente",
+      "socialTitle": "Sociale",
       "governanceTitle": "Governance"
     },
     "quickLinks": {
-      "asxAnnouncements": "ASX Announcements",
-      "asxDescription": "Latest company announcements and market updates",
-      "financialReports": "Financial Reports",
-      "financialDescription": "Quarterly, half-yearly, and annual reports",
-      "presentations": "Presentations",
-      "presentationsDescription": "Investor presentations and company briefings",
-      "shareInfo": "Share Information",
-      "shareDescription": "Share registry and trading information",
-      "calendar": "Investor Calendar",
-      "calendarDescription": "Upcoming events, meetings, and report dates",
-      "media": "Media Coverage",
-      "mediaDescription": "News articles and media mentions",
-      "factSheet": "Fact Sheet",
-      "factSheetDescription": "Download our company fact sheet",
+      "asxAnnouncements": "Annunci ASX",
+      "asxDescription": "Ultimi annunci aziendali e aggiornamenti di mercato",
+      "financialReports": "Report Finanziari",
+      "financialDescription": "Report trimestrali, semestrali e annuali",
+      "presentations": "Presentazioni",
+      "presentationsDescription": "Presentazioni per investitori e briefing aziendali",
+      "shareInfo": "Informazioni sulle Azioni",
+      "shareDescription": "Registro azionisti e informazioni di trading",
+      "calendar": "Calendario Investitori",
+      "calendarDescription": "Eventi, riunioni e date dei report in programma",
+      "media": "Copertura Mediatica",
+      "mediaDescription": "Articoli di stampa e menzioni sui media",
+      "factSheet": "Scheda Informativa",
+      "factSheetDescription": "Scarica la nostra scheda informativa aziendale",
       "esg": "ESG",
-      "esgDescription": "Environmental, social, and governance",
-      "view": "View"
+      "esgDescription": "Ambiente, sociale e governance",
+      "view": "Visualizza"
     }
   },
   "projects": {
-    "title": "Our Projects",
-    "subtitle": "Exploring high-grade opportunities in Bosnia and Herzegovina",
+    "title": "I Nostri Progetti",
+    "subtitle": "Cinque progetti di esplorazione ad alto potenziale mirati ai metalli critici per la transizione energetica",
+    "pageTitle": "Progetti in Bosnia ed Erzegovina",
+    "heading": "I Nostri Progetti",
+    "exploreProject": "Esplora il Progetto",
+    "learnMore": "Scopri di più",
+    "viewAllProjects": "Vedi tutti i progetti",
+    "projectOverview": "Panoramica del Progetto",
+    "explorationHighlights": "Punti Salienti dell'Esplorazione",
+    "projectAdvantages": "Vantaggi del Progetto",
+    "explorationProgram": "Programma di Esplorazione",
+    "projectNumber": "Progetto {number}",
+    "projectNotFound": "Progetto Non Trovato",
+    "exploreMoreProjects": "Esplora Altri Progetti",
+    "exploreMoreDescription": "Scopri i nostri cinque progetti in Bosnia ed Erzegovina",
+    "latestAnnouncements": "Ultimi Annunci",
+    "allProjects": "Tutti i Progetti",
     "doboj": {
       "name": "Doboj Project",
-      "shortDescription": "High-grade nickel-copper project",
-      "location": "Doboj, Bosnia and Herzegovina"
+      "shortDescription": "Progetto nichel-rame ad alto tenore",
+      "location": "Repubblica Serba di Bosnia, Bosnia ed Erzegovina",
+      "type": "Oro, Antimonio, Nichel, Rame",
+      "number": "01"
     },
     "jezero": {
       "name": "Jezero Project",
-      "shortDescription": "Promising exploration target",
-      "location": "Jezero, Bosnia and Herzegovina"
+      "shortDescription": "Obiettivo di esplorazione promettente",
+      "location": "Repubblica Serba di Bosnia, Bosnia ed Erzegovina",
+      "type": "Metalli Preziosi",
+      "number": "02"
     },
     "sockovac": {
       "name": "Sočkovac Project",
-      "shortDescription": "Strategic exploration area",
-      "location": "Sočkovac, Bosnia and Herzegovina"
+      "shortDescription": "Area di esplorazione strategica",
+      "location": "Repubblica Serba di Bosnia, Bosnia ed Erzegovina",
+      "type": "Metalli di Base",
+      "number": "03"
     },
     "sinjakovo": {
       "name": "Sinjakovo Project",
-      "shortDescription": "High-potential mineral deposits",
-      "location": "Sinjakovo, Bosnia and Herzegovina"
+      "shortDescription": "Depositi minerali ad alto potenziale",
+      "location": "Repubblica Serba di Bosnia, Bosnia ed Erzegovina",
+      "type": "Rame, Cobalto",
+      "number": "04"
     },
     "cajnice": {
       "name": "Čajniče Project",
-      "shortDescription": "Emerging exploration opportunity",
-      "location": "Čajniče, Bosnia and Herzegovina"
+      "shortDescription": "Opportunità di esplorazione emergente",
+      "location": "Repubblica Serba di Bosnia, Bosnia ed Erzegovina",
+      "type": "Nichel, Metalli Preziosi",
+      "number": "05"
     },
-    "overview": "Overview",
-    "geology": "Geology",
-    "exploration": "Exploration",
-    "resources": "Resources"
+    "picker": {
+      "title": "Progetti",
+      "subtitle": "Progetti in Bosnia ed Erzegovina"
+    },
+    "cta": {
+      "titleLine1": "Interessato ai Nostri",
+      "titleLine2": "Programmi di Esplorazione?",
+      "subtitle": "Rimani aggiornato con i nostri ultimi risultati di esplorazione e sviluppi aziendali",
+      "viewAnnouncements": "Visualizza Annunci ASX",
+      "contactUs": "Contattaci"
+    },
+    "overview": "Panoramica",
+    "geology": "Geologia",
+    "exploration": "Esplorazione",
+    "resources": "Risorse"
   },
   "company": {
     "about": {
-      "title": "Why Yugo Metals",
-      "subtitle": "Strategic positioning in Europe's critical minerals sector"
+      "titleLine1": "Perché",
+      "titleLine2": "Yugo Metals?",
+      "subtitle": "Esplorazione di metalli alle porte dell'Unione Europea",
+      "introTitleLine1": "Situata in Bosnia",
+      "introTitleLine2": "ed Erzegovina,",
+      "introTitleLine3": "alle Porte",
+      "introTitleLine4": "dell'UE",
+      "reasonsTitle": "Sei Ragioni per Investire in Yugo Metals",
+      "reasonsTitleLine1": "Sei Ragioni per",
+      "reasonsTitleLine2": "Investire in Yugo Metals",
+      "modernExplorationTitleLine1": "Esplorazione Moderna",
+      "modernExplorationTitleLine2": "in una Regione",
+      "modernExplorationTitleLine3": "Mineraria Storica",
+      "keyHighlights": "Punti Chiave",
+      "criticalMetalsTitle": "Metalli Critici per l'Europa",
+      "criticalMetalsSubtitle": "Oro, Antimonio, Nichel e Rame per la Transizione Energetica",
+      "ctaTitleLine1": "Pronto a Saperne di Più?",
+      "ctaSubtitle": "Esplora i nostri progetti e rimani aggiornato con gli ultimi annunci",
+      "viewAnnouncements": "Visualizza Annunci ASX",
+      "exploreProjects": "Esplora i Nostri Progetti"
     },
     "board": {
-      "title": "Board of Directors",
-      "subtitle": "Experienced leadership team",
-      "management": "Management"
+      "title": "Consiglio di Amministrazione",
+      "subtitle": "Team di leadership esperto",
+      "description": "Il nostro consiglio di amministrazione riunisce decenni di esperienza combinata nell'esplorazione mineraria, nella governance aziendale e nei mercati dei capitali. La loro leadership guida la direzione strategica di Yugo Metals e l'impegno a creare valore per gli azionisti.",
+      "management": "Direzione",
+      "emailButton": "✉️ Email",
+      "linkedinButton": "🔗 LinkedIn"
     },
     "governance": {
-      "title": "Corporate Governance",
-      "subtitle": "Commitment to transparency and best practices",
-      "policies": "Policies",
-      "charters": "Charters"
+      "title": "Governance Aziendale",
+      "subtitle": "Impegno per la trasparenza e le migliori pratiche",
+      "policies": "Politiche",
+      "charters": "Statuti"
     },
     "directory": {
-      "title": "Corporate Directory",
-      "subtitle": "Key contacts and information"
+      "title": "Directory Aziendale",
+      "subtitle": "Informazioni di Contatto e Sedi degli Uffici",
+      "corporateOffice": "Ufficio Aziendale",
+      "contactInfo": "Informazioni di Contatto",
+      "address": "Indirizzo",
+      "phone": "Telefono",
+      "email": "Email",
+      "website": "Sito Web",
+      "asxListing": "Quotazione ASX",
+      "governanceFramework": "Framework di Governance",
+      "boardOfDirectors": "Consiglio di Amministrazione",
+      "governancePolicies": "Politiche di Governance",
+      "codeOfConduct": "Codice di Condotta",
+      "riskManagement": "Gestione del Rischio",
+      "whistleblowerPolicy": "Politica per Whistleblower"
     },
     "responsibility": {
-      "title": "Corporate Responsibility",
-      "subtitle": "Our commitment to sustainable practices"
+      "title": "Responsabilità Aziendale",
+      "subtitle": "Pratiche Minerarie Sostenibili",
+      "ourCommitment": "Il Nostro Impegno",
+      "environmentalStewardship": "Gestione Ambientale",
+      "communityEngagement": "Coinvolgimento della Comunità"
     }
   },
   "contact": {
-    "title": "Contact Us",
-    "subtitle": "Get in touch with our team",
-    "generalInquiries": "General Inquiries",
+    "titleLine1": "Contattaci",
+    "titleLine2": "",
+    "subtitle": "Mettiti in contatto con Yugo Metals. Siamo qui per rispondere alle tue domande.",
+    "formTitle": "Contattaci",
+    "nameLabel": "Il Tuo Nome *",
+    "emailLabel": "Indirizzo Email *",
+    "phoneLabel": "Numero di Telefono",
+    "subjectLabel": "Oggetto *",
+    "subjectPlaceholder": "Seleziona un oggetto",
+    "subjectGeneral": "Richiesta Generale",
+    "subjectInvestor": "Investor Relations",
+    "subjectMedia": "Richiesta Media",
+    "subjectPartnership": "Opportunità di Partnership",
+    "messageLabel": "Messaggio *",
+    "sendButton": "Invia Messaggio",
+    "contactInfo": "Informazioni di Contatto",
+    "registeredOffice": "Sede Legale",
+    "phoneEmail": "Telefono & Email",
+    "businessHours": "Orari di Ufficio",
+    "businessHoursValue": "Lunedì - Venerdì: 9:00 - 17:00 AWST",
+    "followUs": "Seguici",
+    "generalInquiries": "Richieste Generali",
     "investorRelations": "Investor Relations",
-    "media": "Media Inquiries",
-    "office": "Office",
-    "address": "Address",
-    "phone": "Phone",
+    "media": "Richieste Media",
+    "office": "Ufficio",
+    "address": "Indirizzo",
+    "phone": "Telefono",
     "email": "Email"
   },
   "forms": {
     "subscription": {
-      "title": "Stay Informed",
-      "subtitle": "Subscribe to receive updates on exploration results and company developments",
-      "emailPlaceholder": "Your email",
-      "subscribeButton": "Subscribe",
-      "successMessage": "Thank you for subscribing!",
-      "errorMessage": "Subscription failed. Please try again."
+      "title": "Rimani Informato",
+      "subtitle": "Iscriviti per ricevere aggiornamenti sui risultati di esplorazione e gli sviluppi aziendali",
+      "subtitleShort": "Iscriviti agli aggiornamenti per investitori",
+      "emailPlaceholder": "Inserisci la tua email",
+      "emailPlaceholderAlt": "tua.email@esempio.com",
+      "subscribeButton": "Iscriviti",
+      "subscribingButton": "Iscrizione in corso...",
+      "subscribedButton": "Iscritto!",
+      "successTitle": "Iscrizione Riuscita!",
+      "successMessage": "Grazie per esserti iscritto! Controlla la tua email per confermare.",
+      "errorMessage": "Iscrizione fallita. Riprova.",
+      "launchingSoon": "Le iscrizioni via email saranno presto disponibili. Controlla più tardi o contattaci direttamente.",
+      "privacyNote": "Rispettiamo la tua privacy. Annulla l'iscrizione in qualsiasi momento.",
+      "nameLabel": "Nome",
+      "namePlaceholder": "Il tuo nome",
+      "emailLabel": "Indirizzo Email",
+      "preferencesLabel": "Preferenze Email",
+      "asxAnnouncementsLabel": "Annunci ASX",
+      "quarterlyReportsLabel": "Report Trimestrali e Annuali",
+      "companyNewsLabel": "Notizie e Aggiornamenti Aziendali",
+      "submitButton": "Iscriviti agli Aggiornamenti"
     },
     "contact": {
-      "namePlaceholder": "Your name",
-      "emailPlaceholder": "Your email",
-      "messagePlaceholder": "Your message",
-      "submitButton": "Send Message",
-      "successMessage": "Message sent successfully!",
-      "errorMessage": "Failed to send message. Please try again."
+      "namePlaceholder": "Il tuo nome",
+      "emailPlaceholder": "La tua email",
+      "messagePlaceholder": "Il tuo messaggio",
+      "submitButton": "Invia Messaggio",
+      "successMessage": "Messaggio inviato con successo!",
+      "errorMessage": "Invio del messaggio fallito. Riprova."
     },
     "validation": {
-      "required": "This field is required",
-      "invalidEmail": "Please enter a valid email address",
-      "minLength": "Minimum {min} characters required",
-      "maxLength": "Maximum {max} characters allowed"
+      "required": "Questo campo è obbligatorio",
+      "invalidEmail": "Inserisci un indirizzo email valido",
+      "minLength": "Minimo {min} caratteri richiesti",
+      "maxLength": "Massimo {max} caratteri consentiti"
     }
   },
   "footer": {
-    "tagline": "Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union.",
+    "tagline": "Esplorazione di nichel, rame, cobalto e metalli preziosi in Bosnia ed Erzegovina, alle porte dell'Unione Europea.",
     "newsletter": {
-      "title": "Stay Informed",
-      "subtitle": "Receive updates on exploration results and company developments",
-      "placeholder": "Your email",
-      "button": "Subscribe"
+      "title": "Rimani Informato",
+      "subtitle": "Ricevi aggiornamenti sui risultati di esplorazione e gli sviluppi aziendali",
+      "placeholder": "La tua email",
+      "button": "Iscriviti"
     },
     "projects": {
       "doboj": "Doboj Project",
@@ -244,68 +420,92 @@
       "cajnice": "Čajniče Project"
     },
     "company": {
-      "about": "About",
-      "board": "Board & Management",
-      "governance": "Corporate Governance",
+      "about": "Chi siamo",
+      "board": "Consiglio & Direzione",
+      "governance": "Governance Aziendale",
       "esg": "ESG"
     },
     "investors": {
-      "centre": "Investor Centre",
-      "announcements": "ASX Announcements",
-      "presentations": "Presentations",
-      "factSheet": "Fact Sheet",
-      "prospectus": "Prospectus"
+      "centre": "Centro Investitori",
+      "announcements": "Annunci ASX",
+      "presentations": "Presentazioni",
+      "factSheet": "Scheda Informativa",
+      "prospectus": "Prospetto"
     },
     "location": {
       "city": "Perth, WA 6000",
       "country": "Australia"
     },
-    "copyright": "© {year} Yugo Metals. All Rights Reserved."
+    "copyright": "© {year} Yugo Metals. Tutti i Diritti Riservati."
+  },
+  "prospectus": {
+    "title": "Prospetto di Emissione di Diritti",
+    "subtitle": "Informazioni sull'Emissione di Diritti Corrente",
+    "overview": "Panoramica dell'Emissione di Diritti",
+    "importantDates": "Date Importanti",
+    "documents": "Documenti del Prospetto",
+    "documentTitle": "Prospetto",
+    "formTitle": "Modulo di Diritto e Accettazione",
+    "importantNotice": "Avviso Importante",
+    "contactTitle": "Contattaci per Maggiori Informazioni",
+    "announcementDate": "Data di Annuncio:",
+    "description": "Yugo Metals è lieta di offrire agli azionisti idonei l'opportunità di partecipare alla nostra attuale emissione di diritti. Questa raccolta di capitale finanzierà le nostre attività di esplorazione in corso nei nostri cinque progetti in Bosnia ed Erzegovina.",
+    "fundsTitle": "I fondi raccolti sosterranno:"
+  },
+  "mining": {
+    "mainIntercept": "Intercettazione Principale:",
+    "including": "Incluso:",
+    "references": "Riferimenti:"
   },
   "asx": {
-    "regulatoryNotice": "This content is provided in English as required by ASX regulations",
-    "englishOnly": "English Only"
+    "regulatoryNotice": "Questo contenuto è fornito in inglese come richiesto dai regolamenti ASX",
+    "englishOnly": "Solo Inglese"
   },
   "buttons": {
-    "submit": "Submit",
-    "cancel": "Cancel",
-    "close": "Close",
-    "save": "Save",
-    "delete": "Delete",
-    "edit": "Edit",
-    "view": "View",
-    "download": "Download",
-    "back": "Back",
-    "next": "Next",
-    "previous": "Previous"
+    "submit": "Invia",
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "save": "Salva",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "view": "Visualizza",
+    "viewMore": "Vedi di Più",
+    "download": "Scarica",
+    "back": "Indietro",
+    "next": "Avanti",
+    "previous": "Precedente",
+    "learnMore": "Scopri di Più",
+    "readMore": "Leggi di Più",
+    "exploreProject": "Esplora il Progetto",
+    "explore": "Esplora"
   },
   "errors": {
-    "pageNotFound": "Page Not Found",
-    "somethingWentWrong": "Something went wrong",
-    "tryAgain": "Please try again",
-    "goHome": "Go to Homepage",
-    "networkError": "Network connection failed"
+    "pageNotFound": "Pagina Non Trovata",
+    "somethingWentWrong": "Qualcosa è andato storto",
+    "tryAgain": "Riprova",
+    "goHome": "Vai alla Home",
+    "networkError": "Connessione di rete fallita"
   },
   "metadata": {
     "homepage": {
-      "title": "Yugo Metals - European Metals Exploration and Development",
-      "description": "Yugo Metals explores for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union."
+      "title": "Yugo Metals - Esplorazione e Sviluppo di Metalli Europei",
+      "description": "Yugo Metals esplora nichel, rame, cobalto e metalli preziosi in Bosnia ed Erzegovina, alle porte dell'Unione Europea."
     },
     "investors": {
-      "title": "Investor Centre - Yugo Metals",
-      "description": "Access financial reports, ASX announcements, presentations, and company information."
+      "title": "Centro Investitori - Yugo Metals",
+      "description": "Accedi a report finanziari, annunci ASX, presentazioni e informazioni aziendali."
     },
     "projects": {
-      "title": "Our Projects - Yugo Metals",
-      "description": "Exploring high-grade nickel, copper, and cobalt opportunities in Bosnia and Herzegovina."
+      "title": "I Nostri Progetti - Yugo Metals",
+      "description": "Esplorazione di opportunità ad alto tenore di nichel, rame e cobalto in Bosnia ed Erzegovina."
     },
     "about": {
-      "title": "Why Yugo Metals - About Us",
-      "description": "Strategic positioning in Europe's critical minerals sector with high-grade exploration projects."
+      "title": "Perché Yugo Metals - Chi Siamo",
+      "description": "Posizionamento strategico nel settore dei minerali critici europei con progetti di esplorazione ad alto tenore."
     },
     "contact": {
-      "title": "Contact Us - Yugo Metals",
-      "description": "Get in touch with our team for inquiries about investor relations, media, or general information."
+      "title": "Contattaci - Yugo Metals",
+      "description": "Mettiti in contatto con il nostro team per richieste su investor relations, media o informazioni generali."
     }
   }
 }

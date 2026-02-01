@@ -1,10 +1,13 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Button from '@/components/ui/Button'
 
 export default function Contact() {
+  const t = useTranslations('contact')
+  const tForms = useTranslations('forms.contact')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,16 +31,25 @@ export default function Contact() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-white py-32 md:py-40">
-        <div className="container">
+      <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
+        {/* Background Image with fade */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: 'url(/yugo_images/three-contemporary-builders-in-uniform-2025-03-16-04-36-05-utc.jpg)' }}
+        />
+        
+        {/* Blue Overlay */}
+        <div className="absolute inset-0 bg-primary-600/60"></div>
+        
+        <div className="container relative z-10">
           <AnimatedSection>
             <div className="max-w-4xl">
-              <h1 className="text-display text-secondary-900 mb-6">
-                Contact<br />
-                Us
+              <h1 className="text-heading-lg text-white mb-4">
+                {t('titleLine1')}<br />
+                {t('titleLine2')}
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
-                Get in touch with Yugo Metals. We're here to answer your questions.
+              <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
+                {t('subtitle')}
               </p>
             </div>
           </AnimatedSection>
@@ -51,12 +63,12 @@ export default function Contact() {
             {/* Contact Form */}
             <AnimatedSection>
               <h2 className="text-heading-lg text-secondary-900 mb-8">
-                Get In Touch
+                {t('formTitle')}
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Your Name *
+                    {t('nameLabel')}
                   </label>
                   <input
                     type="text"
@@ -71,7 +83,7 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Email Address *
+                    {t('emailLabel')}
                   </label>
                   <input
                     type="email"
@@ -86,7 +98,7 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Phone Number
+                    {t('phoneLabel')}
                   </label>
                   <input
                     type="tel"
@@ -100,7 +112,7 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Subject *
+                    {t('subjectLabel')}
                   </label>
                   <select
                     id="subject"
@@ -110,18 +122,17 @@ export default function Contact() {
                     required
                     className="w-full px-4 py-3 border-2 border-gray-300 focus:border-primary-600 focus:outline-none transition-colors"
                   >
-                    <option value="">Select a subject</option>
-                    <option value="general">General Enquiry</option>
-                    <option value="investor">Investor Relations</option>
-                    <option value="media">Media Enquiry</option>
-                    <option value="career">Career Opportunities</option>
-                    <option value="other">Other</option>
+                    <option value="">{t('subjectPlaceholder')}</option>
+                    <option value="general">{t('subjectGeneral')}</option>
+                    <option value="investor">{t('subjectInvestor')}</option>
+                    <option value="media">{t('subjectMedia')}</option>
+                    <option value="partnership">{t('subjectPartnership')}</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Message *
+                    {t('messageLabel')}
                   </label>
                   <textarea
                     id="message"
@@ -135,7 +146,7 @@ export default function Contact() {
                 </div>
 
                 <Button type="submit" variant="primary">
-                  Send Message
+                  {t('sendButton')}
                 </Button>
               </form>
             </AnimatedSection>
@@ -143,14 +154,14 @@ export default function Contact() {
             {/* Contact Information */}
             <AnimatedSection delay={0.2}>
               <h2 className="text-heading-lg text-secondary-900 mb-8">
-                Contact Information
+                {t('contactInfo')}
               </h2>
               
               <div className="space-y-6">
                 {/* Registered Office */}
                 <div className="border-2 border-gray-200 p-6">
                   <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
-                    Registered Office
+                    {t('registeredOffice')}
                   </h3>
                   <div className="space-y-2 text-gray-700">
                     <p>Perth, WA 6000</p>
@@ -161,29 +172,28 @@ export default function Contact() {
                 {/* Phone & Email */}
                 <div className="border-2 border-gray-200 p-6">
                   <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
-                    Phone & Email
+                    {t('phoneEmail')}
                   </h3>
                   <div className="space-y-2 text-gray-700">
-                    <p><strong>Phone:</strong> +61 8 9481 0389</p>
-                    <p><strong>Email:</strong> info@lykosmetals.com</p>
+                    <p><strong>{t('phone')}:</strong> +61 8 9481 0389</p>
+                    <p><strong>{t('email')}:</strong> info@lykosmetals.com</p>
                   </div>
                 </div>
 
                 {/* Business Hours */}
                 <div className="border-2 border-gray-200 p-6">
                   <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
-                    Business Hours
+                    {t('businessHours')}
                   </h3>
                   <div className="space-y-2 text-gray-700">
-                    <p><strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM AWST</p>
-                    <p><strong>Weekends:</strong> Closed</p>
+                    <p>{t('businessHoursValue')}</p>
                   </div>
                 </div>
 
                 {/* Social Media */}
                 <div className="border-2 border-gray-200 p-6">
                   <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
-                    Follow Us
+                    {t('followUs')}
                   </h3>
                   <div className="flex space-x-4">
                     <a href="#" className="text-primary-600 hover:text-primary-700 transition-colors">

@@ -6,15 +6,24 @@ export default function InvestorCalendar() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-white py-32 md:py-40">
-        <div className="container">
+      <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
+        {/* Background Image with fade */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: 'url(/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg)' }}
+        />
+        
+        {/* Blue Overlay */}
+        <div className="absolute inset-0 bg-primary-600/60"></div>
+        
+        <div className="container relative z-10">
           <AnimatedSection>
             <div className="max-w-4xl">
-              <h1 className="text-display text-secondary-900 mb-6">
+              <h1 className="text-heading-lg text-white mb-4">
                 Investor<br />
                 Calendar
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 font-josefin">
+              <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
                 Stay informed about upcoming reports, meetings, and company events
               </p>
             </div>

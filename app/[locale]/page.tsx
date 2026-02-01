@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from '@/components/ui/Button'
@@ -20,49 +21,6 @@ interface LatestUpdate {
   href?: string
   downloadUrl?: string
 }
-
-const projects = [
-  {
-    title: 'Doboj Project',
-    slug: 'doboj',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Gold, Antimony, Nickel, Copper',
-    image: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
-    number: '01',
-  },
-  {
-    title: 'Jezero Project',
-    slug: 'jezero',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Precious Metals',
-    image: '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
-    number: '02',
-  },
-  {
-    title: 'Sočkovac Project',
-    slug: 'sockovac',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Base Metals',
-    image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
-    number: '03',
-  },
-  {
-    title: 'Sinjakovo Project',
-    slug: 'sinjakovo',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Copper, Cobalt',
-    image: '/yugo_images/yellow-excavator-digging-rocks-at-the-quarry-doin-2025-01-29-03-01-59-utc.jpg',
-    number: '04',
-  },
-  {
-    title: 'Čajniče Project',
-    slug: 'cajnice',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Nickel, Precious Metals',
-    image: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
-    number: '05',
-  },
-]
 
 // Fallback data in case API fails
 const fallbackUpdates: LatestUpdate[] = [
@@ -92,13 +50,60 @@ const fallbackUpdates: LatestUpdate[] = [
   },
 ]
 
-const rotatingTexts = [
-  'Gold, Antimony, Nickel, Copper',
-  'Precious, Base and Battery Metals',
-  'Polymetallic Exploration',
-]
-
 export default function Home() {
+  const locale = useLocale()
+  const t = useTranslations('homepage')
+  const tProjects = useTranslations('projects')
+  const tButtons = useTranslations('buttons')
+
+  const projects = [
+    {
+      title: tProjects('doboj.name'),
+      slug: 'doboj',
+      location: tProjects('doboj.location'),
+      type: tProjects('doboj.type'),
+      image: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
+      number: tProjects('doboj.number'),
+    },
+    {
+      title: tProjects('jezero.name'),
+      slug: 'jezero',
+      location: tProjects('jezero.location'),
+      type: tProjects('jezero.type'),
+      image: '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
+      number: tProjects('jezero.number'),
+    },
+    {
+      title: tProjects('sockovac.name'),
+      slug: 'sockovac',
+      location: tProjects('sockovac.location'),
+      type: tProjects('sockovac.type'),
+      image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
+      number: tProjects('sockovac.number'),
+    },
+    {
+      title: tProjects('sinjakovo.name'),
+      slug: 'sinjakovo',
+      location: tProjects('sinjakovo.location'),
+      type: tProjects('sinjakovo.type'),
+      image: '/yugo_images/yellow-excavator-digging-rocks-at-the-quarry-doin-2025-01-29-03-01-59-utc.jpg',
+      number: tProjects('sinjakovo.number'),
+    },
+    {
+      title: tProjects('cajnice.name'),
+      slug: 'cajnice',
+      location: tProjects('cajnice.location'),
+      type: tProjects('cajnice.type'),
+      image: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
+      number: tProjects('cajnice.number'),
+    },
+  ]
+
+  const rotatingTexts = [
+    t('hero.rotatingText1'),
+    t('hero.rotatingText2'),
+    t('hero.rotatingText3'),
+  ]
   const [latestUpdates, setLatestUpdates] = useState<LatestUpdate[]>(fallbackUpdates)
   const [isLoadingUpdates, setIsLoadingUpdates] = useState(true)
   const heroVideo1Ref = useRef<HTMLVideoElement>(null)
@@ -178,7 +183,7 @@ export default function Home() {
     }
     
     fetchLatestUpdates()
-  }, [])
+  }, [locale])
 
   // Seamless loop crossfade effect
   useEffect(() => {
@@ -249,26 +254,26 @@ export default function Home() {
         <div className="relative z-10 container text-center text-white">
           <AnimatedSection>
             <h1 className="text-hero mb-8">
-              Exploring for<br />
-              Critical Metals<br />
-              in the Heart of<br />
-              Europe
+              {t('hero.titleLine1')}<br />
+              {t('hero.titleLine2')}<br />
+              {t('hero.titleLine3')}<br />
+              {t('hero.titleLine4')}
             </h1>
             <div className="text-2xl md:text-3xl font-black uppercase tracking-[0.3em] mb-6">
-              YUGO METALS
+              {t('hero.companyName')}
             </div>
             <p 
               className={`text-lg md:text-xl mb-12 font-josefin transition-opacity duration-500 ${
                 isVisible ? 'opacity-90' : 'opacity-0'
               }`}
             >
-              {rotatingTexts[currentTextIndex]} | Bosnia and Herzegovina
+              {rotatingTexts[currentTextIndex]} | {t('hero.location')}
             </p>
             <button 
               onClick={scrollToIntro}
               className="inline-flex items-center gap-3 px-8 py-4 bg-primary-600 text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-primary-700 hover:shadow-lg group cursor-pointer"
             >
-              <span>Start Exploring</span>
+              <span>{t('hero.cta')}</span>
               <svg className="w-5 h-5 transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -285,19 +290,16 @@ export default function Home() {
           <div className="max-w-xl">
             <AnimatedSection>
               <h2 className="text-heading-xl mb-8 text-secondary-900">
-                100% Ownership<br />
-                of Five Projects<br />
-                on the Doorstep<br />
-                of the EU
+                {t('intro.titleLine1')}<br />
+                {t('intro.titleLine2')}<br />
+                {t('intro.titleLine3')}<br />
+                {t('intro.titleLine4')}
               </h2>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 font-josefin">
-                Yugo Metals explores for gold, antimony, nickel, copper, and precious metals 
-                in Bosnia and Herzegovina. Our projects combine historical mining 
-                knowledge with modern systematic exploration in one of the world's 
-                oldest mining regions.
+                {t('intro.description')}
               </p>
-              <Button href="/why-yugo-metals" variant="outline">
-                About Yugo Metals
+              <Button href={`/${locale}/why-yugo-metals`} variant="outline">
+                {t('intro.cta')}
               </Button>
             </AnimatedSection>
           </div>
@@ -315,10 +317,10 @@ export default function Home() {
       <StatsBar
         background="blue"
         stats={[
-          { value: '5', label: 'Projects', sublabel: '100% Owned' },
-          { value: '100%', label: 'Ownership', sublabel: 'Full Control' },
-          { value: 'EU', label: 'Accession State', sublabel: 'Strategic Location' },
-          { value: '3+', label: 'Years', sublabel: 'In Operation' },
+          { value: t('stats.stat1Value'), label: t('stats.stat1Label'), sublabel: t('stats.stat1Sublabel') },
+          { value: t('stats.stat2Value'), label: t('stats.stat2Label'), sublabel: t('stats.stat2Sublabel') },
+          { value: t('stats.stat3Value'), label: t('stats.stat3Label'), sublabel: t('stats.stat3Sublabel') },
+          { value: t('stats.stat4Value'), label: t('stats.stat4Label'), sublabel: t('stats.stat4Sublabel') },
         ]}
       />
 
@@ -328,13 +330,13 @@ export default function Home() {
           <AnimatedSection>
             <div className="text-center mb-16">
               <h2 className="text-heading-xl mb-6 text-secondary-900">
-                Five Projects<br />
-                Targeting Critical<br />
-                Metals for the<br />
-                Energy Transition
+                {t('projectsSection.titleLine1')}<br />
+                {t('projectsSection.titleLine2')}<br />
+                {t('projectsSection.titleLine3')}<br />
+                {t('projectsSection.titleLine4')}
               </h2>
               <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-josefin">
-                Gold, antimony, nickel, copper, and precious metals across Bosnia and Herzegovina
+                {t('projectsSection.subtitle')}
               </p>
             </div>
           </AnimatedSection>
@@ -358,7 +360,7 @@ export default function Home() {
                       </h3>
                       <p className="text-sm opacity-90 mb-1">{project.type}</p>
                       <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span>Explore Project</span>
+                        <span>{t('projectsSection.exploreProject')}</span>
                         <svg className="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -389,7 +391,7 @@ export default function Home() {
                       </h3>
                       <p className="text-sm opacity-90">{project.type}</p>
                       <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span>Explore</span>
+                        <span>{tButtons('explore')}</span>
                         <svg className="w-3 h-3 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -403,8 +405,8 @@ export default function Home() {
 
           <AnimatedSection delay={0.5}>
             <div className="text-center mt-16">
-              <Button href="/projects" variant="outline">
-                View All Projects
+              <Button href={`/${locale}/projects`} variant="outline">
+                {t('projectsSection.viewAllProjects')}
               </Button>
             </div>
           </AnimatedSection>
@@ -417,8 +419,8 @@ export default function Home() {
           <AnimatedSection>
             <div className="text-center mb-20">
               <h2 className="text-display mb-6">
-                Discover Our<br />
-                Assets
+                {t('assetsSection.titleLine1')}<br />
+                {t('assetsSection.titleLine2')}
               </h2>
               <div className="w-24 h-1 bg-primary-600 mx-auto"></div>
             </div>
@@ -429,14 +431,13 @@ export default function Home() {
               <div className="text-center group">
                 <div className="text-6xl mb-6">⚡</div>
                 <h3 className="text-2xl font-bold uppercase tracking-wider mb-4">
-                  Critical Metals
+                  {t('assetsSection.criticalMetalsTitle')}
                 </h3>
                 <p className="text-gray-400 leading-relaxed mb-6">
-                  Targeting gold, antimony, nickel, and copper - essential metals for the 
-                  energy transition and European supply security.
+                  {t('assetsSection.criticalMetalsDescription')}
                 </p>
-                <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
-                  <span>Learn More</span>
+                <Link href={`/${locale}/projects`} className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
+                  <span>{t('assetsSection.learnMore')}</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -448,14 +449,13 @@ export default function Home() {
               <div className="text-center group">
                 <div className="text-6xl mb-6">🇪🇺</div>
                 <h3 className="text-2xl font-bold uppercase tracking-wider mb-4">
-                  Strategic Location
+                  {t('assetsSection.strategicLocationTitle')}
                 </h3>
                 <p className="text-gray-400 leading-relaxed mb-6">
-                  Bosnia and Herzegovina is an EU accession state, offering strategic 
-                  access to European markets and supply chains.
+                  {t('assetsSection.strategicLocationDescription')}
                 </p>
-                <Link href="/why-yugo-metals" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
-                  <span>Learn More</span>
+                <Link href={`/${locale}/why-yugo-metals`} className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
+                  <span>{t('assetsSection.learnMore')}</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -467,14 +467,13 @@ export default function Home() {
               <div className="text-center group">
                 <div className="text-6xl mb-6">🔬</div>
                 <h3 className="text-2xl font-bold uppercase tracking-wider mb-4">
-                  Modern Exploration
+                  {t('assetsSection.modernExplorationTitle')}
                 </h3>
                 <p className="text-gray-400 leading-relaxed mb-6">
-                  Applying systematic modern exploration techniques to historically 
-                  productive mining region with significant potential.
+                  {t('assetsSection.modernExplorationDescription')}
                 </p>
-                <Link href="/investors" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
-                  <span>Learn More</span>
+                <Link href={`/${locale}/investors`} className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
+                  <span>{t('assetsSection.learnMore')}</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -491,8 +490,8 @@ export default function Home() {
           <AnimatedSection>
             <div className="mb-16">
               <h2 className="text-heading-xl text-secondary-900 mb-4">
-                Latest From<br />
-                Yugo Metals
+                {t('latestSection.titleLine1')}<br />
+                {t('latestSection.titleLine2')}
               </h2>
               <div className="w-24 h-1 bg-primary-600"></div>
             </div>
@@ -508,8 +507,8 @@ export default function Home() {
 
           <AnimatedSection delay={0.4}>
             <div className="text-center">
-              <Link href="/investors/asx-announcements" className="inline-flex items-center gap-2 text-primary-600 font-semibold uppercase tracking-wider hover:gap-4 transition-all">
-                <span>View All Announcements</span>
+              <Link href={`/${locale}/investors/asx-announcements`} className="inline-flex items-center gap-2 text-primary-600 font-semibold uppercase tracking-wider hover:gap-4 transition-all">
+                <span>{t('latestSection.viewAllAnnouncements')}</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -525,18 +524,18 @@ export default function Home() {
           <AnimatedSection>
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-heading-xl mb-8">
-                Let's Explore the<br />
-                Possibilities Together
+                {t('ctaSection.titleLine1')}<br />
+                {t('ctaSection.titleLine2')}
               </h2>
               <p className="text-xl md:text-2xl mb-12 opacity-90 font-josefin">
-                Want to learn more about our exploration programs and investment opportunities?
+                {t('ctaSection.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href="/contact" variant="secondary">
-                  Contact Investor Relations
+                <Button href={`/${locale}/contact`} variant="secondary">
+                  {t('ctaSection.contactButton')}
                 </Button>
                 <button className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600">
-                  <span>View Prospectus</span>
+                  <span>{t('ctaSection.prospectusButton')}</span>
                   <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>

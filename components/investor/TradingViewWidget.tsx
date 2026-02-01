@@ -15,9 +15,36 @@ function TradingViewWidget({
 }: TradingViewWidgetProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [hasError, setHasError] = useState(false)
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
+  // Calculate actual container dimensions
   useEffect(() => {
     if (!containerRef.current) return
+
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        setDimensions({
+          width: containerRef.current.offsetWidth,
+          height: containerRef.current.offsetHeight
+        })
+      }
+    }
+
+    // Initial dimension calculation
+    updateDimensions()
+
+    // Create ResizeObserver to handle container size changes
+    const resizeObserver = new ResizeObserver(updateDimensions)
+    resizeObserver.observe(containerRef.current)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [])
+
+  // Initialize TradingView widget with calculated dimensions
+  useEffect(() => {
+    if (!containerRef.current || dimensions.width === 0 || dimensions.height === 0) return
 
     const widgetContainer = document.createElement('div')
     widgetContainer.className = 'tradingview-widget-container__widget'
@@ -53,10 +80,10 @@ function TradingViewWidget({
       dateRanges: ['1d|1', '1m|30', '3m|60', '12m|1D', '60m|1W', 'all|1M'],
       fontSize: '10',
       headerFontSize: 'medium',
-      autosize: true,
+      autosize: false,
       dateFormat: 'qq yyyy',
-      width: width,
-      height: height,
+      width: dimensions.width,
+      height: dimensions.height,
       noTimeScale: false,
       hideDateRanges: false,
       hideMarketStatus: false,
@@ -87,7 +114,7 @@ function TradingViewWidget({
         }
       }
     }
-  }, [symbol, width, height])
+  }, [symbol, dimensions.width, dimensions.height])
 
   // Fallback UI if widget fails to load
   if (hasError) {

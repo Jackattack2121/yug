@@ -369,10 +369,25 @@
     "subscription": {
       "title": "Stay Informed",
       "subtitle": "Subscribe to receive updates on exploration results and company developments",
-      "emailPlaceholder": "Your email",
+      "subtitleShort": "Subscribe to investor updates",
+      "emailPlaceholder": "Enter your email",
+      "emailPlaceholderAlt": "your.email@example.com",
       "subscribeButton": "Subscribe",
-      "successMessage": "Thank you for subscribing!",
-      "errorMessage": "Subscription failed. Please try again."
+      "subscribingButton": "Subscribing...",
+      "subscribedButton": "Subscribed!",
+      "successTitle": "Successfully Subscribed!",
+      "successMessage": "Thank you for subscribing! Check your email to confirm.",
+      "errorMessage": "Subscription failed. Please try again.",
+      "launchingSoon": "Email subscriptions launching soon. Check back later or contact us directly.",
+      "privacyNote": "We respect your privacy. Unsubscribe anytime.",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email Address",
+      "preferencesLabel": "Email Preferences",
+      "asxAnnouncementsLabel": "ASX Announcements",
+      "quarterlyReportsLabel": "Quarterly & Annual Reports",
+      "companyNewsLabel": "Company News & Updates",
+      "submitButton": "Subscribe to Updates"
     },
     "contact": {
       "namePlaceholder": "Your name",
@@ -423,6 +438,25 @@
     },
     "copyright": "© {year} Yugo Metals. All Rights Reserved."
   },
+  "prospectus": {
+    "title": "Entitlement Issue Prospectus",
+    "subtitle": "Current Rights Issue Information",
+    "overview": "Rights Issue Overview",
+    "importantDates": "Important Dates",
+    "documents": "Prospectus Documents",
+    "documentTitle": "Prospectus",
+    "formTitle": "Entitlement and Acceptance Form",
+    "importantNotice": "Important Notice",
+    "contactTitle": "Contact Us for More Information",
+    "announcementDate": "Announcement Date:",
+    "description": "Yugo Metals is pleased to offer eligible shareholders the opportunity to participate in our current entitlement issue. This capital raising will fund our continued exploration activities across our five projects in Bosnia and Herzegovina.",
+    "fundsTitle": "The funds raised will support:"
+  },
+  "mining": {
+    "mainIntercept": "Main Intercept:",
+    "including": "Including:",
+    "references": "References:"
+  },
   "asx": {
     "regulatoryNotice": "This content is provided in English as required by ASX regulations",
     "englishOnly": "English Only"
@@ -435,10 +469,15 @@
     "delete": "Delete",
     "edit": "Edit",
     "view": "View",
+    "viewMore": "View More",
     "download": "Download",
     "back": "Back",
     "next": "Next",
-    "previous": "Previous"
+    "previous": "Previous",
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "exploreProject": "Explore Project",
+    "explore": "Explore"
   },
   "errors": {
     "pageNotFound": "Page Not Found",

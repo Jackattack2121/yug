@@ -1,58 +1,61 @@
 'use client'
 
+import { useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Image from 'next/image'
 
-const projects = [
-  {
-    title: 'Doboj Project',
-    slug: 'doboj',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Nickel, Copper, Cobalt',
-    image: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
-    number: '01',
-    description: 'Primary nickel-copper-cobalt exploration project with significant historical mining activity.',
-  },
-  {
-    title: 'Jezero Project',
-    slug: 'jezero',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Precious Metals',
-    image: '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
-    number: '02',
-    description: 'Precious metals exploration targeting gold and silver deposits in historic mining district.',
-  },
-  {
-    title: 'Sočkovac Project',
-    slug: 'sockovac',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Base Metals',
-    image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
-    number: '03',
-    description: 'Base metals exploration project with potential for copper, lead, and zinc mineralization.',
-  },
-  {
-    title: 'Sinjakovo Project',
-    slug: 'sinjakovo',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Copper, Cobalt',
-    image: '/yugo_images/yellow-excavator-digging-rocks-at-the-quarry-doin-2025-01-29-03-01-59-utc.jpg',
-    number: '04',
-    description: 'Copper-cobalt exploration project in historically productive mining region.',
-  },
-  {
-    title: 'Čajniče Project',
-    slug: 'cajnice',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Nickel, Precious Metals',
-    image: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
-    number: '05',
-    description: 'Nickel and precious metals exploration with potential for multi-commodity mineralization.',
-  },
-]
-
 export default function ProjectsPage() {
+  const locale = useLocale()
+  const t = useTranslations('projects')
+
+  const projects = [
+    {
+      title: t('doboj.name'),
+      slug: 'doboj',
+      location: t('doboj.location'),
+      type: t('doboj.type'),
+      image: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
+      number: t('doboj.number'),
+      description: t('doboj.shortDescription'),
+    },
+    {
+      title: t('jezero.name'),
+      slug: 'jezero',
+      location: t('jezero.location'),
+      type: t('jezero.type'),
+      image: '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
+      number: t('jezero.number'),
+      description: t('jezero.shortDescription'),
+    },
+    {
+      title: t('sockovac.name'),
+      slug: 'sockovac',
+      location: t('sockovac.location'),
+      type: t('sockovac.type'),
+      image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
+      number: t('sockovac.number'),
+      description: t('sockovac.shortDescription'),
+    },
+    {
+      title: t('sinjakovo.name'),
+      slug: 'sinjakovo',
+      location: t('sinjakovo.location'),
+      type: t('sinjakovo.type'),
+      image: '/yugo_images/yellow-excavator-digging-rocks-at-the-quarry-doin-2025-01-29-03-01-59-utc.jpg',
+      number: t('sinjakovo.number'),
+      description: t('sinjakovo.shortDescription'),
+    },
+    {
+      title: t('cajnice.name'),
+      slug: 'cajnice',
+      location: t('cajnice.location'),
+      type: t('cajnice.type'),
+      image: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
+      number: t('cajnice.number'),
+      description: t('cajnice.shortDescription'),
+    },
+  ]
   return (
     <>
       {/* Hero Section */}
@@ -64,13 +67,13 @@ export default function ProjectsPage() {
         <div className="relative z-10 container text-center">
           <AnimatedSection>
             <p className="text-sm uppercase tracking-wider text-primary-400 mb-4">
-              Bosnia and Herzegovina Projects
+              {t('pageTitle')}
             </p>
             <h1 className="text-display mb-6">
-              Our Projects
+              {t('heading')}
             </h1>
             <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto font-josefin">
-              Five high-potential exploration projects targeting critical metals for the energy transition
+              {t('subtitle')}
             </p>
           </AnimatedSection>
         </div>
@@ -112,7 +115,7 @@ export default function ProjectsPage() {
                         {project.description}
                       </p>
                       <div className="flex items-center gap-2 text-primary-600 font-semibold uppercase tracking-wider text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span>Explore Project</span>
+                        <span>{t('exploreProject')}</span>
                         <svg className="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -132,27 +135,27 @@ export default function ProjectsPage() {
           <AnimatedSection>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-heading-xl mb-8">
-                Interested in Our<br />
-                Exploration Programs?
+                {t('cta.titleLine1')}<br />
+                {t('cta.titleLine2')}
               </h2>
               <p className="text-xl mb-12 font-josefin opacity-90">
-                Stay updated with our latest exploration results and company developments
+                {t('cta.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
-                  href="/investors/asx-announcements"
+                  href={`/${locale}/investors/asx-announcements`}
                   className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-secondary-800 text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-secondary-900 hover:shadow-lg text-sm"
                 >
-                  <span>View ASX Announcements</span>
+                  <span>{t('cta.viewAnnouncements')}</span>
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
                 <Link 
-                  href="/contact"
+                  href={`/${locale}/contact`}
                   className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600 text-sm"
                 >
-                  <span>Contact Us</span>
+                  <span>{t('cta.contactUs')}</span>
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>

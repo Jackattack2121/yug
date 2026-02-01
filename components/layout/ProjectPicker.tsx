@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import gsap from 'gsap'
@@ -18,45 +19,47 @@ interface ProjectPickerProps {
   onOpenChange?: (open: boolean) => void
 }
 
-const projects: Project[] = [
-  {
-    title: 'Doboj Project',
-    slug: 'doboj',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Nickel, Copper, Cobalt',
-    image: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
-  },
-  {
-    title: 'Jezero Project',
-    slug: 'jezero',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Precious Metals',
-    image: '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
-  },
-  {
-    title: 'Sočkovac Project',
-    slug: 'sockovac',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Base Metals',
-    image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
-  },
-  {
-    title: 'Sinjakovo Project',
-    slug: 'sinjakovo',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Copper, Cobalt',
-    image: '/yugo_images/yellow-excavator-digging-rocks-at-the-quarry-doin-2025-01-29-03-01-59-utc.jpg',
-  },
-  {
-    title: 'Čajniče Project',
-    slug: 'cajnice',
-    location: 'Republic of Srpska, Bosnia and Herzegovina',
-    type: 'Nickel, Precious Metals',
-    image: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
-  },
-]
-
 export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectPickerProps) {
+  const locale = useLocale()
+  const t = useTranslations('projects')
+
+  const projects: Project[] = [
+    {
+      title: t('doboj.name'),
+      slug: 'doboj',
+      location: t('doboj.location'),
+      type: t('doboj.type'),
+      image: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
+    },
+    {
+      title: t('jezero.name'),
+      slug: 'jezero',
+      location: t('jezero.location'),
+      type: t('jezero.type'),
+      image: '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
+    },
+    {
+      title: t('sockovac.name'),
+      slug: 'sockovac',
+      location: t('sockovac.location'),
+      type: t('sockovac.type'),
+      image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
+    },
+    {
+      title: t('sinjakovo.name'),
+      slug: 'sinjakovo',
+      location: t('sinjakovo.location'),
+      type: t('sinjakovo.type'),
+      image: '/yugo_images/yellow-excavator-digging-rocks-at-the-quarry-doin-2025-01-29-03-01-59-utc.jpg',
+    },
+    {
+      title: t('cajnice.name'),
+      slug: 'cajnice',
+      location: t('cajnice.location'),
+      type: t('cajnice.type'),
+      image: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
+    },
+  ]
   const [isOpen, setIsOpen] = useState(false)
   const [hoveredProject, setHoveredProject] = useState<string>(projects[0].slug)
   const panelRef = useRef<HTMLDivElement>(null)
@@ -127,7 +130,7 @@ export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectP
           isOpen ? 'text-white' : (isSolid ? 'text-gray-900' : 'text-white')
         )}
       >
-        <span>Projects</span>
+        <span>{t('picker.title')}</span>
         <svg
           className={cn('w-4 h-4 transition-transform', isOpen && 'rotate-180')}
           fill="none"
@@ -146,7 +149,7 @@ export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectP
       >
         <div className="max-w-6xl mx-auto px-6 py-8">
           <p className="text-xs uppercase tracking-wider opacity-60 mb-6">
-            Bosnia and Herzegovina Projects
+            {t('picker.subtitle')}
           </p>
           
           {/* Two Column Layout */}
