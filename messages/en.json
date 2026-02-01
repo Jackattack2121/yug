@@ -113,14 +113,28 @@
       "highLabel": "High",
       "lowLabel": "Low",
       "openLabel": "Open",
-      "lastUpdated": "Last Updated"
+      "lastUpdated": "Last Updated",
+      "unavailable": "Live market data unavailable",
+      "viewOnAsx": "View share price on ASX →",
+      "stockPrice": "YUG stock price",
+      "byTradingView": "by TradingView"
     },
     "announcements": {
+      "titleLine1": "ASX",
+      "titleLine2": "Announcements",
       "title": "ASX Announcements",
-      "subtitle": "Latest company announcements and market updates",
+      "subtitle": "Stay up-to-date with the latest news and announcements from Yugo Metals ({companyASXCode})",
+      "subtitleSimple": "Latest company announcements and market updates",
       "dateLabel": "Date",
       "categoryLabel": "Category",
-      "noAnnouncements": "No announcements available"
+      "noAnnouncements": "No announcements available",
+      "comingSoon": "Announcements Coming Soon",
+      "comingSoonDescription": "ASX announcements will appear here when available. In the meantime, you can view our company announcements directly on the ASX website using the link above.",
+      "viewOnAsx": "View on ASX.com.au",
+      "searchPlaceholder": "Search announcements...",
+      "noResults": "No announcements found.",
+      "subscribeTitle": "Subscribe for Updates",
+      "subscribeDescription": "Receive email notifications when new announcements are released"
     },
     "financialReports": {
       "title": "Financial Reports",
@@ -129,8 +143,14 @@
       "annualTitle": "Annual Reports"
     },
     "presentations": {
+      "titleLine1": "Investor",
+      "titleLine2": "Presentations",
       "title": "Presentations",
-      "subtitle": "Investor presentations and company briefings"
+      "subtitle": "Access our latest investor and corporate presentations",
+      "subtitleSimple": "Investor presentations and company briefings",
+      "comingSoon": "Presentations Coming Soon",
+      "comingSoonDescription": "Investor and corporate presentations will be available here once published. Check back soon or subscribe to be notified when new presentations are released.",
+      "subscribeButton": "Subscribe to Updates"
     },
     "shareInfo": {
       "title": "Share Information",
@@ -255,13 +275,34 @@
   },
   "company": {
     "about": {
-      "title": "Why Yugo Metals",
-      "subtitle": "Strategic positioning in Europe's critical minerals sector"
+      "titleLine1": "Why Yugo",
+      "titleLine2": "Metals?",
+      "subtitle": "Exploring for metals on the doorstep of the European Union",
+      "introTitleLine1": "Located in Bosnia",
+      "introTitleLine2": "and Herzegovina,",
+      "introTitleLine3": "on the Doorstep",
+      "introTitleLine4": "of the EU",
+      "reasonsTitle": "Six Reasons to Invest in Yugo Metals",
+      "reasonsTitleLine1": "Six Reasons to",
+      "reasonsTitleLine2": "Invest in Yugo Metals",
+      "modernExplorationTitleLine1": "Modern Exploration",
+      "modernExplorationTitleLine2": "in a Historic",
+      "modernExplorationTitleLine3": "Mining Region",
+      "keyHighlights": "Key Highlights",
+      "criticalMetalsTitle": "Critical Metals for Europe",
+      "criticalMetalsSubtitle": "Gold, Antimony, Nickel, and Copper for the Energy Transition",
+      "ctaTitleLine1": "Ready to Learn More?",
+      "ctaSubtitle": "Explore our projects and stay updated with the latest announcements",
+      "viewAnnouncements": "View ASX Announcements",
+      "exploreProjects": "Explore Our Projects"
     },
     "board": {
       "title": "Board of Directors",
       "subtitle": "Experienced leadership team",
-      "management": "Management"
+      "description": "Our board brings together decades of combined experience in mining exploration, corporate governance, and capital markets. Their leadership guides Yugo Metals' strategic direction and commitment to delivering value to shareholders.",
+      "management": "Management",
+      "emailButton": "✉️ Email",
+      "linkedinButton": "🔗 LinkedIn"
     },
     "governance": {
       "title": "Corporate Governance",
@@ -271,11 +312,27 @@
     },
     "directory": {
       "title": "Corporate Directory",
-      "subtitle": "Key contacts and information"
+      "subtitle": "Contact Information and Office Locations",
+      "corporateOffice": "Corporate Office",
+      "contactInfo": "Contact Information",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website",
+      "asxListing": "ASX Listing",
+      "governanceFramework": "Governance Framework",
+      "boardOfDirectors": "Board of Directors",
+      "governancePolicies": "Governance Policies",
+      "codeOfConduct": "Code of Conduct",
+      "riskManagement": "Risk Management",
+      "whistleblowerPolicy": "Whistleblower Policy"
     },
     "responsibility": {
       "title": "Corporate Responsibility",
-      "subtitle": "Our commitment to sustainable practices"
+      "subtitle": "Sustainable Mining Practices",
+      "ourCommitment": "Our Commitment",
+      "environmentalStewardship": "Environmental Stewardship",
+      "communityEngagement": "Community Engagement"
     }
   },
   "contact": {
