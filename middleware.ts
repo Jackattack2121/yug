@@ -32,10 +32,11 @@ export default function middleware(req: NextRequest) {
 
   // Admin routes (no locale prefix) - use auth middleware
   if (
-    pathname.startsWith('/admin') ||
+    pathname.startsWith('/admin/(dashboard)') ||
     pathname.startsWith('/api/admin')
   ) {
-    return authMiddleware(req as any);
+    // @ts-ignore - withAuth has complex typing
+    return authMiddleware(req);
   }
 
   // API routes (no locale prefix) - allow through

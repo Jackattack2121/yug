@@ -1,7 +1,7 @@
 'use client'
 
 import { useLocale, useTranslations } from 'next-intl'
-import SharePriceWidget from '@/components/investor/SharePriceWidget'
+import TradingViewWidget from '@/components/investor/TradingViewWidget'
 import SubscriptionForm from '@/components/investor/SubscriptionForm'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Button from '@/components/ui/Button'
@@ -95,7 +95,9 @@ export default function InvestorCentre() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <AnimatedSection className="lg:col-span-2">
-              <SharePriceWidget ticker="YUG" />
+              <div style={{ minHeight: '400px', height: '400px' }}>
+                <TradingViewWidget symbol="ASX:YUG|1M|AUD" />
+              </div>
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
               <SubscriptionForm variant="card" />

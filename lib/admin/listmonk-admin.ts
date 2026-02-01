@@ -3,12 +3,18 @@
  * Handles communication with Listmonk for email marketing management
  */
 
-const LISTMONK_URL = process.env.LISTMONK_URL || 'http://localhost:9000';
-const LISTMONK_USERNAME = process.env.LISTMONK_USERNAME || 'listmonk_api';
+const LISTMONK_URL = process.env.LISTMONK_URL;
+const LISTMONK_USERNAME = process.env.LISTMONK_USERNAME;
 const LISTMONK_PASSWORD = process.env.LISTMONK_PASSWORD;
 
-if (!LISTMONK_PASSWORD) {
-  throw new Error('SECURITY: LISTMONK_PASSWORD not configured in environment variables');
+// Validate configuration at module load
+if (!LISTMONK_URL || !LISTMONK_USERNAME || !LISTMONK_PASSWORD) {
+  console.warn('Listmonk not configured: missing environment variables');
+}
+
+// Prevent localhost connections in production
+if (LISTMONK_URL && (LISTMONK_URL.includes('localhost') || LISTMONK_URL.includes('127.0.0.1'))) {
+  console.warn('Listmonk configured with localhost URL - email features will be unavailable');
 }
 
 // Types
@@ -63,10 +69,28 @@ export interface ListmonkTemplate {
 }
 
 /**
+ * Check if Listmonk is properly configured
+ */
+function isListmonkAvailable(): boolean {
+  if (!LISTMONK_URL || !LISTMONK_USERNAME || !LISTMONK_PASSWORD) {
+    return false;
+  }
+  
+  if (LISTMONK_URL.includes('localhost') || LISTMONK_URL.includes('127.0.0.1')) {
+    return false;
+  }
+  
+  return true;
+}
+
+/**
  * Get Basic Auth header for Listmonk
  */
 function getAuthHeader(): string {
-  return 'Basic ' + Buffer.from(`${LISTMONK_USERNAME}:${LISTMONK_PASSWORD}`).toString('base64');
+  if (!isListmonkAvailable()) {
+    throw new Error('Listmonk is not properly configured');
+  }
+  return 'Basic ' + Buffer.from(`${LISTMONK_USERNAME!}:${LISTMONK_PASSWORD!}`).toString('base64');
 }
 
 /**
@@ -76,7 +100,11 @@ async function listmonkRequest<T>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> {
-  const url = `${LISTMONK_URL}/api${endpoint}`;
+  if (!isListmonkAvailable()) {
+    throw new Error('Listmonk is not properly configured');
+  }
+  
+  const url = `${LISTMONK_URL!}/api${endpoint}`;
   
   const response = await fetch(url, {
     ...options,

@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
 
-const LISTMONK_URL = process.env.LISTMONK_URL || 'http://localhost:9000'
-const LISTMONK_USERNAME = process.env.LISTMONK_USERNAME || ''
-const LISTMONK_PASSWORD = process.env.LISTMONK_PASSWORD || ''
+const LISTMONK_URL = process.env.LISTMONK_URL
+const LISTMONK_USERNAME = process.env.LISTMONK_USERNAME
+const LISTMONK_PASSWORD = process.env.LISTMONK_PASSWORD
 
 // List IDs (from setup-listmonk.js output)
 const LIST_IDS = {
@@ -11,7 +11,34 @@ const LIST_IDS = {
   news: 3, // Investor Updates (general news)
 }
 
+/**
+ * Check if Listmonk is properly configured
+ * Prevents localhost connections in production
+ */
+function isListmonkAvailable(): boolean {
+  if (!LISTMONK_URL || !LISTMONK_USERNAME || !LISTMONK_PASSWORD) {
+    return false
+  }
+  
+  // Prevent localhost connections (likely misconfiguration in production)
+  if (LISTMONK_URL.includes('localhost') || LISTMONK_URL.includes('127.0.0.1')) {
+    return false
+  }
+  
+  return true
+}
+
 export async function POST(request: Request) {
+  // Check if Listmonk is available before processing
+  if (!isListmonkAvailable()) {
+    return NextResponse.json(
+      {
+        available: false,
+        error: 'Email subscriptions launching soon'
+      },
+      { status: 503 }
+    )
+  }
   try {
     const { email, name, preferences } = await request.json()
 
@@ -34,11 +61,11 @@ export async function POST(request: Request) {
       selectedLists.push(LIST_IDS.news)
     }
 
-    // Create Basic Auth header
-    const authHeader = 'Basic ' + Buffer.from(`${LISTMONK_USERNAME}:${LISTMONK_PASSWORD}`).toString('base64')
+    // Create Basic Auth header (credentials are guaranteed to exist by isListmonkAvailable check)
+    const authHeader = 'Basic ' + Buffer.from(`${LISTMONK_USERNAME!}:${LISTMONK_PASSWORD!}`).toString('base64')
 
     // Subscribe to Listmonk
-    const response = await fetch(`${LISTMONK_URL}/api/subscribers`, {
+    const response = await fetch(`${LISTMONK_URL!}/api/subscribers`, {
       method: 'POST',
       headers: {
         'Authorization': authHeader,

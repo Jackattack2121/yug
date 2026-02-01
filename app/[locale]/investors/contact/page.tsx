@@ -24,20 +24,8 @@ export default function InvestorContact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setStatus('loading')
-
-    try {
-      // TODO: Implement actual form submission
-      // In production, send to API endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1500))
-
-      setStatus('success')
-      setMessage('Thank you for your inquiry. Our Investor Relations team will respond within 24-48 hours.')
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
-    } catch (error) {
-      setStatus('error')
-      setMessage('Failed to send message. Please try again or email us directly.')
-    }
+    setStatus('error')
+    setMessage('Contact form is not yet available. Please email us directly at investor.relations@yugometals.com or call +61 8 9481 0389.')
   }
 
   return (

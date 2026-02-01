@@ -47,7 +47,8 @@ function calculateBackoff(attempts: number): number {
  */
 function cleanupExpiredEntries(): void {
   const now = Date.now();
-  for (const [ip, entry] of rateLimitStore.entries()) {
+  const entries = Array.from(rateLimitStore.entries());
+  for (const [ip, entry] of entries) {
     // Remove entries older than the window
     if (now - entry.firstAttempt > WINDOW_MS) {
       rateLimitStore.delete(ip);

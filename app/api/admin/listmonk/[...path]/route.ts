@@ -2,19 +2,32 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth/auth-config';
 
-const LISTMONK_URL = process.env.LISTMONK_URL || 'http://localhost:9000';
-const LISTMONK_USERNAME = process.env.LISTMONK_USERNAME || 'listmonk_api';
+const LISTMONK_URL = process.env.LISTMONK_URL;
+const LISTMONK_USERNAME = process.env.LISTMONK_USERNAME;
 const LISTMONK_PASSWORD = process.env.LISTMONK_PASSWORD;
 
-if (!LISTMONK_PASSWORD) {
-  throw new Error('SECURITY: LISTMONK_PASSWORD not configured in environment variables');
+/**
+ * Check if Listmonk is properly configured
+ * Prevents localhost connections in production
+ */
+function isListmonkAvailable(): boolean {
+  if (!LISTMONK_URL || !LISTMONK_USERNAME || !LISTMONK_PASSWORD) {
+    return false;
+  }
+  
+  // Prevent localhost connections (likely misconfiguration in production)
+  if (LISTMONK_URL.includes('localhost') || LISTMONK_URL.includes('127.0.0.1')) {
+    return false;
+  }
+  
+  return true;
 }
 
 /**
  * Get Basic Auth header for Listmonk
  */
 function getAuthHeader(): string {
-  return 'Basic ' + Buffer.from(`${LISTMONK_USERNAME}:${LISTMONK_PASSWORD}`).toString('base64');
+  return 'Basic ' + Buffer.from(`${LISTMONK_USERNAME!}:${LISTMONK_PASSWORD!}`).toString('base64');
 }
 
 /**
@@ -33,10 +46,18 @@ export async function GET(
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
+  // Check if Listmonk is available
+  if (!isListmonkAvailable()) {
+    return NextResponse.json(
+      { available: false, error: 'Listmonk not configured' },
+      { status: 503 }
+    );
+  }
+
   try {
     const path = params.path.join('/');
     const searchParams = request.nextUrl.searchParams.toString();
-    const url = `${LISTMONK_URL}/api/${path}${searchParams ? `?${searchParams}` : ''}`;
+    const url = `${LISTMONK_URL!}/api/${path}${searchParams ? `?${searchParams}` : ''}`;
 
     const response = await fetch(url, {
       method: 'GET',
@@ -69,10 +90,18 @@ export async function POST(
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
+  // Check if Listmonk is available
+  if (!isListmonkAvailable()) {
+    return NextResponse.json(
+      { available: false, error: 'Listmonk not configured' },
+      { status: 503 }
+    );
+  }
+
   try {
     const path = params.path.join('/');
     const body = await request.json();
-    const url = `${LISTMONK_URL}/api/${path}`;
+    const url = `${LISTMONK_URL!}/api/${path}`;
 
     const response = await fetch(url, {
       method: 'POST',
@@ -106,10 +135,18 @@ export async function PUT(
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
+  // Check if Listmonk is available
+  if (!isListmonkAvailable()) {
+    return NextResponse.json(
+      { available: false, error: 'Listmonk not configured' },
+      { status: 503 }
+    );
+  }
+
   try {
     const path = params.path.join('/');
     const body = await request.json();
-    const url = `${LISTMONK_URL}/api/${path}`;
+    const url = `${LISTMONK_URL!}/api/${path}`;
 
     const response = await fetch(url, {
       method: 'PUT',
@@ -143,9 +180,17 @@ export async function DELETE(
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
+  // Check if Listmonk is available
+  if (!isListmonkAvailable()) {
+    return NextResponse.json(
+      { available: false, error: 'Listmonk not configured' },
+      { status: 503 }
+    );
+  }
+
   try {
     const path = params.path.join('/');
-    const url = `${LISTMONK_URL}/api/${path}`;
+    const url = `${LISTMONK_URL!}/api/${path}`;
 
     const response = await fetch(url, {
       method: 'DELETE',

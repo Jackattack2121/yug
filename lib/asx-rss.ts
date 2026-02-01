@@ -26,32 +26,10 @@ export interface ASXAnnouncement {
 }
 
 /**
- * Fetch share price from ASX (20-minute delay via RSS)
- * Note: This is a placeholder. In production, use actual ASX RSS feed URL
+ * REMOVED: getASXSharePrice() function
+ * Share price data is now provided via TradingView widget
+ * See: components/investor/TradingViewWidget.tsx
  */
-export async function getASXSharePrice(ticker: string): Promise<ASXSharePrice> {
-  try {
-    // In production, replace with actual ASX RSS feed URL
-    // Example: https://www.asx.com.au/asx/1/share/${ticker}/prices?interval=daily
-    
-    // For now, return mock data structure
-    // TODO: Implement actual RSS parsing when ASX feed URL is available
-    return {
-      ticker: ticker.toUpperCase(),
-      price: 0.115,
-      change: 0.010,
-      changePercent: 9.52,
-      volume: 1250000,
-      lastUpdated: new Date().toISOString(),
-      high: 0.120,
-      low: 0.110,
-      open: 0.112,
-    }
-  } catch (error) {
-    console.error('Error fetching ASX share price:', error)
-    throw new Error('Failed to fetch share price data')
-  }
-}
 
 /**
  * Fetch company announcements from ASX RSS feed

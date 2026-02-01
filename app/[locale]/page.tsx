@@ -12,6 +12,16 @@ import StatsBar from '@/components/ui/StatsBar'
 import NewsCard from '@/components/ui/NewsCard'
 import Link from 'next/link'
 
+interface LatestUpdate {
+  title: string
+  date: string
+  category: string
+  excerpt?: string
+  image?: string
+  href?: string
+  downloadUrl?: string
+}
+
 const projects = [
   {
     title: 'Doboj Project',
@@ -55,7 +65,8 @@ const projects = [
   },
 ]
 
-const latestUpdates = [
+// Fallback data in case API fails
+const fallbackUpdates: LatestUpdate[] = [
   {
     title: 'Quarterly Activities Report',
     date: 'October 27, 2024',
@@ -90,7 +101,8 @@ const rotatingTexts = [
 
 export default function Home() {
   const locale = useLocale()
-  const parallaxVideoRef = useRef<HTMLVideoElement>(null)
+  const [latestUpdates, setLatestUpdates] = useState<LatestUpdate[]>(fallbackUpdates)
+  const [isLoadingUpdates, setIsLoadingUpdates] = useState(true)
   const heroVideo1Ref = useRef<HTMLVideoElement>(null)
   const heroVideo2Ref = useRef<HTMLVideoElement>(null)
   const introSectionRef = useRef<HTMLDivElement>(null)
@@ -120,6 +132,55 @@ export default function Home() {
 
     return () => clearInterval(interval)
   }, [])
+
+  // Fetch latest updates from APIs (ASX announcements + Directus presentations)
+  useEffect(() => {
+    async function fetchLatestUpdates() {
+      try {
+        setIsLoadingUpdates(true)
+        
+        // Fetch announcements and presentations in parallel
+        const [announcementsRes, presentationsRes] = await Promise.all([
+          fetch('/api/announcements?limit=2').catch(() => null),
+          fetch('/api/presentations?limit=1&featured=true').catch(() => null),
+        ])
+        
+        const announcements = announcementsRes?.ok 
+          ? (await announcementsRes.json()).announcements || []
+          : []
+        
+        const presentations = presentationsRes?.ok
+          ? (await presentationsRes.json()).presentations || []
+          : []
+        
+        // Combine announcements and presentations
+        const combined = [...announcements, ...presentations]
+        
+        // Transform announcements to match LatestUpdate interface
+        const transformed = combined.map((item: any) => ({
+          title: item.title,
+          date: item.date,
+          category: item.category,
+          excerpt: item.excerpt || item.summary,
+          image: item.image,
+          href: item.url ? undefined : `/${locale}/investors/asx-announcements`,
+          downloadUrl: item.url || item.downloadUrl,
+        }))
+        
+        // Use fetched data if available, otherwise keep fallback
+        if (transformed.length > 0) {
+          setLatestUpdates(transformed.slice(0, 3))
+        }
+      } catch (error) {
+        console.error('Error fetching latest updates:', error)
+        // Keep fallback data on error
+      } finally {
+        setIsLoadingUpdates(false)
+      }
+    }
+    
+    fetchLatestUpdates()
+  }, [locale])
 
   // Seamless loop crossfade effect
   useEffect(() => {
@@ -155,21 +216,6 @@ export default function Home() {
     return () => {
       video1.removeEventListener('timeupdate', handleTimeUpdate1)
       video2.removeEventListener('timeupdate', handleTimeUpdate2)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (parallaxVideoRef.current) {
-      gsap.to(parallaxVideoRef.current, {
-        yPercent: 30,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: parallaxVideoRef.current.parentElement,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1,
-        },
-      })
     }
   }, [])
 

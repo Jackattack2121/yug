@@ -1,33 +1,29 @@
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import NewsCard from '@/components/ui/NewsCard'
+import EmptyState from '@/components/ui/EmptyState'
+import { HiOutlineDocumentText } from 'react-icons/hi'
 
-const presentations = [
-  {
-    id: '1',
-    title: 'Investor Presentation - September 2024',
-    description: 'Corporate presentation covering project updates and exploration results',
-    date: '2024-09-15',
-    file: '/documents/investor-presentation-sept-2024.pdf',
-    thumbnail: '/images/presentation-thumb-1.jpg',
-  },
-  {
-    id: '2',
-    title: 'Doboj Project Exploration Update',
-    description: 'Detailed presentation on the Doboj nickel-copper-cobalt project and exploration results in Bosnia & Herzegovina',
-    date: '2024-08-20',
-    file: '/documents/doboj-update-aug-2024.pdf',
-    thumbnail: '/images/presentation-thumb-2.jpg',
-  },
-  {
-    id: '3',
-    title: 'Annual General Meeting Presentation 2024',
-    description: 'Presentation delivered at the 2024 Annual General Meeting',
-    date: '2024-11-30',
-    file: '/documents/agm-presentation-2024.pdf',
-    thumbnail: '/images/presentation-thumb-3.jpg',
-  },
-]
+async function getPresentations() {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+    const res = await fetch(`${baseUrl}/api/presentations?limit=50`, {
+      next: { revalidate: 600 }, // Revalidate every 10 minutes
+    })
+    
+    if (!res.ok) {
+      throw new Error('Failed to fetch presentations')
+    }
+    
+    const data = await res.json()
+    return data.presentations || []
+  } catch (error) {
+    console.error('Error fetching presentations:', error)
+    return []
+  }
+}
 
-export default function Presentations() {
+export default async function Presentations() {
+  const presentations = await getPresentations()
   return (
     <>
       <section className="relative bg-white py-32 md:py-40">
@@ -49,50 +45,32 @@ export default function Presentations() {
       <section className="section-padding bg-white">
         <div className="container">
           {presentations.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {presentations.map((presentation, index) => (
-                <AnimatedSection key={presentation.id} delay={index * 0.1}>
-                  <div className="bg-white border-2 border-gray-200 overflow-hidden hover:border-primary-600 transition-all duration-300">
-                    {presentation.thumbnail ? (
-                      <div 
-                        className="h-48 bg-gray-200 bg-cover bg-center"
-                        style={{ backgroundImage: `url(${presentation.thumbnail})` }}
-                      />
-                    ) : (
-                      <div className="h-48 bg-gray-200 flex items-center justify-center">
-                        <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                    )}
-                    <div className="p-6">
-                      <p className="text-sm text-primary-600 font-semibold mb-2 uppercase tracking-wider">
-                        {new Date(presentation.date).toLocaleDateString('en-AU', { year: 'numeric', month: 'long' })}
-                      </p>
-                      <h3 className="text-xl font-bold mb-3 text-secondary-900">{presentation.title}</h3>
-                      {presentation.description && (
-                        <p className="text-gray-600 text-sm mb-4 leading-relaxed">{presentation.description}</p>
-                      )}
-                      <a
-                        href={presentation.file}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-primary-600 text-white text-sm font-semibold uppercase tracking-wider hover:bg-primary-700 transition-colors"
-                      >
-                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        Download PDF
-                      </a>
-                    </div>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {presentations.map((presentation: any, index: number) => (
+                <AnimatedSection key={presentation.id || index} delay={index * 0.1}>
+                  <NewsCard
+                    title={presentation.title}
+                    date={presentation.date}
+                    category={presentation.category}
+                    excerpt={presentation.excerpt || presentation.description || presentation.summary}
+                    image={presentation.image || presentation.thumbnail}
+                    downloadUrl={presentation.downloadUrl || presentation.file}
+                  />
                 </AnimatedSection>
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-500">No presentations available at this time.</p>
-            </div>
+            <AnimatedSection>
+              <EmptyState
+                icon={HiOutlineDocumentText}
+                title="Presentations Coming Soon"
+                description="Investor and corporate presentations will be available here once published. Check back soon or subscribe to be notified when new presentations are released."
+                action={{
+                  label: "Subscribe to Updates",
+                  href: "/investors#subscribe"
+                }}
+              />
+            </AnimatedSection>
           )}
         </div>
       </section>

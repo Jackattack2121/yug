@@ -33,6 +33,10 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
       const data = await response.json()
 
       if (!response.ok) {
+        // Handle 503 (service unavailable) specifically
+        if (response.status === 503) {
+          throw new Error('Email subscriptions launching soon. Check back later or contact us directly.')
+        }
         throw new Error(data.error || 'Subscription failed')
       }
 

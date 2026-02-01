@@ -4,28 +4,30 @@ import StatsCard from '@/components/admin/dashboard/StatsCard';
 import QuickActions from '@/components/admin/dashboard/QuickActions';
 import RecentActivity from '@/components/admin/dashboard/RecentActivity';
 
-// Mock function to fetch dashboard stats
-// In production, this would fetch real data from APIs
+// Function to fetch dashboard stats
+// In production, these would come from real APIs
 async function getDashboardStats() {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 100));
 
+  // Note: Projects count should be fetched from actual content management system
+  // Other metrics removed until real data sources are available
   return {
     projects: {
       value: 5,
-      change: { value: '+1', positive: true },
+      change: { value: '', positive: true },
     },
     subscribers: {
-      value: 1234,
-      change: { value: '+89', positive: true },
+      value: '-',
+      change: { value: '', positive: true },
     },
     pageViews: {
-      value: '15.2K',
-      change: { value: '+12%', positive: true },
+      value: '-',
+      change: { value: '', positive: true },
     },
     engagement: {
-      value: '68%',
-      change: { value: '-3%', positive: false },
+      value: '-',
+      change: { value: '', positive: true },
     },
   };
 }

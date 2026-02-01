@@ -7,7 +7,7 @@ A comprehensive, professional investor centre integrated directly into the Yugo 
 ### ✅ Completed Features
 
 #### 1. **Investor Dashboard** (`/investors`)
-- Share price widget with live data (20-min delayed via RSS)
+- TradingView share price widget with live ASX data (15-min delayed)
 - Latest announcements preview
 - Upcoming events calendar
 - Email subscription form
@@ -27,7 +27,7 @@ A comprehensive, professional investor centre integrated directly into the Yugo 
 - **Contact IR Team** (`/investors/contact`) - Dedicated investor relations contact form
 
 #### 4. **Components**
-- **SharePriceWidget** - Beautiful, animated share price display
+- **TradingViewWidget** - Live share price chart with real ASX:YUG market data
 - **SubscriptionForm** - Email subscription with preferences (inline & card variants)
 
 #### 5. **Email Marketing** - Listmonk Integration
@@ -145,19 +145,25 @@ While the investor centre pages are currently using mock/hardcoded data, they're
 
 3. Enable content editors to manage investor content through Directus UI
 
-### Updating Share Price Data
+### Share Price Widget
 
-The share price widget currently shows mock data. To integrate real ASX data:
+Uses TradingView's Symbol Overview widget to display live ASX:YUG share price.
 
-1. **Option A: ASX RSS Feeds (Free, 20-min delay)**
-   - Update `/lib/asx-rss.ts`
-   - Add actual ASX RSS feed URLs
-   - Parse XML data
+- **Data:** 15-minute delayed
+- **Source:** TradingView (free tier)
+- **Symbol:** ASX:YUG
+- **No API key required**
 
-2. **Option B: Paid Real-Time Data**
-   - Sign up with data provider (IRESS, Refinitiv, etc.)
-   - Integrate their API
-   - Update `getASXSharePrice()` function
+#### Troubleshooting
+
+If widget doesn't appear, check:
+1. TradingView CDN is accessible
+2. Browser allows iframes from tradingview.com
+3. Symbol ASX:YUG is still valid
+
+#### Component Location
+- Widget component: `components/investor/TradingViewWidget.tsx`
+- Used in: `app/[locale]/investors/page.tsx`
 
 ---
 

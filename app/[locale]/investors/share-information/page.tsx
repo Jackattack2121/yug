@@ -29,7 +29,7 @@ export default function ShareInformation() {
                 <h3 className="text-2xl font-bold mb-6 text-secondary-900 uppercase tracking-wider">Company Details</h3>
                 <div className="space-y-3 text-gray-700">
                   <p><strong>ASX Code:</strong> YUG</p>
-                  <p><strong>ABN:</strong> XX XXX XXX XXX</p>
+                  <p><strong>ABN:</strong> 65 650 011 644</p>
                   <p><strong>Share Registry:</strong> Automic Registry Services</p>
                 </div>
               </div>

@@ -91,3 +91,23 @@
     @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
   }
 }
+
+/* TradingView Widget Styles */
+.tradingview-widget-copyright {
+  margin-top: 8px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.tradingview-widget-copyright .blue-text {
+  color: #2962ff;
+  text-decoration: none;
+}
+
+.tradingview-widget-copyright .blue-text:hover {
+  color: #1e53e5;
+}
+
+.tradingview-widget-copyright .trademark {
+  color: #787b86;
+}

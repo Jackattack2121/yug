@@ -1,52 +1,31 @@
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import NewsCard from '@/components/ui/NewsCard'
-
-const announcements = [
-  {
-    id: '1',
-    title: 'Entitlement Issue Prospectus - Rights Issue',
-    date: 'September 28, 2024',
-    category: 'Capital Raising',
-    file: '/documents/prospectus.pdf',
-    excerpt: 'Details of current rights issue to fund exploration activities across our Bosnia and Herzegovina project portfolio.',
-  },
-  {
-    id: '2',
-    title: 'Exploration Update - Bosnia and Herzegovina Projects',
-    date: 'August 15, 2024',
-    category: 'Exploration',
-    file: '/documents/announcement.pdf',
-    excerpt: 'Update on systematic exploration program across Doboj and Jezero projects.',
-  },
-  {
-    id: '3',
-    title: 'Quarterly Activities Report - Q3 2024',
-    date: 'July 31, 2024',
-    category: 'Company Update',
-    file: '/documents/quarterly-report.pdf',
-    excerpt: 'Overview of quarterly activities including exploration results and corporate developments.',
-  },
-  {
-    id: '4',
-    title: 'Exploration Program Commencement',
-    date: 'July 10, 2024',
-    category: 'Exploration',
-    file: '/documents/drilling-results-july-2024.pdf',
-    excerpt: 'Commencement of two-year systematic exploration program across all five projects.',
-  },
-  {
-    id: '5',
-    title: 'Annual General Meeting Notice',
-    date: 'June 15, 2024',
-    category: 'Company Update',
-    file: '/documents/agm-notice-2024.pdf',
-    excerpt: 'Notice of Annual General Meeting with details on resolutions and voting procedures.',
-  },
-]
+import EmptyState from '@/components/ui/EmptyState'
+import { HiOutlineDocumentText } from 'react-icons/hi'
 
 const companyASXCode = 'YUG'
 
-export default function ASXAnnouncements() {
+async function getAnnouncements() {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+    const res = await fetch(`${baseUrl}/api/announcements?limit=50`, {
+      next: { revalidate: 900 }, // Revalidate every 15 minutes
+    })
+    
+    if (!res.ok) {
+      throw new Error('Failed to fetch announcements')
+    }
+    
+    const data = await res.json()
+    return data.announcements || []
+  } catch (error) {
+    console.error('Error fetching announcements:', error)
+    return []
+  }
+}
+
+export default async function ASXAnnouncements() {
+  const announcements = await getAnnouncements()
   return (
     <>
       {/* Hero Section - Minimal */}
@@ -80,19 +59,33 @@ export default function ASXAnnouncements() {
       {/* Announcements Grid */}
       <section className="section-padding bg-gray-50">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {announcements.map((announcement, index) => (
-              <AnimatedSection key={announcement.id} delay={index * 0.1}>
-                <NewsCard
-                  title={announcement.title}
-                  date={announcement.date}
-                  category={announcement.category}
-                  excerpt={announcement.excerpt}
-                  downloadUrl={announcement.file}
-                />
-              </AnimatedSection>
-            ))}
-          </div>
+          {announcements.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {announcements.map((announcement: any, index: number) => (
+                <AnimatedSection key={announcement.id || index} delay={index * 0.1}>
+                  <NewsCard
+                    title={announcement.title}
+                    date={announcement.date}
+                    category={announcement.category}
+                    excerpt={announcement.excerpt || announcement.summary}
+                    downloadUrl={announcement.url || announcement.file}
+                  />
+                </AnimatedSection>
+              ))}
+            </div>
+          ) : (
+            <AnimatedSection>
+              <EmptyState
+                icon={HiOutlineDocumentText}
+                title="Announcements Coming Soon"
+                description="ASX announcements will appear here when available. In the meantime, you can view our company announcements directly on the ASX website using the link above."
+                action={{
+                  label: "View on ASX.com.au",
+                  href: `https://www.asx.com.au/markets/company/${companyASXCode}`
+                }}
+              />
+            </AnimatedSection>
+          )}
         </div>
       </section>
 
