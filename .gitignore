@@ -32,6 +32,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Environment variables
+.env*
+.env*.local
+.env*.bak
+
 # Directus
 directus/uploads/
 directus_db/

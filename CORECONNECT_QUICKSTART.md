@@ -41,7 +41,7 @@ ADMIN_PASSWORD_HASH=replace-with-hash-from-step-2
 # Directus CMS
 NEXT_PUBLIC_DIRECTUS_URL=http://localhost:8055
 DIRECTUS_ADMIN_EMAIL=admin@yugometals.com
-DIRECTUS_ADMIN_PASSWORD=admin123
+DIRECTUS_ADMIN_PASSWORD=generate-secure-password-here
 
 # Listmonk Email
 LISTMONK_URL=http://localhost:9000
@@ -88,7 +88,7 @@ npm run dev
 1. Open browser to: http://localhost:3000/admin/login
 2. Enter credentials:
    - Email: `admin@yugometals.com`
-   - Password: `CoreConnect2024!`
+   - Password: *Use the password you generated in Step 2*
 3. Click "Sign In"
 
 You should now see the CoreConnect Dashboard! 🎉

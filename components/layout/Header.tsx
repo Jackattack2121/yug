@@ -1,27 +1,34 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { useLocale, useTranslations } from 'next-intl'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { cn } from '@/lib/utils'
 import gsap from 'gsap'
 import ProjectPicker from './ProjectPicker'
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [projectsDropdownOpen, setProjectsDropdownOpen] = useState(false)
+  const headerRef = useRef<HTMLElement>(null)
+  const logoRef = useRef<HTMLImageElement>(null)
   const pathname = usePathname()
+  const locale = useLocale()
+  const t = useTranslations('navigation.header')
   
-  // Check if we're on the homepage
-  const isHomepage = pathname === '/'
+  // Check if we're on the homepage (accounting for locale prefix)
+  const isHomepage = pathname === `/${locale}` || pathname === `/${locale}/`
 
   const navigation = [
-    { name: 'About', href: '/why-yugo-metals' },
-    { name: 'Investors', href: '/investors' },
-    { name: 'ESG', href: '/investors/esg' },
-    { name: 'Contact', href: '/contact' },
+    { name: t('aboutLink'), href: `/${locale}/why-yugo-metals` },
+    { name: t('investorsLink'), href: `/${locale}/investors` },
+    { name: t('esgLink'), href: `/${locale}/investors/esg` },
+    { name: t('contactLink'), href: `/${locale}/contact` },
   ]
 
   useEffect(() => {
@@ -51,53 +58,97 @@ export default function Header() {
     }
   }, [mobileMenuOpen])
 
+  // Animate header background and logo when dropdown opens
+  useEffect(() => {
+    if (headerRef.current) {
+      if (projectsDropdownOpen) {
+        // Dropdown opening - go dark
+        gsap.to(headerRef.current, {
+          backgroundColor: '#0f172a', // secondary-900
+          duration: 0.4,
+          ease: 'power3.out',
+        })
+        if (logoRef.current) {
+          gsap.to(logoRef.current, {
+            filter: 'brightness(0) invert(1)',
+            duration: 0.4,
+            ease: 'power3.out',
+          })
+        }
+      } else {
+        // Dropdown closing - return to normal
+        const targetBg = scrolled || !isHomepage ? '#ffffff' : 'transparent'
+        const shouldInvert = !scrolled && isHomepage
+        gsap.to(headerRef.current, {
+          backgroundColor: targetBg,
+          duration: 0.4,
+          ease: 'power3.out',
+        })
+        if (logoRef.current) {
+          gsap.to(logoRef.current, {
+            filter: shouldInvert ? 'brightness(0) invert(1)' : 'brightness(1) invert(0)',
+            duration: 0.4,
+            ease: 'power3.out',
+          })
+        }
+      }
+    }
+  }, [projectsDropdownOpen, scrolled, isHomepage])
+
   // Determine if header should be solid (scrolled or not on homepage)
   const isSolid = scrolled || !isHomepage
+  // When dropdown is open, treat as dark theme
+  const isDarkHeader = projectsDropdownOpen || (!isSolid && isHomepage)
 
   return (
     <header
+      ref={headerRef}
       className={cn(
-        'fixed top-0 left-0 right-0 z-[60] transition-all duration-300',
-        isSolid ? 'bg-white shadow-md' : 'bg-transparent'
+        'fixed top-0 left-0 right-0 z-[60]',
+        isSolid && !projectsDropdownOpen && 'shadow-md'
       )}
+      style={{ backgroundColor: projectsDropdownOpen ? '#0f172a' : (isSolid ? '#ffffff' : 'transparent') }}
     >
       <div className="container">
         <div className="flex items-center justify-between py-4 md:py-6">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <div className="relative h-10 md:h-12 w-auto transition-all">
+          <Link href={`/${locale}`} className="flex items-center">
+            <div className="relative h-10 md:h-12 w-auto">
               <Image
+                ref={logoRef}
                 src="/yugo_logo.png"
                 alt="Yugo Metals"
                 width={150}
                 height={48}
-                className={cn(
-                  'h-10 md:h-12 w-auto object-contain transition-all duration-300',
-                  !isSolid && 'brightness-0 invert'
-                )}
+                className="h-10 md:h-12 w-auto object-contain"
+                style={{ filter: isDarkHeader ? 'brightness(0) invert(1)' : 'brightness(1) invert(0)' }}
                 priority
               />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             <div className="relative z-50">
-              <ProjectPicker isSolid={isSolid} />
+              <ProjectPicker 
+                isSolid={isSolid} 
+                onOpenChange={setProjectsDropdownOpen}
+              />
             </div>
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'text-sm font-semibold uppercase tracking-wider transition-colors hover:text-primary-600',
-                  isSolid ? 'text-gray-900' : 'text-white',
-                  pathname === item.href && 'text-primary-600'
+                  'text-sm font-semibold uppercase tracking-wider transition-colors duration-[400ms] hover:text-primary-400',
+                  isDarkHeader ? 'text-white' : 'text-gray-900',
+                  pathname === item.href && 'text-primary-400'
                 )}
               >
                 {item.name}
               </Link>
             ))}
+            <LanguageSwitcher isSolid={!isDarkHeader} />
           </nav>
 
           {/* Mobile Menu Button */}
@@ -107,9 +158,9 @@ export default function Header() {
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
-              <HiX className={cn('w-6 h-6', isSolid ? 'text-gray-900' : 'text-white')} />
+              <HiX className={cn('w-6 h-6 transition-colors duration-[400ms]', isDarkHeader ? 'text-white' : 'text-gray-900')} />
             ) : (
-              <HiMenu className={cn('w-6 h-6', isSolid ? 'text-gray-900' : 'text-white')} />
+              <HiMenu className={cn('w-6 h-6 transition-colors duration-[400ms]', isDarkHeader ? 'text-white' : 'text-gray-900')} />
             )}
           </button>
         </div>
@@ -157,40 +208,46 @@ export default function Header() {
             <p className="text-xs uppercase tracking-wider opacity-60 mb-4">Projects</p>
             <div className="space-y-2">
               <Link
-                href="/projects/doboj"
+                href={`/${locale}/projects/doboj`}
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Doboj Project
               </Link>
               <Link
-                href="/projects/jezero"
+                href={`/${locale}/projects/jezero`}
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Jezero Project
               </Link>
               <Link
-                href="/projects/sockovac"
+                href={`/${locale}/projects/sockovac`}
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Sočkovac Project
               </Link>
               <Link
-                href="/projects/sinjakovo"
+                href={`/${locale}/projects/sinjakovo`}
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Sinjakovo Project
               </Link>
               <Link
-                href="/projects/cajnice"
+                href={`/${locale}/projects/cajnice`}
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Čajniče Project
               </Link>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 pt-6">
+            <div className="mb-4">
+              <LanguageSwitcher isSolid={true} />
             </div>
           </div>
 

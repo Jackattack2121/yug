@@ -5,7 +5,11 @@
 
 const LISTMONK_URL = process.env.LISTMONK_URL || 'http://localhost:9000';
 const LISTMONK_USERNAME = process.env.LISTMONK_USERNAME || 'listmonk_api';
-const LISTMONK_PASSWORD = process.env.LISTMONK_PASSWORD || 'YUG_API_2024_Secure!';
+const LISTMONK_PASSWORD = process.env.LISTMONK_PASSWORD;
+
+if (!LISTMONK_PASSWORD) {
+  throw new Error('SECURITY: LISTMONK_PASSWORD not configured in environment variables');
+}
 
 // Types
 export interface ListmonkSubscriber {

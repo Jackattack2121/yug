@@ -8,15 +8,16 @@ address = "0.0.0.0:9000"
 # BasicAuth username and password for API access
 # This is SEPARATE from your web UI login
 # Keep these for API automation
+# IMPORTANT: Set LISTMONK_USERNAME and LISTMONK_PASSWORD in your .env.local file
 admin_username = "listmonk_api"
-admin_password = "YUG_API_2024_Secure!"
+admin_password = ""  # Set via LISTMONK_PASSWORD environment variable
 
 # Database settings
 [db]
 host = "listmonk_db"
 port = 5432
 user = "listmonk"
-password = "listmonk_password"
+password = ""  # Set via LISTMONK_DB_PASSWORD environment variable
 database = "listmonk"
 ssl_mode = "disable"
 max_open = 25
@@ -27,12 +28,12 @@ max_lifetime = "300s"
 # Configure this with your email provider
 [smtp]
 [[smtp.servers]]
-enabled = true
-host = "smtp.example.com"  # Replace with your SMTP server
+enabled = false  # Enable and configure with your SMTP provider
+host = "smtp.example.com"
 port = 587
 auth_protocol = "login"
-username = "your-email@example.com"  # Replace with your email
-password = "your-password"  # Replace with your password
+username = ""  # Set your SMTP username
+password = ""  # Set via environment variable or directly (if using Docker secrets)
 hello_hostname = ""
 max_conns = 10
 idle_timeout = "15s"
@@ -63,10 +64,10 @@ exportable = ["profile", "subscriptions", "campaign_views", "link_clicks"]
 
 # Security settings
 [security]
-# Generate new UUID values for production!
-# You can use: https://www.uuidgenerator.net/
-# Or run: uuidgen (on Unix systems)
-encryption_key = "c157a79031e1c40f85931829bc5fc552"
+# CRITICAL: Generate a NEW encryption key for production!
+# Generate with: openssl rand -hex 16
+# NEVER use the example value below in production
+encryption_key = ""  # Set via environment variable or generate new key
 
 # Messenger settings (optional)
 [messengers]

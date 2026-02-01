@@ -5,11 +5,18 @@
  * Tests various authentication methods to find what works
  */
 
-const LISTMONK_URL = 'http://localhost:9000'
-const EMAIL = 'admin@yugometals.com'
-const PASSWORD = 'ADMIN1234'
-const API_USERNAME = 'listmonk_api'
-const API_PASSWORD = 'YUG_API_2024_Secure!'
+const LISTMONK_URL = process.env.LISTMONK_URL || 'http://localhost:9000'
+const EMAIL = process.env.ADMIN_EMAIL || 'admin@yugometals.com'
+const PASSWORD = process.env.DIRECTUS_ADMIN_PASSWORD || ''
+const API_USERNAME = process.env.LISTMONK_USERNAME || 'listmonk_api'
+const API_PASSWORD = process.env.LISTMONK_PASSWORD || ''
+
+if (!PASSWORD || !API_PASSWORD) {
+  console.error('❌ ERROR: Required environment variables not set')
+  console.error('   Please set DIRECTUS_ADMIN_PASSWORD and LISTMONK_PASSWORD')
+  console.error('   Example: DIRECTUS_ADMIN_PASSWORD=xxx LISTMONK_PASSWORD=yyy node scripts/debug-listmonk.js')
+  process.exit(1)
+}
 
 console.log('🔍 Debugging Listmonk API connection...\n')
 console.log('URL:', LISTMONK_URL)

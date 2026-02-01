@@ -50,7 +50,7 @@ export const fadeInScrollTrigger = (element: HTMLElement | null, options?: gsap.
       ease: 'power3.out',
       scrollTrigger: {
         trigger: element,
-        start: 'top 80%',
+        start: 'top 90%',
         end: 'bottom 20%',
         toggleActions: 'play none none reverse',
       },

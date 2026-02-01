@@ -5,16 +5,16 @@ services:
     ports:
       - "8055:8055"
     environment:
-      KEY: "d3b07384d113edec49eaa6238ad5ff00"
-      SECRET: "c157a79031e1c40f85931829bc5fc552"
-      ADMIN_EMAIL: "admin@yugometals.com"
-      ADMIN_PASSWORD: "ADMIN1234"
+      KEY: "${DIRECTUS_KEY}"
+      SECRET: "${DIRECTUS_SECRET}"
+      ADMIN_EMAIL: "${DIRECTUS_ADMIN_EMAIL:-admin@yugometals.com}"
+      ADMIN_PASSWORD: "${DIRECTUS_ADMIN_PASSWORD}"
       DB_CLIENT: "pg"
       DB_HOST: "postgres"
       DB_PORT: "5432"
       DB_DATABASE: "directus"
       DB_USER: "directus"
-      DB_PASSWORD: "directus"
+      DB_PASSWORD: "${DIRECTUS_DB_PASSWORD}"
       PUBLIC_URL: "http://localhost:8055"
       CORS_ENABLED: "true"
       CORS_ORIGIN: "http://localhost:3000,http://localhost:3003"
@@ -29,7 +29,7 @@ services:
     environment:
       POSTGRES_DB: "directus"
       POSTGRES_USER: "directus"
-      POSTGRES_PASSWORD: "directus"
+      POSTGRES_PASSWORD: "${DIRECTUS_DB_PASSWORD}"
     volumes:
       - directus_db:/var/lib/postgresql/data
 
@@ -51,7 +51,7 @@ services:
     environment:
       POSTGRES_DB: "listmonk"
       POSTGRES_USER: "listmonk"
-      POSTGRES_PASSWORD: "listmonk_password"
+      POSTGRES_PASSWORD: "${LISTMONK_DB_PASSWORD}"
     volumes:
       - listmonk_db:/var/lib/postgresql/data
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { useLocale } from 'next-intl'
 import { cn } from '@/lib/utils'
 import gsap from 'gsap'
 
@@ -15,6 +16,7 @@ interface Project {
 
 interface ProjectPickerProps {
   isSolid?: boolean
+  onOpenChange?: (open: boolean) => void
 }
 
 const projects: Project[] = [
@@ -55,11 +57,17 @@ const projects: Project[] = [
   },
 ]
 
-export default function ProjectPicker({ isSolid = true }: ProjectPickerProps) {
+export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectPickerProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [hoveredProject, setHoveredProject] = useState<string>(projects[0].slug)
   const panelRef = useRef<HTMLDivElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
+  const locale = useLocale()
+
+  // Notify parent when dropdown state changes
+  useEffect(() => {
+    onOpenChange?.(isOpen)
+  }, [isOpen, onOpenChange])
 
   // Reset to first project when dropdown opens
   useEffect(() => {
@@ -117,8 +125,8 @@ export default function ProjectPicker({ isSolid = true }: ProjectPickerProps) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'flex items-center gap-2 text-sm font-semibold uppercase tracking-wider transition-colors hover:text-primary-600',
-          isSolid ? 'text-gray-900' : 'text-white'
+          'flex items-center gap-2 text-sm font-semibold uppercase tracking-wider transition-colors duration-[400ms] hover:text-primary-400',
+          isOpen ? 'text-white' : (isSolid ? 'text-gray-900' : 'text-white')
         )}
       >
         <span>Projects</span>
@@ -135,7 +143,7 @@ export default function ProjectPicker({ isSolid = true }: ProjectPickerProps) {
       {/* Dropdown Panel */}
       <div
         ref={panelRef}
-        className="fixed left-0 right-0 top-[72px] bg-secondary-900 text-white overflow-hidden shadow-2xl z-50"
+        className="fixed left-0 right-0 top-[72px] md:top-[96px] bg-secondary-900 text-white overflow-hidden shadow-2xl z-40"
         style={{ height: 0, opacity: 0, transform: 'translateY(-20px)' }}
       >
         <div className="max-w-6xl mx-auto px-6 py-8">
@@ -150,7 +158,7 @@ export default function ProjectPicker({ isSolid = true }: ProjectPickerProps) {
               {projects.map((project, index) => (
               <Link
                 key={project.slug}
-                href={`/projects/${project.slug}`}
+                href={`/${locale}/projects/${project.slug}`}
                 onClick={() => setIsOpen(false)}
                   onMouseEnter={() => setHoveredProject(project.slug)}
                   className={cn(
@@ -230,10 +238,10 @@ export default function ProjectPicker({ isSolid = true }: ProjectPickerProps) {
         </div>
       </div>
 
-      {/* Overlay */}
+      {/* Overlay - positioned below header */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30"
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 top-[72px] md:top-[96px]"
           onClick={() => setIsOpen(false)}
         />
       )}

@@ -32,8 +32,9 @@ function generateMockTrafficData(days: number) {
 export async function GET(request: Request) {
   const session = await getServerSession(authOptions);
   
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  // Validate admin session and role
+  if (!session?.user?.role || session.user.role !== 'admin') {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   const { searchParams } = new URL(request.url);

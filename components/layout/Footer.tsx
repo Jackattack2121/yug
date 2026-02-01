@@ -2,10 +2,19 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { useLocale, useTranslations } from 'next-intl'
 import { FaLinkedin } from 'react-icons/fa'
 import { HiMail } from 'react-icons/hi'
 
 export default function Footer() {
+  const locale = useLocale()
+  const t = useTranslations('footer')
+  const tProjects = useTranslations('footer.projects')
+  const tCompany = useTranslations('footer.company')
+  const tInvestors = useTranslations('footer.investors')
+  const tLocation = useTranslations('footer.location')
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="bg-secondary-900 text-white">
       <div className="container section-padding-small">
@@ -21,8 +30,7 @@ export default function Footer() {
             />
           </div>
           <p className="text-sm text-gray-400 mt-4 max-w-md">
-            Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, 
-            on the doorstep of the European Union.
+            {t('tagline')}
           </p>
         </div>
 
@@ -31,32 +39,32 @@ export default function Footer() {
           {/* Projects */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider mb-6">
-              Projects
+              {t('navigation.footer.projectsTitle')}
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/projects/doboj" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Doboj Project
+                <Link href={`/${locale}/projects/doboj`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tProjects('doboj')}
                 </Link>
               </li>
               <li>
-                <Link href="/projects/jezero" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Jezero Project
+                <Link href={`/${locale}/projects/jezero`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tProjects('jezero')}
                 </Link>
               </li>
               <li>
-                <Link href="/projects/sockovac" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Sočkovac Project
+                <Link href={`/${locale}/projects/sockovac`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tProjects('sockovac')}
                 </Link>
               </li>
               <li>
-                <Link href="/projects/sinjakovo" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Sinjakovo Project
+                <Link href={`/${locale}/projects/sinjakovo`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tProjects('sinjakovo')}
                 </Link>
               </li>
               <li>
-                <Link href="/projects/cajnice" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Čajniče Project
+                <Link href={`/${locale}/projects/cajnice`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tProjects('cajnice')}
                 </Link>
               </li>
             </ul>
@@ -65,27 +73,27 @@ export default function Footer() {
           {/* Company */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider mb-6">
-              Company
+              {t('navigation.footer.companyTitle')}
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/why-yugo-metals" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  About
+                <Link href={`/${locale}/why-yugo-metals`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tCompany('about')}
                 </Link>
               </li>
               <li>
-                <Link href="/company/board-of-directors" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Board & Management
+                <Link href={`/${locale}/company/board-of-directors`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tCompany('board')}
                 </Link>
               </li>
               <li>
-                <Link href="/company/corporate-governance" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Corporate Governance
+                <Link href={`/${locale}/company/corporate-governance`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tCompany('governance')}
                 </Link>
               </li>
               <li>
-                <Link href="/investors/esg" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  ESG
+                <Link href={`/${locale}/investors/esg`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tCompany('esg')}
                 </Link>
               </li>
             </ul>
@@ -94,32 +102,32 @@ export default function Footer() {
           {/* Investors */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider mb-6">
-              Investors
+              {t('navigation.footer.investorsTitle')}
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/investors" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Investor Centre
+                <Link href={`/${locale}/investors`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tInvestors('centre')}
                 </Link>
               </li>
               <li>
-                <Link href="/investors/asx-announcements" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  ASX Announcements
+                <Link href={`/${locale}/investors/asx-announcements`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tInvestors('announcements')}
                 </Link>
               </li>
               <li>
-                <Link href="/investors/presentations" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Presentations
+                <Link href={`/${locale}/investors/presentations`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tInvestors('presentations')}
                 </Link>
               </li>
               <li>
-                <Link href="/investors/fact-sheet" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Fact Sheet
+                <Link href={`/${locale}/investors/fact-sheet`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tInvestors('factSheet')}
                 </Link>
               </li>
               <li>
-                <Link href="/prospectus" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  Prospectus
+                <Link href={`/${locale}/prospectus`} className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tInvestors('prospectus')}
                 </Link>
               </li>
             </ul>
@@ -128,11 +136,11 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider mb-6">
-              Contact
+              {t('navigation.footer.contactTitle')}
             </h4>
             <div className="space-y-3 text-sm text-gray-400">
-              <p>Perth, WA 6000</p>
-              <p>Australia</p>
+              <p>{tLocation('city')}</p>
+              <p>{tLocation('country')}</p>
               <p className="mt-4">
                 <a href="tel:+61894810389" className="hover:text-white transition-colors">
                   +61 8 9481 0389
@@ -150,18 +158,18 @@ export default function Footer() {
         {/* Newsletter Section */}
         <div className="border-t border-white/10 pt-12 mb-12">
           <div className="max-w-2xl">
-            <h3 className="text-2xl font-bold mb-4 uppercase tracking-wider">Stay Informed</h3>
+            <h3 className="text-2xl font-bold mb-4 uppercase tracking-wider">{t('newsletter.title')}</h3>
             <p className="text-gray-400 mb-6">
-              Receive updates on exploration results and company developments
+              {t('newsletter.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <input
                 type="email"
-                placeholder="Your email"
+                placeholder={t('newsletter.placeholder')}
                 className="flex-1 px-4 py-3 bg-white/10 text-white placeholder:text-gray-500 border border-white/20 focus:border-primary-500 focus:outline-none transition-colors"
               />
               <button className="btn-primary whitespace-nowrap">
-                Subscribe
+                {t('newsletter.button')}
               </button>
             </div>
           </div>
@@ -189,7 +197,7 @@ export default function Footer() {
           </div>
           <div className="text-center md:text-right">
             <p className="text-xs text-gray-500">
-              © {new Date().getFullYear()} Yugo Metals. All Rights Reserved.
+              {t('copyright', { year: currentYear })}
             </p>
           </div>
         </div>

@@ -3,6 +3,8 @@
  * Fetches share price and announcements from ASX RSS feeds
  */
 
+import { XMLParser } from 'fast-xml-parser'
+
 export interface ASXSharePrice {
   ticker: string
   price: number
@@ -59,12 +61,63 @@ export async function getASXAnnouncements(
   limit: number = 10
 ): Promise<ASXAnnouncement[]> {
   try {
-    // In production, replace with actual ASX RSS feed URL
-    // Example: https://www.asx.com.au/asx/statistics/announcements.do?by=asxCode&asxCode=${ticker}&timeframe=D&period=W
+    // ASX RSS feed URL for company announcements
+    const url = `https://www.asx.com.au/asx/statistics/announcements.do?by=asxCode&asxCode=${ticker}&timeframe=D&period=M&_=${Date.now()}`
     
-    // TODO: Implement actual RSS parsing
-    // For now, return empty array (will use Directus data instead)
-    return []
+    const rssData = await parseRSSFeed(url)
+    
+    if (!rssData || !rssData.rss || !rssData.rss.channel) {
+      console.warn('No RSS data found for ticker:', ticker)
+      return []
+    }
+    
+    const channel = rssData.rss.channel
+    let items = channel.item || []
+    
+    // Ensure items is an array
+    if (!Array.isArray(items)) {
+      items = [items]
+    }
+    
+    // Parse and map announcements
+    const announcements: ASXAnnouncement[] = items.slice(0, limit).map((item: any) => {
+      // Extract category from title or use default
+      let category = 'Company Update'
+      const title = item.title || ''
+      
+      // Categorize based on keywords in title
+      if (title.toLowerCase().includes('quarterly')) {
+        category = 'Quarterly Report'
+      } else if (title.toLowerCase().includes('drilling') || title.toLowerCase().includes('exploration')) {
+        category = 'Exploration'
+      } else if (title.toLowerCase().includes('capital') || title.toLowerCase().includes('raising')) {
+        category = 'Capital Raising'
+      } else if (title.toLowerCase().includes('result')) {
+        category = 'Results'
+      }
+      
+      // Parse date
+      let date = new Date().toISOString()
+      if (item.pubDate) {
+        date = new Date(item.pubDate).toISOString()
+      }
+      
+      // Extract URL from link or enclosure
+      let url = item.link || ''
+      if (item.enclosure && item.enclosure.url) {
+        url = item.enclosure.url
+      }
+      
+      return {
+        title: title,
+        date: date,
+        category: category,
+        url: url,
+        summary: item.description || undefined,
+      }
+    })
+    
+    return announcements
   } catch (error) {
     console.error('Error fetching ASX announcements:', error)
     return []
@@ -78,6 +131,9 @@ async function parseRSSFeed(url: string): Promise<any> {
   try {
     const response = await fetch(url, {
       next: { revalidate: 900 }, // Cache for 15 minutes
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; YugoMetals/1.0)',
+      },
     })
     
     if (!response.ok) {
@@ -86,9 +142,15 @@ async function parseRSSFeed(url: string): Promise<any> {
     
     const xmlText = await response.text()
     
-    // TODO: Parse XML using a library like 'fast-xml-parser'
-    // For now, return empty object
-    return {}
+    // Parse XML using fast-xml-parser
+    const parser = new XMLParser({
+      ignoreAttributes: false,
+      attributeNamePrefix: '',
+      parseAttributeValue: true,
+    })
+    
+    const jsonData = parser.parse(xmlText)
+    return jsonData
   } catch (error) {
     console.error('Error parsing RSS feed:', error)
     throw error

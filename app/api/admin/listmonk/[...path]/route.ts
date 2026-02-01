@@ -4,7 +4,11 @@ import { authOptions } from '@/lib/auth/auth-config';
 
 const LISTMONK_URL = process.env.LISTMONK_URL || 'http://localhost:9000';
 const LISTMONK_USERNAME = process.env.LISTMONK_USERNAME || 'listmonk_api';
-const LISTMONK_PASSWORD = process.env.LISTMONK_PASSWORD || 'YUG_API_2024_Secure!';
+const LISTMONK_PASSWORD = process.env.LISTMONK_PASSWORD;
+
+if (!LISTMONK_PASSWORD) {
+  throw new Error('SECURITY: LISTMONK_PASSWORD not configured in environment variables');
+}
 
 /**
  * Get Basic Auth header for Listmonk
@@ -24,8 +28,9 @@ export async function GET(
 ) {
   const session = await getServerSession(authOptions);
   
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  // Validate admin session and role
+  if (!session?.user?.role || session.user.role !== 'admin') {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   try {
@@ -44,7 +49,8 @@ export async function GET(
     const data = await response.json();
     return NextResponse.json(data, { status: response.status });
   } catch (error) {
-    console.error('Listmonk proxy error:', error);
+    // Generic error logging - do not log sensitive details
+    console.error('[API] Listmonk proxy request failed');
     return NextResponse.json(
       { error: 'Failed to communicate with Listmonk' },
       { status: 500 }
@@ -58,8 +64,9 @@ export async function POST(
 ) {
   const session = await getServerSession(authOptions);
   
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  // Validate admin session and role
+  if (!session?.user?.role || session.user.role !== 'admin') {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   try {
@@ -79,7 +86,8 @@ export async function POST(
     const data = await response.json();
     return NextResponse.json(data, { status: response.status });
   } catch (error) {
-    console.error('Listmonk proxy error:', error);
+    // Generic error logging - do not log sensitive details
+    console.error('[API] Listmonk proxy request failed');
     return NextResponse.json(
       { error: 'Failed to communicate with Listmonk' },
       { status: 500 }
@@ -93,8 +101,9 @@ export async function PUT(
 ) {
   const session = await getServerSession(authOptions);
   
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  // Validate admin session and role
+  if (!session?.user?.role || session.user.role !== 'admin') {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   try {
@@ -114,7 +123,8 @@ export async function PUT(
     const data = await response.json();
     return NextResponse.json(data, { status: response.status });
   } catch (error) {
-    console.error('Listmonk proxy error:', error);
+    // Generic error logging - do not log sensitive details
+    console.error('[API] Listmonk proxy request failed');
     return NextResponse.json(
       { error: 'Failed to communicate with Listmonk' },
       { status: 500 }
@@ -128,8 +138,9 @@ export async function DELETE(
 ) {
   const session = await getServerSession(authOptions);
   
-  if (!session) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  // Validate admin session and role
+  if (!session?.user?.role || session.user.role !== 'admin') {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   try {
@@ -150,7 +161,8 @@ export async function DELETE(
     const data = await response.json();
     return NextResponse.json(data, { status: response.status });
   } catch (error) {
-    console.error('Listmonk proxy error:', error);
+    // Generic error logging - do not log sensitive details
+    console.error('[API] Listmonk proxy request failed');
     return NextResponse.json(
       { error: 'Failed to communicate with Listmonk' },
       { status: 500 }

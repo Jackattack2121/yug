@@ -23,10 +23,10 @@ This will start:
 ### 2. Access Directus Admin
 
 - URL: http://localhost:8055
-- Email: `admin@yugometals.com`
-- Password: `admin123`
+- Default email: `admin@yugometals.com`
+- **Generate a secure password** using: `node scripts/generate-admin-password.js "YourSecurePassword"`
 
-**Important:** Change the admin password after first login!
+**Important:** Use a strong, unique password for production environments!
 
 ### 3. Create Environment File
 

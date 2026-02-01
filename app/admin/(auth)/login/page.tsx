@@ -143,16 +143,6 @@ function LoginForm() {
           </div>
         </div>
 
-        {/* Default Credentials Info (Remove in production) */}
-        <div className="mt-4 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
-          <p className="text-xs text-yellow-400 text-center font-semibold mb-2">
-            Development Mode - Default Credentials:
-          </p>
-          <div className="text-xs text-yellow-300 text-center space-y-1">
-            <p>Email: <span className="font-mono bg-yellow-500/20 px-2 py-0.5 rounded">admin@yugometals.com</span></p>
-            <p>Password: <span className="font-mono bg-yellow-500/20 px-2 py-0.5 rounded">admin123</span></p>
-          </div>
-        </div>
       </div>
     </div>
   );

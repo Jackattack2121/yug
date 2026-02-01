@@ -1,0 +1,311 @@
+{
+  "common": {
+    "companyName": "Yugo Metals",
+    "loading": "Loading...",
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "downloadPdf": "Download PDF",
+    "backToTop": "Back to Top"
+  },
+  "navigation": {
+    "header": {
+      "aboutLink": "About",
+      "investorsLink": "Investors",
+      "projectsLink": "Projects",
+      "esgLink": "ESG",
+      "contactLink": "Contact"
+    },
+    "footer": {
+      "projectsTitle": "Projects",
+      "companyTitle": "Company",
+      "investorsTitle": "Investors",
+      "contactTitle": "Contact"
+    },
+    "mobileMenu": {
+      "navigationTitle": "Navigation",
+      "projectsTitle": "Projects"
+    }
+  },
+  "homepage": {
+    "hero": {
+      "title": "European Metals Exploration",
+      "subtitle": "Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union.",
+      "cta": "View Our Projects"
+    },
+    "about": {
+      "title": "Why Yugo Metals",
+      "description": "Strategic positioning in Europe's critical minerals sector"
+    },
+    "projects": {
+      "title": "Our Projects",
+      "subtitle": "Exploring high-grade opportunities in Bosnia and Herzegovina"
+    },
+    "investors": {
+      "title": "Investor Centre",
+      "subtitle": "Access reports, announcements, and company information"
+    }
+  },
+  "investors": {
+    "centre": {
+      "title": "Investor Centre",
+      "subtitle": "Your gateway to company information, financial reports, and market updates",
+      "resourcesTitle": "Investor Resources",
+      "questionsTitle": "Have Questions?",
+      "questionsSubtitle": "Our Investor Relations team is here to help. Get in touch for more information.",
+      "contactIrButton": "Contact IR Team",
+      "downloadFactSheet": "Download Fact Sheet"
+    },
+    "sharePrice": {
+      "title": "Share Price",
+      "currentLabel": "Current",
+      "changeLabel": "Change",
+      "volumeLabel": "Volume",
+      "highLabel": "High",
+      "lowLabel": "Low",
+      "openLabel": "Open",
+      "lastUpdated": "Last Updated"
+    },
+    "announcements": {
+      "title": "ASX Announcements",
+      "subtitle": "Latest company announcements and market updates",
+      "dateLabel": "Date",
+      "categoryLabel": "Category",
+      "noAnnouncements": "No announcements available"
+    },
+    "financialReports": {
+      "title": "Financial Reports",
+      "subtitle": "Quarterly, half-yearly, and annual reports",
+      "quarterlyTitle": "Quarterly Reports",
+      "annualTitle": "Annual Reports"
+    },
+    "presentations": {
+      "title": "Presentations",
+      "subtitle": "Investor presentations and company briefings"
+    },
+    "shareInfo": {
+      "title": "Share Information",
+      "subtitle": "Share registry and trading information",
+      "tickerLabel": "ASX Code",
+      "registryTitle": "Share Registry",
+      "tradingTitle": "Trading Information"
+    },
+    "calendar": {
+      "title": "Investor Calendar",
+      "subtitle": "Upcoming events, meetings, and report dates",
+      "eventTypeLabel": "Event Type",
+      "dateLabel": "Date",
+      "noEvents": "No upcoming events"
+    },
+    "media": {
+      "title": "Media Coverage",
+      "subtitle": "News articles and media mentions",
+      "sourceLabel": "Source",
+      "dateLabel": "Date"
+    },
+    "factSheet": {
+      "title": "Fact Sheet",
+      "subtitle": "Download our company fact sheet",
+      "download": "Download Fact Sheet"
+    },
+    "esg": {
+      "title": "ESG",
+      "subtitle": "Environmental, social, and governance",
+      "environmentTitle": "Environmental",
+      "socialTitle": "Social",
+      "governanceTitle": "Governance"
+    },
+    "quickLinks": {
+      "asxAnnouncements": "ASX Announcements",
+      "asxDescription": "Latest company announcements and market updates",
+      "financialReports": "Financial Reports",
+      "financialDescription": "Quarterly, half-yearly, and annual reports",
+      "presentations": "Presentations",
+      "presentationsDescription": "Investor presentations and company briefings",
+      "shareInfo": "Share Information",
+      "shareDescription": "Share registry and trading information",
+      "calendar": "Investor Calendar",
+      "calendarDescription": "Upcoming events, meetings, and report dates",
+      "media": "Media Coverage",
+      "mediaDescription": "News articles and media mentions",
+      "factSheet": "Fact Sheet",
+      "factSheetDescription": "Download our company fact sheet",
+      "esg": "ESG",
+      "esgDescription": "Environmental, social, and governance",
+      "view": "View"
+    }
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Exploring high-grade opportunities in Bosnia and Herzegovina",
+    "doboj": {
+      "name": "Doboj Project",
+      "shortDescription": "High-grade nickel-copper project",
+      "location": "Doboj, Bosnia and Herzegovina"
+    },
+    "jezero": {
+      "name": "Jezero Project",
+      "shortDescription": "Promising exploration target",
+      "location": "Jezero, Bosnia and Herzegovina"
+    },
+    "sockovac": {
+      "name": "Sočkovac Project",
+      "shortDescription": "Strategic exploration area",
+      "location": "Sočkovac, Bosnia and Herzegovina"
+    },
+    "sinjakovo": {
+      "name": "Sinjakovo Project",
+      "shortDescription": "High-potential mineral deposits",
+      "location": "Sinjakovo, Bosnia and Herzegovina"
+    },
+    "cajnice": {
+      "name": "Čajniče Project",
+      "shortDescription": "Emerging exploration opportunity",
+      "location": "Čajniče, Bosnia and Herzegovina"
+    },
+    "overview": "Overview",
+    "geology": "Geology",
+    "exploration": "Exploration",
+    "resources": "Resources"
+  },
+  "company": {
+    "about": {
+      "title": "Why Yugo Metals",
+      "subtitle": "Strategic positioning in Europe's critical minerals sector"
+    },
+    "board": {
+      "title": "Board of Directors",
+      "subtitle": "Experienced leadership team",
+      "management": "Management"
+    },
+    "governance": {
+      "title": "Corporate Governance",
+      "subtitle": "Commitment to transparency and best practices",
+      "policies": "Policies",
+      "charters": "Charters"
+    },
+    "directory": {
+      "title": "Corporate Directory",
+      "subtitle": "Key contacts and information"
+    },
+    "responsibility": {
+      "title": "Corporate Responsibility",
+      "subtitle": "Our commitment to sustainable practices"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team",
+    "generalInquiries": "General Inquiries",
+    "investorRelations": "Investor Relations",
+    "media": "Media Inquiries",
+    "office": "Office",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "forms": {
+    "subscription": {
+      "title": "Stay Informed",
+      "subtitle": "Subscribe to receive updates on exploration results and company developments",
+      "emailPlaceholder": "Your email",
+      "subscribeButton": "Subscribe",
+      "successMessage": "Thank you for subscribing!",
+      "errorMessage": "Subscription failed. Please try again."
+    },
+    "contact": {
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "messagePlaceholder": "Your message",
+      "submitButton": "Send Message",
+      "successMessage": "Message sent successfully!",
+      "errorMessage": "Failed to send message. Please try again."
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "minLength": "Minimum {min} characters required",
+      "maxLength": "Maximum {max} characters allowed"
+    }
+  },
+  "footer": {
+    "tagline": "Exploring for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union.",
+    "newsletter": {
+      "title": "Stay Informed",
+      "subtitle": "Receive updates on exploration results and company developments",
+      "placeholder": "Your email",
+      "button": "Subscribe"
+    },
+    "projects": {
+      "doboj": "Doboj Project",
+      "jezero": "Jezero Project",
+      "sockovac": "Sočkovac Project",
+      "sinjakovo": "Sinjakovo Project",
+      "cajnice": "Čajniče Project"
+    },
+    "company": {
+      "about": "About",
+      "board": "Board & Management",
+      "governance": "Corporate Governance",
+      "esg": "ESG"
+    },
+    "investors": {
+      "centre": "Investor Centre",
+      "announcements": "ASX Announcements",
+      "presentations": "Presentations",
+      "factSheet": "Fact Sheet",
+      "prospectus": "Prospectus"
+    },
+    "location": {
+      "city": "Perth, WA 6000",
+      "country": "Australia"
+    },
+    "copyright": "© {year} Yugo Metals. All Rights Reserved."
+  },
+  "asx": {
+    "regulatoryNotice": "This content is provided in English as required by ASX regulations",
+    "englishOnly": "English Only"
+  },
+  "buttons": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "download": "Download",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "errors": {
+    "pageNotFound": "Page Not Found",
+    "somethingWentWrong": "Something went wrong",
+    "tryAgain": "Please try again",
+    "goHome": "Go to Homepage",
+    "networkError": "Network connection failed"
+  },
+  "metadata": {
+    "homepage": {
+      "title": "Yugo Metals - European Metals Exploration and Development",
+      "description": "Yugo Metals explores for nickel, copper, cobalt, and precious metals in Bosnia and Herzegovina, on the doorstep of the European Union."
+    },
+    "investors": {
+      "title": "Investor Centre - Yugo Metals",
+      "description": "Access financial reports, ASX announcements, presentations, and company information."
+    },
+    "projects": {
+      "title": "Our Projects - Yugo Metals",
+      "description": "Exploring high-grade nickel, copper, and cobalt opportunities in Bosnia and Herzegovina."
+    },
+    "about": {
+      "title": "Why Yugo Metals - About Us",
+      "description": "Strategic positioning in Europe's critical minerals sector with high-grade exploration projects."
+    },
+    "contact": {
+      "title": "Contact Us - Yugo Metals",
+      "description": "Get in touch with our team for inquiries about investor relations, media, or general information."
+    }
+  }
+}

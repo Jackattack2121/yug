@@ -15,7 +15,7 @@ Your dynamic CMS-powered projects system is ready to go! Follow these 3 simple s
 
 2. **Login:**
    - Email: `admin@yugometals.com`
-   - Password: `admin123`
+   - Password: *Use your configured admin password*
 
 3. **Generate Token:**
    - Click your profile icon (top right corner)
