@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { HiOutlineMail, HiOutlineCheckCircle } from 'react-icons/hi'
 
 interface SubscriptionFormProps {
@@ -9,6 +10,7 @@ interface SubscriptionFormProps {
 }
 
 export default function SubscriptionForm({ variant = 'inline', className = '' }: SubscriptionFormProps) {
+  const t = useTranslations('forms.subscription')
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [preferences, setPreferences] = useState({
@@ -35,18 +37,18 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
       if (!response.ok) {
         // Handle 503 (service unavailable) specifically
         if (response.status === 503) {
-          throw new Error('Email subscriptions launching soon. Check back later or contact us directly.')
+          throw new Error(t('launchingSoon'))
         }
-        throw new Error(data.error || 'Subscription failed')
+        throw new Error(data.error || t('errorMessage'))
       }
 
       setStatus('success')
-      setMessage(data.message || 'Successfully subscribed! Check your email to confirm.')
+      setMessage(data.message || t('successMessage'))
       setEmail('')
       setName('')
     } catch (error) {
       setStatus('error')
-      const errorMessage = error instanceof Error ? error.message : 'Failed to subscribe. Please try again.'
+      const errorMessage = error instanceof Error ? error.message : t('errorMessage')
       setMessage(errorMessage)
     }
   }
@@ -62,7 +64,7 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
+          placeholder={t('emailPlaceholder')}
           required
           className="flex-1 px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
         />
@@ -74,17 +76,17 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
           {status === 'loading' ? (
             <>
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              <span>Subscribing...</span>
+              <span>{t('subscribingButton')}</span>
             </>
           ) : status === 'success' ? (
             <>
               <HiOutlineCheckCircle className="w-5 h-5" />
-              <span>Subscribed!</span>
+              <span>{t('subscribedButton')}</span>
             </>
           ) : (
             <>
               <HiOutlineMail className="w-5 h-5" />
-              <span>Subscribe</span>
+              <span>{t('subscribeButton')}</span>
             </>
           )}
         </button>

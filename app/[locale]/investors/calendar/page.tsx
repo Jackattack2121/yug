@@ -1,8 +1,12 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import EmptyState from '@/components/ui/EmptyState'
-import { HiOutlineCalendar } from 'react-icons/hi'
 
-export default function InvestorCalendar() {
+export default function CalendarPage() {
+  const t = useTranslations('investors.calendar')
+  
   return (
     <>
       {/* Hero Section */}
@@ -10,7 +14,7 @@ export default function InvestorCalendar() {
         {/* Background Image with fade */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: 'url(/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg)' }}
+          style={{ backgroundImage: 'url(/yugo_images/beautiful-nature-of-bosnia-and-herzegovina-travel-2025-08-29-06-16-13-utc.jpg)' }}
         />
         
         {/* Blue Overlay */}
@@ -20,11 +24,10 @@ export default function InvestorCalendar() {
           <AnimatedSection>
             <div className="max-w-4xl">
               <h1 className="text-heading-lg text-white mb-4">
-                Investor<br />
-                Calendar
+                {t('heroTitle')}
               </h1>
               <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
-                Stay informed about upcoming reports, meetings, and company events
+                {t('heroSubtitle')}
               </p>
             </div>
           </AnimatedSection>
@@ -33,16 +36,13 @@ export default function InvestorCalendar() {
 
       {/* Empty State */}
       <section className="section-padding bg-white">
-        <div className="container">
+        <div className="container max-w-4xl">
           <AnimatedSection>
             <EmptyState
-              icon={HiOutlineCalendar}
-              title="Calendar Events Coming Soon"
-              description="Calendar events will appear here when scheduled. This will include upcoming reports, meetings, webinars, and important company dates. Subscribe to our mailing list to receive email reminders."
-              action={{
-                label: "Subscribe to Updates",
-                href: "/investors#subscribe"
-              }}
+              title={t('comingSoon')}
+              description={t('comingSoonDescription')}
+              actionLabel={t('subscribeAction')}
+              actionHref="/investors"
             />
           </AnimatedSection>
         </div>
@@ -50,4 +50,3 @@ export default function InvestorCalendar() {
     </>
   )
 }
-

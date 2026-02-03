@@ -1,10 +1,13 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SubscriptionForm from '@/components/investor/SubscriptionForm'
 import { HiOutlineGlobe, HiOutlineUserGroup, HiOutlineShieldCheck, HiOutlineLightningBolt } from 'react-icons/hi'
 
 export default function ESGPage() {
+  const t = useTranslations('investors.esg')
+  
   return (
     <>
       {/* Hero Section */}
@@ -22,12 +25,10 @@ export default function ESGPage() {
           <AnimatedSection>
             <div className="max-w-4xl">
               <h1 className="text-heading-lg text-white mb-4">
-                Environmental,<br />
-                Social &<br />
-                Governance
+                {t('heroTitle')}
               </h1>
               <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
-                Our commitment to sustainable and responsible mining practices
+                {t('heroSubtitle')}
               </p>
             </div>
           </AnimatedSection>
@@ -40,10 +41,10 @@ export default function ESGPage() {
           <AnimatedSection>
             <div className="text-center mb-12">
               <h2 className="text-heading-xl text-secondary-900 mb-6">
-                Our ESG Framework
+                {t('frameworkHeading')}
               </h2>
               <p className="text-lg text-gray-600 font-josefin max-w-3xl mx-auto">
-                At Yugo Metals, we recognize our responsibility to operate sustainably and ethically
+                {t('frameworkDescription')}
               </p>
             </div>
           </AnimatedSection>
@@ -55,9 +56,9 @@ export default function ESGPage() {
                 <div className="bg-emerald-600 w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <HiOutlineGlobe className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-secondary-900 mb-3 uppercase tracking-wider">Environmental</h3>
+                <h3 className="text-2xl font-bold text-secondary-900 mb-3 uppercase tracking-wider">{t('environmentTitle')}</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Minimizing our environmental footprint through responsible exploration and sustainable practices
+                  {t('environmentalDescription')}
                 </p>
               </div>
             </AnimatedSection>
@@ -68,9 +69,9 @@ export default function ESGPage() {
                 <div className="bg-blue-600 w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <HiOutlineUserGroup className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-secondary-900 mb-3 uppercase tracking-wider">Social</h3>
+                <h3 className="text-2xl font-bold text-secondary-900 mb-3 uppercase tracking-wider">{t('socialTitle')}</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Building strong relationships with communities, stakeholders, and our team
+                  {t('socialDescription')}
                 </p>
               </div>
             </AnimatedSection>
@@ -81,9 +82,9 @@ export default function ESGPage() {
                 <div className="bg-purple-600 w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <HiOutlineShieldCheck className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-secondary-900 mb-3 uppercase tracking-wider">Governance</h3>
+                <h3 className="text-2xl font-bold text-secondary-900 mb-3 uppercase tracking-wider">{t('governanceTitle')}</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Maintaining the highest standards of corporate governance and transparency
+                  {t('governanceDescription')}
                 </p>
               </div>
             </AnimatedSection>
@@ -101,41 +102,40 @@ export default function ESGPage() {
                   <HiOutlineLightningBolt className="w-12 h-12 text-white" />
                 </div>
                 <h2 className="text-heading-lg text-secondary-900 mb-6 uppercase tracking-wider">
-                  Comprehensive ESG Report Coming Soon
+                  {t('comingSoonTitle')}
                 </h2>
                 <p className="text-lg text-gray-600 mb-8 font-josefin leading-relaxed">
-                  We are currently developing a detailed ESG framework and report that will outline our commitments, 
-                  targets, and progress across environmental stewardship, social responsibility, and corporate governance.
+                  {t('comingSoonIntro')}
                 </p>
                 <p className="text-gray-700 mb-6 font-semibold uppercase tracking-wider">
-                  Our upcoming ESG report will include:
+                  {t('reportWillInclude')}
                 </p>
                 <ul className="text-left max-w-2xl mx-auto space-y-2 mb-8 text-gray-700">
                   <li className="flex items-start space-x-2">
                     <span className="text-primary-600 mt-1 font-bold">✓</span>
-                    <span>Environmental management and rehabilitation plans</span>
+                    <span>{t('reportItem1')}</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <span className="text-primary-600 mt-1 font-bold">✓</span>
-                    <span>Community engagement and Traditional Owner partnerships</span>
+                    <span>{t('reportItem2')}</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <span className="text-primary-600 mt-1 font-bold">✓</span>
-                    <span>Health, safety, and wellbeing initiatives</span>
+                    <span>{t('reportItem3')}</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <span className="text-primary-600 mt-1 font-bold">✓</span>
-                    <span>Board diversity and corporate governance policies</span>
+                    <span>{t('reportItem4')}</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <span className="text-primary-600 mt-1 font-bold">✓</span>
-                    <span>Climate risk assessment and carbon footprint analysis</span>
+                    <span>{t('reportItem5')}</span>
                   </li>
                 </ul>
                 
                 <div className="max-w-md mx-auto">
                   <p className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">
-                    Subscribe to be notified when our ESG report is published:
+                    {t('subscribePrompt')}
                   </p>
                   <SubscriptionForm variant="inline" />
                 </div>
@@ -150,25 +150,23 @@ export default function ESGPage() {
         <div className="container max-w-4xl mx-auto">
           <AnimatedSection>
             <h2 className="text-heading-xl mb-8">
-              Our Commitment
+              {t('commitmentTitle')}
             </h2>
             <p className="text-xl font-josefin leading-relaxed mb-12 opacity-90">
-              "Yugo Metals is committed to creating long-term value for all stakeholders through 
-              responsible exploration and development. We strive to operate with integrity, transparency, 
-              and respect for the environment and communities in which we work."
+              {t('commitmentQuote')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
                 href="/company/corporate-governance"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-600 font-semibold uppercase tracking-wider hover:bg-gray-100 transition-colors"
               >
-                Corporate Governance
+                {t('governanceButton')}
               </a>
               <a
                 href="/company/corporate-responsibility"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider hover:bg-white hover:text-primary-600 transition-colors"
               >
-                Corporate Responsibility
+                {t('responsibilityButton')}
               </a>
             </div>
           </AnimatedSection>

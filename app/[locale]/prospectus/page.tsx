@@ -1,148 +1,160 @@
 'use client'
 
-import SectionTitle from '@/components/ui/SectionTitle'
+import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
-import Button from '@/components/ui/Button'
+import { HiOutlineDownload } from 'react-icons/hi'
 
-export default function Prospectus() {
+export default function ProspectusPage() {
+  const t = useTranslations('prospectus')
+  
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center bg-gradient-to-r from-primary-900 to-primary-700">
-        <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{ backgroundImage: 'url(/yugo_images/aerial-drone-view-of-soca-river-in-slovenia-at-sum-2025-03-25-02-59-48-utc.jpg)' }} />
-        <div className="relative container text-center text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider mb-4">
-            Entitlement Issue Prospectus
-          </h1>
-          <p className="text-xl md:text-2xl font-josefin italic">
-            Current Rights Issue Information
-          </p>
+      <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
+        {/* Background Image with fade */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: 'url(/yugo_images/mineral-resource-estimate-report-2023-05-28-08-30-13-utc.jpg)' }}
+        />
+        
+        {/* Blue Overlay */}
+        <div className="absolute inset-0 bg-primary-600/60"></div>
+        
+        <div className="container relative z-10">
+          <AnimatedSection>
+            <div className="max-w-4xl">
+              <h1 className="text-heading-lg text-white mb-4">
+                {t('heroTitle')}
+              </h1>
+              <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
+                {t('heroSubtitle')}
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* Overview Section */}
       <section className="section-padding bg-white">
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <AnimatedSection>
-              <SectionTitle title="Rights Issue Overview" centered={false} />
-              
-              <div className="prose max-w-none text-gray-600 leading-relaxed space-y-4 mb-8">
-                <p>
-                  Yugo Metals is pleased to offer eligible shareholders the opportunity to 
-                  participate in our current entitlement issue. This capital raising will fund 
-                  our continued exploration activities across our five projects in Bosnia and Herzegovina.
-                </p>
-                
-                <p>
-                  The funds raised will support:
-                </p>
-                
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Two-year systematic exploration program across all five projects</li>
-                  <li>Modern geophysical surveys and drilling campaigns</li>
-                  <li>Metallurgical test work and preliminary economic assessments</li>
-                  <li>Regional exploration activities targeting nickel, copper, and cobalt</li>
-                  <li>General working capital and corporate costs</li>
-                </ul>
-              </div>
-            </AnimatedSection>
+        <div className="container max-w-4xl">
+          <AnimatedSection>
+            <h2 className="text-heading-lg text-secondary-900 mb-8">
+              {t('overviewHeading')}
+            </h2>
+            <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-josefin mb-8">
+              <p>{t('descriptionParagraph1')}</p>
+              <p>{t('descriptionParagraph2')}</p>
+            </div>
+            <div className="bg-gray-50 p-8 mb-8">
+              <h3 className="text-xl font-bold text-secondary-900 mb-4">{t('fundsTitle')}</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <span className="text-primary-600 mt-1 font-bold">✓</span>
+                  <span>{t('fund1')}</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary-600 mt-1 font-bold">✓</span>
+                  <span>{t('fund2')}</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary-600 mt-1 font-bold">✓</span>
+                  <span>{t('fund3')}</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary-600 mt-1 font-bold">✓</span>
+                  <span>{t('fund4')}</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-primary-600 mt-1 font-bold">✓</span>
+                  <span>{t('fund5')}</span>
+                </li>
+              </ul>
+            </div>
+          </AnimatedSection>
 
-            <AnimatedSection delay={0.2}>
-              <div className="bg-primary-50 p-8 rounded-lg mb-8">
-                <h3 className="text-2xl font-bold uppercase tracking-wider mb-4">
-                  Important Dates
-                </h3>
-                <div className="space-y-3 text-gray-700">
-                  <div className="flex justify-between border-b border-gray-300 pb-2">
-                    <span className="font-semibold">Announcement Date:</span>
-                    <span>28 September 2024</span>
-                  </div>
-                  <div className="flex justify-between border-b border-gray-300 pb-2">
-                    <span className="font-semibold">Record Date:</span>
-                    <span>5 October 2024</span>
-                  </div>
-                  <div className="flex justify-between border-b border-gray-300 pb-2">
-                    <span className="font-semibold">Opening Date:</span>
-                    <span>10 October 2024</span>
-                  </div>
-                  <div className="flex justify-between border-b border-gray-300 pb-2">
-                    <span className="font-semibold">Closing Date:</span>
-                    <span>31 October 2024</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="font-semibold">Issue Date:</span>
-                    <span>7 November 2024</span>
-                  </div>
+          {/* Important Dates */}
+          <AnimatedSection delay={0.2}>
+            <h2 className="text-heading-lg text-secondary-900 mb-8">
+              {t('datesHeading')}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div className="border-2 border-gray-200 p-6">
+                <p className="text-sm font-semibold text-gray-500 mb-2">{t('dateAnnouncementLabel')}</p>
+                <p className="text-lg font-bold text-secondary-900">{t('dateAnnouncement')}</p>
+              </div>
+              <div className="border-2 border-gray-200 p-6">
+                <p className="text-sm font-semibold text-gray-500 mb-2">{t('dateExDateLabel')}</p>
+                <p className="text-lg font-bold text-secondary-900">{t('dateExDate')}</p>
+              </div>
+              <div className="border-2 border-gray-200 p-6">
+                <p className="text-sm font-semibold text-gray-500 mb-2">{t('dateRecordLabel')}</p>
+                <p className="text-lg font-bold text-secondary-900">{t('dateRecord')}</p>
+              </div>
+              <div className="border-2 border-gray-200 p-6">
+                <p className="text-sm font-semibold text-gray-500 mb-2">{t('dateOpeningLabel')}</p>
+                <p className="text-lg font-bold text-secondary-900">{t('dateOpening')}</p>
+              </div>
+              <div className="border-2 border-gray-200 p-6">
+                <p className="text-sm font-semibold text-gray-500 mb-2">{t('dateClosingLabel')}</p>
+                <p className="text-lg font-bold text-secondary-900">{t('dateClosing')}</p>
+              </div>
+              <div className="border-2 border-gray-200 p-6">
+                <p className="text-sm font-semibold text-gray-500 mb-2">{t('dateIssueLabel')}</p>
+                <p className="text-lg font-bold text-secondary-900">{t('dateIssue')}</p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Documents */}
+          <AnimatedSection delay={0.3}>
+            <h2 className="text-heading-lg text-secondary-900 mb-8">
+              {t('documentsHeading')}
+            </h2>
+            <p className="text-gray-600 mb-8">{t('documentsDescription')}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <a href="#" className="border-2 border-gray-200 p-8 hover:border-primary-600 transition-all flex items-center gap-4">
+                <HiOutlineDownload className="w-8 h-8 text-primary-600" />
+                <div>
+                  <h3 className="font-bold text-secondary-900 mb-1">{t('prospectusDocument')}</h3>
+                  <p className="text-sm text-gray-500">{t('prospectusDescription')}</p>
                 </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.3}>
-              <div className="bg-white border-2 border-primary-500 p-8 rounded-lg mb-8">
-                <h3 className="text-2xl font-bold uppercase tracking-wider mb-4 text-primary-900">
-                  Prospectus Documents
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Download the prospectus and related documents below. Please read these documents 
-                  carefully before making any investment decision.
-                </p>
-                
-                <div className="space-y-4">
-                  <a
-                    href="/documents/prospectus.pdf"
-                    download
-                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div>
-                      <h4 className="font-bold text-gray-900">Prospectus</h4>
-                      <p className="text-sm text-gray-600">Full prospectus document (PDF, 2.4 MB)</p>
-                    </div>
-                    <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </a>
-
-                  <a
-                    href="/documents/entitlement-form.pdf"
-                    download
-                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                  >
-                    <div>
-                      <h4 className="font-bold text-gray-900">Entitlement and Acceptance Form</h4>
-                      <p className="text-sm text-gray-600">Application form (PDF, 245 KB)</p>
-                    </div>
-                    <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </a>
+              </a>
+              <a href="#" className="border-2 border-gray-200 p-8 hover:border-primary-600 transition-all flex items-center gap-4">
+                <HiOutlineDownload className="w-8 h-8 text-primary-600" />
+                <div>
+                  <h3 className="font-bold text-secondary-900 mb-1">{t('formDocument')}</h3>
+                  <p className="text-sm text-gray-500">{t('formDescription')}</p>
                 </div>
-              </div>
-            </AnimatedSection>
+              </a>
+            </div>
+          </AnimatedSection>
 
-            <AnimatedSection delay={0.4}>
-              <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded">
-                <h4 className="font-bold text-yellow-900 mb-2">Important Notice</h4>
-                <p className="text-yellow-800 text-sm">
-                  This information is not financial advice. Before making any investment decision, 
-                  you should read the prospectus in full and consider whether the offer is appropriate 
-                  for you having regard to your investment objectives, financial situation and needs. 
-                  If you are in doubt, you should consult your financial, legal or tax adviser.
-                </p>
-              </div>
-            </AnimatedSection>
+          {/* Important Notice */}
+          <AnimatedSection delay={0.4}>
+            <div className="bg-amber-50 border-2 border-amber-200 p-8">
+              <h3 className="text-xl font-bold text-secondary-900 mb-4">{t('noticeHeading')}</h3>
+              <p className="text-gray-700 leading-relaxed">{t('noticeContent')}</p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
 
-            <AnimatedSection delay={0.5}>
-              <div className="text-center mt-12">
-                <Button href="/contact" variant="primary">
-                  Contact Us for More Information
-                </Button>
-              </div>
-            </AnimatedSection>
-          </div>
+      {/* Contact CTA */}
+      <section className="section-padding bg-primary-600 text-white text-center">
+        <div className="container max-w-4xl mx-auto">
+          <AnimatedSection>
+            <h2 className="text-heading-xl mb-4">
+              {t('contactHeading')}
+            </h2>
+            <a
+              href="/investors/contact"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-600 font-semibold uppercase tracking-wider hover:bg-gray-100 transition-colors"
+            >
+              {t('contactHeading')}
+            </a>
+          </AnimatedSection>
         </div>
       </section>
     </>
   )
 }
-

@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import NewsCard from '@/components/ui/NewsCard'
 import EmptyState from '@/components/ui/EmptyState'
@@ -23,7 +24,9 @@ async function getPresentations() {
 }
 
 export default async function Presentations() {
+  const t = await getTranslations('investors.presentations')
   const presentations = await getPresentations()
+  
   return (
     <>
       <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
@@ -40,11 +43,10 @@ export default async function Presentations() {
           <AnimatedSection>
             <div className="max-w-4xl">
               <h1 className="text-heading-lg text-white mb-4">
-                Investor<br />
-                Presentations
+                {t('heroTitle')}
               </h1>
               <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
-                Access our latest investor and corporate presentations
+                {t('heroSubtitle')}
               </p>
             </div>
           </AnimatedSection>
@@ -72,10 +74,10 @@ export default async function Presentations() {
             <AnimatedSection>
               <EmptyState
                 icon={HiOutlineDocumentText}
-                title="Presentations Coming Soon"
-                description="Investor and corporate presentations will be available here once published. Check back soon or subscribe to be notified when new presentations are released."
+                title={t('comingSoon')}
+                description={t('comingSoonDescription')}
                 action={{
-                  label: "Subscribe to Updates",
+                  label: t('subscribeButton'),
                   href: "/investors#subscribe"
                 }}
               />

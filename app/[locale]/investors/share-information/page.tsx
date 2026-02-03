@@ -1,8 +1,11 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 
 export default function ShareInformation() {
+  const t = useTranslations('investors.shareInfo')
+  
   return (
     <>
       <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
@@ -19,11 +22,10 @@ export default function ShareInformation() {
           <AnimatedSection>
             <div className="max-w-4xl">
               <h1 className="text-heading-lg text-white mb-4">
-                Share<br />
-                Information
+                {t('heroTitle')}
               </h1>
               <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
-                Access share registry information and shareholder services
+                {t('heroSubtitle')}
               </p>
             </div>
           </AnimatedSection>
@@ -35,20 +37,20 @@ export default function ShareInformation() {
           <AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <div className="border-2 border-gray-200 p-8">
-                <h3 className="text-2xl font-bold mb-6 text-secondary-900 uppercase tracking-wider">Company Details</h3>
+                <h3 className="text-2xl font-bold mb-6 text-secondary-900 uppercase tracking-wider">{t('companyDetailsTitle')}</h3>
                 <div className="space-y-3 text-gray-700">
-                  <p><strong>ASX Code:</strong> YUG</p>
-                  <p><strong>ABN:</strong> 65 650 011 644</p>
-                  <p><strong>Share Registry:</strong> Automic Registry Services</p>
+                  <p><strong>{t('companyDetailsASXCode')}</strong> {t('companyDetailsASXValue')}</p>
+                  <p><strong>{t('companyDetailsABN')}</strong> {t('companyDetailsABNValue')}</p>
+                  <p><strong>{t('companyDetailsRegistry')}</strong> {t('companyDetailsRegistryValue')}</p>
                 </div>
               </div>
 
               <div className="border-2 border-gray-200 p-8">
-                <h3 className="text-2xl font-bold mb-6 text-secondary-900 uppercase tracking-wider">Share Registry Contact</h3>
+                <h3 className="text-2xl font-bold mb-6 text-secondary-900 uppercase tracking-wider">{t('registryContactTitle')}</h3>
                 <div className="space-y-3 text-gray-700">
-                  <p><strong>Phone:</strong> 1300 288 664</p>
-                  <p><strong>Email:</strong> hello@automicgroup.com.au</p>
-                  <p><strong>Website:</strong> www.automicgroup.com.au</p>
+                  <p><strong>{t('registryContactPhone')}</strong> {t('registryContactPhoneValue')}</p>
+                  <p><strong>{t('registryContactEmail')}</strong> {t('registryContactEmailValue')}</p>
+                  <p><strong>{t('registryContactWebsite')}</strong> {t('registryContactWebsiteValue')}</p>
                 </div>
               </div>
             </div>
@@ -56,19 +58,17 @@ export default function ShareInformation() {
 
           <AnimatedSection delay={0.2}>
             <h2 className="text-heading-lg text-secondary-900 mb-8">
-              Shareholder Services
+              {t('servicesTitle')}
             </h2>
             <div className="bg-white border-2 border-gray-200 p-8">
               <p className="text-gray-600 leading-relaxed mb-6">
-                For all shareholder enquiries including change of address, dividend payments, 
-                consolidation of shareholdings, or any other registry matters, please contact 
-                our share registry directly.
+                {t('servicesIntro')}
               </p>
               <ul className="space-y-2 text-gray-700">
-                <li>• Update your contact details</li>
-                <li>• View your shareholding balance</li>
-                <li>• Download holding statements</li>
-                <li>• Elect for electronic communications</li>
+                <li>• {t('service1')}</li>
+                <li>• {t('service2')}</li>
+                <li>• {t('service3')}</li>
+                <li>• {t('service4')}</li>
               </ul>
             </div>
           </AnimatedSection>

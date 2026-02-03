@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import NewsCard from '@/components/ui/NewsCard'
 import EmptyState from '@/components/ui/EmptyState'
@@ -25,7 +26,9 @@ async function getAnnouncements() {
 }
 
 export default async function ASXAnnouncements() {
+  const t = await getTranslations('investors.announcements')
   const announcements = await getAnnouncements()
+  
   return (
     <>
       {/* Hero Section - Minimal */}
@@ -43,11 +46,10 @@ export default async function ASXAnnouncements() {
           <AnimatedSection>
             <div className="max-w-4xl">
               <h1 className="text-heading-lg text-white mb-4">
-                ASX<br />
-                Announcements
+                {t('heroTitle')}
               </h1>
               <p className="text-sm font-semibold uppercase tracking-wider text-white/90 mb-6">
-                Stay up-to-date with the latest news and announcements from Yugo Metals ({companyASXCode})
+                {t('heroSubtitle')}
               </p>
               <a
                 href={`https://www.asx.com.au/markets/company/${companyASXCode}`}
@@ -55,7 +57,7 @@ export default async function ASXAnnouncements() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-white font-semibold text-sm uppercase tracking-wider hover:gap-4 transition-all hover:text-white/80"
               >
-                <span>View on ASX.com.au</span>
+                <span>{t('viewOnAsx')}</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
@@ -86,10 +88,10 @@ export default async function ASXAnnouncements() {
             <AnimatedSection>
               <EmptyState
                 icon={HiOutlineDocumentText}
-                title="Announcements Coming Soon"
-                description="ASX announcements will appear here when available. In the meantime, you can view our company announcements directly on the ASX website using the link above."
+                title={t('comingSoon')}
+                description={t('comingSoonDescription')}
                 action={{
-                  label: "View on ASX.com.au",
+                  label: t('viewOnAsx'),
                   href: `https://www.asx.com.au/markets/company/${companyASXCode}`
                 }}
               />
@@ -104,19 +106,19 @@ export default async function ASXAnnouncements() {
           <AnimatedSection>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-heading-lg text-secondary-900 mb-6">
-                Subscribe for Updates
+                {t('subscribeTitle')}
               </h2>
               <p className="text-lg text-gray-600 mb-8 font-josefin">
-                Receive email notifications when new announcements are released
+                {t('subscribeDescription')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <input
                   type="email"
-                  placeholder="Your email"
+                  placeholder={t('searchPlaceholder')}
                   className="flex-1 max-w-md px-4 py-3 border-2 border-gray-300 focus:border-primary-600 focus:outline-none transition-colors"
                 />
                 <button className="btn-primary whitespace-nowrap">
-                  <span>Subscribe</span>
+                  <span>{t('subscribeTitle')}</span>
                 </button>
               </div>
             </div>

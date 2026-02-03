@@ -1,8 +1,12 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import EmptyState from '@/components/ui/EmptyState'
-import { HiOutlineNewspaper } from 'react-icons/hi'
 
-export default function MediaCoverage() {
+export default function MediaPage() {
+  const t = useTranslations('investors.media')
+  
   return (
     <>
       {/* Hero Section */}
@@ -10,7 +14,7 @@ export default function MediaCoverage() {
         {/* Background Image with fade */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: 'url(/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg)' }}
+          style={{ backgroundImage: 'url(/yugo_images/lush-mountain-forest-in-bosnia-aerial-shot-2025-09-09-00-26-14-utc.jpg)' }}
         />
         
         {/* Blue Overlay */}
@@ -20,11 +24,10 @@ export default function MediaCoverage() {
           <AnimatedSection>
             <div className="max-w-4xl">
               <h1 className="text-heading-lg text-white mb-4">
-                Media<br />
-                Coverage
+                {t('heroTitle')}
               </h1>
               <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
-                Latest media articles, press releases, and industry coverage
+                {t('heroSubtitle')}
               </p>
             </div>
           </AnimatedSection>
@@ -33,16 +36,13 @@ export default function MediaCoverage() {
 
       {/* Empty State */}
       <section className="section-padding bg-white">
-        <div className="container">
+        <div className="container max-w-4xl">
           <AnimatedSection>
             <EmptyState
-              icon={HiOutlineNewspaper}
-              title="Media Coverage Coming Soon"
-              description="Media coverage will be published here as it becomes available. Subscribe to our mailing list to be notified when new articles and press releases are published."
-              action={{
-                label: "Subscribe to Updates",
-                href: "/investors#subscribe"
-              }}
+              title={t('comingSoon')}
+              description={t('comingSoonDescription')}
+              actionLabel={t('subscribeAction')}
+              actionHref="/investors"
             />
           </AnimatedSection>
         </div>
@@ -50,4 +50,3 @@ export default function MediaCoverage() {
     </>
   )
 }
-

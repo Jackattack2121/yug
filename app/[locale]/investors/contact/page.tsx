@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker, HiOutlinePaperAirplane } from 'react-icons/hi'
 
 export default function InvestorContact() {
+  const t = useTranslations('investors.contact')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,7 +27,7 @@ export default function InvestorContact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('error')
-    setMessage('Contact form is not yet available. Please email us directly at investor.relations@yugometals.com or call +61 8 9481 0389.')
+    setMessage(t('formNotAvailable'))
   }
 
   return (
@@ -45,11 +47,10 @@ export default function InvestorContact() {
           <AnimatedSection>
             <div className="max-w-4xl">
               <h1 className="text-heading-lg text-white mb-4">
-                Contact<br />
-                Investor Relations
+                {t('heroTitle')}
               </h1>
               <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
-                Our team is here to answer your questions and provide information
+                {t('heroSubtitle')}
               </p>
             </div>
           </AnimatedSection>
@@ -68,7 +69,7 @@ export default function InvestorContact() {
                     <div className="bg-primary-600 p-3">
                       <HiOutlineMail className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-secondary-900 uppercase tracking-wider">Email</h3>
+                    <h3 className="text-lg font-bold text-secondary-900 uppercase tracking-wider">{t('emailTitle')}</h3>
                   </div>
                   <a 
                     href="mailto:investor.relations@yugometals.com"
@@ -85,7 +86,7 @@ export default function InvestorContact() {
                     <div className="bg-primary-600 p-3">
                       <HiOutlinePhone className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-secondary-900 uppercase tracking-wider">Phone</h3>
+                    <h3 className="text-lg font-bold text-secondary-900 uppercase tracking-wider">{t('phoneTitle')}</h3>
                   </div>
                   <a 
                     href="tel:+61894810389"
@@ -102,14 +103,9 @@ export default function InvestorContact() {
                     <div className="bg-primary-600 p-3">
                       <HiOutlineLocationMarker className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-secondary-900 uppercase tracking-wider">Registered Office</h3>
+                    <h3 className="text-lg font-bold text-secondary-900 uppercase tracking-wider">{t('officeTitle')}</h3>
                   </div>
-                  <address className="text-gray-700 not-italic">
-                    Level 8, London House<br />
-                    216 St George's Terrace<br />
-                    Perth, WA 6000<br />
-                    Australia
-                  </address>
+                  <address className="text-gray-700 not-italic" dangerouslySetInnerHTML={{ __html: t('officeAddress').replace(/\n/g, '<br />') }} />
                 </div>
               </AnimatedSection>
             </div>
@@ -118,20 +114,20 @@ export default function InvestorContact() {
             <div className="lg:col-span-2">
               <AnimatedSection delay={0.1}>
                 <div className="bg-white border-2 border-gray-200 p-8">
-                  <h2 className="text-heading-lg text-secondary-900 mb-8">Send Us a Message</h2>
+                  <h2 className="text-heading-lg text-secondary-900 mb-8">{t('messageTitle')}</h2>
 
                   {status === 'success' ? (
                     <div className="bg-green-50 border-2 border-green-200 p-8 text-center">
                       <div className="bg-green-600 w-16 h-16 flex items-center justify-center mx-auto mb-4">
                         <HiOutlinePaperAirplane className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold text-secondary-900 mb-2 uppercase tracking-wider">Message Sent Successfully!</h3>
-                      <p className="text-green-700">{message}</p>
+                      <h3 className="text-xl font-bold text-secondary-900 mb-2 uppercase tracking-wider">{t('successTitle')}</h3>
+                      <p className="text-green-700">{t('successDescription')}</p>
                       <button
                         onClick={() => setStatus('idle')}
                         className="mt-6 px-6 py-3 bg-green-600 text-white hover:bg-green-700 transition-colors uppercase tracking-wider font-semibold"
                       >
-                        Send Another Message
+                        {t('anotherMessage')}
                       </button>
                     </div>
                   ) : (
@@ -139,7 +135,7 @@ export default function InvestorContact() {
                       {/* Name */}
                       <div>
                         <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Full Name *
+                          {t('fullNameLabel')}
                         </label>
                         <input
                           type="text"
@@ -149,7 +145,7 @@ export default function InvestorContact() {
                           onChange={handleChange}
                           required
                           className="w-full px-4 py-3 border-2 border-gray-300 focus:outline-none focus:border-primary-600 transition-colors"
-                          placeholder="Your full name"
+                          placeholder={t('fullNamePlaceholder')}
                         />
                       </div>
 
@@ -157,7 +153,7 @@ export default function InvestorContact() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                            Email Address *
+                            {t('emailLabel')}
                           </label>
                           <input
                             type="email"
@@ -167,12 +163,12 @@ export default function InvestorContact() {
                             onChange={handleChange}
                             required
                             className="w-full px-4 py-3 border-2 border-gray-300 focus:outline-none focus:border-primary-600 transition-colors"
-                            placeholder="your.email@example.com"
+                            placeholder={t('emailPlaceholder')}
                           />
                         </div>
                         <div>
                           <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-                            Phone Number
+                            {t('phoneLabel')}
                           </label>
                           <input
                             type="tel"
@@ -181,7 +177,7 @@ export default function InvestorContact() {
                             value={formData.phone}
                             onChange={handleChange}
                             className="w-full px-4 py-3 border-2 border-gray-300 focus:outline-none focus:border-primary-600 transition-colors"
-                            placeholder="+61 4XX XXX XXX"
+                            placeholder={t('phonePlaceholder')}
                           />
                         </div>
                       </div>
@@ -189,7 +185,7 @@ export default function InvestorContact() {
                       {/* Subject */}
                       <div>
                         <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Subject *
+                          {t('subjectLabel')}
                         </label>
                         <select
                           id="subject"
@@ -199,21 +195,19 @@ export default function InvestorContact() {
                           required
                           className="w-full px-4 py-3 border-2 border-gray-300 focus:outline-none focus:border-primary-600 transition-colors"
                         >
-                          <option value="">Select a subject</option>
-                          <option value="general">General Inquiry</option>
-                          <option value="reports">Financial Reports</option>
-                          <option value="share-registry">Share Registry</option>
-                          <option value="presentations">Presentations & Briefings</option>
-                          <option value="projects">Project Information</option>
-                          <option value="media">Media Inquiry</option>
-                          <option value="other">Other</option>
+                          <option value="">{t('subjectPlaceholder')}</option>
+                          <option value="general">{t('subjectGeneral')}</option>
+                          <option value="reports">{t('subjectFinancial')}</option>
+                          <option value="share-registry">{t('subjectShare')}</option>
+                          <option value="media">{t('subjectMedia')}</option>
+                          <option value="other">{t('subjectOther')}</option>
                         </select>
                       </div>
 
                       {/* Message */}
                       <div>
                         <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                          Message *
+                          {t('messageLabel')}
                         </label>
                         <textarea
                           id="message"
@@ -223,7 +217,7 @@ export default function InvestorContact() {
                           required
                           rows={6}
                           className="w-full px-4 py-3 border-2 border-gray-300 focus:outline-none focus:border-primary-600 transition-colors resize-none"
-                          placeholder="Please provide details about your inquiry..."
+                          placeholder={t('messagePlaceholder')}
                         />
                       </div>
 
@@ -243,18 +237,18 @@ export default function InvestorContact() {
                         {status === 'loading' ? (
                           <>
                             <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                            <span>Sending...</span>
+                            <span>{t('sending')}</span>
                           </>
                         ) : (
                           <>
                             <HiOutlinePaperAirplane className="w-5 h-5" />
-                            <span>Send Message</span>
+                            <span>{t('sendButton')}</span>
                           </>
                         )}
                       </button>
 
                       <p className="text-xs text-gray-500 text-center">
-                        * Required fields. We typically respond within 24-48 business hours.
+                        {t('requiredNote')}
                       </p>
                     </form>
                   )}
@@ -270,35 +264,35 @@ export default function InvestorContact() {
         <div className="container max-w-4xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="text-heading-lg text-secondary-900 mb-4">
-              Looking for Something Specific?
+              {t('lookingForTitle')}
             </h2>
             <p className="text-gray-600 mb-8">
-              You might find what you need in one of our investor resource sections
+              {t('lookingForDescription')}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               <a
                 href="/investors/asx-announcements"
                 className="p-4 bg-white border-2 border-gray-200 hover:border-primary-600 transition-all"
               >
-                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">ASX Announcements</h3>
+                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">{t('asxLink')}</h3>
               </a>
               <a
                 href="/investors/financial-reports"
                 className="p-4 bg-white border-2 border-gray-200 hover:border-primary-600 transition-all"
               >
-                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">Financial Reports</h3>
+                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">{t('reportsLink')}</h3>
               </a>
               <a
                 href="/investors/share-information"
                 className="p-4 bg-white border-2 border-gray-200 hover:border-primary-600 transition-all"
               >
-                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">Share Information</h3>
+                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">{t('shareLink')}</h3>
               </a>
               <a
                 href="/investors/fact-sheet"
                 className="p-4 bg-white border-2 border-gray-200 hover:border-primary-600 transition-all"
               >
-                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">Fact Sheet</h3>
+                <h3 className="font-semibold text-secondary-900 uppercase tracking-wider">{t('factSheetLink')}</h3>
               </a>
             </div>
           </AnimatedSection>

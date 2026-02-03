@@ -1,8 +1,12 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import EmptyState from '@/components/ui/EmptyState'
-import { HiOutlineDocumentText } from 'react-icons/hi'
 
 export default function FactSheetPage() {
+  const t = useTranslations('investors.factSheet')
+  
   return (
     <>
       {/* Hero Section */}
@@ -10,7 +14,7 @@ export default function FactSheetPage() {
         {/* Background Image with fade */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: 'url(/yugo_images/165-Hindley-10.jpg)' }}
+          style={{ backgroundImage: 'url(/yugo_images/aerial-view-motor-grader-civil-at-construction-sit-2025-07-08-16-02-40-utc.jpg)' }}
         />
         
         {/* Blue Overlay */}
@@ -20,11 +24,10 @@ export default function FactSheetPage() {
           <AnimatedSection>
             <div className="max-w-4xl">
               <h1 className="text-heading-lg text-white mb-4">
-                Company<br />
-                Fact Sheet
+                {t('heroTitle')}
               </h1>
               <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
-                Quick reference guide to key company information and metrics
+                {t('heroSubtitle')}
               </p>
             </div>
           </AnimatedSection>
@@ -33,16 +36,13 @@ export default function FactSheetPage() {
 
       {/* Empty State */}
       <section className="section-padding bg-white">
-        <div className="container">
+        <div className="container max-w-4xl">
           <AnimatedSection>
             <EmptyState
-              icon={HiOutlineDocumentText}
-              title="Fact Sheets Coming Soon"
-              description="Company fact sheets will be available for download here once published. Fact sheets provide a comprehensive overview of Yugo Metals including projects, management, share structure, and key highlights."
-              action={{
-                label: "View Financial Reports",
-                href: "/investors/financial-reports"
-              }}
+              title={t('comingSoon')}
+              description={t('comingSoonDescription')}
+              actionLabel={t('viewReportsAction')}
+              actionHref="/investors/financial-reports"
             />
           </AnimatedSection>
         </div>
@@ -50,4 +50,3 @@ export default function FactSheetPage() {
     </>
   )
 }
-
