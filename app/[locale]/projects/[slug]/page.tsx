@@ -224,7 +224,12 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
           </div>
         }
         rightContent={
-          <div className="bg-gray-100"></div>
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${project.heroImage})` }}
+          >
+            <div className="absolute inset-0 bg-black/10"></div>
+          </div>
         }
       />
 

@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import EmptyState from '@/components/ui/EmptyState'
+import { HiOutlineDocumentReport } from 'react-icons/hi'
 
 export default function FinancialReportsPage() {
   const t = useTranslations('investors.financialReports')
@@ -39,10 +40,13 @@ export default function FinancialReportsPage() {
         <div className="container max-w-4xl">
           <AnimatedSection>
             <EmptyState
+              icon={HiOutlineDocumentReport}
               title={t('comingSoon')}
               description={t('comingSoonDescription')}
-              actionLabel={t('viewAnnouncementsAction')}
-              actionHref="/investors/asx-announcements"
+              action={{
+                label: t('viewAnnouncementsAction'),
+                href: '/investors/asx-announcements'
+              }}
             />
           </AnimatedSection>
         </div>

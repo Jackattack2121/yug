@@ -12,7 +12,6 @@ const languages = [
   { code: 'bs', name: 'Bosanski', flag: '🇧🇦' },
   { code: 'zh', name: '中文', flag: '🇨🇳' },
   { code: 'ja', name: '日本語', flag: '🇯🇵' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
   { code: 'it', name: 'Italiano', flag: '🇮🇹' },
 ];
 
@@ -84,7 +83,7 @@ export default function LanguageSwitcher({ isSolid = true }: LanguageSwitcherPro
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50">
+        <div className="absolute right-0 top-full mt-2 w-48 bg-white/80 backdrop-blur-md rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50">
           <div className="py-1" role="menu" aria-orientation="vertical">
             {languages.map((language) => (
               <button

@@ -150,13 +150,13 @@ export default function WhyYugoMetals() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {reasons.map((reason, index) => (
-              <AnimatedSection key={index} delay={index * 0.1}>
-                <div className="border-2 border-gray-200 p-8 hover:border-primary-600 transition-all">
+              <AnimatedSection key={index} delay={index * 0.1} className="h-full">
+                <div className="border-2 border-gray-200 p-8 hover:border-primary-600 transition-all h-full flex flex-col">
                   <div className="text-5xl mb-6">{reason.icon}</div>
                   <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
                     {reason.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed flex-grow">
                     {reason.description}
                   </p>
                 </div>

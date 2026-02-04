@@ -27,7 +27,7 @@ const authMiddleware = withAuth(
   }
 );
 
-export default function middleware(req: NextRequest) {
+export default async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Admin routes (no locale prefix) - use auth middleware
@@ -36,8 +36,8 @@ export default function middleware(req: NextRequest) {
     pathname.startsWith('/api/admin')
   ) {
     // @ts-ignore - withAuth has complex typing
-    const response = authMiddleware(req);
-    if (response) {
+    const response = await authMiddleware(req);
+    if (response instanceof NextResponse || response instanceof Response) {
       response.headers.set('x-pathname', pathname);
     }
     return response;
@@ -61,7 +61,7 @@ export default function middleware(req: NextRequest) {
   }
 
   // All other routes - use intl middleware for locale routing
-  const response = intlMiddleware(req);
+  const response = await intlMiddleware(req);
   // Add pathname header for locale detection in root layout
   response.headers.set('x-pathname', pathname);
   return response;

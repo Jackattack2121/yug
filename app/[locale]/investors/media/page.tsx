@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import EmptyState from '@/components/ui/EmptyState'
+import { HiOutlineNewspaper } from 'react-icons/hi'
 
 export default function MediaPage() {
   const t = useTranslations('investors.media')
@@ -39,10 +40,13 @@ export default function MediaPage() {
         <div className="container max-w-4xl">
           <AnimatedSection>
             <EmptyState
+              icon={HiOutlineNewspaper}
               title={t('comingSoon')}
               description={t('comingSoonDescription')}
-              actionLabel={t('subscribeAction')}
-              actionHref="/investors"
+              action={{
+                label: t('subscribeAction'),
+                href: '/investors'
+              }}
             />
           </AnimatedSection>
         </div>
