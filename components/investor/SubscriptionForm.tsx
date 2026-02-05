@@ -59,18 +59,20 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
 
   if (variant === 'inline') {
     return (
-      <form onSubmit={handleSubmit} className={`flex flex-col sm:flex-row gap-3 ${className}`}>
+      <form onSubmit={handleSubmit} className={`flex flex-col sm:flex-row gap-3 ${className}`} aria-label="Email subscription form">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t('emailPlaceholder')}
           required
+          aria-label="Email address for subscription"
           className="flex-1 px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
         />
         <button
           type="submit"
           disabled={status === 'loading'}
+          aria-label={status === 'success' ? 'Successfully subscribed' : 'Subscribe to investor updates'}
           className="btn-primary whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
         >
           {status === 'loading' ? (
@@ -102,92 +104,102 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
 
   // Card variant - full form with preferences
   return (
-    <div className={`bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 p-8 text-white h-full flex flex-col ${className}`}>
+    <div className={`bg-white rounded-lg shadow-lg border border-primary-600 p-8 h-full flex flex-col ${className}`}>
       <div className="flex items-center space-x-3 mb-6">
-        <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
-          <HiOutlineMail className="w-7 h-7 text-white" />
+        <div className="bg-primary-50 p-3 rounded-lg">
+          <HiOutlineMail className="w-7 h-7 text-primary-600" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-white">Stay Informed</h3>
-          <p className="text-sm text-white/80">Subscribe to investor updates</p>
+          <h3 className="text-2xl font-bold text-secondary-900">Email Updates</h3>
+          <p className="text-sm text-gray-600">Receive notifications for:</p>
         </div>
       </div>
 
       {status === 'success' ? (
-        <div className="bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg p-6 text-center flex-1 flex flex-col items-center justify-center">
-          <HiOutlineCheckCircle className="w-16 h-16 text-accent-yellow mx-auto mb-3" />
-          <p className="text-white font-bold text-lg mb-2">Successfully Subscribed!</p>
-          <p className="text-sm text-white/90">{message}</p>
+        <div className="bg-primary-50 border border-primary-200 rounded-lg p-6 text-center flex-1 flex flex-col items-center justify-center" role="status" aria-live="polite">
+          <HiOutlineCheckCircle className="w-16 h-16 text-primary-600 mx-auto mb-3" aria-hidden="true" />
+          <p className="text-secondary-900 font-bold text-lg mb-2">Successfully Subscribed!</p>
+          <p className="text-sm text-gray-600">{message}</p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4 flex-1 flex flex-col">
+        <form onSubmit={handleSubmit} className="space-y-4 flex-1 flex flex-col" aria-label="Email subscription form">
           <div>
-            <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
+            <label htmlFor="name" className="block text-sm font-semibold text-secondary-900 mb-2">
               Name
             </label>
             <input
               type="text"
               id="name"
+              name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
               required
-              className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-yellow focus:bg-white/20 transition-all text-white placeholder-white/60"
+              aria-required="true"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-primary-600 transition-all text-secondary-900 placeholder-gray-400"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
+            <label htmlFor="email" className="block text-sm font-semibold text-secondary-900 mb-2">
               Email Address
             </label>
             <input
               type="email"
               id="email"
+              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your.email@example.com"
               required
-              className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-yellow focus:bg-white/20 transition-all text-white placeholder-white/60"
+              aria-required="true"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-primary-600 transition-all text-secondary-900 placeholder-gray-400"
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-semibold text-white mb-3">
+          <fieldset>
+            <legend className="block text-sm font-semibold text-secondary-900 mb-3">
               Email Preferences
-            </label>
+            </legend>
             <div className="space-y-2">
               <label className="flex items-center space-x-3 cursor-pointer group">
                 <input
                   type="checkbox"
+                  name="preferences-announcements"
                   checked={preferences.announcements}
                   onChange={() => togglePreference('announcements')}
-                  className="w-5 h-5 text-accent-yellow bg-white/10 border-white/30 rounded focus:ring-accent-yellow focus:ring-offset-0"
+                  aria-label="Subscribe to ASX Announcements"
+                  className="w-5 h-5 text-primary-600 bg-white border-gray-300 rounded focus:ring-primary-600 focus:ring-offset-0"
                 />
-                <span className="text-sm text-white/90 group-hover:text-white transition-colors">ASX Announcements</span>
+                <span className="text-sm text-gray-700 group-hover:text-secondary-900 transition-colors">ASX Announcements</span>
               </label>
               <label className="flex items-center space-x-3 cursor-pointer group">
                 <input
                   type="checkbox"
+                  name="preferences-reports"
                   checked={preferences.reports}
                   onChange={() => togglePreference('reports')}
-                  className="w-5 h-5 text-accent-yellow bg-white/10 border-white/30 rounded focus:ring-accent-yellow focus:ring-offset-0"
+                  aria-label="Subscribe to Quarterly & Annual Reports"
+                  className="w-5 h-5 text-primary-600 bg-white border-gray-300 rounded focus:ring-primary-600 focus:ring-offset-0"
                 />
-                <span className="text-sm text-white/90 group-hover:text-white transition-colors">Quarterly & Annual Reports</span>
+                <span className="text-sm text-gray-700 group-hover:text-secondary-900 transition-colors">Quarterly & Annual Reports</span>
               </label>
               <label className="flex items-center space-x-3 cursor-pointer group">
                 <input
                   type="checkbox"
+                  name="preferences-news"
                   checked={preferences.news}
                   onChange={() => togglePreference('news')}
-                  className="w-5 h-5 text-accent-yellow bg-white/10 border-white/30 rounded focus:ring-accent-yellow focus:ring-offset-0"
+                  aria-label="Subscribe to Company News & Updates"
+                  className="w-5 h-5 text-primary-600 bg-white border-gray-300 rounded focus:ring-primary-600 focus:ring-offset-0"
                 />
-                <span className="text-sm text-white/90 group-hover:text-white transition-colors">Company News & Updates</span>
+                <span className="text-sm text-gray-700 group-hover:text-secondary-900 transition-colors">Company News & Updates</span>
               </label>
             </div>
-          </div>
+          </fieldset>
 
           {status === 'error' && (
-            <div className="bg-red-500/20 backdrop-blur-sm border border-red-300/50 rounded-lg p-3 text-white text-sm">
+            <div className="bg-red-50 border border-red-300 rounded-lg p-3 text-red-700 text-sm" role="alert" aria-live="polite">
               {message}
             </div>
           )}
@@ -196,22 +208,23 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="w-full bg-accent-yellow text-black font-bold py-4 px-6 rounded-lg hover:bg-yellow-400 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl hover:scale-105"
+              aria-label={status === 'loading' ? 'Subscribing to updates' : 'Subscribe to investor updates'}
+              className="w-full bg-primary-600 text-white font-bold py-4 px-6 rounded-lg hover:bg-primary-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2"
             >
               {status === 'loading' ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true"></div>
                   <span>Subscribing...</span>
                 </>
               ) : (
                 <>
-                  <HiOutlineMail className="w-5 h-5" />
+                  <HiOutlineMail className="w-5 h-5" aria-hidden="true" />
                   <span>Subscribe to Updates</span>
                 </>
               )}
             </button>
 
-            <p className="text-xs text-white/70 text-center mt-3">
+            <p className="text-xs text-gray-500 text-center mt-3" role="note">
               We respect your privacy. Unsubscribe anytime.
             </p>
           </div>

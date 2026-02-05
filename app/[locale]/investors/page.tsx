@@ -9,7 +9,6 @@ import { Link } from '@/i18n/navigation'
 import { 
   HiOutlineDocumentText, 
   HiOutlinePresentationChartLine, 
-  HiOutlineNewspaper,
   HiOutlineCalendar,
   HiOutlineChartBar,
   HiOutlineDownload,
@@ -52,18 +51,6 @@ export default function InvestorCentre() {
       href: '/investors/calendar',
     },
     {
-      title: tQuickLinks('media'),
-      description: tQuickLinks('mediaDescription'),
-      icon: HiOutlineNewspaper,
-      href: '/investors/media',
-    },
-    {
-      title: tQuickLinks('factSheet'),
-      description: tQuickLinks('factSheetDescription'),
-      icon: HiOutlineDownload,
-      href: '/investors/fact-sheet',
-    },
-    {
       title: tQuickLinks('esg'),
       description: tQuickLinks('esgDescription'),
       icon: HiOutlineGlobe,
@@ -87,10 +74,9 @@ export default function InvestorCentre() {
           <AnimatedSection>
             <div className="max-w-4xl">
               <h1 className="text-heading-lg text-white mb-4">
-                {t('centre.title').split(' ')[0]}<br />
-                {t('centre.title').split(' ')[1]}
+                {t('centre.title')}
               </h1>
-              <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
+              <p className="text-base text-white/90">
                 {t('centre.subtitle')}
               </p>
             </div>
@@ -99,12 +85,36 @@ export default function InvestorCentre() {
       </section>
 
       {/* Share Price Widget */}
-      <section className="section-padding-small bg-gray-50">
+      <section className="section-padding-small bg-white">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <AnimatedSection className="lg:col-span-2">
-              <div style={{ minHeight: '400px', height: '400px' }}>
-                <TradingViewWidget symbol="ASX:YUG|1M|AUD" />
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-primary-600 mb-2">
+                    LIVE MARKET DATA
+                  </p>
+                </div>
+                <div style={{ minHeight: '400px', height: '400px' }}>
+                  <TradingViewWidget symbol="ASX:YUG|1M|AUD" />
+                </div>
+                <div className="space-y-2">
+                  <p className="text-xs text-gray-600">
+                    Share price data provided by TradingView. 20-minute delay. Not financial advice.
+                  </p>
+                  <a 
+                    href="https://www.asx.com.au/markets/company/YUG" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-sm text-primary-600 hover:text-primary-700 font-semibold"
+                    aria-label="View real-time YUG share price on ASX website (opens in new tab)"
+                  >
+                    View real-time price on ASX.com.au
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={0.1}>
@@ -126,23 +136,29 @@ export default function InvestorCentre() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {quickLinks.map((link, index) => {
               const Icon = link.icon
               return (
                 <AnimatedSection key={link.title} delay={index * 0.05}>
-                  <Link href={link.href}>
-                    <div className="group bg-white border border-gray-200 p-8 hover-lift hover:border-primary-600 transition-all h-full">
-                      <Icon className="w-12 h-12 text-primary-600 mb-4 transition-transform group-hover:scale-110" />
-                      <h3 className="text-lg font-bold mb-3 group-hover:text-primary-600 transition-colors uppercase tracking-wide">
+                  <Link 
+                    href={link.href}
+                    className="block focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 rounded-lg"
+                    aria-label={`Navigate to ${link.title}`}
+                  >
+                    <div className="group bg-white border border-gray-200 p-8 hover-lift hover:border-primary-600 transition-all h-full rounded-lg">
+                      <div className="bg-primary-50 p-4 rounded-lg inline-block mb-4">
+                        <Icon className="w-16 h-16 text-primary-600 transition-transform group-hover:scale-110" aria-hidden="true" />
+                      </div>
+                      <h3 className="text-xl font-bold mb-3 group-hover:text-primary-600 transition-colors uppercase tracking-wide">
                         {link.title}
                       </h3>
-                      <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                      <p className="text-base text-gray-600 leading-relaxed mb-4">
                         {link.description}
                       </p>
                       <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary-600">
                         <span>{tQuickLinks('view')}</span>
-                        <svg className="w-3 h-3 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-3 h-3 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </div>
@@ -155,26 +171,28 @@ export default function InvestorCentre() {
         </div>
       </section>
 
-      {/* Contact IR Team CTA */}
-      <section className="section-padding bg-primary-600 text-white text-center">
-        <div className="container max-w-3xl mx-auto">
+      {/* Contact IR Team - Compact Banner */}
+      <section className="py-16 bg-primary-600 text-white text-center">
+        <div className="container max-w-4xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-heading-xl mb-8">
+            <h2 className="text-3xl font-bold mb-4">
               {t('centre.questionsTitle')}
             </h2>
-            <p className="text-xl mb-12 font-josefin opacity-90">
+            <p className="text-lg mb-8 opacity-90">
               {t('centre.questionsSubtitle')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button href="/investors/contact" variant="secondary">
                 {t('centre.contactIrButton')}
               </Button>
-              <button className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600">
+              <a 
+                href="/investors/fact-sheet"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
+                aria-label="Download company fact sheet"
+              >
                 <span>{t('centre.downloadFactSheet')}</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
+                <HiOutlineDownload className="w-5 h-5" aria-hidden="true" />
+              </a>
             </div>
           </AnimatedSection>
         </div>

@@ -97,11 +97,11 @@
   },
   "investors": {
     "centre": {
-      "title": "Investor Centre",
-      "subtitle": "Your gateway to company information, financial reports, and market updates",
+      "title": "Investor Hub",
+      "subtitle": "Access financial reports, ASX announcements, and company information",
       "resourcesTitle": "Investor Resources",
-      "questionsTitle": "Have Questions?",
-      "questionsSubtitle": "Our Investor Relations team is here to help. Get in touch for more information.",
+      "questionsTitle": "Investor Relations Contact",
+      "questionsSubtitle": "For inquiries, please contact our IR team or download our fact sheet.",
       "contactIrButton": "Contact IR Team",
       "downloadFactSheet": "Download Fact Sheet"
     },
