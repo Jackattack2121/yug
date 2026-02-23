@@ -26,8 +26,38 @@ export default function InvestorContact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setStatus('error')
-    setMessage(t('formNotAvailable'))
+    setStatus('loading')
+    setMessage('')
+
+    try {
+      const form = e.target as HTMLFormElement
+      const honeypot = (form.elements.namedItem('website') as HTMLInputElement)?.value
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          type: 'investor',
+          website: honeypot,
+        }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong. Please try again.')
+      }
+
+      setStatus('success')
+      setMessage('')
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+    } catch (err) {
+      setStatus('error')
+      setMessage(
+        err instanceof Error ? err.message : 'Something went wrong. Please try again.'
+      )
+    }
   }
 
   return (
@@ -132,6 +162,15 @@ export default function InvestorContact() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      {/* Honeypot field - hidden from real users */}
+                      <input
+                        type="text"
+                        name="website"
+                        style={{ display: 'none' }}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+
                       {/* Name */}
                       <div>
                         <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">

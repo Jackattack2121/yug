@@ -97,7 +97,7 @@
   },
   "investors": {
     "centre": {
-      "title": "Investor Hub",
+      "title": "Investor Centre",
       "subtitle": "Access financial reports, ASX announcements, and company information",
       "resourcesTitle": "Investor Resources",
       "questionsTitle": "Investor Relations Contact",
@@ -621,7 +621,7 @@
       "contactEmail": "info@yugometals.com",
       "contactWebsite": "www.yugometals.com",
       "asxHeading": "ASX Listing",
-      "asxContent": "<p><strong>ASX Code:</strong> LYK</p><p><strong>Company Name:</strong> Yugo Metals</p><p>For investor relations inquiries, please contact: <a href=\"mailto:ir@lykosmetals.com\">ir@lykosmetals.com</a></p>"
+      "asxContent": "<p><strong>ASX Code:</strong> YUG</p><p><strong>Company Name:</strong> Yugo Metals</p><p>For investor relations inquiries, please contact: <a href=\"mailto:ir@yugometals.com\">ir@yugometals.com</a></p>"
     },
     "responsibility": {
       "title": "Corporate Responsibility",

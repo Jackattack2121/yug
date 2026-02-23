@@ -1,5 +1,6 @@
 'use client'
 
+import { sanitizeHtml } from '@/lib/sanitize'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { TextContentSection as TextContentSectionType } from '@/lib/admin/section-types'
 
@@ -18,7 +19,7 @@ export default function TextContentSection({ section }: Props) {
         )}
         <div
           className="prose prose-lg max-w-none text-gray-600 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: section.content }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
         />
       </div>
     </AnimatedSection>

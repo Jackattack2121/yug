@@ -4,6 +4,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import Image from 'next/image'
+import InvestorDisclaimer from '@/components/investor/InvestorDisclaimer'
 
 export default function ProjectsPage() {
   const locale = useLocale()
@@ -142,7 +143,7 @@ export default function ProjectsPage() {
                 {t('cta.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
+                <Link
                   href={`/${locale}/investors/asx-announcements`}
                   className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-secondary-800 text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-secondary-900 hover:shadow-lg text-sm"
                 >
@@ -151,7 +152,7 @@ export default function ProjectsPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
-                <Link 
+                <Link
                   href={`/${locale}/contact`}
                   className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600 text-sm"
                 >
@@ -165,6 +166,9 @@ export default function ProjectsPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Compliance Disclaimer */}
+      <InvestorDisclaimer forwardLooking competentPerson sharePrice={false} notAdvice={false} />
     </>
   )
 }

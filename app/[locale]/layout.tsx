@@ -42,6 +42,14 @@ export async function generateMetadata({
       siteName: 'Yugo Metals',
       locale: locale,
       type: 'website',
+      images: [
+        {
+          url: '/api/og?title=' + encodeURIComponent(t('title')),
+          width: 1200,
+          height: 630,
+          alt: 'Yugo Metals',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',

@@ -5,6 +5,7 @@ import SplitSection from '@/components/ui/SplitSection';
 import StatsBar from '@/components/ui/StatsBar';
 import Button from '@/components/ui/Button';
 import { Link } from '@/i18n/navigation';
+import InvestorDisclaimer from '@/components/investor/InvestorDisclaimer';
 
 export async function generateStaticParams() {
   return [
@@ -258,6 +259,9 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Compliance Disclaimer */}
+      <InvestorDisclaimer forwardLooking competentPerson sharePrice={false} notAdvice={false} />
     </>
   );
 }

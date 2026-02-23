@@ -251,8 +251,8 @@ export default function Header() {
 
           <div className="border-t border-white/10 pt-6">
             <p className="text-xs text-gray-400 mb-2">Contact</p>
-            <a href="mailto:info@lykosmetals.com" className="text-sm hover:text-primary-400 transition-colors">
-              info@lykosmetals.com
+            <a href="mailto:info@yugometals.com" className="text-sm hover:text-primary-400 transition-colors">
+              info@yugometals.com
             </a>
           </div>
         </nav>

@@ -57,7 +57,7 @@ function getCompanyPageData(slug: string): { heroTitle: string; heroSubtitle?: s
           type: 'text_content',
           order: 3,
           heading: 'ASX Listing',
-          content: '<p><strong>ASX Code:</strong> LYK</p><p><strong>Company Name:</strong> Yugo Metals</p><p>For investor relations inquiries, please contact: <a href="mailto:ir@lykosmetals.com">ir@lykosmetals.com</a></p>',
+          content: '<p><strong>ASX Code:</strong> YUG</p><p><strong>Company Name:</strong> Yugo Metals</p><p>For investor relations inquiries, please contact: <a href="mailto:ir@yugometals.com">ir@yugometals.com</a></p>',
           centered: false,
         },
       ],

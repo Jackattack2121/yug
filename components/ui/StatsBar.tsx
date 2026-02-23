@@ -31,8 +31,8 @@ export default function StatsBar({ stats, variant = 'horizontal', background = '
               : 'grid-cols-1 md:grid-cols-3 lg:grid-cols-4'
           )}
         >
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center">
               <div className="text-5xl md:text-6xl lg:text-7xl font-black mb-2 tracking-tight">
                 {stat.value}
               </div>

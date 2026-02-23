@@ -1,5 +1,6 @@
 'use client';
 
+import { sanitizeHtml } from '@/lib/sanitize';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { FullTextSection as FullTextSectionType } from '@/lib/admin/section-types';
@@ -38,7 +39,7 @@ export default function FullTextSection({ section, index }: FullTextSectionProps
           <div className={`mt-12 ${section.centered ? 'mx-auto' : ''} ${maxWidthClass}`}>
             <div
               className="prose prose-lg max-w-none text-gray-700 leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: section.content }}
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
             />
           </div>
         </AnimatedSection>

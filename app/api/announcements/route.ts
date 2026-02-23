@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getASXAnnouncements } from '@/lib/asx-rss'
 
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/announcements
  * Fetch ASX announcements with optional filtering

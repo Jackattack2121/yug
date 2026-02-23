@@ -23,7 +23,7 @@ export default function ProjectSection({ section, index }: ProjectSectionProps) 
     case 'cta_section':
       return <CTASection section={section} index={index} />;
     default:
-      console.warn(`Unknown section type: ${(section as any).type}`);
+      // Unrecognized section type — skip rendering
       return null;
   }
 }

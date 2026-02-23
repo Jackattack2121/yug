@@ -24,7 +24,7 @@ export default function CardGridSection({ section }: Props) {
           </h2>
         )}
         <div className={`grid grid-cols-1 ${gridColsClass} gap-6`}>
-          {section.cards.map((card, index) => {
+          {section.cards.map((card) => {
             const cardContent = (
               <>
                 {card.icon && (
@@ -41,7 +41,7 @@ export default function CardGridSection({ section }: Props) {
 
             return card.link ? (
               <Link
-                key={index}
+                key={card.title}
                 href={card.link}
                 className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
               >
@@ -49,7 +49,7 @@ export default function CardGridSection({ section }: Props) {
               </Link>
             ) : (
               <div
-                key={index}
+                key={card.title}
                 className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow"
               >
                 {cardContent}

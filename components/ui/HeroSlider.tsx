@@ -68,8 +68,8 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         className="h-full"
       >
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.title}>
             <div className="relative h-full">
               {/* Background Video or Image */}
               {slide.video ? (

@@ -1,5 +1,6 @@
 'use client'
 
+import { sanitizeHtml } from '@/lib/sanitize'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { TwoColumnSection as TwoColumnSectionType } from '@/lib/admin/section-types'
 
@@ -19,11 +20,11 @@ export default function TwoColumnSection({ section }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <div
             className="prose prose-lg max-w-none text-gray-600 leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: section.leftContent }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.leftContent) }}
           />
           <div
             className="prose prose-lg max-w-none text-gray-600 leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: section.rightContent }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.rightContent) }}
           />
         </div>
       </div>

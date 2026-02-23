@@ -26,7 +26,7 @@ interface LatestUpdate {
 const fallbackUpdates: LatestUpdate[] = [
   {
     title: 'Quarterly Activities Report',
-    date: 'October 27, 2024',
+    date: 'February 10, 2026',
     category: 'Company Update',
     excerpt: 'Overview of exploration activities across all five Bosnia and Herzegovina projects.',
     image: '/yugo_images/aerial-view-motor-grader-civil-at-construction-sit-2025-07-08-16-02-40-utc.jpg',
@@ -34,7 +34,7 @@ const fallbackUpdates: LatestUpdate[] = [
   },
   {
     title: 'Exploration Program Update',
-    date: 'October 15, 2024',
+    date: 'January 28, 2026',
     category: 'Exploration',
     excerpt: 'Systematic exploration program commences across Doboj and Jezero projects.',
     image: '/yugo_images/the-truck-transports-the-minerals-from-the-top-vie-2025-10-16-12-14-08-utc.jpg',
@@ -42,7 +42,7 @@ const fallbackUpdates: LatestUpdate[] = [
   },
   {
     title: 'European Critical Metals Strategy',
-    date: 'October 1, 2024',
+    date: 'January 15, 2026',
     category: 'Strategy',
     excerpt: 'Yugo Metals positions for European energy transition with critical metals portfolio.',
     image: '/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg',
@@ -134,7 +134,7 @@ export default function Home() {
     }, 3500) // Change every 3.5 seconds (3000ms visible + 500ms transition)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [rotatingTexts.length])
 
   // Fetch latest updates from APIs (ASX announcements + Directus presentations)
   useEffect(() => {
@@ -175,7 +175,6 @@ export default function Home() {
           setLatestUpdates(transformed.slice(0, 3))
         }
       } catch (error) {
-        console.error('Error fetching latest updates:', error)
         // Keep fallback data on error
       } finally {
         setIsLoadingUpdates(false)
@@ -499,7 +498,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {latestUpdates.map((update, index) => (
-              <AnimatedSection key={index} delay={index * 0.1}>
+              <AnimatedSection key={update.title} delay={index * 0.1}>
                 <NewsCard {...update} />
               </AnimatedSection>
             ))}

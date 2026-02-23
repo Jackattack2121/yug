@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getPresentations, getFeaturedPresentations } from '@/lib/directus-presentations'
 
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/presentations
  * Fetch presentations from Directus CMS

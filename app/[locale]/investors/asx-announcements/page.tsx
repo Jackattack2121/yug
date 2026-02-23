@@ -1,8 +1,24 @@
+import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import NewsCard from '@/components/ui/NewsCard'
 import EmptyState from '@/components/ui/EmptyState'
 import { HiOutlineDocumentText } from 'react-icons/hi'
+import { createPageMetadata } from '@/lib/metadata'
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string }
+}): Promise<Metadata> {
+  return createPageMetadata({
+    title: 'ASX Announcements',
+    description:
+      'View the latest ASX announcements and market disclosures from Yugo Metals (ASX: YUG).',
+    path: '/investors/asx-announcements',
+    locale,
+  })
+}
 
 const companyASXCode = 'YUG'
 

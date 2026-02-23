@@ -1,5 +1,6 @@
 'use client';
 
+import { sanitizeHtml } from '@/lib/sanitize';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { TextImageSection as TextImageSectionType } from '@/lib/admin/section-types';
@@ -29,7 +30,7 @@ export default function TextImageSection({ section, index }: TextImageSectionPro
           <AnimatedSection delay={0.2}>
             <div
               className="prose max-w-none text-gray-600 leading-relaxed space-y-4"
-              dangerouslySetInnerHTML={{ __html: section.content }}
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
             />
           </AnimatedSection>
 

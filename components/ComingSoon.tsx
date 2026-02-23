@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
-// Set this to false to disable the coming soon page and show the real website
-export const COMING_SOON_ENABLED = true
+// Toggle via NEXT_PUBLIC_COMING_SOON env var, or set manually here
+export const COMING_SOON_ENABLED = process.env.NEXT_PUBLIC_COMING_SOON === 'true'
 
 // Fixed launch target time — set this to exactly when you want the countdown to end
 // February 23, 2026 at 20:05 UTC = Feb 24, 6:35 AM ACDT (10 hours from 8:35 PM ACDT)

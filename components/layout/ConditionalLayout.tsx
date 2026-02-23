@@ -1,9 +1,17 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { usePathname } from '@/i18n/navigation';
 import HeaderWrapper from './HeaderWrapper';
 import Footer from './Footer';
 import ComingSoon, { COMING_SOON_ENABLED } from '@/components/ComingSoon';
+
+// Lazy load Cory chatbot — no SSR, doesn't block page render
+const CoryWidget = dynamic(() => import('@/components/cory/CoryWidget'), {
+  ssr: false,
+});
+
+const CORY_ENABLED = process.env.NEXT_PUBLIC_CORY_ENABLED !== 'false';
 
 export default function ConditionalLayout({
   children,
@@ -25,12 +33,13 @@ export default function ConditionalLayout({
     return <ComingSoon />;
   }
 
-  // For public routes, render with Header/Footer
+  // For public routes, render with Header/Footer + Cory chatbot
   return (
     <>
       <HeaderWrapper />
       <main>{children}</main>
       <Footer />
+      {CORY_ENABLED && <CoryWidget />}
     </>
   );
 }

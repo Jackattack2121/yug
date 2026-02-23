@@ -69,7 +69,7 @@ export default function CompanySectionRenderer({ sections }: Props) {
             )
 
           default:
-            console.warn(`Unknown section type: ${(section as any).type}`)
+            // Unrecognized section type — skip rendering
             return null
         }
       })}

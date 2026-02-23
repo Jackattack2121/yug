@@ -28,7 +28,6 @@ const routes = [
   '/projects/sockovac',
   '/projects/sinjakovo',
   '/projects/cajnice',
-  '/prospectus',
 ];
 
 // Priority mapping for different page types
@@ -56,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     routes.forEach((route) => {
       entries.push({
         url: `${baseUrl}/${locale}${route}`,
-        lastModified: new Date(),
+        lastModified: new Date('2026-02-23'),
         changeFrequency: getChangeFrequency(route),
         priority: getPriority(route),
         alternates: {

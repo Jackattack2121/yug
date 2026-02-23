@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
@@ -23,7 +23,7 @@ export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectP
   const locale = useLocale()
   const t = useTranslations('projects')
 
-  const projects: Project[] = [
+  const projects: Project[] = useMemo(() => [
     {
       title: t('doboj.name'),
       slug: 'doboj',
@@ -59,7 +59,7 @@ export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectP
       type: t('cajnice.type'),
       image: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
     },
-  ]
+  ], [t])
   const [isOpen, setIsOpen] = useState(false)
   const [hoveredProject, setHoveredProject] = useState<string>(projects[0].slug)
   const panelRef = useRef<HTMLDivElement>(null)
@@ -75,7 +75,7 @@ export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectP
     if (isOpen) {
       setHoveredProject(projects[0].slug)
     }
-  }, [isOpen])
+  }, [isOpen, projects])
 
   useEffect(() => {
     if (panelRef.current) {

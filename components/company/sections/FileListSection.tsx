@@ -17,9 +17,9 @@ export default function FileListSection({ section }: Props) {
           </h2>
         )}
         <div className="space-y-4">
-          {section.files.map((file, index) => (
+          {section.files.map((file) => (
             <div
-              key={index}
+              key={file.fileId || file.title}
               className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow flex items-center justify-between"
             >
               <div className="flex-1">

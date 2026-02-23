@@ -17,7 +17,7 @@ export default function ContactInfoSection({ section }: Props) {
           </h2>
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {section.items.map((item, index) => {
+          {section.items.map((item) => {
             const ItemWrapper = item.link ? 'a' : 'div'
             const wrapperProps = item.link
               ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' }
@@ -25,7 +25,7 @@ export default function ContactInfoSection({ section }: Props) {
 
             return (
               <ItemWrapper
-                key={index}
+                key={item.label}
                 {...wrapperProps}
                 className={`bg-white rounded-lg p-6 shadow-md ${item.link ? 'hover:shadow-lg transition-shadow cursor-pointer' : ''}`}
               >

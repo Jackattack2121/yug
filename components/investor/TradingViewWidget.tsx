@@ -46,9 +46,10 @@ function TradingViewWidget({
   useEffect(() => {
     if (!containerRef.current || dimensions.width === 0 || dimensions.height === 0) return
 
+    const container = containerRef.current
     const widgetContainer = document.createElement('div')
     widgetContainer.className = 'tradingview-widget-container__widget'
-    containerRef.current.appendChild(widgetContainer)
+    container.appendChild(widgetContainer)
 
     // TradingView widget configuration with enhanced styling
     const widgetConfig = {
@@ -99,7 +100,6 @@ function TradingViewWidget({
 
     // Handle script load error
     script.onerror = () => {
-      console.error('Failed to load TradingView widget')
       setHasError(true)
     }
 
@@ -108,10 +108,8 @@ function TradingViewWidget({
 
     // Cleanup function
     return () => {
-      if (containerRef.current) {
-        while (containerRef.current.firstChild) {
-          containerRef.current.removeChild(containerRef.current.firstChild)
-        }
+      while (container.firstChild) {
+        container.removeChild(container.firstChild)
       }
     }
   }, [symbol, dimensions.width, dimensions.height])

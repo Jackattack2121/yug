@@ -15,10 +15,43 @@ export default function Contact() {
     subject: '',
     message: '',
   })
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [statusMessage, setStatusMessage] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Form submission endpoint not configured
+    setStatus('loading')
+    setStatusMessage('')
+
+    try {
+      const form = e.target as HTMLFormElement
+      const honeypot = (form.elements.namedItem('website') as HTMLInputElement)?.value
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          type: 'general',
+          website: honeypot,
+        }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong. Please try again.')
+      }
+
+      setStatus('success')
+      setStatusMessage('Thank you for your message. We\'ll get back to you shortly.')
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+    } catch (err) {
+      setStatus('error')
+      setStatusMessage(
+        err instanceof Error ? err.message : 'Something went wrong. Please try again.'
+      )
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -33,14 +66,14 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
         {/* Background Image with fade */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: 'url(/yugo_images/three-contemporary-builders-in-uniform-2025-03-16-04-36-05-utc.jpg)' }}
         />
-        
+
         {/* Blue Overlay */}
         <div className="absolute inset-0 bg-primary-600/60"></div>
-        
+
         <div className="container relative z-10">
           <AnimatedSection>
             <div className="max-w-4xl">
@@ -65,7 +98,31 @@ export default function Contact() {
               <h2 className="text-heading-lg text-secondary-900 mb-8">
                 {t('formTitle')}
               </h2>
+
+              {/* Success Message */}
+              {status === 'success' && (
+                <div className="mb-6 bg-green-50 border-2 border-green-200 p-6 text-green-800">
+                  <p className="font-semibold">{statusMessage}</p>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {status === 'error' && (
+                <div className="mb-6 bg-red-50 border-2 border-red-200 p-6 text-red-800">
+                  <p className="font-semibold">{statusMessage}</p>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - hidden from real users */}
+                <input
+                  type="text"
+                  name="website"
+                  style={{ display: 'none' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
                     {t('nameLabel')}
@@ -145,9 +202,25 @@ export default function Contact() {
                   />
                 </div>
 
-                <Button type="submit" variant="primary">
-                  {t('sendButton')}
-                </Button>
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="group inline-flex items-center gap-3 px-8 py-4 font-semibold uppercase tracking-wider transition-all duration-300 text-sm bg-primary-600 text-white hover:bg-primary-700 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === 'loading' ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>{t('sendButton')}</span>
+                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </>
+                  )}
+                </button>
               </form>
             </AnimatedSection>
 
@@ -156,7 +229,7 @@ export default function Contact() {
               <h2 className="text-heading-lg text-secondary-900 mb-8">
                 {t('contactInfo')}
               </h2>
-              
+
               <div className="space-y-6">
                 {/* Registered Office */}
                 <div className="border-2 border-gray-200 p-6">
@@ -176,7 +249,7 @@ export default function Contact() {
                   </h3>
                   <div className="space-y-2 text-gray-700">
                     <p><strong>{t('phone')}:</strong> +61 8 9481 0389</p>
-                    <p><strong>{t('email')}:</strong> info@lykosmetals.com</p>
+                    <p><strong>{t('email')}:</strong> info@yugometals.com</p>
                   </div>
                 </div>
 
@@ -216,4 +289,3 @@ export default function Contact() {
     </>
   )
 }
-

@@ -124,11 +124,7 @@ export default function Footer() {
                   {tInvestors('factSheet')}
                 </Link>
               </li>
-              <li>
-                <Link href="/prospectus" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  {tInvestors('prospectus')}
-                </Link>
-              </li>
+              {/* Prospectus hidden until documents are available */}
             </ul>
           </div>
 
@@ -146,8 +142,8 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                <a href="mailto:info@lykosmetals.com" className="hover:text-white transition-colors">
-                  info@lykosmetals.com
+                <a href="mailto:info@yugometals.com" className="hover:text-white transition-colors">
+                  info@yugometals.com
                 </a>
               </p>
             </div>
@@ -162,7 +158,9 @@ export default function Footer() {
               {t('newsletter.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
+              <label htmlFor="footer-newsletter-email" className="sr-only">Email address</label>
               <input
+                id="footer-newsletter-email"
                 type="email"
                 placeholder={t('newsletter.placeholder')}
                 className="flex-1 px-4 py-3 bg-white/10 text-white placeholder:text-gray-500 border border-white/20 focus:border-primary-500 focus:outline-none transition-colors"
@@ -187,7 +185,7 @@ export default function Footer() {
               <FaLinkedin className="w-5 h-5" />
             </a>
             <a
-              href="mailto:info@lykosmetals.com"
+              href="mailto:info@yugometals.com"
               className="text-gray-400 hover:text-white transition-colors"
               aria-label="Email"
             >
