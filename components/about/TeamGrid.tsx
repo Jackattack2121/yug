@@ -121,7 +121,7 @@ export default function TeamGrid() {
         <AnimatedSection delay={0.3}>
           <div className="mt-8 text-center">
             <Link
-              href="/company/board-of-directors"
+              href="/why-yugo-metals"
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary-600 hover:text-primary-700 transition-colors"
             >
               View Full Board Profiles

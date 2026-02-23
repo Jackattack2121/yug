@@ -111,12 +111,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/company/board-of-directors" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/why-yugo-metals" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tCompany('board')}
                 </Link>
               </li>
               <li>
-                <Link href="/company/corporate-governance" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <Link href="/investors/esg" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tCompany('governance')}
                 </Link>
               </li>

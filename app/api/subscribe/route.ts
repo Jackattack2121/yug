@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { createHmac } from 'crypto'
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -9,6 +10,13 @@ function corsHeaders() {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   }
+}
+
+function generateUnsubscribeToken(email: string, secret: string): string {
+  return createHmac('sha256', secret)
+    .update(email.toLowerCase())
+    .digest('hex')
+    .substring(0, 32)
 }
 
 export async function OPTIONS() {
@@ -27,15 +35,16 @@ export async function POST(request: Request) {
     }
 
     const resendApiKey = process.env.RESEND_API_KEY
-    const audienceId = process.env.RESEND_AUDIENCE_ID
+    // Support both new RESEND_SEGMENT_ID and legacy RESEND_AUDIENCE_ID for backward compatibility
+    const segmentId = process.env.RESEND_SEGMENT_ID || process.env.RESEND_AUDIENCE_ID
 
-    if (!resendApiKey || !audienceId) {
+    if (!resendApiKey) {
       // Graceful degradation — log in dev, don't expose config errors to users
       console.log('--- Subscriber Sign-Up (Resend not fully configured) ---')
       console.log('Email:', email)
       console.log('Name:', name || '(not provided)')
       console.log('Preferences:', preferences)
-      console.log('Set RESEND_API_KEY and RESEND_AUDIENCE_ID to enable subscriber saving.')
+      console.log('Set RESEND_API_KEY and RESEND_SEGMENT_ID to enable subscriber saving.')
       console.log('--------------------------------------------------------')
       return NextResponse.json(
         { success: true, message: 'Thank you for subscribing! You\'ll hear from us soon.' },
@@ -50,40 +59,63 @@ export async function POST(request: Request) {
     const firstName = nameParts[0] || ''
     const lastName = nameParts.slice(1).join(' ') || ''
 
-    // Add/update subscriber in Resend Audience
-    const { error: contactError } = await resend.contacts.create({
+    // Add/update subscriber in Resend using new Segments API
+    const contactPayload: any = {
       email,
       firstName: firstName || undefined,
       lastName: lastName || undefined,
       unsubscribed: false,
-      audienceId,
-    })
+    }
+
+    // Add segments if segmentId is configured
+    if (segmentId) {
+      contactPayload.segments = [{ id: segmentId }]
+    }
+
+    const { error: contactError } = await resend.contacts.create(contactPayload)
 
     if (contactError) {
       // Resend returns a specific error when the contact already exists
       const msg = (contactError as { message?: string }).message || ''
       if (msg.toLowerCase().includes('already exists') || msg.toLowerCase().includes('duplicate')) {
+        // Re-subscribe the existing contact instead of returning an error
+        const { error: updateError } = await resend.contacts.update({
+          email,
+          firstName: firstName || undefined,
+          lastName: lastName || undefined,
+          unsubscribed: false,
+        })
+
+        if (updateError) {
+          console.error('Resend contacts update error:', updateError)
+          return NextResponse.json(
+            { error: 'Failed to update subscription. Please try again later.' },
+            { status: 500, headers: corsHeaders() }
+          )
+        }
+
+        // Continue to send confirmation email for re-subscribed user
+      } else {
+        console.error('Resend contacts error:', contactError)
         return NextResponse.json(
-          { error: 'This email address is already subscribed.' },
-          { status: 409, headers: corsHeaders() }
+          { error: 'Failed to subscribe. Please try again later.' },
+          { status: 500, headers: corsHeaders() }
         )
       }
-      console.error('Resend contacts error:', contactError)
-      return NextResponse.json(
-        { error: 'Failed to subscribe. Please try again later.' },
-        { status: 500, headers: corsHeaders() }
-      )
     }
 
     // Send a welcome confirmation email to the subscriber
     const prefsLabel = buildPrefsLabel(preferences)
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'Yugo Metals <noreply@yugometals.com>'
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://yugometals.com'
+    const unsubscribeToken = generateUnsubscribeToken(email, resendApiKey)
+    const unsubscribeUrl = `${siteUrl}/api/unsubscribe?email=${encodeURIComponent(email)}&token=${unsubscribeToken}`
 
     await resend.emails.send({
       from: fromEmail,
       to: [email],
       subject: 'You\'re subscribed to Yugo Metals investor updates',
-      html: buildConfirmationEmail(firstName || email.split('@')[0], prefsLabel),
+      html: buildConfirmationEmail(firstName || email.split('@')[0], prefsLabel, unsubscribeUrl),
     })
 
     // Also notify the company about the new subscriber
@@ -126,7 +158,7 @@ function buildPrefsLabel(preferences?: { announcements?: boolean; reports?: bool
   return selected.length > 0 ? selected.join(', ') : 'All updates'
 }
 
-function buildConfirmationEmail(firstName: string, prefsLabel: string): string {
+function buildConfirmationEmail(firstName: string, prefsLabel: string, unsubscribeUrl: string): string {
   return `
     <!DOCTYPE html>
     <html>
@@ -166,7 +198,7 @@ function buildConfirmationEmail(firstName: string, prefsLabel: string): string {
                   <p style="color: #9ca3af; font-size: 12px; margin: 0;">
                     Yugo Metals Limited &bull; Level 8, 216 St Georges Tce, Perth WA 6000, Australia<br />
                     You received this email because you subscribed at yugometals.com.<br />
-                    <a href="https://yugometals.com" style="color: #3b82f6;">Unsubscribe</a>
+                    <a href="${unsubscribeUrl}" style="color: #3b82f6; text-decoration: none;">Unsubscribe</a>
                   </p>
                 </td>
               </tr>

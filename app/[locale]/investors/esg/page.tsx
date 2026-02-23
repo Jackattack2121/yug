@@ -248,13 +248,13 @@ export default function ESGPage() {
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link
-                  href="/company/corporate-governance"
+                  href="/why-yugo-metals"
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-white/20 text-white font-semibold uppercase tracking-wider hover:bg-white/5 hover:border-white/40 transition-all"
                 >
                   {t('governanceButton')}
                 </Link>
                 <Link
-                  href="/company/corporate-responsibility"
+                  href="/why-yugo-metals"
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-white/20 text-white font-semibold uppercase tracking-wider hover:bg-white/5 hover:border-white/40 transition-all"
                 >
                   {t('responsibilityButton')}

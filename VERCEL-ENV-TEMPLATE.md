@@ -11,10 +11,11 @@ Add these environment variables to your Vercel project.
 Add these variables with **Environment:** `Production`
 
 ```bash
-# Listmonk API (Production - Railway)
-LISTMONK_URL=https://listmonk.yugometals.com
-LISTMONK_USERNAME=listmonk_api
-LISTMONK_PASSWORD=your-listmonk-api-password
+# Resend API (Email & Subscriptions)
+RESEND_API_KEY=re_your_resend_api_key
+RESEND_FROM_EMAIL=Yugo Metals <noreply@yugometals.com>
+RESEND_SEGMENT_ID=your-segment-id
+CONTACT_EMAIL=info@yugometals.com
 
 # Next.js Site URL
 NEXT_PUBLIC_SITE_URL=https://yugometals.com
@@ -22,8 +23,9 @@ NEXT_PUBLIC_SITE_URL=https://yugometals.com
 # Optional: Directus CMS (if deploying)
 DIRECTUS_URL=https://cms.yugometals.com
 
-# OpenAI API (for AI CMS Assistant)
-OPENAI_API_KEY=sk-your-openai-api-key
+# Optional: Anthropic API (for Cory AI Chatbot)
+ANTHROPIC_API_KEY=sk-ant-your-anthropic-api-key
+NEXT_PUBLIC_CORY_ENABLED=true
 ```
 
 ---
@@ -58,22 +60,29 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
 ## How to Get These Values
 
-### LISTMONK_URL
-- Production: `https://listmonk.yugometals.com`
-- This is set after configuring custom domain on Railway
-- Wait for DNS propagation before using this URL
-- Temporary Railway URL: `https://[your-project].railway.app`
+### RESEND_API_KEY
+- Go to [resend.com/api-keys](https://resend.com/api-keys)
+- Create a new API key with **Full Access**
+- Copy the key (starts with `re_`)
+- Used for sending emails and managing contacts
 
-### LISTMONK_USERNAME
-- Fixed value: `listmonk_api`
-- This matches the `admin_username` in `config.production.toml`
-- Used for API authentication from Next.js
+### RESEND_FROM_EMAIL
+- Format: `Yugo Metals <noreply@yugometals.com>`
+- Must be from a verified domain in Resend
+- Go to [resend.com/domains](https://resend.com/domains) to add `yugometals.com`
+- Add DNS records provided by Resend for verification
 
-### LISTMONK_PASSWORD
-- This must match `LISTMONK_API_PASSWORD` in Railway
-- Get from Railway dashboard → Variables
-- Or use password manager where you stored it
-- This is for API access, NOT the web UI admin password
+### RESEND_SEGMENT_ID
+- Go to [resend.com/segments](https://resend.com/segments)
+- Click **"Create Segment"**
+- Name it **"Yugo Metals Investors"**
+- Copy the Segment ID (e.g., `78261eea-8f8b-4381-83c6-79fa7120f1cf`)
+- Used to organize subscriber contacts
+
+### CONTACT_EMAIL
+- Company email: `info@yugometals.com`
+- Receives notifications when someone subscribes or uses contact form
+- Can be any valid email address
 
 ### NEXT_PUBLIC_SITE_URL
 - Production: `https://yugometals.com`
@@ -114,13 +123,16 @@ cd "/Users/jack/Documents/Luxe & Lens Co Projects/Luxe Web Projects/yugo-metals"
 vercel link
 
 # Add variables
-vercel env add LISTMONK_URL production
+vercel env add RESEND_API_KEY production
 # Paste value when prompted
 
-vercel env add LISTMONK_USERNAME production
+vercel env add RESEND_FROM_EMAIL production
 # Paste value when prompted
 
-vercel env add LISTMONK_PASSWORD production
+vercel env add RESEND_SEGMENT_ID production
+# Paste value when prompted
+
+vercel env add CONTACT_EMAIL production
 # Paste value when prompted
 
 vercel env add NEXT_PUBLIC_SITE_URL production
@@ -136,10 +148,11 @@ vercel --prod
 
 After adding variables:
 
-- [ ] All 4 required variables are added
+- [ ] All 4 Resend variables are added (`RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `RESEND_SEGMENT_ID`, `CONTACT_EMAIL`)
 - [ ] Environment is set to `Production`
 - [ ] No typos in variable names
-- [ ] `LISTMONK_PASSWORD` matches Railway value
+- [ ] Domain is verified in Resend dashboard
+- [ ] Segment is created in Resend dashboard
 - [ ] `NEXT_PUBLIC_SITE_URL` has no trailing slash
 - [ ] Redeployed after adding variables
 
@@ -173,16 +186,15 @@ Expected response:
 ```json
 {
   "success": true,
-  "message": "Successfully subscribed! Please check your email to confirm.",
-  "subscriber_id": 123
+  "message": "Thank you for subscribing! A confirmation email is on its way."
 }
 ```
 
 If you get errors:
 - Check function logs in Vercel
-- Verify Listmonk is accessible from Vercel servers
-- Confirm Railway domain is public (not localhost)
-- Test Railway URL directly in browser
+- Verify Resend API key is valid
+- Confirm domain is verified in Resend
+- Check segment ID is correct
 
 ---
 
@@ -190,26 +202,37 @@ If you get errors:
 
 ### Error: "Failed to subscribe"
 
-**Cause:** Can't reach Listmonk API
+**Cause:** Can't reach Resend API or invalid API key
 
 **Solution:**
-1. Verify `LISTMONK_URL` is correct public URL
-2. Check Railway service is running
-3. Test URL in browser: `https://listmonk.yugometals.com`
-4. Ensure Railway service has public networking enabled
-
-### Error: "401 Unauthorized"
-
-**Cause:** Wrong username or password
-
-**Solution:**
-1. Verify `LISTMONK_USERNAME` is `listmonk_api`
-2. Check `LISTMONK_PASSWORD` matches Railway `LISTMONK_API_PASSWORD`
-3. Verify credentials work by testing API directly:
+1. Verify `RESEND_API_KEY` is set and valid
+2. Check API key at [resend.com/api-keys](https://resend.com/api-keys)
+3. Ensure API key has Full Access permissions
+4. Test API key works:
 ```bash
-curl -u "listmonk_api:your-password" \
-  https://listmonk.yugometals.com/api/lists
+curl https://api.resend.com/contacts \
+  -H "Authorization: Bearer re_your_api_key"
 ```
+
+### Error: "Domain not verified"
+
+**Cause:** Sending domain hasn't been verified in Resend
+
+**Solution:**
+1. Go to [resend.com/domains](https://resend.com/domains)
+2. Add `yugometals.com` if not already there
+3. Add DNS records to your DNS provider (Cloudflare, etc.)
+4. Wait for verification (can take a few minutes to 24 hours)
+5. Emails will fail until domain is verified
+
+### Error: "Invalid segment ID"
+
+**Cause:** Segment doesn't exist or ID is wrong
+
+**Solution:**
+1. Go to [resend.com/segments](https://resend.com/segments)
+2. Verify segment exists and copy the correct ID
+3. Update `RESEND_SEGMENT_ID` in Vercel with correct value
 
 ### Error: Variables not loaded
 
@@ -237,15 +260,17 @@ curl -u "listmonk_api:your-password" \
 ✅ **DO:**
 - Use Vercel's encrypted environment variables
 - Set sensitive variables to `Production` only (not Preview)
-- Rotate passwords every 6-12 months
-- Use different credentials for staging vs production
+- Rotate API keys every 6-12 months
+- Use different API keys for staging vs production
 - Monitor function logs for unauthorized access attempts
+- Restrict API key permissions if possible
 
 ❌ **DON'T:**
-- Expose `LISTMONK_PASSWORD` in client-side code
+- Expose `RESEND_API_KEY` in client-side code
 - Use `NEXT_PUBLIC_` prefix for sensitive variables
-- Commit `.env.production` to Git
-- Share credentials in plain text
+- Commit `.env.production` or `.env.local` to Git
+- Share API keys in plain text
+- Use the same API key across multiple projects
 
 ---
 
@@ -253,11 +278,13 @@ curl -u "listmonk_api:your-password" \
 
 | Variable | Type | Public? | Required | Default |
 |----------|------|---------|----------|---------|
-| `LISTMONK_URL` | Server | No | Yes | - |
-| `LISTMONK_USERNAME` | Server | No | Yes | - |
-| `LISTMONK_PASSWORD` | Server | No | Yes | - |
+| `RESEND_API_KEY` | Server | No | Yes | - |
+| `RESEND_FROM_EMAIL` | Server | No | No | `Yugo Metals <noreply@yugometals.com>` |
+| `RESEND_SEGMENT_ID` | Server | No | No | - |
+| `CONTACT_EMAIL` | Server | No | No | `info@yugometals.com` |
 | `NEXT_PUBLIC_SITE_URL` | Client | Yes | No | Auto-detected |
 | `DIRECTUS_URL` | Server | No | No | - |
+| `ANTHROPIC_API_KEY` | Server | No | No | - |
 
 **Server variables:** Only available in API routes and server components
 **Client variables:** Available in browser (use `NEXT_PUBLIC_` prefix)
@@ -300,5 +327,5 @@ Add to `.gitignore`:
 
 ---
 
-**Last updated:** 2025-01-29
+**Last updated:** 2026-02-24
 

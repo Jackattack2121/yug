@@ -35,7 +35,7 @@ export default function InvestorBoardPreview() {
               </h2>
             </div>
             <Link
-              href="/company/board-of-directors"
+              href="/why-yugo-metals"
               className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-primary-400 hover:text-primary-300 transition-colors"
             >
               Full Board Profiles
@@ -48,7 +48,7 @@ export default function InvestorBoardPreview() {
           {directors.map((director, i) => (
             <AnimatedSection key={director.name} delay={i * 0.06}>
               <Link
-                href="/company/board-of-directors"
+                href="/why-yugo-metals"
                 className="group block bg-white/5 border border-white/10 p-5 hover:bg-white/10 hover:border-primary-600/50 transition-all"
               >
                 <div className="flex flex-col items-center text-center gap-3">
@@ -73,21 +73,21 @@ export default function InvestorBoardPreview() {
         <AnimatedSection delay={0.3}>
           <div className="flex flex-wrap gap-3 mt-8 pt-8 border-t border-white/10">
             <Link
-              href="/company/corporate-governance"
+              href="/investors/esg"
               className="text-xs font-semibold uppercase tracking-wider text-white/60 hover:text-primary-400 transition-colors"
             >
               Corporate Governance
             </Link>
             <span className="text-white/20">|</span>
             <Link
-              href="/company/corporate-directory"
+              href="/contact"
               className="text-xs font-semibold uppercase tracking-wider text-white/60 hover:text-primary-400 transition-colors"
             >
               Corporate Directory
             </Link>
             <span className="text-white/20">|</span>
             <Link
-              href="/company/corporate-responsibility"
+              href="/investors/esg"
               className="text-xs font-semibold uppercase tracking-wider text-white/60 hover:text-primary-400 transition-colors"
             >
               Corporate Responsibility

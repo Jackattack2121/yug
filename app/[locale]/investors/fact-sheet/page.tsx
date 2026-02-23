@@ -127,7 +127,7 @@ export default function FactSheetPage() {
                 </div>
                 <div className="px-6 py-3 bg-gray-50 border-t border-gray-100">
                   <Link
-                    href="/company/board-of-directors"
+                    href="/why-yugo-metals"
                     className="text-xs font-semibold uppercase tracking-wider text-primary-600 hover:text-primary-700 transition-colors"
                   >
                     Full Board Profiles →
