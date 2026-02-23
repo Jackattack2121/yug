@@ -20,11 +20,11 @@ const defaultPages: PageMeta[] = [
     ogImage: '/og-image.jpg',
   },
   {
-    path: '/projects/doboj',
-    title: 'Doboj Project - Yugo Metals',
-    description: 'Nickel-copper-cobalt exploration project in Bosnia and Herzegovina targeting critical metals for the energy transition.',
-    keywords: 'Doboj, nickel, copper, cobalt, Bosnia Herzegovina, European metals, critical minerals, ASX YUG',
-    ogImage: '/og-doboj.jpg',
+    path: '/projects/sinjakovo',
+    title: 'Sinjakovo Gold & Antimony Project - Yugo Metals',
+    description: 'Gold and antimony exploration project in Bosnia and Herzegovina with high-grade channel sampling results.',
+    keywords: 'Sinjakovo, gold, antimony, Bosnia Herzegovina, European metals, critical minerals, ASX YUG',
+    ogImage: '/og-sinjakovo.jpg',
   },
   {
     path: '/investors/asx-announcements',

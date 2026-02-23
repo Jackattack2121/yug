@@ -14,14 +14,14 @@ const CTA_CARDS = [
   {
     icon: HiOutlineGlobe,
     title: 'Our Projects',
-    description: 'Explore our portfolio of five critical metals projects across Bosnia and Herzegovina.',
+    description: 'Explore our portfolio of five 100%-owned tenements across three projects in Bosnia and Herzegovina.',
     href: '/projects',
   },
   {
     icon: HiOutlineMail,
     title: 'Get in Touch',
     description: 'Contact our investor relations team for inquiries about Yugo Metals.',
-    href: '/investors/contact',
+    href: '/contact',
   },
 ]
 

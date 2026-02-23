@@ -21,9 +21,9 @@ const pages = [
     issues: ['Missing Open Graph image'],
   },
   {
-    path: '/projects/doboj',
-    title: 'Doboj Project - Yugo Metals',
-    metaDescription: 'Nickel-copper-cobalt exploration project in Bosnia and Herzegovina targeting critical metals for the energy transition.',
+    path: '/projects/sinjakovo',
+    title: 'Sinjakovo Gold & Antimony Project - Yugo Metals',
+    metaDescription: 'Gold and antimony exploration project in Bosnia and Herzegovina with high-grade channel sampling results.',
     score: 92,
     issues: [],
   },

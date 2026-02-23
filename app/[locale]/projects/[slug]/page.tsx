@@ -1,139 +1,65 @@
-import { notFound } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
-import AnimatedSection from '@/components/ui/AnimatedSection';
-import SplitSection from '@/components/ui/SplitSection';
-import StatsBar from '@/components/ui/StatsBar';
-import Button from '@/components/ui/Button';
-import { Link } from '@/i18n/navigation';
-import InvestorDisclaimer from '@/components/investor/InvestorDisclaimer';
+import { notFound } from 'next/navigation'
+import { Link } from '@/i18n/navigation'
+import AnimatedSection from '@/components/ui/AnimatedSection'
+import StatsBar from '@/components/ui/StatsBar'
+import InvestorDisclaimer from '@/components/investor/InvestorDisclaimer'
+import CommodityBadge from '@/components/projects/CommodityBadge'
+import ProspectSection from '@/components/projects/ProspectSection'
+import ProjectTimeline from '@/components/projects/ProjectTimeline'
+import ProjectCard from '@/components/projects/ProjectCard'
 import { createPageMetadata } from '@/lib/metadata'
 import WebPageJsonLd from '@/components/seo/WebPageJsonLd'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
+import { ALL_PROJECTS, getProjectBySlug, PROJECT_SLUGS } from '@/lib/project-data'
 
 export async function generateStaticParams() {
-  return [
-    { slug: 'doboj' },
-    { slug: 'jezero' },
-    { slug: 'sockovac' },
-    { slug: 'sinjakovo' },
-    { slug: 'cajnice' },
-  ];
+  return PROJECT_SLUGS.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: { params: { slug: string; locale: string } }) {
-  const t = await getTranslations({ locale: params.locale, namespace: `projects.${params.slug}` });
-  
-  try {
-    return createPageMetadata({
-      title: t('title'),
-      description: t('description'),
-      path: `/projects/${params.slug}`,
-      locale: params.locale,
-    })
-  } catch {
-    return {
-      title: 'Project Not Found',
-    };
-  }
+  const project = getProjectBySlug(params.slug)
+  if (!project) return { title: 'Project Not Found' }
+
+  return createPageMetadata({
+    title: project.seoTitle,
+    description: project.seoDescription,
+    path: `/projects/${params.slug}`,
+    locale: params.locale,
+  })
 }
 
-async function getProjectData(slug: string, locale: string) {
-  const validProjects = ['doboj', 'jezero', 'sockovac', 'sinjakovo', 'cajnice'];
-  if (!validProjects.includes(slug)) {
-    return null;
-  }
+export default function ProjectPage({ params }: { params: { slug: string; locale: string } }) {
+  const project = getProjectBySlug(params.slug)
+  if (!project) notFound()
 
-  const t = await getTranslations({ locale, namespace: `projects.${slug}` });
-  const tGeneral = await getTranslations({ locale, namespace: 'projects' });
-  
-  const heroImages: Record<string, string> = {
-    'doboj': '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
-    'jezero': '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
-    'sockovac': '/yugo_images/the-truck-transports-the-minerals-from-the-top-vie-2025-10-16-12-14-08-utc.jpg',
-    'sinjakovo': '/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg',
-    'cajnice': '/yugo_images/lush-mountain-forest-in-bosnia-aerial-shot-2025-09-09-00-26-14-utc.jpg',
-  };
-
-  return {
-    title: t('title'),
-    subtitle: t('subtitle'),
-    description: t('description'),
-    heroImage: heroImages[slug],
-    commodityBadge: t('commodityBadge'),
-    number: t('number'),
-    overview: {
-      heading: t('overviewHeading'),
-      content: t('overviewContent'),
-    },
-    stats: [
-      { value: t('stat1Value'), label: t('stat1Label') },
-      { value: t('stat2Value'), label: t('stat2Label') },
-      { value: t('stat3Value'), label: t('stat3Label') },
-    ],
-    highlights: [
-      t('highlight1'),
-      t('highlight2'),
-      t('highlight3'),
-      t('highlight4'),
-    ],
-    advantages: [
-      {
-        icon: t('advantage1Icon'),
-        title: t('advantage1Title'),
-        description: t('advantage1Description'),
-      },
-      {
-        icon: t('advantage2Icon'),
-        title: t('advantage2Title'),
-        description: t('advantage2Description'),
-      },
-      {
-        icon: t('advantage3Icon'),
-        title: t('advantage3Title'),
-        description: t('advantage3Description'),
-      },
-    ],
-    explorationProgram: {
-      heading: t('explorationProgramHeading'),
-      content: t('explorationProgramContent'),
-    },
-    tGeneral,
-  };
-}
-
-export default async function ProjectPage({ params }: { params: { slug: string; locale: string } }) {
-  const project = await getProjectData(params.slug, params.locale);
-
-  if (!project) {
-    notFound();
-  }
+  const otherProjects = ALL_PROJECTS.filter((p) => p.slug !== project.slug)
 
   return (
     <>
-      <WebPageJsonLd title={project.title} description={project.description} path={`/projects/${params.slug}`} locale={params.locale} />
+      <WebPageJsonLd title={project.seoTitle} description={project.seoDescription} path={`/projects/${params.slug}`} locale={params.locale} />
       <BreadcrumbJsonLd path={`/projects/${params.slug}`} locale={params.locale} />
-      {/* Hero Section - Full Width Image with Minimal Text */}
-      <section className="relative h-[80vh] flex items-end bg-black">
+
+      {/* Hero */}
+      <section className="relative h-[70vh] min-h-[500px] flex items-end bg-black">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${project.heroImage})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
         <div className="relative container pb-16 text-white">
           <AnimatedSection>
-            <div className="max-w-2xl">
-              <div className="text-xs uppercase tracking-wider opacity-80 mb-4">
-                {project.tGeneral('projectNumber', { number: project.number })}
+            <div className="max-w-3xl">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                {project.commodities.map((c) => (
+                  <CommodityBadge key={c} commodity={c} size="md" />
+                ))}
               </div>
-              <h1 className="text-display mb-4">
-                {project.title}
+              <h1 className="text-display mb-3">
+                {project.name}
               </h1>
-              <p className="text-xl md:text-2xl font-josefin opacity-90 mb-2">
-                {project.commodityBadge}
-              </p>
-              <p className="text-base opacity-80">
-                {project.subtitle}
+              <p className="text-lg md:text-xl opacity-80 font-josefin">
+                {project.totalArea} across {project.tenements.length} tenement{project.tenements.length > 1 ? 's' : ''} in {project.location}
               </p>
             </div>
           </AnimatedSection>
@@ -141,134 +67,148 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
       </section>
 
       {/* Stats Bar */}
-      <StatsBar background="blue" stats={project.stats} />
+      <StatsBar
+        background="blue"
+        stats={[
+          { value: project.totalArea, label: 'Total Area' },
+          { value: String(project.tenements.length), label: 'Tenements' },
+          { value: String(project.prospects.length), label: 'Prospects' },
+          { value: project.ownership, label: 'Ownership' },
+        ]}
+      />
 
-      {/* Overview Split Section */}
-      <SplitSection
-        fullHeight={false}
-        leftContent={
-          <div className="max-w-xl">
+      {/* Overview */}
+      <section className="section-padding bg-white">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
             <AnimatedSection>
-              <h2 className="text-heading-lg text-secondary-900 mb-8">
-                {project.overview.heading}
-              </h2>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-josefin">
-                {project.overview.content.split('\n\n').map((paragraph: string, index: number) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
+              <div className="grid md:grid-cols-5 gap-12">
+                {/* Overview text */}
+                <div className="md:col-span-3">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-600 mb-2">
+                    Project Overview
+                  </p>
+                  <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 font-montserrat mb-8">
+                    {project.name}
+                  </h2>
+                  <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-josefin">
+                    {project.overview.split('\n\n').map((paragraph, index) => (
+                      <p key={index}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tenement details */}
+                <div className="md:col-span-2">
+                  <div className="bg-gray-50 p-6">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-secondary-900 mb-4">
+                      Tenement Details
+                    </h3>
+                    <div className="space-y-4">
+                      {project.tenements.map((t) => (
+                        <div key={t.name} className="pb-4 border-b border-gray-200 last:border-0 last:pb-0">
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="font-semibold text-secondary-900">{t.name}</span>
+                            <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 ${
+                              t.status === 'Granted'
+                                ? 'text-emerald-700 bg-emerald-50'
+                                : 'text-amber-700 bg-amber-50'
+                            }`}>
+                              {t.status}
+                            </span>
+                          </div>
+                          <p className="text-sm text-gray-500 mb-2">{t.area}</p>
+                          <div className="flex flex-wrap gap-1">
+                            {t.commodities.map((c) => (
+                              <CommodityBadge key={c} commodity={c} />
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
-        }
-        rightContent={
-          <div className="p-12 bg-primary-50 flex items-center">
-            <div>
-              <h3 className="text-2xl font-bold uppercase tracking-wider mb-6 text-secondary-900">
-                {project.tGeneral('explorationHighlights')}
-              </h3>
-              <ul className="space-y-4">
-                {project.highlights.map((highlight: string, index: number) => (
-                  <li key={index} className="flex items-start gap-3 text-gray-700">
-                    <svg className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        }
-      />
+        </div>
+      </section>
 
-      {/* Project Advantages - Grid */}
-      <section className="section-padding bg-white">
+      {/* Prospect Sections */}
+      <section className="section-padding bg-white border-t border-gray-100">
         <div className="container">
-          <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-heading-lg text-secondary-900 mb-4">
-                {project.tGeneral('projectAdvantages')}
+          <div className="max-w-5xl mx-auto">
+            <AnimatedSection>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-600 mb-2">
+                Exploration Targets
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 font-montserrat mb-12">
+                Prospects &amp; Results
               </h2>
-              <div className="w-24 h-1 bg-primary-600 mx-auto"></div>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            {project.advantages.map((advantage: any, index: number) => (
-              <AnimatedSection key={index} delay={index * 0.1}>
-                <div className="text-center">
-                  <div className="text-6xl mb-6">{advantage.icon}</div>
-                  <h3 className="text-xl font-bold uppercase tracking-wider mb-4 text-secondary-900">
-                    {advantage.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {advantage.description}
-                  </p>
-                </div>
+            </AnimatedSection>
+            {project.prospects.map((prospect, i) => (
+              <AnimatedSection key={prospect.name} delay={i * 0.05}>
+                <ProspectSection prospect={prospect} index={i} />
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Exploration Program Split */}
-      <SplitSection
-        fullHeight={false}
-        reverse={true}
-        leftContent={
-          <div className="p-12 bg-secondary-900 text-white flex items-center">
-            <div className="max-w-xl">
-              <AnimatedSection>
-                <h2 className="text-heading-lg mb-8">
-                  {project.explorationProgram.heading}
-                </h2>
-                <div className="space-y-6 text-lg leading-relaxed font-josefin opacity-90">
-                  {project.explorationProgram.content.split('\n\n').map((paragraph: string, index: number) => (
-                    <p key={index}>{paragraph}</p>
-                  ))}
-                </div>
-              </AnimatedSection>
-            </div>
-          </div>
-        }
-        rightContent={
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${project.heroImage})` }}
-          >
-            <div className="absolute inset-0 bg-black/10"></div>
-          </div>
-        }
+      {/* Project Timeline */}
+      <ProjectTimeline
+        items={project.timeline}
+        title={`${project.name.replace(' Project', '')} Timeline`}
+        subtitle={`Planned 2025/2026 exploration activities for the ${project.name}`}
       />
 
-      {/* Explore More Projects */}
-      <section className="section-padding bg-primary-600 text-white text-center">
-        <div className="container max-w-4xl mx-auto">
+      {/* Explore More */}
+      <section className="section-padding bg-gray-50">
+        <div className="container">
           <AnimatedSection>
-            <h2 className="text-heading-lg mb-4">
-              {project.tGeneral('exploreMoreProjects')}
-            </h2>
-            <p className="text-xl font-josefin mb-12 opacity-90">
-              {project.tGeneral('exploreMoreDescription')}
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/investors/asx-announcements">
-                <Button variant="secondary" className="w-full sm:w-auto">
-                  {project.tGeneral('latestAnnouncements')}
-                </Button>
-              </Link>
-              <Link href="/projects">
-                <Button variant="outline" className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-primary-600">
-                  {project.tGeneral('allProjects')}
-                </Button>
+            <div className="text-center mb-12">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-600 mb-2">
+                Explore More
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 font-montserrat">
+                Our Other Projects
+              </h2>
+            </div>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {otherProjects.map((p, i) => (
+              <ProjectCard key={p.slug} project={p} index={i} />
+            ))}
+          </div>
+          <AnimatedSection delay={0.2}>
+            <div className="text-center mt-10">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary-600 hover:text-primary-700 transition-colors"
+              >
+                View All Projects
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Compliance Disclaimer */}
+      {/* Disclaimer */}
       <InvestorDisclaimer forwardLooking competentPerson sharePrice={false} notAdvice={false} />
+      {project.hasHistoricalDisclaimer && (
+        <section className="py-4 bg-gray-50 border-t border-gray-200">
+          <div className="container">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-xs text-gray-400 leading-relaxed">
+                <strong className="text-gray-500">Historical Results Disclaimer:</strong> The historical drilling results from 1969–1970 referenced on this page are sourced from historical reports and have not been verified by modern JORC-compliant methods. The company plans twin-drilling to confirm these results. Cobalt was not analysed in the historical drilling programs.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
     </>
-  );
+  )
 }

@@ -7,7 +7,7 @@ import type { InvestorVideo, InvestorDocument, CalendarEvent, ThesisPoint, KeyMe
 
 export const KEY_METRICS: KeyMetric[] = [
   { label: 'ASX Code', value: 'YUG', sublabel: 'Australian Securities Exchange' },
-  { label: 'Tenements', value: '5', sublabel: '190km² — 100% Owned' },
+  { label: 'Projects', value: '3', sublabel: '5 Tenements, 100% Owned' },
   { label: 'Focus', value: 'Critical Metals', sublabel: 'Au, Ag, Sb, Ni, Cu, Co' },
   { label: 'Location', value: 'Bosnia & Herzegovina', sublabel: 'EU Accession State' },
 ]
@@ -22,7 +22,7 @@ export const COMPANY_HIGHLIGHTS: ThesisPoint[] = [
   {
     id: 2,
     title: '100% Tenement Ownership',
-    description: 'Full ownership and operational control of five exploration tenements across three projects covering 190km², providing strategic flexibility across the portfolio.',
+    description: 'Full ownership and operational control of three exploration projects comprising five tenements covering 190km², providing strategic flexibility across the portfolio.',
     icon: '02',
   },
   {
@@ -62,7 +62,7 @@ export const SAMPLE_VIDEOS: InvestorVideo[] = [
   },
   {
     id: 'v2',
-    title: 'Exploration Update — Doboj Project',
+    title: 'Exploration Update — Sinjakovo Project',
     thumbnailUrl: '/yugo_images/drill-rig-working-2024-11-12-08-26-36-utc.jpg',
     videoUrl: 'https://www.youtube.com/watch?v=placeholder',
     duration: '6:18',

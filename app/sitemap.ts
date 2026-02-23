@@ -23,10 +23,8 @@ const routes = [
   '/company/corporate-responsibility',
   '/contact',
   '/projects',
-  '/projects/doboj',
-  '/projects/jezero',
-  '/projects/sockovac',
   '/projects/sinjakovo',
+  '/projects/sockovac',
   '/projects/cajnice',
 ];
 

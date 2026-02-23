@@ -3,7 +3,7 @@
 import AnimatedSection from '@/components/ui/AnimatedSection'
 
 const METRICS = [
-  { value: '5', label: 'Exploration Projects', sublabel: '100% Owned' },
+  { value: '5', label: 'Exploration Tenements', sublabel: '190km² — 100% Owned' },
   { value: '75+', label: 'Years Combined Experience', sublabel: 'Board & Management' },
   { value: 'EU', label: 'Accession State', sublabel: 'Strategic Location' },
   { value: 'Au, Sb, Ni, Cu', label: 'Target Commodities', sublabel: 'Critical Metals' },

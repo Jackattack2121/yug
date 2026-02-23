@@ -15,21 +15,35 @@ export default function BoardOfDirectors() {
       position: t('director1Position'),
       bio: t.raw('director1Bio') as string,
       image: '/images/director-1.jpg',
-      email: 'ir@yugometals.com',
+      email: 'hello@yugometals.com',
     },
     {
       name: t('director2Name'),
       position: t('director2Position'),
       bio: t.raw('director2Bio') as string,
       image: '/images/director-2.jpg',
-      email: 'ir@yugometals.com',
+      email: 'Petar@yugometals.com',
     },
     {
       name: t('director3Name'),
       position: t('director3Position'),
       bio: t.raw('director3Bio') as string,
       image: '/images/director-3.jpg',
-      email: 'ir@yugometals.com',
+      email: 'hello@yugometals.com',
+    },
+    {
+      name: t('director4Name'),
+      position: t('director4Position'),
+      bio: t.raw('director4Bio') as string,
+      image: '/images/director-4.jpg',
+      email: 'hello@yugometals.com',
+    },
+    {
+      name: t('director5Name'),
+      position: t('director5Position'),
+      bio: t.raw('director5Bio') as string,
+      image: '/images/director-5.jpg',
+      email: 'hello@yugometals.com',
     },
   ]
 

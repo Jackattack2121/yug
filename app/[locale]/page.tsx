@@ -28,7 +28,7 @@ const fallbackUpdates: LatestUpdate[] = [
     title: 'Quarterly Activities Report',
     date: 'February 10, 2026',
     category: 'Company Update',
-    excerpt: 'Overview of exploration activities across all five Bosnia and Herzegovina projects.',
+    excerpt: 'Overview of exploration activities across all three Bosnia and Herzegovina projects.',
     image: '/yugo_images/aerial-view-motor-grader-civil-at-construction-sit-2025-07-08-16-02-40-utc.jpg',
     href: '/investors/asx-announcements',
   },
@@ -36,7 +36,7 @@ const fallbackUpdates: LatestUpdate[] = [
     title: 'Exploration Program Update',
     date: 'January 28, 2026',
     category: 'Exploration',
-    excerpt: 'Systematic exploration program commences across Doboj and Jezero projects.',
+    excerpt: 'Systematic exploration program commences across Sinjakovo and Sockovac projects.',
     image: '/yugo_images/the-truck-transports-the-minerals-from-the-top-vie-2025-10-16-12-14-08-utc.jpg',
     href: '/investors/asx-announcements',
   },
@@ -58,20 +58,12 @@ export default function Home() {
 
   const projects = [
     {
-      title: tProjects('doboj.name'),
-      slug: 'doboj',
-      location: tProjects('doboj.location'),
-      type: tProjects('doboj.type'),
-      image: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
-      number: tProjects('doboj.number'),
-    },
-    {
-      title: tProjects('jezero.name'),
-      slug: 'jezero',
-      location: tProjects('jezero.location'),
-      type: tProjects('jezero.type'),
-      image: '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
-      number: tProjects('jezero.number'),
+      title: tProjects('sinjakovo.name'),
+      slug: 'sinjakovo',
+      location: tProjects('sinjakovo.location'),
+      type: tProjects('sinjakovo.type'),
+      image: '/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg',
+      number: tProjects('sinjakovo.number'),
     },
     {
       title: tProjects('sockovac.name'),
@@ -80,14 +72,6 @@ export default function Home() {
       type: tProjects('sockovac.type'),
       image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
       number: tProjects('sockovac.number'),
-    },
-    {
-      title: tProjects('sinjakovo.name'),
-      slug: 'sinjakovo',
-      location: tProjects('sinjakovo.location'),
-      type: tProjects('sinjakovo.type'),
-      image: '/yugo_images/yellow-excavator-digging-rocks-at-the-quarry-doin-2025-01-29-03-01-59-utc.jpg',
-      number: tProjects('sinjakovo.number'),
     },
     {
       title: tProjects('cajnice.name'),
@@ -340,9 +324,9 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          {/* Featured Projects - First 2 Large */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            {projects.slice(0, 2).map((project, index) => (
+          {/* 3 Project Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
               <AnimatedSection key={project.slug} delay={index * 0.1}>
                 <Link href={`/projects/${project.slug}`}>
                   <div className="group relative h-[500px] overflow-hidden hover-lift cursor-pointer">
@@ -361,37 +345,6 @@ export default function Home() {
                       <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
                         <span>{t('projectsSection.exploreProject')}</span>
                         <svg className="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          {/* Remaining 3 Projects - Smaller Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projects.slice(2, 5).map((project, index) => (
-              <AnimatedSection key={project.slug} delay={(index + 2) * 0.1}>
-                <Link href={`/projects/${project.slug}`}>
-                  <div className="group relative h-[400px] overflow-hidden hover-lift cursor-pointer">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                      style={{ backgroundImage: `url(${project.image})` }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                    </div>
-                    <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                      <div className="text-4xl font-black opacity-20 mb-2">{project.number}</div>
-                      <h3 className="text-2xl font-black uppercase tracking-tight mb-2">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm opacity-90">{project.type}</p>
-                      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span>{tButtons('explore')}</span>
-                        <svg className="w-3 h-3 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </div>

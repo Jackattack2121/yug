@@ -42,23 +42,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/projects/doboj" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  {tProjects('doboj')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/projects/jezero" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  {tProjects('jezero')}
+                <Link href="/projects/sinjakovo" className="text-sm text-gray-400 hover:text-white transition-colors">
+                  {tProjects('sinjakovo')}
                 </Link>
               </li>
               <li>
                 <Link href="/projects/sockovac" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tProjects('sockovac')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/projects/sinjakovo" className="text-sm text-gray-400 hover:text-white transition-colors">
-                  {tProjects('sinjakovo')}
                 </Link>
               </li>
               <li>
@@ -142,7 +132,7 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                <a href="mailto:info@yugometals.com" className="hover:text-white transition-colors">
+                <a href="mailto:hello@yugometals.com" className="hover:text-white transition-colors">
                   info@yugometals.com
                 </a>
               </p>
@@ -185,7 +175,7 @@ export default function Footer() {
               <FaLinkedin className="w-5 h-5" />
             </a>
             <a
-              href="mailto:info@yugometals.com"
+              href="mailto:hello@yugometals.com"
               className="text-gray-400 hover:text-white transition-colors"
               aria-label="Email"
             >

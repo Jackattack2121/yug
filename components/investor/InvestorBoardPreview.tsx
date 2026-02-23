@@ -9,18 +9,11 @@ export default function InvestorBoardPreview() {
   const t = useTranslations('company.board')
 
   const directors = [
-    {
-      name: t('director1Name'),
-      position: t('director1Position'),
-    },
-    {
-      name: t('director2Name'),
-      position: t('director2Position'),
-    },
-    {
-      name: t('director3Name'),
-      position: t('director3Position'),
-    },
+    { name: t('director1Name'), position: t('director1Position') },
+    { name: t('director2Name'), position: t('director2Position') },
+    { name: t('director3Name'), position: t('director3Position') },
+    { name: t('director4Name'), position: t('director4Position') },
+    { name: t('director5Name'), position: t('director5Position') },
   ]
 
   return (
@@ -51,22 +44,22 @@ export default function InvestorBoardPreview() {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {directors.map((director, i) => (
-            <AnimatedSection key={director.name} delay={i * 0.1}>
+            <AnimatedSection key={director.name} delay={i * 0.06}>
               <Link
                 href="/company/board-of-directors"
-                className="group block bg-white/5 border border-white/10 p-6 hover:bg-white/10 hover:border-primary-600/50 transition-all"
+                className="group block bg-white/5 border border-white/10 p-5 hover:bg-white/10 hover:border-primary-600/50 transition-all"
               >
-                <div className="flex items-center gap-4 mb-3">
-                  <div className="w-14 h-14 bg-primary-600/20 flex items-center justify-center">
-                    <HiOutlineUserCircle className="w-8 h-8 text-primary-400" />
+                <div className="flex flex-col items-center text-center gap-3">
+                  <div className="w-12 h-12 bg-primary-600/20 flex items-center justify-center">
+                    <HiOutlineUserCircle className="w-7 h-7 text-primary-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-white group-hover:text-primary-400 transition-colors">
+                    <h3 className="text-sm font-bold text-white group-hover:text-primary-400 transition-colors">
                       {director.name}
                     </h3>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-primary-400/80">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-primary-400/80 mt-1">
                       {director.position}
                     </p>
                   </div>

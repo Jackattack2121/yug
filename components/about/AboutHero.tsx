@@ -5,7 +5,7 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 
 const METRICS = [
   { value: 'ASX: YUG', label: 'Listed Company' },
-  { value: '5', label: 'Exploration Projects' },
+  { value: '5', label: 'Tenements' },
   { value: '100%', label: 'Ownership' },
   { value: '75+', label: 'Years Combined Experience' },
 ]

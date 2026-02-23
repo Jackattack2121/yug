@@ -5,7 +5,7 @@ export const SEO_CONFIG = {
   asxCode: 'YUG',
   baseUrl: 'https://yugometals.com',
   description:
-    'Yugo Metals is an ASX-listed critical metals exploration company with five 100%-owned tenements across three projects in Bosnia and Herzegovina, covering 190km² and targeting gold, antimony, nickel, copper, silver, zinc, lead, and cobalt.',
+    'Yugo Metals is an ASX-listed critical metals exploration company with three 100%-owned projects comprising five tenements in Bosnia and Herzegovina, covering 190km² and targeting gold, antimony, nickel, copper, silver, zinc, lead, and cobalt.',
   address: {
     streetAddress: 'Level 8, 216 St Georges Tce',
     addressLocality: 'Perth',
@@ -91,8 +91,6 @@ export const BREADCRUMB_LABELS: Record<string, string> = {
   projects: 'Our Projects',
   'why-yugo-metals': 'Why Yugo Metals',
   prospectus: 'Prospectus',
-  doboj: 'Doboj',
-  jezero: 'Jezero',
   sockovac: 'Sockovac',
   sinjakovo: 'Sinjakovo',
   cajnice: 'Cajnice',

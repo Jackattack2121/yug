@@ -25,21 +25,35 @@ export default function TeamGrid() {
       position: t('director1Position'),
       bio: t.raw('director1Bio') as string,
       image: '/images/director-1.jpg',
-      shortBio: 'Geologist with over 25 years of experience in mineral exploration and project management across Europe.',
+      shortBio: 'Over 30 years of Senior Executive Management, Directorships, and Corporate Advisory. Fellow of the Australian Institute of Company Directors.',
     },
     {
       name: t('director2Name'),
       position: t('director2Position'),
       bio: t.raw('director2Bio') as string,
       image: '/images/director-2.jpg',
-      shortBio: 'Over 30 years of experience in mining finance, corporate governance, and capital markets.',
+      shortBio: 'Multilingual leader specializing in future metals, mineral acquisition, and asset implementation. Prior Director at Fenix Resources Ltd (ASX: FEX).',
     },
     {
       name: t('director3Name'),
       position: t('director3Position'),
       bio: t.raw('director3Bio') as string,
       image: '/images/director-3.jpg',
-      shortBio: 'Geological engineer with 20+ years of expertise in Balkans mineralisation systems.',
+      shortBio: '10+ years at multinational law firm in London. Focus on Banking & Finance, Projects & Energy across Western Balkans.',
+    },
+    {
+      name: t('director4Name'),
+      position: t('director4Position'),
+      bio: t.raw('director4Bio') as string,
+      image: '/images/director-4.jpg',
+      shortBio: '15+ years in resource industry and accounting. Qualified auditor at PricewaterhouseCoopers, senior roles at De Beers Group and Anglo American plc.',
+    },
+    {
+      name: t('director5Name'),
+      position: t('director5Position'),
+      bio: t.raw('director5Bio') as string,
+      image: '/images/director-5.jpg',
+      shortBio: '20+ years across precious and base metals. Competent Person for ASX reporting. Led exploration teams with significant discoveries.',
     },
   ]
 
@@ -60,7 +74,7 @@ export default function TeamGrid() {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {directors.map((director, i) => (
             <AnimatedSection key={director.name} delay={i * 0.1}>
               <div className="group bg-white border border-gray-200 hover:border-primary-600 hover:shadow-lg transition-all overflow-hidden">

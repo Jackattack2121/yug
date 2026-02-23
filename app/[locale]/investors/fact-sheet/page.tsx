@@ -10,12 +10,12 @@ export default function FactSheetPage() {
   const t = useTranslations('investors.factSheet')
   const tBoard = useTranslations('company.board')
 
-  const projects = [
-    { name: 'Doboj', metals: 'Nickel, Copper, Cobalt', status: 'Active Exploration' },
-    { name: 'Jezero', metals: 'Precious Metals', status: 'Active Exploration' },
-    { name: 'Sockovac', metals: 'Base Metals', status: 'Active Exploration' },
-    { name: 'Sinjakovo', metals: 'Copper, Cobalt', status: 'Active Exploration' },
-    { name: 'Cajnice', metals: 'Gold, Antimony', status: 'Active Exploration' },
+  const tenements = [
+    { name: 'Sinjakovo', area: '50km\u00B2', metals: 'Au, Ag, Cu, Co, Zn, Pb, Sb', status: 'Granted' },
+    { name: 'Jezero', area: '30km\u00B2', metals: 'Au, Ag, Cu, Zn, Pb, Sb', status: 'Granted' },
+    { name: 'Cajnice', area: '50km\u00B2', metals: 'Au, Ag, Cu, Zn, Pb', status: 'Granted' },
+    { name: 'Doboj', area: '50km\u00B2', metals: 'Cu', status: 'Granted' },
+    { name: 'Petrovo', area: '10km\u00B2', metals: 'Au, Ni, Co', status: 'Grant Pending' },
   ]
 
   return (
@@ -80,18 +80,18 @@ export default function FactSheetPage() {
               <div className="border border-gray-200 h-full">
                 <div className="px-6 py-4 bg-secondary-900">
                   <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                    Exploration Projects
+                    Exploration Tenements
                   </h3>
                 </div>
                 <div className="divide-y divide-gray-100">
-                  {projects.map((p) => (
-                    <div key={p.name} className="flex items-center justify-between px-6 py-3">
+                  {tenements.map((t) => (
+                    <div key={t.name} className="flex items-center justify-between px-6 py-3">
                       <div>
-                        <p className="text-sm font-semibold text-secondary-900">{p.name}</p>
-                        <p className="text-xs text-gray-500">{p.metals}</p>
+                        <p className="text-sm font-semibold text-secondary-900">{t.name} <span className="text-xs text-gray-400 font-normal">({t.area})</span></p>
+                        <p className="text-xs text-gray-500">{t.metals}</p>
                       </div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
-                        {p.status}
+                      <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${t.status === 'Granted' ? 'text-emerald-700 bg-emerald-50' : 'text-amber-700 bg-amber-50'}`}>
+                        {t.status}
                       </span>
                     </div>
                   ))}
@@ -116,7 +116,7 @@ export default function FactSheetPage() {
                   </h3>
                 </div>
                 <div className="divide-y divide-gray-100">
-                  {[1, 2, 3].map((i) => (
+                  {[1, 2, 3, 4, 5].map((i) => (
                     <div key={i} className="flex items-center justify-between px-6 py-3">
                       <div>
                         <p className="text-sm font-semibold text-secondary-900">{tBoard(`director${i}Name`)}</p>
@@ -166,7 +166,7 @@ export default function FactSheetPage() {
             <div className="mt-10 bg-primary-600 p-8 flex flex-col md:flex-row items-center justify-between gap-4">
               <div>
                 <h3 className="text-lg font-bold text-white font-montserrat">Investor Relations</h3>
-                <p className="text-sm text-white/80">ir@yugometals.com | +61 8 9481 0389</p>
+                <p className="text-sm text-white/80">hello@yugometals.com | +61 8 9481 0389</p>
               </div>
               <div className="flex gap-3">
                 <a
@@ -179,7 +179,7 @@ export default function FactSheetPage() {
                   <HiOutlineExternalLink className="w-4 h-4" />
                 </a>
                 <Link
-                  href="/investors/contact"
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-5 py-2.5 border border-white text-white text-sm font-semibold uppercase tracking-wider hover:bg-white/10 transition-colors"
                 >
                   Contact IR

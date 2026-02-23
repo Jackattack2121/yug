@@ -206,27 +206,6 @@ export default function Header() {
             <p className="text-xs uppercase tracking-wider opacity-60 mb-4">Projects</p>
             <div className="space-y-2">
               <Link
-                href="/projects/doboj"
-                className="block py-2 text-sm hover:text-primary-400 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Doboj Project
-              </Link>
-              <Link
-                href="/projects/jezero"
-                className="block py-2 text-sm hover:text-primary-400 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Jezero Project
-              </Link>
-              <Link
-                href="/projects/sockovac"
-                className="block py-2 text-sm hover:text-primary-400 transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Sočkovac Project
-              </Link>
-              <Link
                 href="/projects/sinjakovo"
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
@@ -234,11 +213,18 @@ export default function Header() {
                 Sinjakovo Project
               </Link>
               <Link
+                href="/projects/sockovac"
+                className="block py-2 text-sm hover:text-primary-400 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Sockovac Project
+              </Link>
+              <Link
                 href="/projects/cajnice"
                 className="block py-2 text-sm hover:text-primary-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Čajniče Project
+                Cajnice Project
               </Link>
             </div>
           </div>
@@ -251,8 +237,8 @@ export default function Header() {
 
           <div className="border-t border-white/10 pt-6">
             <p className="text-xs text-gray-400 mb-2">Contact</p>
-            <a href="mailto:info@yugometals.com" className="text-sm hover:text-primary-400 transition-colors">
-              info@yugometals.com
+            <a href="mailto:hello@yugometals.com" className="text-sm hover:text-primary-400 transition-colors">
+              hello@yugometals.com
             </a>
           </div>
         </nav>

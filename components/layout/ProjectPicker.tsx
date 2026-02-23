@@ -25,18 +25,11 @@ export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectP
 
   const projects: Project[] = useMemo(() => [
     {
-      title: t('doboj.name'),
-      slug: 'doboj',
-      location: t('doboj.location'),
-      type: t('doboj.type'),
-      image: '/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg',
-    },
-    {
-      title: t('jezero.name'),
-      slug: 'jezero',
-      location: t('jezero.location'),
-      type: t('jezero.type'),
-      image: '/yugo_images/flying-over-open-pit-gold-mine-quarry-in-rosia-m-2025-03-09-07-21-03-utc.jpg',
+      title: t('sinjakovo.name'),
+      slug: 'sinjakovo',
+      location: t('sinjakovo.location'),
+      type: t('sinjakovo.type'),
+      image: '/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg',
     },
     {
       title: t('sockovac.name'),
@@ -44,13 +37,6 @@ export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectP
       location: t('sockovac.location'),
       type: t('sockovac.type'),
       image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
-    },
-    {
-      title: t('sinjakovo.name'),
-      slug: 'sinjakovo',
-      location: t('sinjakovo.location'),
-      type: t('sinjakovo.type'),
-      image: '/yugo_images/yellow-excavator-digging-rocks-at-the-quarry-doin-2025-01-29-03-01-59-utc.jpg',
     },
     {
       title: t('cajnice.name'),

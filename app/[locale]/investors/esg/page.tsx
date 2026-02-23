@@ -5,59 +5,82 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 import SubscriptionForm from '@/components/investor/SubscriptionForm'
 import { HiOutlineGlobe, HiOutlineUserGroup, HiOutlineShieldCheck, HiOutlineLightningBolt } from 'react-icons/hi'
 
+const JURISDICTION_FACTS = [
+  { value: '10%', label: 'Corporate Profit Tax', sublabel: 'Lowest in Europe' },
+  { value: '5%', label: 'Mining Royalties', sublabel: 'Metallic Minerals' },
+  { value: '4+', label: 'Foreign Miners Operating', sublabel: 'Established Precedent' },
+  { value: 'EU', label: 'Accession State', sublabel: 'Strategic Access' },
+]
+
+const FOREIGN_MINERS = [
+  'Adriatic Metals',
+  'Mineco',
+  'Arcelor Mittal',
+  'Leviathan Gold',
+]
+
 export default function ESGPage() {
   const t = useTranslations('investors.esg')
-  
+
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
-        {/* Background Image with fade */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+      <section className="relative bg-secondary-900 overflow-hidden min-h-[70vh] flex flex-col justify-end">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: 'url(/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg)' }}
         />
-        
-        {/* Blue Overlay */}
-        <div className="absolute inset-0 bg-primary-600/60"></div>
-        
-        <div className="container relative z-10">
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-secondary-900/30" />
+
+        <div className="container relative z-10 pb-16 pt-40">
           <AnimatedSection>
-            <div className="max-w-4xl">
-              <h1 className="text-heading-lg text-white mb-4">
-                {t('heroTitle')}
-              </h1>
-              <p className="text-sm font-semibold uppercase tracking-wider text-white/90">
-                {t('heroSubtitle')}
-              </p>
-            </div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-400 mb-4">
+              ESG Framework
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-montserrat leading-tight max-w-3xl mb-6">
+              {t('heroTitle')}
+            </h1>
+            <p className="text-lg text-white/70 max-w-2xl leading-relaxed">
+              {t('heroSubtitle')}
+            </p>
           </AnimatedSection>
+
+          {/* Scroll indicator */}
+          <div className="flex justify-center mt-12">
+            <div className="w-5 h-8 border-2 border-white/20 rounded-full flex justify-center pt-1.5">
+              <div className="w-1 h-2 bg-white/40 rounded-full animate-bounce" />
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ESG Pillars */}
-      <section className="section-padding bg-white">
+      {/* ESG Framework - Three Pillars */}
+      <section className="section-padding bg-secondary-900">
         <div className="container">
           <AnimatedSection>
             <div className="text-center mb-12">
-              <h2 className="text-heading-xl text-secondary-900 mb-6">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-400 mb-4">
+                Three Pillars
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white font-montserrat mb-6">
                 {t('frameworkHeading')}
               </h2>
-              <p className="text-lg text-gray-600 font-josefin max-w-3xl mx-auto">
+              <p className="text-lg text-white/60 font-josefin max-w-3xl mx-auto leading-relaxed">
                 {t('frameworkDescription')}
               </p>
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Environmental */}
             <AnimatedSection delay={0.1}>
-              <div className="bg-emerald-50 border-2 border-emerald-200 p-8 text-center hover:border-emerald-600 transition-all">
-                <div className="bg-emerald-600 w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <HiOutlineGlobe className="w-8 h-8 text-white" />
+              <div className="bg-white/5 border border-white/10 p-8 text-center hover:border-emerald-400/30 transition-all h-full">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-400/10 border border-emerald-400/20 mb-6">
+                  <HiOutlineGlobe className="w-8 h-8 text-emerald-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-secondary-900 mb-3 uppercase tracking-wider">{t('environmentTitle')}</h3>
-                <p className="text-gray-700 leading-relaxed">
+                <h3 className="text-xl font-bold text-white uppercase tracking-wider mb-4">{t('environmentTitle')}</h3>
+                <p className="text-white/60 leading-relaxed">
                   {t('environmentalDescription')}
                 </p>
               </div>
@@ -65,12 +88,12 @@ export default function ESGPage() {
 
             {/* Social */}
             <AnimatedSection delay={0.2}>
-              <div className="bg-blue-50 border-2 border-blue-200 p-8 text-center hover:border-blue-600 transition-all">
-                <div className="bg-blue-600 w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <HiOutlineUserGroup className="w-8 h-8 text-white" />
+              <div className="bg-white/5 border border-white/10 p-8 text-center hover:border-blue-400/30 transition-all h-full">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-400/10 border border-blue-400/20 mb-6">
+                  <HiOutlineUserGroup className="w-8 h-8 text-blue-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-secondary-900 mb-3 uppercase tracking-wider">{t('socialTitle')}</h3>
-                <p className="text-gray-700 leading-relaxed">
+                <h3 className="text-xl font-bold text-white uppercase tracking-wider mb-4">{t('socialTitle')}</h3>
+                <p className="text-white/60 leading-relaxed">
                   {t('socialDescription')}
                 </p>
               </div>
@@ -78,12 +101,12 @@ export default function ESGPage() {
 
             {/* Governance */}
             <AnimatedSection delay={0.3}>
-              <div className="bg-purple-50 border-2 border-purple-200 p-8 text-center hover:border-purple-600 transition-all">
-                <div className="bg-purple-600 w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <HiOutlineShieldCheck className="w-8 h-8 text-white" />
+              <div className="bg-white/5 border border-white/10 p-8 text-center hover:border-purple-400/30 transition-all h-full">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-400/10 border border-purple-400/20 mb-6">
+                  <HiOutlineShieldCheck className="w-8 h-8 text-purple-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-secondary-900 mb-3 uppercase tracking-wider">{t('governanceTitle')}</h3>
-                <p className="text-gray-700 leading-relaxed">
+                <h3 className="text-xl font-bold text-white uppercase tracking-wider mb-4">{t('governanceTitle')}</h3>
+                <p className="text-white/60 leading-relaxed">
                   {t('governanceDescription')}
                 </p>
               </div>
@@ -92,49 +115,112 @@ export default function ESGPage() {
         </div>
       </section>
 
-      {/* Coming Soon Section */}
-      <section className="section-padding bg-gray-50">
+      {/* Jurisdiction Context */}
+      <section className="py-16 bg-secondary-900 overflow-hidden relative">
+        <div
+          className="absolute inset-0 opacity-5 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg)' }}
+        />
+        <div className="container relative z-10">
+          <AnimatedSection>
+            <div className="text-center mb-10">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-400 mb-4">
+                Operating Environment
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white font-montserrat mb-4">
+                Bosnia and Herzegovina Mining Framework
+              </h2>
+              <p className="text-base text-white/60 max-w-2xl mx-auto leading-relaxed">
+                An established regulatory environment with competitive fiscal terms and a proven track record of hosting international mining companies.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+              {JURISDICTION_FACTS.map((m, i) => (
+                <div
+                  key={m.label}
+                  className="bg-white/5 border border-white/10 px-5 py-5 text-center"
+                  style={{ animationDelay: `${i * 80}ms` }}
+                >
+                  <p className="text-2xl lg:text-3xl font-bold text-white font-montserrat leading-tight">
+                    {m.value}
+                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/50 mt-2">
+                    {m.label}
+                  </p>
+                  {m.sublabel && (
+                    <p className="text-[10px] text-primary-400 mt-0.5">{m.sublabel}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <div className="bg-white/5 border border-white/10 p-8 max-w-3xl mx-auto">
+              <h3 className="text-lg font-bold text-white mb-4 uppercase tracking-wider">
+                International Miners Operating in BiH
+              </h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-4">
+                Bosnia and Herzegovina has an established mining regulatory framework with multiple international companies already operating successfully in the jurisdiction:
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {FOREIGN_MINERS.map((name) => (
+                  <div key={name} className="bg-white/5 border border-white/10 px-4 py-3 text-center">
+                    <p className="text-sm font-semibold text-white/80">{name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Coming Soon / Report Section */}
+      <section className="section-padding bg-secondary-900">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <AnimatedSection>
-              <div className="bg-white p-12 text-center border-2 border-gray-200">
-                <div className="bg-primary-600 w-24 h-24 flex items-center justify-center mx-auto mb-6">
-                  <HiOutlineLightningBolt className="w-12 h-12 text-white" />
+              <div className="bg-white/5 border border-white/10 p-12 text-center">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-primary-600/10 border border-primary-600/20 mb-6">
+                  <HiOutlineLightningBolt className="w-10 h-10 text-primary-400" />
                 </div>
-                <h2 className="text-heading-lg text-secondary-900 mb-6 uppercase tracking-wider">
+                <h2 className="text-3xl md:text-4xl font-bold text-white font-montserrat mb-6">
                   {t('comingSoonTitle')}
                 </h2>
-                <p className="text-lg text-gray-600 mb-8 font-josefin leading-relaxed">
+                <p className="text-lg text-white/60 mb-8 font-josefin leading-relaxed max-w-2xl mx-auto">
                   {t('comingSoonIntro')}
                 </p>
-                <p className="text-gray-700 mb-6 font-semibold uppercase tracking-wider">
+                <p className="text-sm font-bold text-white/80 mb-6 uppercase tracking-wider">
                   {t('reportWillInclude')}
                 </p>
-                <ul className="text-left max-w-2xl mx-auto space-y-2 mb-8 text-gray-700">
-                  <li className="flex items-start space-x-2">
-                    <span className="text-primary-600 mt-1 font-bold">✓</span>
-                    <span>{t('reportItem1')}</span>
+                <ul className="text-left max-w-2xl mx-auto space-y-3 mb-10">
+                  <li className="flex items-start space-x-3">
+                    <span className="text-primary-400 mt-0.5 font-bold text-sm">--</span>
+                    <span className="text-white/60">{t('reportItem1')}</span>
                   </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-primary-600 mt-1 font-bold">✓</span>
-                    <span>{t('reportItem2')}</span>
+                  <li className="flex items-start space-x-3">
+                    <span className="text-primary-400 mt-0.5 font-bold text-sm">--</span>
+                    <span className="text-white/60">{t('reportItem2')}</span>
                   </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-primary-600 mt-1 font-bold">✓</span>
-                    <span>{t('reportItem3')}</span>
+                  <li className="flex items-start space-x-3">
+                    <span className="text-primary-400 mt-0.5 font-bold text-sm">--</span>
+                    <span className="text-white/60">{t('reportItem3')}</span>
                   </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-primary-600 mt-1 font-bold">✓</span>
-                    <span>{t('reportItem4')}</span>
+                  <li className="flex items-start space-x-3">
+                    <span className="text-primary-400 mt-0.5 font-bold text-sm">--</span>
+                    <span className="text-white/60">{t('reportItem4')}</span>
                   </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-primary-600 mt-1 font-bold">✓</span>
-                    <span>{t('reportItem5')}</span>
+                  <li className="flex items-start space-x-3">
+                    <span className="text-primary-400 mt-0.5 font-bold text-sm">--</span>
+                    <span className="text-white/60">{t('reportItem5')}</span>
                   </li>
                 </ul>
-                
+
                 <div className="max-w-md mx-auto">
-                  <p className="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wider">
+                  <p className="text-xs font-bold text-white/50 mb-4 uppercase tracking-[0.15em]">
                     {t('subscribePrompt')}
                   </p>
                   <SubscriptionForm variant="inline" />
@@ -145,29 +231,34 @@ export default function ESGPage() {
         </div>
       </section>
 
-      {/* Commitment Statement */}
-      <section className="section-padding bg-primary-600 text-white text-center">
+      {/* Commitment CTA */}
+      <section className="section-padding bg-secondary-900">
         <div className="container max-w-4xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-heading-xl mb-8">
-              {t('commitmentTitle')}
-            </h2>
-            <p className="text-xl font-josefin leading-relaxed mb-12 opacity-90">
-              {t('commitmentQuote')}
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href="/company/corporate-governance"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-600 font-semibold uppercase tracking-wider hover:bg-gray-100 transition-colors"
-              >
-                {t('governanceButton')}
-              </a>
-              <a
-                href="/company/corporate-responsibility"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider hover:bg-white hover:text-primary-600 transition-colors"
-              >
-                {t('responsibilityButton')}
-              </a>
+            <div className="bg-primary-600/10 border border-primary-600/20 p-12 text-center">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-400 mb-4">
+                Our Pledge
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white font-montserrat mb-8">
+                {t('commitmentTitle')}
+              </h2>
+              <p className="text-lg font-josefin leading-relaxed mb-12 text-white/70 max-w-3xl mx-auto">
+                {t('commitmentQuote')}
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <a
+                  href="/company/corporate-governance"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-white/20 text-white font-semibold uppercase tracking-wider hover:bg-white/5 hover:border-white/40 transition-all"
+                >
+                  {t('governanceButton')}
+                </a>
+                <a
+                  href="/company/corporate-responsibility"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-white/20 text-white font-semibold uppercase tracking-wider hover:bg-white/5 hover:border-white/40 transition-all"
+                >
+                  {t('responsibilityButton')}
+                </a>
+              </div>
             </div>
           </AnimatedSection>
         </div>
@@ -175,4 +266,3 @@ export default function ESGPage() {
     </>
   )
 }
-
