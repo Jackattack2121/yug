@@ -6,21 +6,9 @@ import Image from 'next/image'
 // Set this to false to disable the coming soon page and show the real website
 export const COMING_SOON_ENABLED = true
 
-// 12 hours in milliseconds
-const COUNTDOWN_DURATION = 12 * 60 * 60 * 1000
-
-function getTargetTime(): number {
-  if (typeof window === 'undefined') return Date.now() + COUNTDOWN_DURATION
-
-  const stored = localStorage.getItem('yugo_coming_soon_target')
-  if (stored) {
-    return parseInt(stored, 10)
-  }
-
-  const target = Date.now() + COUNTDOWN_DURATION
-  localStorage.setItem('yugo_coming_soon_target', target.toString())
-  return target
-}
+// Fixed launch target time — set this to exactly when you want the countdown to end
+// Current: February 24, 2026 at 06:00 AM UTC (12 hours from ~6PM Feb 23)
+const LAUNCH_TARGET = new Date('2026-02-24T06:00:00Z').getTime()
 
 function formatTimeUnit(value: number): string {
   return value.toString().padStart(2, '0')
@@ -36,7 +24,7 @@ export default function ComingSoon() {
 
   useEffect(() => {
     setMounted(true)
-    const target = getTargetTime()
+    const target = LAUNCH_TARGET
 
     const tick = () => {
       const now = Date.now()
