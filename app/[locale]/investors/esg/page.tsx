@@ -29,10 +29,10 @@ export default function ESGPage() {
       <section className="relative bg-secondary-900 overflow-hidden min-h-[70vh] flex flex-col justify-end">
         {/* Background image */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg)' }}
+          className="absolute inset-0 bg-cover"
+          style={{ backgroundImage: 'url(/new_images/sinjakovo7.png)', backgroundPosition: 'center 35%' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-secondary-900/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/60 to-secondary-900/20" />
 
         <div className="container relative z-10 pb-16 pt-40">
           <AnimatedSection>
@@ -116,11 +116,22 @@ export default function ESGPage() {
         </div>
       </section>
 
+      {/* Site Image Break */}
+      <div className="relative h-64 md:h-80 overflow-hidden">
+        <img
+          src="/new_images/sinjakovo9.png"
+          alt="Sinjakovo project site"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center 35%' }}
+        />
+        <div className="absolute inset-0 bg-secondary-900/50" />
+      </div>
+
       {/* Jurisdiction Context */}
       <section className="py-16 bg-secondary-900 overflow-hidden relative">
         <div
-          className="absolute inset-0 opacity-5 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg)' }}
+          className="absolute inset-0 opacity-10 bg-cover"
+          style={{ backgroundImage: 'url(/new_images/sinjakovo8.png)', backgroundPosition: 'center 35%' }}
         />
         <div className="container relative z-10">
           <AnimatedSection>

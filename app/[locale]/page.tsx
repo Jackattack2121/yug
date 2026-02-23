@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, RefObject } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -11,6 +11,7 @@ import TextBoxed from '@/components/ui/TextBoxed'
 import StatsBar from '@/components/ui/StatsBar'
 import NewsCard from '@/components/ui/NewsCard'
 import { Link } from '@/i18n/navigation'
+import VideoPlayer from '@/components/ui/VideoPlayer'
 
 interface LatestUpdate {
   title: string
@@ -49,6 +50,47 @@ const fallbackUpdates: LatestUpdate[] = [
     href: '/investors/media',
   },
 ]
+
+function SinjakovoFeatureVideo({ introRef }: { introRef: RefObject<HTMLElement> }) {
+  return (
+    <section ref={introRef} className="bg-black">
+      <div className="container py-16 md:py-24">
+        <AnimatedSection>
+          <div className="text-center mb-10">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-400 mb-3">
+              On The Ground
+            </p>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-white font-montserrat mb-4">
+              Sinjakovo Project
+            </h2>
+            <p className="text-lg text-gray-400 font-josefin max-w-xl mx-auto">
+              Gold &amp; Antimony — Republic of Srpska, Bosnia and Herzegovina
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <VideoPlayer
+              src="/new_images/sinjakovo.mp4"
+              buttonSize="lg"
+            />
+          </div>
+
+          <div className="text-center mt-8">
+            <Link
+              href="/projects/sinjakovo"
+              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary-400 hover:text-primary-300 transition-colors"
+            >
+              Explore the Sinjakovo Project
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  )
+}
 
 export default function Home() {
   const locale = useLocale()
@@ -92,7 +134,7 @@ export default function Home() {
   const [isLoadingUpdates, setIsLoadingUpdates] = useState(true)
   const heroVideo1Ref = useRef<HTMLVideoElement>(null)
   const heroVideo2Ref = useRef<HTMLVideoElement>(null)
-  const introSectionRef = useRef<HTMLDivElement>(null)
+  const introSectionRef = useRef<HTMLElement>(null)
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
   const [isVisible, setIsVisible] = useState(true)
 
@@ -265,8 +307,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sinjakovo — Feature Video */}
+      <SinjakovoFeatureVideo introRef={introSectionRef} />
+
       {/* Introduction Split-Screen */}
-      <div ref={introSectionRef}>
+      <div>
         <SplitSection
           fullHeight={true}
           leftContent={

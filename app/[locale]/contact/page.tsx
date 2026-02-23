@@ -74,10 +74,10 @@ export default function Contact() {
       <section className="relative bg-secondary-900 overflow-hidden min-h-[70vh] flex flex-col justify-end">
         {/* Background image */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-5"
-          style={{ backgroundImage: 'url(/yugo_images/three-contemporary-builders-in-uniform-2025-03-16-04-36-05-utc.jpg)' }}
+          className="absolute inset-0 bg-cover"
+          style={{ backgroundImage: 'url(/new_images/sinjakovo5.png)', backgroundPosition: 'center 35%' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-secondary-900/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/65 to-secondary-900/25" />
 
         <div className="container relative z-10 pb-16 pt-40">
           <AnimatedSection>
@@ -117,8 +117,8 @@ export default function Contact() {
       {/* Contact Form + Info Section */}
       <section className="section-padding bg-secondary-900 relative">
         <div
-          className="absolute inset-0 opacity-[0.02] bg-cover bg-center"
-          style={{ backgroundImage: 'url(/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg)' }}
+          className="absolute inset-0 opacity-[0.06] bg-cover"
+          style={{ backgroundImage: 'url(/new_images/sinjakovo3.png)', backgroundPosition: 'center 35%' }}
         />
         <div className="container relative z-10">
           {/* Section header */}
@@ -407,8 +407,8 @@ export default function Contact() {
       {/* Share Registry Section */}
       <section className="py-16 md:py-20 bg-secondary-900 relative border-t border-white/5">
         <div
-          className="absolute inset-0 opacity-[0.03] bg-cover bg-center"
-          style={{ backgroundImage: 'url(/yugo_images/open-pit-mine-with-machines-2024-09-16-10-43-35-utc.jpg)' }}
+          className="absolute inset-0 opacity-[0.06] bg-cover"
+          style={{ backgroundImage: 'url(/new_images/sinjakovo2.png)', backgroundPosition: 'center 35%' }}
         />
         <div className="container relative z-10">
           <AnimatedSection>

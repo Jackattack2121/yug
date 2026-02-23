@@ -79,6 +79,8 @@ export interface Project {
   seoTitle: string
   seoDescription: string
   hasHistoricalDisclaimer?: boolean
+  galleryImages?: string[]
+  videoSrc?: string
 }
 
 // ─── Project Data ──────────────────────────────────────────────────────────
@@ -91,9 +93,17 @@ export const SINJAKOVO: Project = {
   totalArea: '80km²',
   ownership: '100%',
   location: 'Republic of Srpska, Bosnia and Herzegovina',
-  heroImage: '/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg',
-  cardImage: '/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg',
+  heroImage: '/new_images/sinjakovo.png',
+  cardImage: '/new_images/sinjakovo.png',
   headlineResult: '61m @ 1.5 g/t Au from surface trenching',
+  videoSrc: '/new_images/sinjakovo.mp4',
+  galleryImages: [
+    '/new_images/sinjakovo1.png',
+    '/new_images/sinjakovo2.png',
+    '/new_images/sinjakovo3.png',
+    '/new_images/sinjakovo4.png',
+    '/new_images/sinjakovo5.png',
+  ],
   seoTitle: 'Sinjakovo Gold & Antimony Project | Yugo Metals (ASX: YUG)',
   seoDescription: 'The Sinjakovo Project covers 80km² across two tenements targeting gold, antimony, silver, and copper in Bosnia and Herzegovina. Exploration highlights include 61m @ 1.5 g/t gold from surface trenching.',
   tenements: [
@@ -143,9 +153,8 @@ export const SINJAKOVO: Project = {
       ],
       images: [
         // TODO: Extract from investor presentation PDF page 15 — barite vein photos
-        { src: '/images/projects/sinjakovo/barite-veins.png', alt: 'Barite vein outcrop with silver-zinc-lead mineralisation', todoPage: 15 },
-        // TODO: Extract from investor presentation PDF page 17 — mineralogy
-        { src: '/images/projects/sinjakovo/mineralogy.png', alt: 'Sinjakovo mineralogy', todoPage: 17 },
+        { src: '/new_images/barite_vein.png', alt: 'Barite vein outcrop with silver-zinc-lead mineralisation' },
+        { src: '/new_images/sinjakovo_mineralogy.png', alt: 'Sinjakovo mineralogy' },
       ],
     },
     {
@@ -161,7 +170,7 @@ export const SINJAKOVO: Project = {
       ],
       images: [
         // TODO: Extract from investor presentation PDF page 18 — Krajevi soil anomaly map
-        { src: '/images/projects/sinjakovo/krajevi-soil.png', alt: 'Krajevi prospect soil anomaly map', todoPage: 18 },
+        { src: '/new_images/krajevi.png', alt: 'Krajevi prospect soil anomaly map' },
       ],
     },
   ],
@@ -181,9 +190,10 @@ export const SOCKOVAC: Project = {
   totalArea: '60km²',
   ownership: '100%',
   location: 'Republic of Srpska, Bosnia and Herzegovina',
-  heroImage: '/yugo_images/the-truck-transports-the-minerals-from-the-top-vie-2025-10-16-12-14-08-utc.jpg',
+  heroImage: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
   cardImage: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
   headlineResult: 'Historical drilling: up to 5.1m @ 6.6% Ni',
+  videoSrc: '/new_images/sojokovac.mp4',
   seoTitle: 'Sockovac Nickel-Cobalt Project | Yugo Metals (ASX: YUG)',
   seoDescription: 'The Sockovac Project covers 60km² across two tenements targeting nickel and cobalt in Bosnia and Herzegovina. Historical drilling returned up to 5.1m @ 6.6% nickel.',
   hasHistoricalDisclaimer: true,
@@ -211,10 +221,8 @@ export const SOCKOVAC: Project = {
         'Systematic drilling to test the extent of the 14km² soil anomaly',
       ],
       images: [
-        // TODO: Extract from investor presentation PDF page 19 — Sockovac tenement map
-        { src: '/images/projects/sockovac/tenement-map.png', alt: 'Sockovac project tenement map', todoPage: 19 },
-        // TODO: Extract from investor presentation PDF page 20 — cross-section with planned drilling
-        { src: '/images/projects/sockovac/cross-section-drilling.png', alt: 'Sockovac cross-section with planned twin-drilling locations', todoPage: 20 },
+        { src: '/new_images/sockovac1.png', alt: 'Sockovac project tenement map' },
+        { src: '/new_images/sockovac2.png', alt: 'Sockovac cross-section with planned twin-drilling locations' },
       ],
     },
   ],
@@ -233,7 +241,7 @@ export const CAJNICE: Project = {
   totalArea: '50km²',
   ownership: '100%',
   location: 'Republic of Srpska, Bosnia and Herzegovina',
-  heroImage: '/yugo_images/lush-mountain-forest-in-bosnia-aerial-shot-2025-09-09-00-26-14-utc.jpg',
+  heroImage: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
   cardImage: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
   headlineResult: 'Rock samples up to 10.5% Cu and 155 g/t Ag',
   seoTitle: 'Cajnice Copper-Gold Project | Yugo Metals (ASX: YUG)',
@@ -260,8 +268,7 @@ export const CAJNICE: Project = {
         'Initial drilling to test mineralisation at depth',
       ],
       images: [
-        // TODO: Extract from investor presentation PDF page 22 — Gramusovici copper photos
-        { src: '/images/projects/cajnice/gramusovici-copper.png', alt: 'Gramusovici prospect copper mineralisation', todoPage: 22 },
+        { src: '/new_images/cajnice1.png', alt: 'Gramusovici prospect copper mineralisation' },
       ],
     },
     {
@@ -275,8 +282,7 @@ export const CAJNICE: Project = {
         'Geological mapping to define the extent of mineralised structures',
       ],
       images: [
-        // TODO: Extract from investor presentation PDF page 23 — Majdan cliff photos
-        { src: '/images/projects/cajnice/majdan-cliff.png', alt: 'Majdan prospect cliff exposure with copper mineralisation', todoPage: 23 },
+        { src: '/new_images/cajnice2.png', alt: 'Majdan prospect cliff exposure with copper mineralisation' },
       ],
     },
     {
@@ -309,7 +315,7 @@ export const CAJNICE: Project = {
       ],
       images: [
         // TODO: Extract from investor presentation PDF page 24 — soil sampling map
-        { src: '/images/projects/cajnice/soil-sampling.png', alt: 'Cajnice soil sampling results', todoPage: 24 },
+        { src: '/new_images/cajnice3.png', alt: 'Cajnice soil sampling results' },
       ],
     },
   ],

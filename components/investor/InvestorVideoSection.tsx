@@ -1,7 +1,20 @@
 'use client'
 
 import AnimatedSection from '@/components/ui/AnimatedSection'
-import { HiOutlinePlay } from 'react-icons/hi'
+import VideoPlayer from '@/components/ui/VideoPlayer'
+
+const VIDEOS = [
+  {
+    title: 'Sinjakovo Project',
+    subtitle: 'Gold & Antimony — Republic of Srpska',
+    src: '/new_images/sinjakovo.mp4',
+  },
+  {
+    title: 'Sockovac Project',
+    subtitle: 'Nickel & Cobalt — Republic of Srpska',
+    src: '/new_images/sojokovac.mp4',
+  },
+]
 
 export default function InvestorVideoSection() {
   return (
@@ -14,15 +27,17 @@ export default function InvestorVideoSection() {
           </h2>
         </div>
 
-        {/* Coming soon */}
-        <div className="flex flex-col items-center justify-center flex-1 px-6 py-14 text-center">
-          <HiOutlinePlay className="w-10 h-10 text-gray-200 mb-4" />
-          <span className="inline-block px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary-600 bg-primary-50 border border-primary-200 mb-3">
-            Coming Soon
-          </span>
-          <p className="text-sm text-gray-400 max-w-xs">
-            Video presentations and company updates will be available here shortly.
-          </p>
+        {/* Video list */}
+        <div className="flex flex-col divide-y divide-gray-100">
+          {VIDEOS.map((video) => (
+            <VideoPlayer
+              key={video.src}
+              src={video.src}
+              label={video.title}
+              sublabel={video.subtitle}
+              buttonSize="sm"
+            />
+          ))}
         </div>
       </div>
     </AnimatedSection>

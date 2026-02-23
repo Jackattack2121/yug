@@ -7,6 +7,7 @@ import CommodityBadge from '@/components/projects/CommodityBadge'
 import ProspectSection from '@/components/projects/ProspectSection'
 import ProjectTimeline from '@/components/projects/ProjectTimeline'
 import ProjectCard from '@/components/projects/ProjectCard'
+import ProjectVideoSection from '@/components/projects/ProjectVideoSection'
 import { createPageMetadata } from '@/lib/metadata'
 import WebPageJsonLd from '@/components/seo/WebPageJsonLd'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
@@ -149,6 +150,33 @@ export default function ProjectPage({ params }: { params: { slug: string; locale
           </div>
         </div>
       </section>
+
+      {/* Site Photography */}
+      {project.galleryImages && project.galleryImages.length > 0 && (
+        <section className="bg-secondary-900">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {project.galleryImages.map((src, i) => (
+              <div key={i} className="relative aspect-square overflow-hidden">
+                <img
+                  src={src}
+                  alt={`${project.name} site photography ${i + 1}`}
+                  className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
+                  style={{ objectPosition: 'center 35%' }}
+                />
+                <div className="absolute inset-0 bg-black/20 hover:bg-black/0 transition-colors duration-300" />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Project Video */}
+      {project.videoSrc && (
+        <ProjectVideoSection
+          videoSrc={project.videoSrc}
+          projectName={project.name}
+        />
+      )}
 
       {/* Project Timeline */}
       <ProjectTimeline
