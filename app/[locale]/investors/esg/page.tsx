@@ -30,7 +30,7 @@ export default function ESGPage() {
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover"
-          style={{ backgroundImage: 'url(/new_images/sinjakovo7.png)', backgroundPosition: 'center 35%' }}
+          style={{ backgroundImage: 'url(/new_images/sinjakovo7.jpg)', backgroundPosition: 'center 35%' }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/60 to-secondary-900/20" />
 
@@ -119,7 +119,7 @@ export default function ESGPage() {
       {/* Site Image Break */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <img
-          src="/new_images/sinjakovo9.png"
+          src="/new_images/sinjakovo9.jpg"
           alt="Sinjakovo project site"
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 35%' }}
@@ -131,7 +131,7 @@ export default function ESGPage() {
       <section className="py-16 bg-secondary-900 overflow-hidden relative">
         <div
           className="absolute inset-0 opacity-10 bg-cover"
-          style={{ backgroundImage: 'url(/new_images/sinjakovo8.png)', backgroundPosition: 'center 35%' }}
+          style={{ backgroundImage: 'url(/new_images/sinjakovo8.jpg)', backgroundPosition: 'center 35%' }}
         />
         <div className="container relative z-10">
           <AnimatedSection>

@@ -75,7 +75,7 @@ export default function Contact() {
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover"
-          style={{ backgroundImage: 'url(/new_images/sinjakovo5.png)', backgroundPosition: 'center 35%' }}
+          style={{ backgroundImage: 'url(/new_images/sinjakovo5.jpg)', backgroundPosition: 'center 35%' }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/65 to-secondary-900/25" />
 
@@ -118,7 +118,7 @@ export default function Contact() {
       <section className="section-padding bg-secondary-900 relative">
         <div
           className="absolute inset-0 opacity-[0.06] bg-cover"
-          style={{ backgroundImage: 'url(/new_images/sinjakovo3.png)', backgroundPosition: 'center 35%' }}
+          style={{ backgroundImage: 'url(/new_images/sinjakovo3.jpg)', backgroundPosition: 'center 35%' }}
         />
         <div className="container relative z-10">
           {/* Section header */}
@@ -408,7 +408,7 @@ export default function Contact() {
       <section className="py-16 md:py-20 bg-secondary-900 relative border-t border-white/5">
         <div
           className="absolute inset-0 opacity-[0.06] bg-cover"
-          style={{ backgroundImage: 'url(/new_images/sinjakovo2.png)', backgroundPosition: 'center 35%' }}
+          style={{ backgroundImage: 'url(/new_images/sinjakovo2.jpg)', backgroundPosition: 'center 35%' }}
         />
         <div className="container relative z-10">
           <AnimatedSection>

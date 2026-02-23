@@ -29,21 +29,21 @@ export default function ProjectPicker({ isSolid = true, onOpenChange }: ProjectP
       slug: 'sinjakovo',
       location: t('sinjakovo.location'),
       type: t('sinjakovo.type'),
-      image: '/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg',
+      image: '/new_images/sinjakovo.jpg',
     },
     {
       title: t('sockovac.name'),
       slug: 'sockovac',
       location: t('sockovac.location'),
       type: t('sockovac.type'),
-      image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
+      image: '/new_images/sockovac3.jpg',
     },
     {
       title: t('cajnice.name'),
       slug: 'cajnice',
       location: t('cajnice.location'),
       type: t('cajnice.type'),
-      image: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
+      image: '/yugo_images/lush-mountain-forest-in-bosnia-aerial-shot-2025-09-09-00-26-14-utc.jpg',
     },
   ], [t])
   const [isOpen, setIsOpen] = useState(false)
