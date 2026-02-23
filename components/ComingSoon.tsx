@@ -7,8 +7,8 @@ import Image from 'next/image'
 export const COMING_SOON_ENABLED = true
 
 // Fixed launch target time — set this to exactly when you want the countdown to end
-// Current: February 24, 2026 at 06:00 AM UTC (12 hours from ~6PM Feb 23)
-const LAUNCH_TARGET = new Date('2026-02-24T06:00:00Z').getTime()
+// February 23, 2026 at 20:05 UTC = Feb 24, 6:35 AM ACDT (10 hours from 8:35 PM ACDT)
+const LAUNCH_TARGET = new Date('2026-02-23T20:05:00Z').getTime()
 
 function formatTimeUnit(value: number): string {
   return value.toString().padStart(2, '0')
