@@ -3,6 +3,7 @@
 import { usePathname } from '@/i18n/navigation';
 import HeaderWrapper from './HeaderWrapper';
 import Footer from './Footer';
+import ComingSoon, { COMING_SOON_ENABLED } from '@/components/ComingSoon';
 
 export default function ConditionalLayout({
   children,
@@ -10,13 +11,18 @@ export default function ConditionalLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  
+
   // Check if we're in the admin area
   const isAdminRoute = pathname?.startsWith('/admin');
 
   // For admin routes, render children without Header/Footer
   if (isAdminRoute) {
     return <>{children}</>;
+  }
+
+  // Show coming soon page instead of the real website
+  if (COMING_SOON_ENABLED) {
+    return <ComingSoon />;
   }
 
   // For public routes, render with Header/Footer
