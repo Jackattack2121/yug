@@ -29,14 +29,14 @@ function AnnouncementItem({ announcement }: AnnouncementItemProps) {
       className="group flex items-start gap-4 py-4 border-b border-gray-100 last:border-0 hover:bg-gray-50/50 transition-colors px-2 -mx-2"
     >
       {/* Date column */}
-      <div className="flex-shrink-0 w-16 text-center pt-0.5">
+      <time dateTime={announcement.date} className="flex-shrink-0 w-16 text-center pt-0.5">
         <p className="text-2xl font-bold text-secondary-900 leading-none">
           {date.getDate()}
         </p>
         <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mt-0.5">
           {date.toLocaleDateString('en-AU', { month: 'short' })}
         </p>
-      </div>
+      </time>
 
       {/* Content */}
       <div className="flex-1 min-w-0">
@@ -48,7 +48,7 @@ function AnnouncementItem({ announcement }: AnnouncementItemProps) {
         <h3 className="text-sm font-semibold text-secondary-900 group-hover:text-primary-600 transition-colors line-clamp-2 leading-snug">
           {announcement.title}
         </h3>
-        <p className="text-xs text-gray-400 mt-1">{formattedDate}</p>
+        <time dateTime={announcement.date} className="text-xs text-gray-400 mt-1 block">{formattedDate}</time>
       </div>
 
       {/* Arrow */}

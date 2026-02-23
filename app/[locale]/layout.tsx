@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
 import SessionProvider from '@/components/providers/SessionProvider';
 import ConditionalLayout from '@/components/layout/ConditionalLayout';
+import OrganizationJsonLd from '@/components/seo/OrganizationJsonLd';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -30,7 +31,6 @@ export async function generateMetadata({
         'bs': '/bs',
         'zh': '/zh',
         'ja': '/ja',
-        'fr': '/fr',
         'it': '/it',
         'x-default': '/en',
       },
@@ -78,6 +78,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <SessionProvider>
+        <OrganizationJsonLd />
         <ConditionalLayout>{children}</ConditionalLayout>
       </SessionProvider>
     </NextIntlClientProvider>

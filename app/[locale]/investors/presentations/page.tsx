@@ -5,6 +5,8 @@ import NewsCard from '@/components/ui/NewsCard'
 import EmptyState from '@/components/ui/EmptyState'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { createPageMetadata } from '@/lib/metadata'
+import WebPageJsonLd from '@/components/seo/WebPageJsonLd'
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export async function generateMetadata({
   params: { locale },
@@ -39,12 +41,14 @@ async function getPresentations() {
   }
 }
 
-export default async function Presentations() {
+export default async function Presentations({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations('investors.presentations')
   const presentations = await getPresentations()
   
   return (
     <>
+      <WebPageJsonLd title="Presentations" description="Download Yugo Metals corporate and investor presentations." path="/investors/presentations" locale={locale} />
+      <BreadcrumbJsonLd path="/investors/presentations" locale={locale} />
       <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
         {/* Background Image with fade */}
         <div 

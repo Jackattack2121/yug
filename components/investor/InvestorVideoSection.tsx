@@ -42,13 +42,13 @@ function VideoCard({ video, featured, onClick }: VideoCardProps) {
         <h3 className={`${featured ? 'text-sm' : 'text-xs'} font-semibold text-white leading-snug line-clamp-2`}>
           {video.title}
         </h3>
-        <p className="text-[10px] text-white/60 mt-1">
+        <time dateTime={video.publishedAt} className="text-[10px] text-white/60 mt-1 block">
           {new Date(video.publishedAt).toLocaleDateString('en-AU', {
             day: 'numeric',
             month: 'short',
             year: 'numeric',
           })}
-        </p>
+        </time>
       </div>
     </button>
   )

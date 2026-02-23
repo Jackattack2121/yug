@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
-Sitemap: https://www.yugometals.com/sitemap.xml
+Sitemap: https://yugometals.com/sitemap.xml

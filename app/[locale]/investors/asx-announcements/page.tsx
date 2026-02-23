@@ -5,6 +5,9 @@ import NewsCard from '@/components/ui/NewsCard'
 import EmptyState from '@/components/ui/EmptyState'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { createPageMetadata } from '@/lib/metadata'
+import WebPageJsonLd from '@/components/seo/WebPageJsonLd'
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
+import NewsArticleJsonLd from '@/components/seo/NewsArticleJsonLd'
 
 export async function generateMetadata({
   params: { locale },
@@ -41,12 +44,15 @@ async function getAnnouncements() {
   }
 }
 
-export default async function ASXAnnouncements() {
+export default async function ASXAnnouncements({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations('investors.announcements')
   const announcements = await getAnnouncements()
   
   return (
     <>
+      <WebPageJsonLd title="ASX Announcements" description="View the latest ASX announcements and market disclosures from Yugo Metals (ASX: YUG)." path="/investors/asx-announcements" locale={locale} />
+      <BreadcrumbJsonLd path="/investors/asx-announcements" locale={locale} />
+      <NewsArticleJsonLd announcements={announcements} />
       {/* Hero Section - Minimal */}
       <section className="relative bg-secondary-900 py-32 md:py-40 overflow-hidden">
         {/* Background Image with fade */}

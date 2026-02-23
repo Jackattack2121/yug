@@ -91,13 +91,13 @@ export default function FinancialReportsPage() {
                       {doc.title}
                     </h3>
                     <div className="flex items-center gap-3 mt-2">
-                      <span className="text-xs text-gray-400">
+                      <time dateTime={doc.date} className="text-xs text-gray-400">
                         {new Date(doc.date).toLocaleDateString('en-AU', {
                           day: 'numeric',
                           month: 'short',
                           year: 'numeric',
                         })}
-                      </span>
+                      </time>
                       {doc.fileSize && <span className="text-xs text-gray-400">{doc.fileSize}</span>}
                       {doc.fileType && (
                         <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 bg-gray-100 px-1.5 py-0.5">

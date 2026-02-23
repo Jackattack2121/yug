@@ -66,7 +66,7 @@ export default function CalendarPage() {
                             className="flex items-start gap-5 bg-white border border-gray-200 p-5 hover:border-primary-600 hover:shadow-sm transition-all"
                           >
                             {/* Date block */}
-                            <div className="flex-shrink-0 w-16 text-center bg-gray-50 py-3 px-2">
+                            <time dateTime={event.date} className="flex-shrink-0 w-16 text-center bg-gray-50 py-3 px-2">
                               <p className="text-xs font-bold uppercase tracking-wider text-primary-600">
                                 {date.toLocaleDateString('en-AU', { month: 'short' })}
                               </p>
@@ -76,7 +76,7 @@ export default function CalendarPage() {
                               <p className="text-[10px] text-gray-400">
                                 {date.getFullYear()}
                               </p>
-                            </div>
+                            </time>
 
                             {/* Content */}
                             <div className="flex-1">

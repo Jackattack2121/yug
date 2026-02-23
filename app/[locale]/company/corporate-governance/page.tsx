@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import CompanyPageLayout from '@/components/company/CompanyPageLayout'
 import { createPageMetadata } from '@/lib/metadata'
+import WebPageJsonLd from '@/components/seo/WebPageJsonLd'
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const revalidate = 3600 // Revalidate every hour
 
@@ -18,7 +20,13 @@ export async function generateMetadata({
   })
 }
 
-export default function CorporateGovernance() {
-  return <CompanyPageLayout slug="corporate-governance" />
+export default function CorporateGovernance({ params: { locale } }: { params: { locale: string } }) {
+  return (
+    <>
+      <WebPageJsonLd title="Corporate Governance" description="Yugo Metals corporate governance framework, policies, and board charters." path="/company/corporate-governance" locale={locale} />
+      <BreadcrumbJsonLd path="/company/corporate-governance" locale={locale} />
+      <CompanyPageLayout slug="corporate-governance" />
+    </>
+  )
 }
 

@@ -40,14 +40,14 @@ export default function InvestorCalendar() {
             return (
               <div key={event.id} className="flex items-start gap-4 px-6 py-4 hover:bg-gray-50/50 transition-colors">
                 {/* Date block */}
-                <div className="flex-shrink-0 w-14 text-center">
+                <time dateTime={event.date} className="flex-shrink-0 w-14 text-center">
                   <p className="text-xs font-bold uppercase tracking-wider text-primary-600">
                     {date.toLocaleDateString('en-AU', { month: 'short' })}
                   </p>
                   <p className="text-2xl font-bold text-secondary-900 leading-tight">
                     {date.getDate()}
                   </p>
-                </div>
+                </time>
 
                 {/* Content */}
                 <div className="flex-1 min-w-0">

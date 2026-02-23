@@ -6,6 +6,9 @@ import StatsBar from '@/components/ui/StatsBar';
 import Button from '@/components/ui/Button';
 import { Link } from '@/i18n/navigation';
 import InvestorDisclaimer from '@/components/investor/InvestorDisclaimer';
+import { createPageMetadata } from '@/lib/metadata'
+import WebPageJsonLd from '@/components/seo/WebPageJsonLd'
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export async function generateStaticParams() {
   return [
@@ -21,10 +24,12 @@ export async function generateMetadata({ params }: { params: { slug: string; loc
   const t = await getTranslations({ locale: params.locale, namespace: `projects.${params.slug}` });
   
   try {
-    return {
-      title: `${t('title')} | Yugo Metals`,
+    return createPageMetadata({
+      title: t('title'),
       description: t('description'),
-    };
+      path: `/projects/${params.slug}`,
+      locale: params.locale,
+    })
   } catch {
     return {
       title: 'Project Not Found',
@@ -105,6 +110,8 @@ export default async function ProjectPage({ params }: { params: { slug: string; 
 
   return (
     <>
+      <WebPageJsonLd title={project.title} description={project.description} path={`/projects/${params.slug}`} locale={params.locale} />
+      <BreadcrumbJsonLd path={`/projects/${params.slug}`} locale={params.locale} />
       {/* Hero Section - Full Width Image with Minimal Text */}
       <section className="relative h-[80vh] flex items-end bg-black">
         <div

@@ -7,8 +7,8 @@ import type { InvestorVideo, InvestorDocument, CalendarEvent, ThesisPoint, KeyMe
 
 export const KEY_METRICS: KeyMetric[] = [
   { label: 'ASX Code', value: 'YUG', sublabel: 'Australian Securities Exchange' },
-  { label: 'Projects', value: '5', sublabel: '100% Owned' },
-  { label: 'Focus', value: 'Critical Metals', sublabel: 'Au, Sb, Ni, Cu' },
+  { label: 'Tenements', value: '5', sublabel: '190km² — 100% Owned' },
+  { label: 'Focus', value: 'Critical Metals', sublabel: 'Au, Ag, Sb, Ni, Cu, Co' },
   { label: 'Location', value: 'Bosnia & Herzegovina', sublabel: 'EU Accession State' },
 ]
 
@@ -21,14 +21,14 @@ export const COMPANY_HIGHLIGHTS: ThesisPoint[] = [
   },
   {
     id: 2,
-    title: '100% Project Ownership',
-    description: 'Full ownership and operational control of five exploration projects, providing strategic flexibility across the portfolio.',
+    title: '100% Tenement Ownership',
+    description: 'Full ownership and operational control of five exploration tenements across three projects covering 190km², providing strategic flexibility across the portfolio.',
     icon: '02',
   },
   {
     id: 3,
     title: 'Critical Metals Portfolio',
-    description: 'Projects contain gold, antimony, nickel, and copper mineralisation — metals with applications across multiple industries including energy infrastructure.',
+    description: 'Tenements contain gold, silver, antimony, nickel, copper, zinc, lead, and cobalt mineralisation — metals on the critical minerals lists of multiple countries including Australia, the US, and the EU.',
     icon: '03',
   },
   {
