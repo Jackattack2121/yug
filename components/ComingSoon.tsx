@@ -102,10 +102,10 @@ export default function ComingSoon() {
         {/* Coming Soon text */}
         <div className="text-center mb-14 md:mb-20 animate-fade-up">
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-none mb-6">
-            Website
+            New Website
           </h1>
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-primary-500 leading-none">
-            Coming Soon
+            Coming Soon...
           </h1>
         </div>
 
