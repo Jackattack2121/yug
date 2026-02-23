@@ -87,13 +87,15 @@ export default function InvestorAnnouncements() {
           <h2 className="text-lg font-bold text-secondary-900 uppercase tracking-wider font-montserrat">
             {t('title')}
           </h2>
-          <Link
-            href="/investors/asx-announcements"
+          <a
+            href="https://www.asx.com.au/markets/trade-our-cash-market/announcements.yug"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-primary-600 hover:text-primary-700 transition-colors"
           >
             View All
             <HiOutlineArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          </a>
         </div>
 
         {/* Content */}

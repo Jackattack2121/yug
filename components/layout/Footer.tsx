@@ -140,9 +140,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/investors/asx-announcements" className="text-sm text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.asx.com.au/markets/trade-our-cash-market/announcements.yug" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
                   {tInvestors('announcements')}
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/investors/presentations" className="text-sm text-gray-400 hover:text-white transition-colors">
@@ -228,7 +228,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/10 pt-8">
           <div className="flex items-center gap-6">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/yugo-metals/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"

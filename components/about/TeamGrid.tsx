@@ -24,35 +24,35 @@ export default function TeamGrid() {
       name: t('director1Name'),
       position: t('director1Position'),
       bio: t.raw('director1Bio') as string,
-      image: '/images/director-1.jpg',
+      image: '/new_images/david_w.jpg',
       shortBio: 'Over 30 years of Senior Executive Management, Directorships, and Corporate Advisory. Fellow of the Australian Institute of Company Directors.',
     },
     {
       name: t('director2Name'),
       position: t('director2Position'),
       bio: t.raw('director2Bio') as string,
-      image: '/images/director-2.jpg',
+      image: '/new_images/petar.png',
       shortBio: 'Multilingual leader specializing in future metals, mineral acquisition, and asset implementation. Prior Director at Fenix Resources Ltd (ASX: FEX).',
     },
     {
       name: t('director3Name'),
       position: t('director3Position'),
       bio: t.raw('director3Bio') as string,
-      image: '/images/director-3.jpg',
+      image: '/new_images/mihajlo.jpg',
       shortBio: '10+ years at multinational law firm in London. Focus on Banking & Finance, Projects & Energy across Western Balkans.',
     },
     {
       name: t('director4Name'),
       position: t('director4Position'),
       bio: t.raw('director4Bio') as string,
-      image: '/images/director-4.jpg',
+      image: '/new_images/craig.png',
       shortBio: '15+ years in resource industry and accounting. Qualified auditor at PricewaterhouseCoopers, senior roles at De Beers Group and Anglo American plc.',
     },
     {
       name: t('director5Name'),
       position: t('director5Position'),
       bio: t.raw('director5Bio') as string,
-      image: '/images/director-5.jpg',
+      image: '/new_images/mladen.jpg',
       shortBio: '20+ years across precious and base metals. Competent Person for ASX reporting. Led exploration teams with significant discoveries.',
     },
   ]
@@ -138,7 +138,7 @@ export default function TeamGrid() {
           onClick={() => setExpandedDirector(null)}
         >
           <div
-            className="relative bg-white max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+            className="relative bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -150,7 +150,7 @@ export default function TeamGrid() {
 
             <div className="flex flex-col sm:flex-row">
               {/* Photo */}
-              <div className="relative w-full sm:w-48 h-48 sm:h-auto flex-shrink-0 bg-gray-100">
+              <div className="relative w-full sm:w-72 h-64 sm:h-auto flex-shrink-0 bg-gray-100">
                 <Image
                   src={expandedDirector.image}
                   alt={expandedDirector.name}

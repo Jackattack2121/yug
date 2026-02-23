@@ -30,7 +30,7 @@ const fallbackUpdates: LatestUpdate[] = [
     category: 'Company Update',
     excerpt: 'Overview of exploration activities across all three Bosnia and Herzegovina projects.',
     image: '/yugo_images/aerial-view-motor-grader-civil-at-construction-sit-2025-07-08-16-02-40-utc.jpg',
-    href: '/investors/asx-announcements',
+    href: 'https://www.asx.com.au/markets/trade-our-cash-market/announcements.yug',
   },
   {
     title: 'Exploration Program Update',
@@ -38,7 +38,7 @@ const fallbackUpdates: LatestUpdate[] = [
     category: 'Exploration',
     excerpt: 'Systematic exploration program commences across Sinjakovo and Sockovac projects.',
     image: '/yugo_images/the-truck-transports-the-minerals-from-the-top-vie-2025-10-16-12-14-08-utc.jpg',
-    href: '/investors/asx-announcements',
+    href: 'https://www.asx.com.au/markets/trade-our-cash-market/announcements.yug',
   },
   {
     title: 'European Critical Metals Strategy',
@@ -150,7 +150,7 @@ export default function Home() {
           category: item.category,
           excerpt: item.excerpt || item.summary,
           image: item.image,
-          href: item.url ? undefined : '/investors/asx-announcements',
+          href: item.url ? undefined : 'https://www.asx.com.au/markets/trade-our-cash-market/announcements.yug',
           downloadUrl: item.url || item.downloadUrl,
         }))
         
@@ -459,12 +459,12 @@ export default function Home() {
 
           <AnimatedSection delay={0.4}>
             <div className="text-center">
-              <Link href="/investors/asx-announcements" className="inline-flex items-center gap-2 text-primary-600 font-semibold uppercase tracking-wider hover:gap-4 transition-all">
+              <a href="https://www.asx.com.au/markets/trade-our-cash-market/announcements.yug" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary-600 font-semibold uppercase tracking-wider hover:gap-4 transition-all">
                 <span>{t('latestSection.viewAllAnnouncements')}</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </Link>
+              </a>
             </div>
           </AnimatedSection>
         </div>

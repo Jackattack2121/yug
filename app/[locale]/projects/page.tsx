@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { useLocale } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import AnimatedSection from '@/components/ui/AnimatedSection'
@@ -12,6 +13,7 @@ import { ALL_PROJECTS, EXPLORATION_TIMELINE } from '@/lib/project-data'
 
 export default function ProjectsPage() {
   const locale = useLocale()
+  const [mapOpen, setMapOpen] = useState(false)
 
   return (
     <>
@@ -36,22 +38,63 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Location Map Placeholder */}
+      {/* Location Map */}
       <section className="section-padding bg-white">
         <div className="container">
           <AnimatedSection>
-            <div className="max-w-4xl mx-auto">
-              {/* TODO: Replace with actual location overview map from investor presentation p10 */}
-              <div className="relative bg-gray-100 aspect-[16/9] flex items-center justify-center">
-                <div className="text-center p-4">
-                  <div className="text-gray-400 text-lg mb-1">Project Location Overview Map</div>
-                  <div className="text-gray-300 text-sm">Investor presentation page 10</div>
+            <div className="max-w-6xl mx-auto">
+              <div
+                className="relative w-full cursor-zoom-in group"
+                onClick={() => setMapOpen(true)}
+                title="Click to enlarge"
+              >
+                <img
+                  src="/new_images/map.png"
+                  alt="Project Location Overview Map"
+                  className="w-full h-auto transition-opacity duration-200 group-hover:opacity-90"
+                />
+                <div className="absolute inset-0 flex items-end justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <span className="bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded flex items-center gap-1.5">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0zm0 0l4 4" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 8v6M8 11h6" />
+                    </svg>
+                    Enlarge
+                  </span>
                 </div>
               </div>
             </div>
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Map Modal */}
+      {mapOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setMapOpen(false)}
+        >
+          <div
+            className="relative max-w-[95vw] max-h-[95vh]"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setMapOpen(false)}
+              className="absolute -top-3 -right-3 z-10 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors"
+              aria-label="Close"
+            >
+              <svg className="w-4 h-4 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <img
+              src="/new_images/map.png"
+              alt="Project Location Overview Map"
+              className="max-w-full max-h-[90vh] w-auto h-auto object-contain shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Asset Portfolio Table */}
       <section className="section-padding bg-gray-50">
@@ -108,15 +151,17 @@ export default function ProjectsPage() {
                 Stay updated with our latest exploration results and company developments
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/investors/asx-announcements"
+                <a
+                  href="https://www.asx.com.au/markets/trade-our-cash-market/announcements.yug"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-secondary-800 text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-secondary-900 hover:shadow-lg text-sm"
                 >
                   <span>View ASX Announcements</span>
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </Link>
+                </a>
                 <Link
                   href="/contact"
                   className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600 text-sm"

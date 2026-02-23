@@ -8,9 +8,7 @@ const routes = [
   '',
   '/why-yugo-metals',
   '/investors',
-  '/investors/asx-announcements',
   '/investors/calendar',
-  '/investors/contact',
   '/investors/esg',
   '/investors/fact-sheet',
   '/investors/financial-reports',
@@ -39,7 +37,6 @@ const getPriority = (path: string): number => {
 
 // Change frequency mapping
 const getChangeFrequency = (path: string): 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' => {
-  if (path === '/investors/asx-announcements') return 'daily';
   if (path.startsWith('/investors')) return 'weekly';
   if (path === '') return 'weekly';
   return 'monthly';

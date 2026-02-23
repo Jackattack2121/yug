@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SubscriptionForm from '@/components/investor/SubscriptionForm'
 import { HiOutlineGlobe, HiOutlineUserGroup, HiOutlineShieldCheck, HiOutlineLightningBolt } from 'react-icons/hi'
@@ -246,18 +247,18 @@ export default function ESGPage() {
                 {t('commitmentQuote')}
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <a
+                <Link
                   href="/company/corporate-governance"
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-white/20 text-white font-semibold uppercase tracking-wider hover:bg-white/5 hover:border-white/40 transition-all"
                 >
                   {t('governanceButton')}
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/company/corporate-responsibility"
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-white/20 text-white font-semibold uppercase tracking-wider hover:bg-white/5 hover:border-white/40 transition-all"
                 >
                   {t('responsibilityButton')}
-                </a>
+                </Link>
               </div>
             </div>
           </AnimatedSection>
