@@ -161,6 +161,7 @@ export default function CoryWidget() {
             if (line.startsWith('data: ')) {
               const data = line.slice(6)
               if (data === '[DONE]') break
+              if (data === '[ERROR]') throw new Error('Stream error')
               accumulated += data
               // Update the assistant message content in real-time
               setMessages((prev) =>

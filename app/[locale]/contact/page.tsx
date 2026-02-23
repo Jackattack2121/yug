@@ -84,11 +84,11 @@ export default function Contact() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-400 mb-4">
               Contact Us
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-montserrat leading-tight max-w-3xl mb-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white font-montserrat leading-tight max-w-3xl mb-4">
               {t('titleLine1')}<br />
               {t('titleLine2')}
             </h1>
-            <p className="text-lg text-white/70 max-w-2xl leading-relaxed">
+            <p className="text-base md:text-lg text-white/70 max-w-2xl leading-relaxed">
               {t('subtitle')}
             </p>
           </AnimatedSection>
@@ -97,9 +97,9 @@ export default function Contact() {
           <AnimatedSection delay={0.15}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
               {HERO_METRICS.map((m) => (
-                <div key={m.label} className="bg-white/5 border border-white/10 px-5 py-4">
-                  <p className="text-lg md:text-2xl font-bold text-white font-montserrat truncate">{m.value}</p>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-white/50 mt-1">{m.label}</p>
+                <div key={m.label} className="bg-white/5 border border-white/10 px-4 py-3 md:px-5 md:py-4">
+                  <p className="text-sm md:text-lg lg:text-2xl font-bold text-white font-montserrat leading-tight break-words">{m.value}</p>
+                  <p className="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-white/50 mt-1">{m.label}</p>
                 </div>
               ))}
             </div>
