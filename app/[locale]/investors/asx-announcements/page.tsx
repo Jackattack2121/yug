@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import NewsCard from '@/components/ui/NewsCard'
 import EmptyState from '@/components/ui/EmptyState'
+import SubscriptionForm from '@/components/investor/SubscriptionForm'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { createPageMetadata } from '@/lib/metadata'
 import WebPageJsonLd from '@/components/seo/WebPageJsonLd'
@@ -133,16 +134,7 @@ export default async function ASXAnnouncements({ params: { locale } }: { params:
               <p className="text-lg text-gray-600 mb-8 font-josefin">
                 {t('subscribeDescription')}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <input
-                  type="email"
-                  placeholder={t('searchPlaceholder')}
-                  className="flex-1 max-w-md px-4 py-3 border-2 border-gray-300 focus:border-primary-600 focus:outline-none transition-colors"
-                />
-                <button className="btn-primary whitespace-nowrap">
-                  <span>{t('subscribeTitle')}</span>
-                </button>
-              </div>
+              <SubscriptionForm variant="inline" className="justify-center" />
             </div>
           </AnimatedSection>
         </div>

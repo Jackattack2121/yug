@@ -2,7 +2,6 @@
 
 import { Link } from '@/i18n/navigation'
 import AnimatedSection from '@/components/ui/AnimatedSection'
-import CommodityBadge from './CommodityBadge'
 import type { Project } from '@/lib/project-data'
 
 interface ProjectCardProps {
@@ -27,19 +26,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
           {/* Content */}
           <div className="p-6">
-            {/* Commodity badges */}
-            <div className="flex flex-wrap gap-1.5 mb-4">
-              {project.commodities.slice(0, 5).map((c) => (
-                <CommodityBadge key={c} commodity={c} />
-              ))}
-              {project.commodities.length > 5 && (
-                <span className="inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white/50 bg-white/10">
-                  +{project.commodities.length - 5}
-                </span>
-              )}
-            </div>
-
-            {/* Name */}
+              {/* Name */}
             <h3 className="text-xl font-bold uppercase tracking-tight group-hover:text-primary-400 transition-colors mb-2">
               {project.name}
             </h3>

@@ -35,9 +35,12 @@ export default function SubscriptionForm({ variant = 'inline', className = '' }:
       const data = await response.json()
 
       if (!response.ok) {
-        // Handle 503 (service unavailable) specifically
-        if (response.status === 503) {
-          throw new Error(t('launchingSoon'))
+        if (response.status === 409) {
+          setStatus('success')
+          setMessage(t('alreadySubscribed') || 'You\'re already subscribed — we\'ll keep you posted!')
+          setEmail('')
+          setName('')
+          return
         }
         throw new Error(data.error || t('errorMessage'))
       }

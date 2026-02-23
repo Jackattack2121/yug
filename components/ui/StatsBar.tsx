@@ -31,12 +31,16 @@ function parseNumericValue(value: string): { num: number; suffix: string } | nul
 
 function CountUpValue({ value, triggered }: { value: string; triggered: boolean }) {
   const parsed = parseNumericValue(value)
-  const [displayValue, setDisplayValue] = useState(parsed ? '0' + parsed.suffix : value)
+  const numRef = useRef(parsed?.num ?? 0)
+  const suffixRef = useRef(parsed?.suffix ?? '')
+  const isNumeric = parsed !== null
+  const [displayValue, setDisplayValue] = useState(isNumeric ? '0' + suffixRef.current : value)
 
   useEffect(() => {
-    if (!triggered || !parsed) return
+    if (!triggered || !isNumeric) return
 
-    const { num, suffix } = parsed
+    const num = numRef.current
+    const suffix = suffixRef.current
     const duration = 1800 // ms
     const startTime = performance.now()
 
@@ -61,7 +65,7 @@ function CountUpValue({ value, triggered }: { value: string; triggered: boolean 
     rafId = requestAnimationFrame(animate)
 
     return () => cancelAnimationFrame(rafId)
-  }, [triggered, parsed])
+  }, [triggered, isNumeric])
 
   return <>{displayValue}</>
 }

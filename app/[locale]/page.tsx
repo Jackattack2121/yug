@@ -281,7 +281,7 @@ export default function Home() {
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 font-josefin">
                 {t('intro.description')}
               </p>
-              <Button href={`/${locale}/why-yugo-metals`} variant="outline">
+              <Button href="/why-yugo-metals" variant="outline">
                 {t('intro.cta')}
               </Button>
             </AnimatedSection>
@@ -357,7 +357,7 @@ export default function Home() {
 
           <AnimatedSection delay={0.5}>
             <div className="text-center mt-16">
-              <Button href={`/${locale}/projects`} variant="outline">
+              <Button href="/projects" variant="outline">
                 {t('projectsSection.viewAllProjects')}
               </Button>
             </div>
@@ -388,7 +388,7 @@ export default function Home() {
                 <p className="text-gray-400 leading-relaxed mb-6">
                   {t('assetsSection.criticalMetalsDescription')}
                 </p>
-                <Link href={`/${locale}/projects`} className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
+                <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
                   <span>{t('assetsSection.learnMore')}</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -406,7 +406,7 @@ export default function Home() {
                 <p className="text-gray-400 leading-relaxed mb-6">
                   {t('assetsSection.strategicLocationDescription')}
                 </p>
-                <Link href={`/${locale}/why-yugo-metals`} className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
+                <Link href="/why-yugo-metals" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
                   <span>{t('assetsSection.learnMore')}</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -424,7 +424,7 @@ export default function Home() {
                 <p className="text-gray-400 leading-relaxed mb-6">
                   {t('assetsSection.modernExplorationDescription')}
                 </p>
-                <Link href={`/${locale}/investors`} className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
+                <Link href="/investors" className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary-400 hover:gap-4 transition-all">
                   <span>{t('assetsSection.learnMore')}</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -459,7 +459,7 @@ export default function Home() {
 
           <AnimatedSection delay={0.4}>
             <div className="text-center">
-              <Link href={`/${locale}/investors/asx-announcements`} className="inline-flex items-center gap-2 text-primary-600 font-semibold uppercase tracking-wider hover:gap-4 transition-all">
+              <Link href="/investors/asx-announcements" className="inline-flex items-center gap-2 text-primary-600 font-semibold uppercase tracking-wider hover:gap-4 transition-all">
                 <span>{t('latestSection.viewAllAnnouncements')}</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -483,15 +483,12 @@ export default function Home() {
                 {t('ctaSection.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href={`/${locale}/contact`} variant="secondary">
+                <Button href="/contact" variant="secondary">
                   {t('ctaSection.contactButton')}
                 </Button>
-                <button className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-semibold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-primary-600">
-                  <span>{t('ctaSection.prospectusButton')}</span>
-                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+                <Button href="/investors/fact-sheet" variant="outline">
+                  {t('ctaSection.prospectusButton')}
+                </Button>
               </div>
             </div>
           </AnimatedSection>

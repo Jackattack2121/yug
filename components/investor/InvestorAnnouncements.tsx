@@ -120,7 +120,7 @@ export default function InvestorAnnouncements() {
             <div className="py-12 text-center">
               <p className="text-sm text-gray-500">{t('noAnnouncements')}</p>
               <a
-                href="https://www.asx.com.au/markets/company/YUG"
+                href="https://www.asx.com.au/markets/trade-our-cash-market/announcements.yug"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-sm text-primary-600 hover:text-primary-700 font-semibold mt-2"

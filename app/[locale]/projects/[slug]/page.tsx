@@ -50,11 +50,6 @@ export default function ProjectPage({ params }: { params: { slug: string; locale
         <div className="relative container pb-16 text-white">
           <AnimatedSection>
             <div className="max-w-3xl">
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                {project.commodities.map((c) => (
-                  <CommodityBadge key={c} commodity={c} size="md" />
-                ))}
-              </div>
               <h1 className="text-display mb-3">
                 {project.name}
               </h1>

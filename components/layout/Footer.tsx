@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
@@ -13,6 +14,45 @@ export default function Footer() {
   const tInvestors = useTranslations('footer.investors')
   const tLocation = useTranslations('footer.location')
   const currentYear = new Date().getFullYear()
+
+  const [newsletterEmail, setNewsletterEmail] = useState('')
+  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [newsletterMessage, setNewsletterMessage] = useState('')
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!newsletterEmail) return
+    setNewsletterStatus('loading')
+    setNewsletterMessage('')
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: newsletterEmail,
+          preferences: { announcements: true, reports: true, news: true },
+        }),
+      })
+      const data = await res.json()
+
+      if (!res.ok) {
+        if (res.status === 409) {
+          setNewsletterStatus('success')
+          setNewsletterMessage('You\'re already subscribed — we\'ll keep you posted!')
+          return
+        }
+        throw new Error(data.error || 'Something went wrong. Please try again.')
+      }
+
+      setNewsletterStatus('success')
+      setNewsletterMessage(data.message || 'Thank you for subscribing!')
+      setNewsletterEmail('')
+    } catch (err) {
+      setNewsletterStatus('error')
+      setNewsletterMessage(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+    }
+  }
 
   return (
     <footer className="bg-secondary-900 text-white">
@@ -147,18 +187,40 @@ export default function Footer() {
             <p className="text-gray-400 mb-6">
               {t('newsletter.subtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <label htmlFor="footer-newsletter-email" className="sr-only">Email address</label>
-              <input
-                id="footer-newsletter-email"
-                type="email"
-                placeholder={t('newsletter.placeholder')}
-                className="flex-1 px-4 py-3 bg-white/10 text-white placeholder:text-gray-500 border border-white/20 focus:border-primary-500 focus:outline-none transition-colors"
-              />
-              <button className="btn-primary whitespace-nowrap">
-                {t('newsletter.button')}
-              </button>
-            </div>
+
+            {newsletterStatus === 'success' ? (
+              <div className="flex items-center gap-3 bg-green-500/10 border border-green-400/30 px-5 py-4 rounded">
+                <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <p className="text-green-300 text-sm font-medium">{newsletterMessage}</p>
+              </div>
+            ) : (
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4">
+                <label htmlFor="footer-newsletter-email" className="sr-only">Email address</label>
+                <input
+                  id="footer-newsletter-email"
+                  type="email"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder={t('newsletter.placeholder')}
+                  required
+                  disabled={newsletterStatus === 'loading'}
+                  className="flex-1 px-4 py-3 bg-white/10 text-white placeholder:text-gray-500 border border-white/20 focus:border-primary-500 focus:outline-none transition-colors disabled:opacity-50"
+                />
+                <button
+                  type="submit"
+                  disabled={newsletterStatus === 'loading'}
+                  className="btn-primary whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {newsletterStatus === 'loading' ? 'Subscribing...' : t('newsletter.button')}
+                </button>
+              </form>
+            )}
+
+            {newsletterStatus === 'error' && (
+              <p className="mt-3 text-red-400 text-sm">{newsletterMessage}</p>
+            )}
           </div>
         </div>
 
