@@ -169,7 +169,7 @@ export default function ComingSoon() {
       {/* Bottom bar */}
       <div className="absolute bottom-0 left-0 right-0 z-10 py-6 text-center">
         <p className="text-secondary-500 text-xs sm:text-sm font-montserrat tracking-wider uppercase">
-          Yugo Metals Ltd &bull; ASX: YMD
+          Yugo Metals &bull; ASX: YUG
         </p>
       </div>
     </div>
