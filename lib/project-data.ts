@@ -120,12 +120,9 @@ export const SINJAKOVO: Project = {
         'Resource drill-out following successful initial drilling',
       ],
       images: [
-        // TODO: Extract from investor presentation PDF page 12 — gold soil sampling map
-        { src: '/images/projects/sinjakovo/gold-soil-anomaly.png', alt: 'Sinjakovo 4km² gold-in-soil anomaly map', todoPage: 12 },
-        // TODO: Extract from investor presentation PDF page 12 — channel sampling results
-        { src: '/images/projects/sinjakovo/channel-results.png', alt: 'Sinjakovo channel sampling results', todoPage: 12 },
-        // TODO: Extract from investor presentation PDF page 13-14 — cross-sections
-        { src: '/images/projects/sinjakovo/cross-section.png', alt: 'Sinjakovo geological cross-section', todoPage: 13 },
+        { src: '/new_images/sinjakovo_pg12_anomaly_map.png', alt: 'Sinjakovo 4km² gold-in-soil anomaly map' },
+        { src: '/new_images/sinjakovo_pg12_channel_sampling.png', alt: 'Sinjakovo channel sampling results' },
+        { src: '/new_images/sinjakovo_pg13_ geological.png', alt: 'Sinjakovo geological cross-section' },
       ],
     },
     {

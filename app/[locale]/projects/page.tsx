@@ -9,6 +9,7 @@ import ProjectCard from '@/components/projects/ProjectCard'
 import AssetPortfolioTable from '@/components/projects/AssetPortfolioTable'
 import ProjectTimeline from '@/components/projects/ProjectTimeline'
 import JurisdictionSection from '@/components/projects/JurisdictionSection'
+import ImageLightbox from '@/components/ui/ImageLightbox'
 import { ALL_PROJECTS, EXPLORATION_TIMELINE } from '@/lib/project-data'
 
 export default function ProjectsPage() {
@@ -68,32 +69,13 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Map Modal */}
+      {/* Map Lightbox */}
       {mapOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setMapOpen(false)}
-        >
-          <div
-            className="relative max-w-[95vw] max-h-[95vh]"
-            onClick={e => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setMapOpen(false)}
-              className="absolute -top-3 -right-3 z-10 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors"
-              aria-label="Close"
-            >
-              <svg className="w-4 h-4 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <img
-              src="/new_images/map.png"
-              alt="Project Location Overview Map"
-              className="max-w-full max-h-[90vh] w-auto h-auto object-contain shadow-2xl"
-            />
-          </div>
-        </div>
+        <ImageLightbox
+          src="/new_images/map.png"
+          alt="Project Location Overview Map"
+          onClose={() => setMapOpen(false)}
+        />
       )}
 
       {/* Asset Portfolio Table */}
