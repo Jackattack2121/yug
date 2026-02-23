@@ -4,6 +4,24 @@ import { useEffect, useRef, useState, useCallback, type KeyboardEvent } from 're
 import type { CoryMessage } from './types'
 import CoryStarters from './CoryStarters'
 
+/** Lightweight markdown-to-HTML for bot messages: **bold**, bullet lists, line breaks */
+function renderMarkdown(text: string): string {
+  return text
+    // Bold: **text**
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    // Italic: *text* (but not inside bold)
+    .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
+    // Bullet lines starting with - or *
+    .replace(/^[\-\*]\s+(.+)$/gm, '<li>$1</li>')
+    // Wrap consecutive <li> in <ul>
+    .replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul class="list-disc pl-4 my-1 space-y-0.5">$1</ul>')
+    // Line breaks (double newline = paragraph break, single = <br>)
+    .replace(/\n{2,}/g, '</p><p class="mt-2">')
+    .replace(/\n/g, '<br/>')
+    // Wrap in paragraph
+    .replace(/^(.*)$/, '<p>$1</p>')
+}
+
 interface CoryChatProps {
   isOpen: boolean
   onClose: () => void
@@ -186,15 +204,16 @@ export default function CoryChat({
                 C
               </div>
             )}
-            <div
-              className={`max-w-[75%] px-4 py-2.5 text-sm font-montserrat leading-relaxed whitespace-pre-wrap break-words ${
-                msg.role === 'user'
-                  ? 'bg-primary-600 text-white rounded-2xl rounded-br-md'
-                  : 'bg-gray-100 text-gray-900 rounded-2xl rounded-bl-md'
-              }`}
-            >
-              {msg.content}
-            </div>
+            {msg.role === 'user' ? (
+              <div className="max-w-[75%] px-4 py-2.5 text-sm font-montserrat leading-relaxed whitespace-pre-wrap break-words bg-primary-600 text-white rounded-2xl rounded-br-md">
+                {msg.content}
+              </div>
+            ) : (
+              <div
+                className="max-w-[75%] px-4 py-2.5 text-sm font-montserrat leading-relaxed break-words bg-gray-100 text-gray-900 rounded-2xl rounded-bl-md [&_strong]:font-bold [&_ul]:list-disc [&_ul]:pl-4 [&_ul]:my-1 [&_li]:ml-0"
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(msg.content) }}
+              />
+            )}
           </div>
         ))}
 

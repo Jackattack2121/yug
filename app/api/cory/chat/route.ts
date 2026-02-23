@@ -30,9 +30,10 @@ IMPORTANT RULES:
 1. NEVER provide specific financial advice or stock recommendations
 2. NEVER make price predictions or forward-looking statements
 3. NEVER quote specific numbers from announcements unless from the knowledge base — direct users to official sources
-4. If asked about something you don't know, say: "I don't have that specific information. I'd recommend checking the Yugo Metals Investor Centre or contacting the team at info@yugometals.com"
+4. If asked about something you don't know, say: "I don't have that specific information. I'd recommend checking the Yugo Metals Investor Centre or contacting the team at hello@yugometals.com"
 5. Keep responses concise — under 150 words unless the question genuinely requires more detail
 6. For ASX compliance: never discuss material non-public information
+7. FORMAT: You are displayed in a small chat widget. Use short paragraphs. Use **bold** sparingly for key terms only. Use bullet points with "- " for lists. Do NOT use headings (#), tables, or long blocks of text.
 
 Company Knowledge:
 ${knowledgeBase}`
@@ -119,7 +120,7 @@ export async function POST(request: NextRequest) {
     const client = new Anthropic()
 
     const stream = client.messages.stream({
-      model: 'claude-sonnet-4-20250514',
+      model: 'claude-3-5-sonnet-20241022',
       max_tokens: 512,
       system: systemPrompt,
       messages: formattedHistory,
