@@ -1,0 +1,5 @@
+{"sessionId":"1cae2b","location":"route.ts:stream-start","message":"Stream start() entered","data":{},"timestamp":1771886309580,"hypothesisId":"F"}
+{"sessionId":"1cae2b","location":"route.ts:POST-entry","message":"POST handler entered","data":{"hasKey":true,"keyPrefix":"sk-ant-api03-v6XT97S"},"timestamp":1771886309576,"hypothesisId":"E"}
+{"sessionId":"1cae2b","location":"route.ts:buildSystemPrompt","message":"System prompt built OK","data":{"promptLen":8274},"timestamp":1771886309578,"hypothesisId":"D"}
+{"sessionId":"1cae2b","location":"CoryWidget:response-received","message":"Fetch response received","data":{"ok":true,"status":200,"contentType":"text/event-stream"},"timestamp":1771886310494,"hypothesisId":"G"}
+{"sessionId":"1cae2b","location":"route.ts:stream-done","message":"Stream completed","data":{"eventCount":31,"textChunks":26},"timestamp":1771886311057,"hypothesisId":"F"}

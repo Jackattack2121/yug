@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import InvestorHeroZone from '@/components/investor/InvestorHeroZone'
 import InvestorAnnouncements from '@/components/investor/InvestorAnnouncements'
 import InvestorVideoSection from '@/components/investor/InvestorVideoSection'
@@ -9,8 +10,24 @@ import InvestorBoardPreview from '@/components/investor/InvestorBoardPreview'
 import InvestorCalendar from '@/components/investor/InvestorCalendar'
 import InvestorRegistryAlerts from '@/components/investor/InvestorRegistryAlerts'
 import InvestorDisclaimer from '@/components/investor/InvestorDisclaimer'
+import InvestorAlertsModal from '@/components/investor/InvestorAlertsModal'
+
+const STORAGE_KEY = 'yugo_alerts_dismissed'
+const AUTO_SHOW_DELAY = 1500
 
 export default function InvestorCentre() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  // Auto-show modal after delay if not dismissed
+  useEffect(() => {
+    const dismissed = localStorage.getItem(STORAGE_KEY)
+    if (!dismissed) {
+      const timer = setTimeout(() => {
+        setIsModalOpen(true)
+      }, AUTO_SHOW_DELAY)
+      return () => clearTimeout(timer)
+    }
+  }, [])
   return (
     <>
       {/* 1. Hero Zone — Stock widget + Key Metrics + CTAs */}
@@ -47,10 +64,16 @@ export default function InvestorCentre() {
       </section>
 
       {/* 7. Share Registry + Email Alerts */}
-      <InvestorRegistryAlerts />
+      <InvestorRegistryAlerts onOpenModal={() => setIsModalOpen(true)} />
 
       {/* 8. Compliance Disclaimer */}
       <InvestorDisclaimer />
+
+      {/* Modal - Email Alerts Subscription */}
+      <InvestorAlertsModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </>
   )
 }

@@ -2,10 +2,13 @@
 
 import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/ui/AnimatedSection'
-import SubscriptionForm from './SubscriptionForm'
-import { HiOutlineExternalLink } from 'react-icons/hi'
+import { HiOutlineExternalLink, HiOutlineMail, HiArrowRight } from 'react-icons/hi'
 
-export default function InvestorRegistryAlerts() {
+interface InvestorRegistryAlertsProps {
+  onOpenModal: () => void
+}
+
+export default function InvestorRegistryAlerts({ onOpenModal }: InvestorRegistryAlertsProps) {
   const t = useTranslations('investors.shareInfo')
 
   return (
@@ -100,22 +103,50 @@ export default function InvestorRegistryAlerts() {
             </div>
           </AnimatedSection>
 
-          {/* Email Alerts */}
+          {/* Email Alerts CTA */}
           <AnimatedSection delay={0.1}>
-            <div className="bg-primary-600 p-8 h-full flex flex-col">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/60 mb-2">
-                Stay Informed
-              </p>
-              <h2 className="text-2xl font-bold text-white font-montserrat mb-3">
-                Email Alerts
-              </h2>
-              <p className="text-sm text-white/80 mb-6 leading-relaxed">
+            <div className="bg-primary-600 p-8 h-full flex flex-col justify-center text-white">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-white/10 p-3 rounded-lg">
+                  <HiOutlineMail className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/60">
+                    Stay Informed
+                  </p>
+                  <h2 className="text-2xl font-bold font-montserrat">
+                    Email Alerts
+                  </h2>
+                </div>
+              </div>
+
+              <p className="text-base text-white/90 mb-6 leading-relaxed">
                 Subscribe to receive ASX announcements, quarterly reports, and company news directly to your inbox.
               </p>
 
-              <div className="bg-white rounded-lg p-6 flex-1">
-                <SubscriptionForm variant="card" />
+              <div className="space-y-3 mb-8 text-sm text-white/80">
+                <div className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-white/60 rounded-full mt-1.5 flex-shrink-0" />
+                  <span>ASX Announcements</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-white/60 rounded-full mt-1.5 flex-shrink-0" />
+                  <span>Quarterly & Annual Reports</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-white/60 rounded-full mt-1.5 flex-shrink-0" />
+                  <span>Company News & Updates</span>
+                </div>
               </div>
+
+              <button
+                onClick={onOpenModal}
+                className="group w-full bg-white text-primary-600 font-bold py-4 px-6 rounded-lg hover:bg-primary-50 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
+              >
+                <HiOutlineMail className="w-5 h-5" />
+                <span>Subscribe to Updates</span>
+                <HiArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </button>
             </div>
           </AnimatedSection>
         </div>

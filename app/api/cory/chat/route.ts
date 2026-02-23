@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
     const client = new Anthropic()
 
     const stream = client.messages.stream({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-3-haiku-20240307',
       max_tokens: 512,
       system: systemPrompt,
       messages: formattedHistory,

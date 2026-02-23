@@ -131,7 +131,8 @@ export default function CoryChat({
 
   if (!isVisible) return null
 
-  const hasMessages = messages.length > 0
+  const hasUserMessages = messages.some((m) => m.role === 'user')
+  const showStarters = messages.length > 0 && !hasUserMessages && !isStreaming
 
   return (
     <div
@@ -188,10 +189,6 @@ export default function CoryChat({
 
       {/* Messages area */}
       <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
-        {!hasMessages && (
-          <CoryStarters starters={starters} onSelect={onSendMessage} />
-        )}
-
         {messages.map((msg) => (
           <div
             key={msg.id}
@@ -219,6 +216,10 @@ export default function CoryChat({
 
         {isStreaming && messages[messages.length - 1]?.role !== 'assistant' && (
           <TypingIndicator />
+        )}
+
+        {showStarters && (
+          <CoryStarters starters={starters} onSelect={onSendMessage} />
         )}
 
         <div ref={messagesEndRef} />
