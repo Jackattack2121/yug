@@ -12,6 +12,7 @@ import StatsBar from '@/components/ui/StatsBar'
 import NewsCard from '@/components/ui/NewsCard'
 import { Link } from '@/i18n/navigation'
 import VideoPlayer from '@/components/ui/VideoPlayer'
+import { ALL_PROJECTS } from '@/lib/project-data'
 
 interface LatestUpdate {
   title: string
@@ -104,7 +105,7 @@ export default function Home() {
       slug: 'sinjakovo',
       location: tProjects('sinjakovo.location'),
       type: tProjects('sinjakovo.type'),
-      image: '/yugo_images/green-dense-forests-surround-old-mining-factory-wi-2025-08-28-11-53-12-utc.jpg',
+      image: ALL_PROJECTS.find(p => p.slug === 'sinjakovo')?.heroImage ?? '/new_images/sinjakovo.jpg',
       number: tProjects('sinjakovo.number'),
     },
     {
@@ -112,7 +113,7 @@ export default function Home() {
       slug: 'sockovac',
       location: tProjects('sockovac.location'),
       type: tProjects('sockovac.type'),
-      image: '/yugo_images/aerial-view-over-the-sand-pit-2025-10-13-02-21-23-utc.jpg',
+      image: ALL_PROJECTS.find(p => p.slug === 'sockovac')?.heroImage ?? '/new_images/sockovac3.jpg',
       number: tProjects('sockovac.number'),
     },
     {
@@ -120,7 +121,7 @@ export default function Home() {
       slug: 'cajnice',
       location: tProjects('cajnice.location'),
       type: tProjects('cajnice.type'),
-      image: '/yugo_images/natural-quarry-is-located-near-road-against-backdr-2025-01-29-05-43-49-utc.jpg',
+      image: ALL_PROJECTS.find(p => p.slug === 'cajnice')?.heroImage ?? '/yugo_images/lush-mountain-forest-in-bosnia-aerial-shot-2025-09-09-00-26-14-utc.jpg',
       number: tProjects('cajnice.number'),
     },
   ]

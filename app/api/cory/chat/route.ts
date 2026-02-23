@@ -129,17 +129,40 @@ export async function POST(request: NextRequest) {
     const encoder = new TextEncoder()
     const readable = new ReadableStream({
       async start(controller) {
-        stream.on('text', (text) => {
-          controller.enqueue(encoder.encode(`data: ${text}\n\n`))
-        })
-        stream.on('end', () => {
-          controller.enqueue(encoder.encode('data: [DONE]\n\n'))
-          controller.close()
-        })
-        stream.on('error', () => {
-          controller.enqueue(encoder.encode('data: [ERROR]\n\n'))
-          controller.close()
-        })
+        function safeEnqueue(data: string) {
+          try {
+            controller.enqueue(encoder.encode(data))
+          } catch {
+            // controller already closed (client disconnected)
+          }
+        }
+
+        function safeClose() {
+          try {
+            controller.close()
+          } catch {
+            // already closed
+          }
+        }
+
+        try {
+          for await (const event of stream) {
+            if (
+              event.type === 'content_block_delta' &&
+              event.delta.type === 'text_delta'
+            ) {
+              safeEnqueue(`data: ${event.delta.text}\n\n`)
+            }
+          }
+          safeEnqueue('data: [DONE]\n\n')
+        } catch {
+          safeEnqueue('data: [ERROR]\n\n')
+        } finally {
+          safeClose()
+        }
+      },
+      cancel() {
+        stream.abort()
       },
     })
 
