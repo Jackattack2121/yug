@@ -96,4 +96,4 @@ export const BREADCRUMB_LABELS: Record<string, string> = {
   cajnice: 'Cajnice',
 }
 
-export const LOCALES = ['en', 'de', 'bs', 'zh', 'ja', 'it'] as const
+export const LOCALES = ['en', 'de', 'zh'] as const
