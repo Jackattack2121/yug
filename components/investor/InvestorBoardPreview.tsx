@@ -13,7 +13,6 @@ export default function InvestorBoardPreview() {
     { name: t('director2Name'), position: t('director2Position') },
     { name: t('director3Name'), position: t('director3Position') },
     { name: t('director4Name'), position: t('director4Position') },
-    { name: t('director5Name'), position: t('director5Position') },
   ]
 
   return (

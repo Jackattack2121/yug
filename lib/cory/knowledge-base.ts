@@ -66,11 +66,9 @@ Comprises the Cajnice tenement (50km², granted).
 
 2. **Petar Tomasevic** — Chief Executive Officer. Multilingual leader specializing in future metals, mineral acquisition, and asset implementation. Prior: Director at Fenix Resources Ltd (ASX: FEX), instrumental in transformation into premium iron ore producer. Currently also Non-Executive Director for GTI Energy Ltd (ASX: GTR) and Regenerate Resources Ltd (ASX: R8R). Contact: Petar@yugometals.com, +61 414 830 540
 
-3. **Mihajlo Matkovic** — Non-Executive Director. 10+ years at multinational law firm in London. Focus: Banking & Finance, Projects & Energy, Dispute Resolution. Key transactions: Serbian Government Belgrade Airport Concession; Bank of China Serbian subsidiary; General Electric first large-scale wind farm in Western Balkans; Zijin Mining acquisition in Serbia.
+3. **Craig McNab** — Non-Executive Director & Company Secretary. Chartered Accountant and Fellow member of the Governance Institute of Australia (Chartered Secretary). 15+ years experience in the resources industry and accounting profession (Australia, New Zealand, UK). Currently holds CFO and Company Secretary positions with various ASX listed companies and brings strong experience across corporate.
 
-4. **Craig McNab** — Company Secretary. 15+ years experience in resource industry and accounting (Australia, NZ, UK). Qualified as auditor at PricewaterhouseCoopers. Senior finance positions at De Beers Group, corporate roles at Anglo American plc (London). Specialises in corporate compliance, governance, and financial accounting.
-
-5. **Mladen Stevanovic** — Geological Consultant. 20+ years across precious metals (Au, Ag, Pt), base metals (Ni, Cu, Cr, Pb, Zn, Sb), uranium. Led exploration teams with significant discoveries in Europe, Australia, Africa. Competent Person for ASX reporting, accredited statutory supervisor in WA and Bosnia-Herzegovina. Experience in JORC-compliant exploration, resource estimates, metallurgical testwork, feasibility studies.
+4. **Mladen Stevanovic** — Geological Consultant. 20+ years across precious metals (Au, Ag, Pt), base metals (Ni, Cu, Cr, Pb, Zn, Sb), uranium. Led exploration teams with significant discoveries in Europe, Australia, Africa. Competent Person for ASX reporting, accredited statutory supervisor in WA and Bosnia-Herzegovina. Experience in JORC-compliant exploration, resource estimates, metallurgical testwork, feasibility studies.
 
 ## Jurisdiction — Bosnia and Herzegovina
 - Profit tax: 10% (lowest in Europe)

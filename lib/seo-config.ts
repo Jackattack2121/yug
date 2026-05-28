@@ -52,16 +52,10 @@ export const BOARD_MEMBERS: BoardMember[] = [
       'Mr Tomasevic is a multilingual leader with a diverse background. Specializing in future metals, mineral acquisition, and asset implementation, Petar brings a deep understanding of the mining and financing sector to his role with Yugo Metals. Prior to his current role, Petar served as Director at Fenix Resources Ltd (ASX: FEX), playing a pivotal role in the company\'s transformation into a premium iron ore producer. He was instrumental in restructuring and financing Fenix\'s acclaimed Iron Ridge project, showcasing his ability to navigate complex financial challenges. Petar currently serves as a Non-Executive Director for both GTI Energy Ltd (ASX: GTR) and Regenerate Resources Ltd (ASX: R8R).',
   },
   {
-    name: 'Mihajlo Matkovic',
-    role: 'Non-Executive Director',
-    description:
-      'Mr Matkovic has 10+ years of experience with a multinational law firm headquartered in London, UK. Heavily involved in some of the most complex and significant large-scale Western Balkans transactions with the primary focus on Banking & Finance, Projects & Energy, Real Estate, Dispute Resolution and White Collar & Government Investigations. Member of the legal team advising the Serbian Government on the Belgrade Airport Concession; Bank of China on the set up and incorporation of the Serbian subsidiary and various compliance matters; General Electric on the financing of the first large-scale renewable/wind farm project in Western Balkans and various aviation matters; Zijin Mining, one of the biggest gold/copper miners, on the acquisition of a mining business in Serbia.',
-  },
-  {
     name: 'Craig McNab',
-    role: 'Company Secretary',
+    role: 'Non-Executive Director & Company Secretary',
     description:
-      'Mr McNab is a highly credentialed CFO and company secretary with over 15 years\' experience in the resource industry and accounting profession in Australia, NZ and the UK. Mr McNab initially qualified as an auditor at PricewaterhouseCoopers and his experience includes senior finance positions held at the De Beers Group and various corporate roles at Anglo American plc in London. He provides services to a number of resource based ASX-listed companies, specializing in corporate compliance, governance and financial accounting.',
+      'Mr McNab is a Chartered Accountant and Fellow member of the Governance Institute of Australia (Chartered Secretary) with over 15 years\' experience in the resources industry and accounting profession in Australia, New Zealand and the UK. Mr McNab currently holds CFO and Company Secretary positions with various ASX listed companies and brings strong experience across corporate.',
   },
   {
     name: 'Mladen Stevanovic',
