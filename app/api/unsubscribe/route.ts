@@ -173,7 +173,7 @@ function buildSuccessPage(email: string): string {
         <a href="https://yugometals.com/investors" class="button">Visit Investor Centre</a>
         <div class="footer">
           Yugo Metals Limited<br />
-          Level 8, 216 St Georges Tce, Perth WA 6000, Australia
+          9 Aldous Place, Booragoon WA 6154, Australia
         </div>
       </div>
     </body>
@@ -271,7 +271,7 @@ function buildErrorPage(message: string): string {
         <a href="https://yugometals.com" class="button">Return to Homepage</a>
         <div class="footer">
           Yugo Metals Limited<br />
-          Level 8, 216 St Georges Tce, Perth WA 6000, Australia
+          9 Aldous Place, Booragoon WA 6154, Australia
         </div>
       </div>
     </body>

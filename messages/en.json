@@ -257,7 +257,7 @@
       "emailTitle": "Email",
       "phoneTitle": "Phone",
       "officeTitle": "Registered Office",
-      "officeAddress": "Level 8, 216 St Georges Tce\nPerth WA 6000\nAustralia",
+      "officeAddress": "9 Aldous Place\nBooragoon WA 6154\nAustralia",
       "messageTitle": "Send Us a Message",
       "successTitle": "Message Sent Successfully!",
       "successDescription": "Thank you for contacting us. We'll get back to you within 24-48 business hours.",
@@ -442,7 +442,10 @@
       "director3Bio": "<p>Mr McNab is a Chartered Accountant and Fellow member of the Governance Institute of Australia (Chartered Secretary) with over 15 years' experience in the resources industry and accounting profession in Australia, New Zealand and the UK. Mr McNab currently holds CFO and Company Secretary positions with various ASX listed companies and brings strong experience across corporate.</p>",
       "director4Name": "Mladen Stevanovic",
       "director4Position": "Geological Consultant",
-      "director4Bio": "<p>Mr Stevanovic is a geologist with over 20 years experience across a number of commodities including precious metals (gold, silver, platinum), base metals (nickel, copper, chromite, lead, zinc and antimony) and uranium.</p><p>Mr Stevanovic has held senior roles at major and junior international mining companies. He has led exploration teams that made significant discoveries in Europe, Australia and Africa. He has experience in managing JORC compliant exploration campaigns, resource estimates, metallurgical testwork and feasibility studies. Mr Stevanovic is Competent Person for reporting geological results on ASX, and accredited statutory supervisor in Western Australia and Bosnia-Herzegovina.</p>"
+      "director4Bio": "<p>Mr Stevanovic is a geologist with over 20 years experience across a number of commodities including precious metals (gold, silver, platinum), base metals (nickel, copper, chromite, lead, zinc and antimony) and uranium.</p><p>Mr Stevanovic has held senior roles at major and junior international mining companies. He has led exploration teams that made significant discoveries in Europe, Australia and Africa. He has experience in managing JORC compliant exploration campaigns, resource estimates, metallurgical testwork and feasibility studies. Mr Stevanovic is Competent Person for reporting geological results on ASX, and accredited statutory supervisor in Western Australia and Bosnia-Herzegovina.</p>",
+      "director5Name": "Cameron Peacock",
+      "director5Position": "Non-Executive Director",
+      "director5Bio": "<p>Mr Peacock is an experienced corporate finance and capital markets executive with more than 25 years' experience working across various banking, private equity and corporate finance roles. Most recently Mr Peacock was Head of Investor Relations and Business Development at Nickel Industries Limited (ASX: NIC) where he served as a member of the executive team that has grown that company into the world's largest listed pure-play nickel producer. Mr Peacock has also previously held similar positions at Santana Minerals Limited (ASX: SMI) and Alpha HPA Limited (ASX: A4N). Mr Peacock has been deeply involved in numerous large-scale equity and debt transactions and has an established network across the world's leading global resources and generalist investment funds. He holds a Bachelor of Commerce Degree from the University of Western Australia, a Graduate Diploma in Applied Finance and Investment from FINSIA and a Masters in Applied Finance from the University of Melbourne. Mr Peacock is currently a Non-Executive Director of ASX-listed FMR Resources Limited.</p>"
     },
     "governance": {
       "title": "Corporate Governance",
@@ -479,8 +482,8 @@
       "officeHeading": "Corporate Office",
       "officeContent": "<p>Yugo Metals is headquartered in Perth, Australia, with exploration operations in Bosnia and Herzegovina.</p>",
       "contactHeading": "Contact Information",
-      "contactAddress": "Level 8, 216 St Georges Tce, Perth WA 6000",
-      "contactPhone": "+61 8 9481 0389",
+      "contactAddress": "9 Aldous Place, Booragoon WA 6154",
+      "contactPhone": "+61 8 6275 2006",
       "contactEmail": "hello@yugometals.com",
       "contactWebsite": "www.yugometals.com",
       "asxHeading": "ASX Listing",
@@ -604,7 +607,7 @@
       "prospectus": "Prospectus"
     },
     "location": {
-      "city": "Perth, WA 6000",
+      "city": "Booragoon, WA 6154",
       "country": "Australia"
     },
     "copyright": "© {year} Yugo Metals. All Rights Reserved."

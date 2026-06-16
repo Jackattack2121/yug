@@ -7,9 +7,9 @@ import Button from '@/components/ui/Button'
 
 const HERO_METRICS = [
   { value: 'ASX: YUG', label: 'Listed Company' },
-  { value: 'Level 8', label: 'Perth WA 6000' },
+  { value: '9 Aldous Place', label: 'Booragoon WA 6154' },
   { value: 'hello@yugometals.com', label: 'General Enquiries' },
-  { value: '+61 8 9481 0389', label: 'Phone' },
+  { value: '+61 8 6275 2006', label: 'Phone' },
 ]
 
 export default function Contact() {
@@ -300,8 +300,8 @@ export default function Contact() {
                       </h3>
                     </div>
                     <div className="space-y-1 text-white/70 text-sm leading-relaxed pl-12">
-                      <p>Level 8, 216 St Georges Tce</p>
-                      <p>Perth, WA 6000</p>
+                      <p>9 Aldous Place</p>
+                      <p>Booragoon, WA 6154</p>
                       <p>Australia</p>
                     </div>
                   </div>
@@ -321,7 +321,7 @@ export default function Contact() {
                     <div className="space-y-2 text-sm pl-12">
                       <p>
                         <span className="text-white/50">{t('phone')}:</span>{' '}
-                        <a href="tel:+61894810389" className="text-white/70 hover:text-primary-400 transition-colors">+61 8 9481 0389</a>
+                        <a href="tel:+61862752006" className="text-white/70 hover:text-primary-400 transition-colors">+61 8 6275 2006</a>
                       </p>
                       <p>
                         <span className="text-white/50">{t('email')}:</span>{' '}

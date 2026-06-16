@@ -166,7 +166,7 @@ export default function FactSheetPage() {
             <div className="mt-10 bg-primary-600 p-8 flex flex-col md:flex-row items-center justify-between gap-4">
               <div>
                 <h3 className="text-lg font-bold text-white font-montserrat">Investor Relations</h3>
-                <p className="text-sm text-white/80">hello@yugometals.com | +61 8 9481 0389</p>
+                <p className="text-sm text-white/80">hello@yugometals.com | +61 8 6275 2006</p>
               </div>
               <div className="flex gap-3">
                 <a

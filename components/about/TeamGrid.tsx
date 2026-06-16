@@ -48,6 +48,13 @@ export default function TeamGrid() {
       image: '/new_images/mladen.jpg',
       shortBio: '20+ years across precious and base metals. Competent Person for ASX reporting. Led exploration teams with significant discoveries.',
     },
+    {
+      name: t('director5Name'),
+      position: t('director5Position'),
+      bio: t.raw('director5Bio') as string,
+      image: '/new_images/cameron_peacock.jpg',
+      shortBio: 'Corporate finance and capital markets executive with 25+ years across banking, private equity and corporate finance. Former Head of Investor Relations & Business Development at Nickel Industries (ASX: NIC); currently a Non-Executive Director of ASX-listed FMR Resources.',
+    },
   ]
 
   return (

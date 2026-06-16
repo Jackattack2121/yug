@@ -7,10 +7,10 @@ Yugo Metals is an Australian mining company listed on the ASX under the ticker Y
 - **ABN:** 65 650 011 644
 - **ASX Code:** YUG
 - **Headquarters:** Perth, Western Australia
-- **Registered Office:** Level 8, 216 St Georges Tce, Perth WA 6000, Australia
+- **Registered Office:** 9 Aldous Place, Booragoon WA 6154, Australia
 - **Website:** www.yugometals.com
 - **General Email:** hello@yugometals.com
-- **Phone:** +61 8 9481 0389
+- **Phone:** +61 8 6275 2006
 
 ## Projects (3 projects across 5 tenements, all 100% owned, all in Bosnia and Herzegovina)
 
@@ -84,8 +84,8 @@ Comprises the Cajnice tenement (50km², granted).
 ## Contact Information
 - **General Enquiries:** hello@yugometals.com
 - **CEO:** Petar Tomasevic — Petar@yugometals.com — +61 414 830 540
-- **Phone:** +61 8 9481 0389
-- **Office:** Level 8, 216 St Georges Tce, Perth WA 6000, Australia
+- **Phone:** +61 8 6275 2006
+- **Office:** 9 Aldous Place, Booragoon WA 6154, Australia
 - **Business Hours:** Monday - Friday, 9:00 AM - 5:00 PM AWST
 
 ## Share Registry

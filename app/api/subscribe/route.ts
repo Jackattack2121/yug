@@ -196,7 +196,7 @@ function buildConfirmationEmail(firstName: string, prefsLabel: string, unsubscri
               <tr>
                 <td style="background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 24px 40px; text-align: center;">
                   <p style="color: #9ca3af; font-size: 12px; margin: 0;">
-                    Yugo Metals Limited &bull; Level 8, 216 St Georges Tce, Perth WA 6000, Australia<br />
+                    Yugo Metals Limited &bull; 9 Aldous Place, Booragoon WA 6154, Australia<br />
                     You received this email because you subscribed at yugometals.com.<br />
                     <a href="${unsubscribeUrl}" style="color: #3b82f6; text-decoration: none;">Unsubscribe</a>
                   </p>

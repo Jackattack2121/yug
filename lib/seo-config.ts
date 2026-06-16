@@ -7,13 +7,13 @@ export const SEO_CONFIG = {
   description:
     'Yugo Metals is an ASX-listed critical metals exploration company with three 100%-owned projects comprising five tenements in Bosnia and Herzegovina, covering 190km² and targeting gold, antimony, nickel, copper, silver, zinc, lead, and cobalt.',
   address: {
-    streetAddress: 'Level 8, 216 St Georges Tce',
-    addressLocality: 'Perth',
+    streetAddress: '9 Aldous Place',
+    addressLocality: 'Booragoon',
     addressRegion: 'WA',
-    postalCode: '6000',
+    postalCode: '6154',
     addressCountry: 'AU',
   },
-  phone: '+61 8 9481 0389',
+  phone: '+61 8 6275 2006',
   email: 'hello@yugometals.com',
   investorEmail: 'Petar@yugometals.com',
   ceoPhone: '+61 414 830 540',
@@ -62,6 +62,12 @@ export const BOARD_MEMBERS: BoardMember[] = [
     role: 'Geological Consultant',
     description:
       'Mr Stevanovic is a geologist with over 20 years experience across a number of commodities including precious metals (gold, silver, platinum), base metals (nickel, copper, chromite, lead, zinc and antimony) and uranium. Mr Stevanovic has held senior roles at major and junior international mining companies. He has led exploration teams that made significant discoveries in Europe, Australia and Africa. He has experience in managing JORC compliant exploration campaigns, resource estimates, metallurgical testwork and feasibility studies. Mr Stevanovic is Competent Person for reporting geological results on ASX, and accredited statutory supervisor in Western Australia and Bosnia-Herzegovina.',
+  },
+  {
+    name: 'Cameron Peacock',
+    role: 'Non-Executive Director',
+    description:
+      'Mr Peacock is an experienced corporate finance and capital markets executive with more than 25 years\' experience working across various banking, private equity and corporate finance roles. Most recently Mr Peacock was Head of Investor Relations and Business Development at Nickel Industries Limited (ASX: NIC) where he served as a member of the executive team that has grown that company into the world\'s largest listed pure-play nickel producer. Mr Peacock has also previously held similar positions at Santana Minerals Limited (ASX: SMI) and Alpha HPA Limited (ASX: A4N). Mr Peacock has been deeply involved in numerous large-scale equity and debt transactions and has an established network across the world\'s leading global resources and generalist investment funds. He holds a Bachelor of Commerce Degree from the University of Western Australia, a Graduate Diploma in Applied Finance and Investment from FINSIA and a Masters in Applied Finance from the University of Melbourne. Mr Peacock is currently a Non-Executive Director of ASX-listed FMR Resources Limited.',
   },
 ]
 

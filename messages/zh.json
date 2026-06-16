@@ -276,7 +276,7 @@
       "emailTitle": "电子邮件",
       "phoneTitle": "电话",
       "officeTitle": "注册办公室",
-      "officeAddress": "Level 8, 216 St Georges Tce\nPerth WA 6000\n澳大利亚",
+      "officeAddress": "9 Aldous Place\nBooragoon WA 6154\n澳大利亚",
       "messageTitle": "给我们留言",
       "successTitle": "消息发送成功！",
       "successDescription": "感谢您联系我们。我们将在24–48个工作小时内回复您。",
@@ -442,7 +442,10 @@
       "director3Bio": "<p>McNab先生是特许会计师，也是澳大利亚治理研究院（特许秘书）的资深会员，在澳大利亚、新西兰和英国的资源行业和会计行业拥有超过15年的经验。McNab先生目前在多家ASX上市公司担任首席财务官和公司秘书职务，并具备丰富的企业经验。</p>",
       "director4Name": "Mladen Stevanovic",
       "director4Position": "地质顾问",
-      "director4Bio": "<p>Stevanovic先生是一位拥有超过20年经验的地质学家，涵盖多种商品，包括贵金属（金、银、铂）、基本金属（镍、铜、铬铁矿、铅、锌和锑）和铀。</p><p>Stevanovic先生曾在大型和初级国际矿业公司担任高级职位。他领导的勘探团队在欧洲、澳大利亚和非洲取得了重大发现。他在管理符合JORC标准的勘探活动、资源估算、冶金测试和可行性研究方面拥有丰富经验。Stevanovic先生是ASX地质结果报告的合格人士，也是西澳大利亚和波斯尼亚-黑塞哥维那的认证监管人员。</p>"
+      "director4Bio": "<p>Stevanovic先生是一位拥有超过20年经验的地质学家，涵盖多种商品，包括贵金属（金、银、铂）、基本金属（镍、铜、铬铁矿、铅、锌和锑）和铀。</p><p>Stevanovic先生曾在大型和初级国际矿业公司担任高级职位。他领导的勘探团队在欧洲、澳大利亚和非洲取得了重大发现。他在管理符合JORC标准的勘探活动、资源估算、冶金测试和可行性研究方面拥有丰富经验。Stevanovic先生是ASX地质结果报告的合格人士，也是西澳大利亚和波斯尼亚-黑塞哥维那的认证监管人员。</p>",
+      "director5Name": "Cameron Peacock",
+      "director5Position": "非执行董事",
+      "director5Bio": "<p>Peacock先生是一位经验丰富的企业融资和资本市场高管，在银行、私募股权和企业融资等多个领域拥有超过25年的从业经验。最近，Peacock先生担任Nickel Industries Limited（ASX: NIC）的投资者关系与业务发展主管，作为执行团队成员，帮助该公司发展成为全球最大的上市纯镍生产商。Peacock先生此前还在Santana Minerals Limited（ASX: SMI）和Alpha HPA Limited（ASX: A4N）担任过类似职务。Peacock先生深度参与了众多大型股权和债务交易，并在全球领先的资源类和综合类投资基金中建立了广泛的人脉网络。他拥有西澳大利亚大学的商学学士学位、FINSIA的应用金融与投资研究生文凭，以及墨尔本大学的应用金融硕士学位。Peacock先生目前担任ASX上市公司FMR Resources Limited的非执行董事。</p>"
     },
     "governance": {
       "title": "公司治理",
@@ -479,8 +482,8 @@
       "officeHeading": "公司办公室",
       "officeContent": "<p>Yugo Metals总部位于澳大利亚珀斯，在波斯尼亚和黑塞哥维那设有勘探业务。</p>",
       "contactHeading": "联系信息",
-      "contactAddress": "Level 8, 216 St Georges Tce, Perth WA 6000",
-      "contactPhone": "+61 8 9481 0389",
+      "contactAddress": "9 Aldous Place, Booragoon WA 6154",
+      "contactPhone": "+61 8 6275 2006",
       "contactEmail": "hello@yugometals.com",
       "contactWebsite": "www.yugometals.com",
       "asxHeading": "ASX上市",
@@ -604,7 +607,7 @@
       "prospectus": "招股说明书"
     },
     "location": {
-      "city": "珀斯，西澳6000",
+      "city": "Booragoon，西澳6154",
       "country": "澳大利亚"
     },
     "copyright": "© {year} Yugo Metals。保留所有权利。"

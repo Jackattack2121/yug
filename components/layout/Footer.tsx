@@ -167,8 +167,8 @@ export default function Footer() {
               <p>{tLocation('city')}</p>
               <p>{tLocation('country')}</p>
               <p className="mt-4">
-                <a href="tel:+61894810389" className="hover:text-white transition-colors">
-                  +61 8 9481 0389
+                <a href="tel:+61862752006" className="hover:text-white transition-colors">
+                  +61 8 6275 2006
                 </a>
               </p>
               <p>

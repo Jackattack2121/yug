@@ -276,7 +276,7 @@
       "emailTitle": "E-Mail",
       "phoneTitle": "Telefon",
       "officeTitle": "Eingetragener Firmensitz",
-      "officeAddress": "Level 8, 216 St Georges Tce\nPerth WA 6000\nAustralien",
+      "officeAddress": "9 Aldous Place\nBooragoon WA 6154\nAustralien",
       "messageTitle": "Senden Sie uns eine Nachricht",
       "successTitle": "Nachricht erfolgreich gesendet!",
       "successDescription": "Vielen Dank für Ihre Kontaktaufnahme. Wir melden uns innerhalb von 24–48 Geschäftsstunden bei Ihnen.",
@@ -442,7 +442,10 @@
       "director3Bio": "<p>Herr McNab ist Wirtschaftsprüfer (Chartered Accountant) und Fellow des Governance Institute of Australia (Chartered Secretary) mit über 15 Jahren Erfahrung in der Rohstoffindustrie und im Rechnungswesen in Australien, Neuseeland und Großbritannien. Herr McNab hat derzeit CFO- und Unternehmenssekretär-Positionen bei verschiedenen ASX-notierten Unternehmen inne und bringt umfangreiche Erfahrung im Unternehmensbereich mit.</p>",
       "director4Name": "Mladen Stevanovic",
       "director4Position": "Geologischer Berater",
-      "director4Bio": "<p>Herr Stevanovic ist Geologe mit über 20 Jahren Erfahrung in zahlreichen Rohstoffen, darunter Edelmetalle (Gold, Silber, Platin), Basismetalle (Nickel, Kupfer, Chromit, Blei, Zink und Antimon) und Uran.</p><p>Herr Stevanovic hatte leitende Positionen bei großen und kleineren internationalen Bergbauunternehmen inne. Er hat Explorationsteams geleitet, die bedeutende Entdeckungen in Europa, Australien und Afrika gemacht haben. Er verfügt über Erfahrung in der Leitung JORC-konformer Explorationskampagnen, Ressourcenschätzungen, metallurgischen Tests und Machbarkeitsstudien. Herr Stevanovic ist Competent Person für die Berichterstattung geologischer Ergebnisse an der ASX und akkreditierter Aufsichtsbeamter in Westaustralien und Bosnien-Herzegowina.</p>"
+      "director4Bio": "<p>Herr Stevanovic ist Geologe mit über 20 Jahren Erfahrung in zahlreichen Rohstoffen, darunter Edelmetalle (Gold, Silber, Platin), Basismetalle (Nickel, Kupfer, Chromit, Blei, Zink und Antimon) und Uran.</p><p>Herr Stevanovic hatte leitende Positionen bei großen und kleineren internationalen Bergbauunternehmen inne. Er hat Explorationsteams geleitet, die bedeutende Entdeckungen in Europa, Australien und Afrika gemacht haben. Er verfügt über Erfahrung in der Leitung JORC-konformer Explorationskampagnen, Ressourcenschätzungen, metallurgischen Tests und Machbarkeitsstudien. Herr Stevanovic ist Competent Person für die Berichterstattung geologischer Ergebnisse an der ASX und akkreditierter Aufsichtsbeamter in Westaustralien und Bosnien-Herzegowina.</p>",
+      "director5Name": "Cameron Peacock",
+      "director5Position": "Nicht-Exekutiver Direktor",
+      "director5Bio": "<p>Herr Peacock ist eine erfahrene Führungskraft im Bereich Unternehmensfinanzierung und Kapitalmärkte mit mehr als 25 Jahren Erfahrung in verschiedenen Positionen im Bankwesen, Private Equity und der Unternehmensfinanzierung. Zuletzt war Herr Peacock Head of Investor Relations and Business Development bei Nickel Industries Limited (ASX: NIC), wo er als Mitglied des Führungsteams tätig war, das dieses Unternehmen zum weltweit größten börsennotierten reinen Nickelproduzenten entwickelt hat. Herr Peacock hatte zuvor ähnliche Positionen bei Santana Minerals Limited (ASX: SMI) und Alpha HPA Limited (ASX: A4N) inne. Herr Peacock war an zahlreichen großvolumigen Eigen- und Fremdkapitaltransaktionen maßgeblich beteiligt und verfügt über ein etabliertes Netzwerk unter den weltweit führenden Rohstoff- und generalistischen Investmentfonds. Er hält einen Bachelor of Commerce der University of Western Australia, ein Graduate Diploma in Applied Finance and Investment der FINSIA sowie einen Master in Applied Finance der University of Melbourne. Herr Peacock ist derzeit Nicht-Exekutiver Direktor des an der ASX notierten Unternehmens FMR Resources Limited.</p>"
     },
     "governance": {
       "title": "Unternehmensführung",
@@ -479,8 +482,8 @@
       "officeHeading": "Unternehmensbüro",
       "officeContent": "<p>Yugo Metals hat seinen Hauptsitz in Perth, Australien, mit Explorationsbetrieben in Bosnien und Herzegowina.</p>",
       "contactHeading": "Kontaktinformationen",
-      "contactAddress": "Level 8, 216 St Georges Tce, Perth WA 6000",
-      "contactPhone": "+61 8 9481 0389",
+      "contactAddress": "9 Aldous Place, Booragoon WA 6154",
+      "contactPhone": "+61 8 6275 2006",
       "contactEmail": "hello@yugometals.com",
       "contactWebsite": "www.yugometals.com",
       "asxHeading": "ASX-Notierung",
@@ -604,7 +607,7 @@
       "prospectus": "Prospekt"
     },
     "location": {
-      "city": "Perth, WA 6000",
+      "city": "Booragoon, WA 6154",
       "country": "Australien"
     },
     "copyright": "© {year} Yugo Metals. Alle Rechte vorbehalten."
